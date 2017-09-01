@@ -1,0 +1,566 @@
+\documentclass[12pt]{paper}
+
+\oddsidemargin 0.27in
+\textwidth 5.9in
+\textheight 8.7in
+\parindent 0em
+\parskip 2ex
+
+\usepackage[latin1]{inputenc}
+\markright{}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{multirow} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{achicago}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+%\bibliographystyle{jtbnew}
+\setcitestyle{authoryear,open={(},close={)}}
+\usepackage{latexsym}
+\usepackage[pdftex]{hyperref}
+\hypersetup{pagebackref,colorlinks,linkcolor=black,citecolor=black,breaklinks=true}
+
+
+\usepackage{amsxtra}
+\usepackage{amstext}
+\usepackage{graphicx, xcolor, lipsum}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsmath,amsthm} 
+\usepackage{bm} 
+\usepackage{textcomp}
+\usepackage{setspace} 
+\usepackage{lscape} 
+\usepackage{multicol}
+\usepackage{multirow} 
+\usepackage{float}
+\usepackage[formats]{listings}
+
+\lstdefineformat{R}{~=\( \sim \)}
+\lstset{basicstyle=\ttfamily,format=R}
+\def\endlstset{\oldendv\egroup\fboxsep0pt \noindent\colorbox{fhbcolor}{\usebox0}\par}
+
+\hypersetup{pagebackref,colorlinks,linkcolor=black,citecolor=black,breaklinks=true}
+\usepackage{enumitem}  % format a list as to remove the spaces between list items
+\usepackage{upquote}   % to obtain ' instead of ’ with R code
+% New for newcommand, proglang and code
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición del color para el cuadro de código de R
+\let\oldv\verbatim
+\let\oldendv\endverbatim
+\def\verbatim{\par\setbox0\vbox\bgroup\oldv}
+%\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.96}{\usebox0}\par}
+\definecolor{fhbcolor}{HTML}{F7F9EF} % Para definir el color de la caja
+\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox{fhbcolor}{\usebox0}\par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% new commands
+%\renewcommand{\tablename}{Tabla} 
+%\renewcommand{\figurename}{Figura}
+%\renewcommand{\refname}{Referencias}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\renewcommand{\baselinestretch}{1.15}
+%\newcommand{\an}[1]{a_{\overline{#1\,\,}\!\mid}}
+%\newcommand{\dan}[1]{\ddot{a}_{\overline{#1\,\,}\!\mid}}
+%\newcommand{\act}[1]{_{\overline{#1\,\,}\!\mid}}
+%\newcommand{\aaxni}[3]{\ddot{a}_{#1:\overline{#2\,\,}\!\mid #3}}
+%\newcommand{\aaxn}[2]{\ddot{a}_{#1:\overline{#2\,\,}\!\mid}}
+%\newcommand{\M}[1]{\mathcal{M}_+^{#1}}
+%\newtheorem{defi}{Definición}
+
+\begin{document}
+
+\title{MODELO DE REGRESIÓN MIXTO PARA DATOS PROPORCIONALES INFLADOS CON CEROS Y/O UNOS} %Con este nombre se guardará el proyecto en writeLaTex
+
+\begin{titlepage}
+\begin{center}
+
+\textsc{\Large Universidad Nacional de Colombia \\ sede medellín}\\[4em]
+
+\vspace{4em}
+
+\textsc{\LARGE \textbf{MODELO DE REGRESIÓN \\ MIXTO PARA DATOS \\ PROPORCIONALES INFLADOS \\ CON CEROS Y/O UNOS}}\\[6em]
+
+\textsc{\large Tesis}\\[1em]
+
+\textsc{para obtener el título de}\\[1em]
+
+\textsc{MAGISTER EN CIENCIAS ESTADÍSTICA}\\[1em]
+
+\textsc{presenta}\\[1em]
+
+\textsc{\large JUAN CAMILO DÍAZ ZAPATA}\\[1em]
+
+\textsc{\large Director de Tesis: FREDDY HERNÁNDEZ BARAJAS, Ph.D}
+
+\end{center}
+
+\vspace*{\fill}
+\textsc{Medellín. \hspace*{\fill} 2017}
+
+\end{titlepage}
+
+
+
+
+%\title{Modelo de Regresión Mixto para Datos Proporcionales Inflado con Ceros y/o Unos}
+%
+%\author{\\Juan Camilo Díaz Zapata\\
+%Estudiante de Maestría en Ciencias-Estadística\\\\\\
+%Freddy Hernández Barajas, Ph.D\\
+%Profesor Asistente Escuela de Estadística\\
+%Director de Tesis
+%}
+%\maketitle
+%
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+%
+%\renewcommand{\tablename}{Tabla}
+
+\newpage
+\tableofcontents
+
+\newpage
+
+%\section{Información general}
+%
+%\textbf{Título: Modelo de regresión mixto para datos proporcionales 
+%inflado con ceros y/o unos
+%} 
+%\newline
+%
+%$\begin{array}{ll}
+%\textbf{Estudiante:} & \textsf{Juan Camilo Díaz Zapata}\\
+%\textbf{Teléfono:} & \textsf{(300) 839 42 81}\\
+%\textbf{Correo-e:} & \textrm{jucdiazza@unal.edu.co}
+%\end{array}$
+%
+%$\begin{array}{ll}
+%\textbf{Director:} & \-\ \-\ \textsf{Freddy Hernández Barajas, Ph.D}\\
+%& \-\ \-\ \textsf{Profesor Asistente}\\
+%& \-\ \-\ \textsf{Escuela de Estadística}\\
+%\textbf{Teléfono:} & \-\ \-\ \textsf{430 98 00}\\
+%\textbf{Correo-e:} & \-\ \-\ \textrm{fhernanb@unal.edu.co}
+%\end{array}$
+
+%$\begin{array}{ll}
+%\textbf{Director:} & \-\ \-\ \textsf{Olga Cecilia Usuga Manco, Ph.D}\\
+%& \-\ \-\ \textsf{Profesor Asociado}\\
+%& \-\ \-\ \textsf{Universidad de Antioquia}\\
+%\textbf{Teléfono:} & \-\ \-\ \textsf{219 55 78}\\
+%\textbf{Correo-e:} & \-\ \-\ \textrm{olga.usuga@udea.edu.co}
+%\end{array}$
+
+%\cite <-> \citeasnoun
+%\citep <-> \cite
+
+\section{Resumen ejecutivo}
+
+El modelo de regresión mixto para datos proporcionales inflados con ceros y/o unos, es un modelo de regresión donde la variable respuesta se encuentra definida a partir de una distribución para datos proporcionales, tal como la distribución beta o la distribución simplex. La variable respuesta resulta de porcentajes, tasas o proporciones donde estas pueden llegar a tomar valores de cero o uno, debido a la ausencia o presencia total de una característica y es por esto que se dice que son modelos inflados con ceros y/o unos. La estimación de los parámetros de este tipo de modelos vía máxima verosimilitud no tiene una solución cerrada analíticamente, por lo que es necesario recurrir a metodologías computacionales que puedan llegar a una solución, es por esto que se quiere realizar este trabajo de investigación para estimar los parámetros del modelo vía máxima verosimilitud usando algunas variaciones de la cuadratura de Gauss-Hermite.
+
+{\slshape Palabras claves:}
+modelos mixtos, datos proporcionales inflados, cuadratura de Gauss-Hermite,  máxima verosimilitud.
+
+\section*{Abstract}
+The mixed model regression to data proportional inflated with zeros and/or ones, it is a regression model where the response can be adequately modeled by a data for a proportional distribution such as beta distribution or simplex distribution. The response comes from percents, rates and proportions, these ones can take one or zero in accordance with the absence or presence of a feature and that is why they are called inflated models with zeros and/or ones. The estimation of the parameters by mean of maximun likelihood can not be solved analitycally so it is necessary to use computational methodologies that can reach a solution, that is why we want to produce this research to estimate by means of maximum likelihood parameters of the model using some variation of the quadrature Gauss-Hermite.
+
+{\slshape Keywords: mixed models, proportional inflated data, quadrature Gauss-Hermite, maximum likelihood.}
+
+\section{Descripción del proyecto}
+
+\subsection{Planteamiento del problema}
+
+En el análisis de datos es usual que se quiera estudiar la relación entre una variable de interés y un conjunto de variables explicativas, la forma usual de abordar el problema es por medio del modelo de regresión lineal múltiple, sin embargo, cuando la variable de interés se encuentra en un intervalo entre cero y uno el modelo de regresión lineal múltiple no resulta apropiado ya que no cumple el supuesto de variable respuesta con distribución normal. Los datos proporcionales se encuentran en el intervalo (0,1) y son el resultado de porcentajes, tasas, proporciones y fracciones que son comúnmente evidenciados en diversos campos tanto sociales, económicos y científicos. Por todo lo anterior existen los modelos de regresión para datos proporcionales, cuando la variable de interés sigue una distribución de datos proporcionales, tal como la distribución beta, simplex, entre otros, con los cuales se obtienen modelos de regresión beta y simplex respectivamente.\\
+\\
+En los modelos de regresión un efecto fijo se considera como una covariable en el que su influencia sobre la variable respuesta se mide a través de distintos parámetros del modelo, además los valores que pueden tomar esta covariables son informativos y están fijados previamente. Por el contrario una covariable se considera como un efecto aleatorio cuando los valores de la covariable son solamente identificativos \\ y podrían encontrase otros valores si el estudio se repitiera en diferentes circunstancias. Un efecto aleatorio se considera como una variable aleatoria que no se observa pero cuya distribución puede estimarse mediante la varianza de cierta distribución, p.e la distribución normal \citep{Seoane1}. Un ejemplo claro de considerar una covariable como un efecto aleatorio es cuando esta es de tipo categórico, posee un número elevado de niveles y estos niveles pueden cambiar fácilmente. La inclusión de una o más covariables como un efecto aleatorio y otras covariables como efectos fijos sobre el modelo regresión para datos proporcionales, es lo que se llama modelo de regresión mixto para datos proporcionales, pero en este tipo de modelos es común que haga falta la inclusión de los valores extremos, es decir, frecuentemente al trabajar con datos proporcionales se presenten tasas o porcentajes con valores en cero o uno y los modelos descritos anteriormente no tienen en cuenta este tipo de casos, es por esto que se crearon los modelos de regresión mixto para datos proporcionales inflados con ceros y/o unos, este tipo de modelos contienen efectos aleatorios  que a la hora de estimar los parámetros del modelo por medio de máxima verosimilitud causan un problema, debido a que la función de verosimilitud no tiene una solución cerrada analíticamente.\\
+\\
+En trabajos previos para la estimación de los parámetros del modelo de regresión mixto para datos proporcionales sin presencia de ceros y unos se han utilizado distintas técnicas, tales como el enfoque bayesiano por medio de MCMC y la máxima verosimilitud vía cuadratura de Gauss-Hermite, sin embargo no se ha realizado una adaptación de esta última metodología para la solución del problema de estimación de los parámetros del modelo de regresión mixto para datos proporcionales con presencia de ceros y/o unos, en particular cuando hay intercepto aleatorio, es por ello que se quiere realizar el siguiente trabajo de investigación.
+
+
+\newpage
+
+\subsection{Objetivos}
+
+\subsubsection{Objetivo general}
+
+
+Proponer una metodología para estimación de los parámetros de un modelo de regresión mixto para datos proporcionales inflados con ceros y/o unos.
+
+
+\subsubsection{Objetivos específicos}
+
+\begin{enumerate}
+ 
+\item Flexibilizar el modelo de regresión mixto para datos proporcionales inflados con ceros y/o unos a través del uso de diferentes distribuciones para datos proporcionales.
+
+\item Determinar entre las diferentes modificaciones de la cuadratura de Gauss-Hermite adaptativa la que mejor desempeño tiene para estimar los parámetros del modelo de regresión mixto para datos proporcionales entre cero y/o uno.
+
+\item Crear un paquete en el software estadístico R que permita la estimación de los parámetros del modelo de regresión mixto para datos proporcionales inflados con ceros y/o unos.
+
+\end{enumerate}
+
+\subsection{Marco Teórico}
+
+A continuación se presentan algunos conceptos importantes para el desarrollo de este proyecto relacionados con los modelos de regresión mixto para datos proporcionales y la cuadratura de Gauss-Hermite.
+
+\subsubsection{Distribuciones para datos proporcionales.}
+
+A continuación se presentan las distribuciones de probabilidad para datos proporcionales beta y simplex.\\
+
+\subsubsubsection{\textbf{Beta original}}
+
+Si una variable aleatoria $y$ tiene distribución beta con parámetros $p$ y $q$ se acostumbra a denotarla por $y \sim Be(p,q)$ y La función de densidad de probabilidad de la distribución es dada por:\\
+
+\[
+f(y;p,q)=\frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)}y^{p-1}(1-y)^{q-1} \quad;\quad  0<y<1 
+\]
+\\
+donde $p>0$, $q>0$ y $\Gamma(\cdot)$ es la función gamma. El valor esperado y la varianza de \textit{y} están dadas por:
+
+\begin{equation}
+	E(y)=\frac{p}{p+q} \quad \label{ecua:1}
+\end{equation}
+
+\begin{equation}
+	Var(y)=\frac{pq}{(p+q)^2(p+q+1)} \quad \label{ecua:2}
+\end{equation}
+
+\subsubsubsection{\textbf{Beta parametrización Ferrari y Cribari-Neto}}
+
+\cite{Ferrari2} propusieron otra parametrización para la distribución beta en función de los parámetos $\mu$ y $\phi$ donde $\mu$ corresponde a la media de la distribución. Si $y \sim Be(\mu,\phi)$ la función de densidad de probabilidad de la distribución está dada por:\\
+
+\[
+f(y;\mu,\phi)=\frac{\Gamma(\phi)}{\Gamma(\mu\phi)\Gamma((1-\mu)\phi)}y^{\mu\phi-1}(1-y)^{(1-\mu)\phi-1} \quad;\quad  0<y<1 
+\]
+\\
+donde $0<\mu<1$ y $\phi>0$, el parámetro $\phi$ es interpretado como un parámetro de precisión. Cuando $\mu=1/2$ la distribución es simétrica y si $\mu\neq1/2$ es asimétrica, además cuando $\mu=1/2$ y $\phi=2$ se convierte en la distribución uniforme y para valores más grandes de $\phi$ la varianza de $\mu$ es más pequeña. El valor esperado y la varianza de \textit{y} están dados por:
+
+
+\begin{equation}
+	E(y)=\mu \quad \label{ecua:3}
+\end{equation}
+
+\begin{equation}
+	Var(y)=\frac{\mu(1-\mu)}{1+\phi} \quad \label{ecua:4}
+\end{equation}
+
+
+\subsubsubsection{\textbf{Beta parametrización Rigby y Stasinopoulos}}
+
+\cite{Stasinopoulos1} propusieron la función de densidad de probabilidad de la distribución beta con parámetros $\mu$ y $\sigma$ dada por:
+
+\[
+f(y;\mu,\sigma)=B(\mu,\sigma)y^{\mu((1-\sigma^2)/\sigma^2)-1}(1-y)^{(1-\mu)((1-\sigma^2)/\sigma^2)-1} \quad; 0<y<1 
+\]
+
+\\
+donde $B(\mu,\sigma)=\frac{\Gamma((1-\sigma^2)/\sigma^2)}{\Gamma(\mu((1-\sigma^2)/\sigma^2))\Gamma((1-\mu)((1-\sigma^2)/\sigma^2))},$
+
+
+\\
+donde $0<\mu<1$ y $0<\sigma<1$ este último puede ser interpretado como un parámetro de dispersión de \textit{y}. La media y la varianza de \textit{y} están dadas por:
+
+
+
+\begin{equation}
+	E(y)=\mu \quad \label{ecua:5}
+\end{equation}
+
+
+\begin{equation}
+	Var(y)=\sigma^2\mu(1-\mu) \quad \label{ecua:6}
+\end{equation}
+
+
+
+\subsubsubsection{\textbf{Distribución Simplex \cite{Barndorff1}}}
+
+la distribución simplex que es introducida por \cite{Barndorff1} es un caso particular de los modelos de dispersión propuestos por \cite{Jorgensen1}, cuya función de densidad de probabilidad depende de los parámetros $\mu$ y $\Sigma^{2}$ denotado por $S(\mu, \sigma^{2})$ y está dado por:
+
+\[
+f(y;\mu,\sigma^2)=\left\{2\pi\sigma^2[y(1-y)]^3\right\}^{-1/2}exp\left\{-\frac{(y-\mu)^2}{2\sigma^2y(1-y)\mu^2(1-\mu)^2}\right\}\quad;\quad 0<y<1
+\]
+\\
+donde $0<y<1$, $0<\mu<1$ y $\sigma^{2}>0$. además el valor esperado es dado por:
+
+
+\begin{equation}
+	E(y)=\mu  \quad \label{ecua:7}
+\end{equation}
+
+\begin{equation}
+	Var(y)=\mu^3(1-\mu)^3 \quad \label{ecua:8}
+\end{equation}
+
+\subsubsection{Distribución para datos proporcionales inflada con ceros y unos}
+
+La distribución para datos proporcionales en cero y/o uno se compone de la mezcla de dos distribuciones, una parte dada por una distribución degenerada en cero o uno y la otra por la densidad de una distribución para datos proporcionales, como las presentadas anteriormente, se dice que $y \sim ZOIP(\mu,\sigma, p_0, p_1)$ si sigue la función de desnsidad de probabilidad dada por:
+\[
+g(y;\mu,\sigma, p_{0}, p_{1})=
+\begin{cases}
+p_{0} & \text{Si}\ y=0,\\
+p_{1} & \text{Si}\ y=1,\\
+(1-p_{0}-p_{1})f(y;\mu,\sigma) & \text{Si}\ y \in (0,1)
+\end{cases}
+\]
+
+donde $p_{0} \geq 0$ representa la probabilidad que $y=0$, $p_{1} \geq 0$ representa la probabilidad de que $y=1$, $0\leq p_{0}+p_{1}\leq 1$ y $f(y;\mu,\phi)$ representa algunas de las funciones de densidad de probabilidad para datos proporcionales, como las descritas en la sección anterior. La media y varianza de $y$, están dados por
+\[
+E(y)=p_1+(1-p_0-p_1)E^*(y)
+\]
+
+\[
+Var(Y)=p_1(1-p1)+(1-p_0-p_1)\left[Var^*(y)+(p_0+p_1)[E^*(y)]^2-2E^*(y)p_1\right]
+\]
+
+donde $E^*(y)$ es el valor esperado de una distribución para datos proporcionales como las descritas en \eqref{ecua:1}, \eqref{ecua:3}, \eqref{ecua:5} y \eqref{ecua:7}. Además la $Var^*(y)$ es la varianza de una distribución para datos proporcionales como se muestra en  \eqref{ecua:2}, \eqref{ecua:4}, \eqref{ecua:6} y \eqref{ecua:8}.
+
+\subsubsection{Modelo de regresión mixto para datos proporcionales inflados en cero y/o uno}
+
+Una escritura jerárquica de dos niveles considerada para un modelo con variable respuesta dada por la distribución para datos proporcionales inflados con ceros y/o unos, vista en la sección anterior. Denotando a $y_{ij}$ como la $j-$ésima medida del $i-$ésimo grupo, además si asumisos interceptos aleatorios $\gamma_{i1}$ y $\gamma_{i2}$, los cuales son independientes y cada uno sigue una distribución normal con media cero y desviación estándar $\lambda_1$ y $\lambda_2$, respectivamente. Asumimos también que los interceptos aleatorios $\gamma_{i1}$ y $\gamma_{i2}$ son independientes entre sí. Una escritura matemática para el modelo es el siguiente:
+
+\[
+y_{ij}| \gamma_{i1},\gamma_{i2} \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),
+\]
+\[
+\gamma_{i1} \overset{\text{i.i.d}}{\sim}  N(0,\lambda_1^2),
+\]
+\[
+\gamma_{i2} \overset{\text{i.i.d}}{\sim}  N(0,\lambda_2^2),
+\]
+\\
+Los parámetros $\mu$, $\sigma$, $p_0$ y $p_1$ son modelados linealmente en función de un conjunto de covariables respectivamente, por:
+
+\[
+g_1(\mu_{ij})=\mathbf{x}_{ij1}^{\top} \boldsymbol{\beta}_1+ \gamma_{i1},
+\]
+\[
+g_2(\sigma_{ij})=\mathbf{x}_{ij2}^{\top} \boldsymbol{\beta}_2+ \gamma_{i2},
+\]
+\[
+g_3(p_0)=\mathbf{x}_{ij3}^{\top} \boldsymbol{\beta}_3,
+\]
+\[
+g_4(p_1)=\mathbf{x}_{ij4}^{\top} \boldsymbol{\beta}_4
+\]
+
+\\
+donde $\mathbf{x}_{ij1}$, $\mathbf{x}_{ij2}$, $\mathbf{x}_{ij3}$ y $\mathbf{x}_{ij4}$, son vectores de covariables conocidos de dimensión $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente. $\boldsymbol{\beta}_1$, $\boldsymbol{\beta}_2$, $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ son vectores de parámetros desconocidos fijos asociados a las covariables y $\gamma_{i1}$, $\gamma_{i2}$ son los interceptos aleatorios asociados al $i-$ésimo grupo. Además las funciones $g_1(\cdot)$, $g_2(\cdot)$, $g_3(\cdot)$ y $g_4(\cdot)$ son funciones de enlace conocidas y apropiadas para mapear de los reales a los valores admisibles del parámetro (log, logit, probit, clog-log). ver más en \citep{Usuga1}.
+
+\subsubsection{Función de  verosimilitud}
+
+La estimación de los parámetros del modelo de regresión con intercepto aleatorio para datos proporcionales inflados con ceros y/o unos, por medio de máxima verosimilitud, es necesario hallar la función de verosimilitud.
+
+Considere $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top},\lambda_1,\lambda_2)^{\top}$ un vector de parámetros a ser estimado en el espacio:
+\[
+\Theta=\left\{\boldsymbol{\theta} \in \mathbb{R}^k | \boldsymbol{\beta_1} \in \mathbb{R}^{k_1}, \boldsymbol{\beta_2} \in \mathbb{R}^{k_2}, \boldsymbol{\beta_3} \in \mathbb{R}^{k_3}, \boldsymbol{\beta_4} \in \mathbb{R}^{k_4}, \lambda_1 \in \mathbb{R}^+, \lambda_2 \in \mathbb{R}^+  \right\}
+\]
+
+en el que $k=k_1+k_2+k_3+k_4+2$, tenemos que una distribución marginal de $\mathbf{y}_i=(y_{1i},\ldots, y_{n_i}i)^{\top}$ es dada por:
+
+\[
+f(\mathbf{y}_i;\boldsymbol{\theta})=\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2},
+\]
+
+Entonces una función de verosimilitud para las observaciones $\mathbf{y}=(y_1, \cdots, y_N)^{\top}$ es de la forma:
+
+\[
+L(\boldsymbol{\theta})=\prod_{i=1}^{N}f(\mathbf{y}_i;\boldsymbol{\theta})
+\]
+\[
+=\prod_{i=1}^{N}\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2},
+\]
+
+\[
+log(L(\boldsymbol{\theta}))=\sum_{i=1}^{N}log \left[\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2}\right],
+\]
+
+
+donde $f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})$ es la función de densidad de probabilidad condicional de $y_{ij}$ que distribuye $ZOIP(\mu,\sigma,p_0,p_1)$. $\gamma_{i1}$, $\gamma_{i2}$ y $f(\gamma_{i1};\lambda_1)$ y $f(\gamma_{i2};\lambda_2)$ son funciones de densidades de probabilidad normales de $\gamma_{i1}$ y $\gamma_{i2}$, respectivamente. Encontrar el máximo de la función $log(L(\boldsymbol{\theta}))$ no tiene una solución cerrada analíticamente, por lo que es necesario utilizar técnicas computacionales para la solución de esta, tales como la cuadratura de Gauss-Hermite.
+
+
+\subsubsection{Cuadratura de Gauss-Hermite}\label{sec:Cuadratura}
+
+La cuadratura de Gauss-Hermite (GQ) es una herramienta útil para aproximar una integral de una función $g(x)$ sobre $\Re$ con una suma ponderada, donde la variable $x$ es reemplazada por una cuadratura de $n$ puntos o nodos. Cada punto de la cuadratura, es denotado por $p_i$, es evaluado en la función y los resultados son ponderados por los pesos de la cuadratura asociados $w_i$.
+\[
+\int_\Re{g(x)dx}\approx\sum_{i=1}^{n}{g(p_i)exp(p_i^2)w_i.}
+\]
+\\
+El conjunto de los $n$ puntos de la cuadratura $\textbf{P}=\left\{p_1,p_2,\ldots,p_n\right\}$ corresponde a las raíces del polinomio de Hermite dado por:
+
+\[
+H_n{(x)}=(-1)^ne^{-x^2}\frac{d^n}{dx^n}e^{-x^2},
+\]
+\\
+con pesos asociados $\textbf{W}=\left\{w_1,w_2,\ldots,w_n\right\}$ dados por
+
+\[
+w_i=\frac{2^{n-1}n!\sqrt{\pi}}{n^2{[H_{n-1}(x_i)]}^2}.
+\]
+
+\subsubsubsection{\textbf{Cuadratura de Gauss-Hermite adaptativa}}
+
+La cuadratura de Gauss-Hermite adaptativa (AGQ) es propuesta por \cite{Liu1}; \citep{Pinheiro1}, es básicamente una transformación de los puntos asociados a la cuadratura, centrando y extendiendo alrededor del máximo valor de $\hat{x}$ de la función $log(g(x))$. La transformación de los puntos de la cuadratura $p_i$ definido como $p_i^*$, está dado por $p_i^*=\sqrt{2}\hat{\sigma}p_i+\hat{x}$ donde:
+
+\[
+\hat{\sigma}^2={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+\\
+Así, la aproximación de la integral de $g(x)$ sobre $\Re$ está dado por:
+
+\[
+\int_\Re{g(x)dx}\approx\sqrt{2}\hat{\sigma}\sum_{i=1}^{n}{g(p_i^*)exp(p_i^2)w_i.}
+\]
+\\
+Si extendemos la AGQ a una integral de dimensión q de la función $g(x)$ sobre $\Re^q$, en este caso, con una cuadratura de $n$ puntos, $\textbf{Z}$ está basado en el producto cartesiano de $\textbf{P}$, y los pesos de la cuadratura de $\textbf{A}$ está basado similarmente en el producto Kronecker, denotado por $\otimes$, los pesos originales $\textbf{W}$, es dado:
+
+\[
+\textbf{Z}=\underbrace{P \times \ldots \times P}_{q\ \text{veces}}=P^q,
+\]
+
+\[
+\textbf{A}=\underbrace{W \otimes \ldots \otimes W}_{q\ \text{veces}}.
+\]
+\\
+Así, la expresión para la integral aproximada de $g(x)$ sobre $\Re^q$ está dado por:
+
+\[
+\int_{\Re^q}{g(x)dx}\approx|\hat{Q}|^{1/2} 2^{q/2}\sum_{i=1}^{n^q}g(z_i^*)exp(z_i^{\top}z_i)a_i,
+\]
+\\
+donde $z_i$ y $a_i$ corresponde a los elementos de $\textbf{Z}$ y $\textbf{A}$, respectivamente. Los nuevos puntos de la cuadratura $z_i^*$ estan centrados en el máximo de $\hat{x}$ del $log(g(x))$ y está dado por $z_i^*=\hat{x}+\sqrt{2}\hat{Q}^{1/2}z_i$, donde $\hat{Q}^{1/2}$ corresponde a la descomposición de Cholesky de la curvatura de la matriz $\hat{Q}$, que se encuentra dado por:
+
+\[
+\hat{Q}={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+
+Se realiza una explicación más a detalle en \cite{Hernandez1}.
+
+\subsubsubsection{\textbf{Cuadratura de Gauss-Hermite adaptativa con Pruning}}
+
+La cuadratura de Gauss-Hermite adaptativa con pruning consiste en eliminar puntos de la cuadratura, tales que el peso $a_i$ asociado al punto es menor que un valor de referencia dado por $\theta$, que está dado por: (Ver más en \citep{Hernandez1}.)
+\[
+\theta=\frac{w_{[1]}w_{[\frac{n+1}{2}]}}{n^{q-1}}.
+\]
+
+\subsubsubsection{\textbf{Reducción secuencial}}
+
+El método de reducción secuencial tiene como objetivo aproximar la función de verosimilitud de los modelos de regresión mixto. El método consiste en combinar métodos de aproximación sobre funciones de almacenamiento, a marginales aproximadas de la distribución con densidades proporcionales a $g(\cdot|y,\phi)$, y así poder aproximar la verosimilitud $L(\phi)=\int_{\Re^n}g(u|y,\phi)du$. Donde $u$ es el vector $u=(u_1,\ldots, u_n)$ de tamaño n, que corresponde a la cantidad de efectos aleatorios dentro del modelo. \citep{Ogden1}.\\
+\\
+Se tomara un enfoque iterativo que consiste en primero integrar solamente $u_1$ para encontrar la densidad marginal no normalizada de ${u_2,\ldots,u_n}$, es decir se escribirá la densidad marginal posterior de ${u_2,\ldots,u_n}$ como un producto sobre el subconjunto de vértices  (puntos) máximos asociados al conjunto total de vértices $\wp$ que a su vez se asocian a ${u_1,\ldots,u_n}$. Una vez hecho esto, el proceso puede repetirse n veces hasta encontrar a la verosimilitud. Se escribirá a $\wp_i$ para la dependencia posterior de los vértices de ${u_i,\ldots,u_n}$, por lo que la dependencia posterior de los vértices será $\wp_1=\wp$. Se escribirá $M_i=M(\wp_i)$ para el conjunto de vértices máximos de $\wp_i$.\\
+\\
+La factorización de $g(\cdot|y,\phi)$ sobre el conjunto de vértices máximos de $\wp_1$ es dado por:
+
+\[
+g(u|y,\phi)=\prod_{C\in M_1}g^1_C(u_C),
+\]
+
+Un algoritmo que describe como encontrar la función de verosimilitud por el método de reducción secuencial es el siguiente:
+
+
+\begin{enumerate}
+	\item Escoger el orden de la selección de integración de los $u_i$. Debido a que el orden de estimación puede afectar la aproximación de la verosimilitud.
+	
+	\item Factorizar $g(u|y,\phi)$ sobre el conjunto de vértices máximos $M_1$ de la dependencia posterior de los vértices, como $g(u|y,\phi)=\prod_{C\in M_1}g^1_C(u_C)$.
+	
+	\item Una vez $u_1, \ldots,u_{i-1}$ ha sido integrado utilizando algún un método de aproximación, P.E la cuadratura de Gauss-Hermite. Tendremos entonces la factorización $\tilde{g}(u_i, \ldots,u_{n}|y, \theta)=\prod_{C\in M_i}g^i_C(u_C)$, de la posterior no normalizada para $u_i, \ldots,u_{n}$. Escribir
+	
+	\[
+	g_{N_i}=\prod_{C\in M_i:C\subset N_i}g^i_C(u_C).
+	\]
+	
+Integrando sobre $u_i$ utilizando alguna cuadratura (p.e cuadratura de Gauss-Hermite adaptativa), y una representación del almacenamiento aproximada es $\tilde{g}_{N_i\diagdown i}(\cdot)$ de la función resultante $g_{N_i\diagdown  i}(\cdot)$. La expresión '$C\subset N_i$' significa el conjunto de vecinos de vértices 1 en $\wp$
+	
+	\item Escribir
+	\[
+	\tilde{g}(u_{i+1}, \ldots,u_{n}|y, \phi)=g_{N_i\diagdown i}(u_{N_i\diagdown i}) \prod_{C\in M_i:C \nsubseteq N_i}g^i_C(u_C),
+	\]
+	
+Definiendo una factorización (aproximada) de la densidad posterior de ${u_{i+1},\ldots,u_n}$ sobre los máximos valores de los vértices $M_{i+1}$ de la nueva dependencia posterior de $\wp_{i+1}$.
+	
+	\item Repita los pasos (3) y (4) para $i=1,\ldots, n-1$, entonces la integral $\tilde{g}(u_n|y, \phi)$ sobre $u_n$ es la función de verosimilitud aproximada.
+	
+\end{enumerate}
+Se puede ver más a detalle en \cite{Ogden1}.
+
+\section{Estado del arte}
+
+En muchas ocasiones un investigador se enfrenta a casos de modelación donde la variable de interés está dada por un resultado de una proporción, un porcentaje o una tasa, que por lo general se encuentra en el intervalo (0,1). La distribución más utilizado en la literatura para caracterizar este tipo de variables es la distribución beta que \citep{Ferrari2} utilizan para crear el modelo de regresión beta, sin embargo la utilizan bajo una reparametrización en términos de la media y un parámetro de precisión, \cite{Stasinopoulos2} proponen los modelos gamlss y dentro de ellos desarrollan la distribución beta en términos de la media y la desviación estándar; dando así tres diferentes parametrizaciones de la distribución beta (original y parametrizaciones de Ferrari y Cribari-Neto, y Rigby y \\ Stasinopoulos). Sin embargo, no solo existen distribuciones para datos proporcionales basados en la distribución beta, la distribución simplex es un caso especial de los  modelos de dispersión propuestos por \cite{Jorgensen1}, el cual fue derivado por \cite{Barndorff1} y el modelo de regresión simple fue propuesto por \cite{Qiu1} y esta implementado en el software R con el paquete \textsl{simplexreg}. Otras distribuciones que se pueden usar son la distribución Logitsep \citep{Hossain1} que se compone de cuatro parámetros (media, dispersión, escala y forma) y Beta rectangular \citep{Hahn1} el cual es una mezcla de dos distribuciones y puede ser parámetrizado en terminos de la media.\\
+\\
+Por esto se han desarrollado los distintos modelos de regresión para datos proporcionales, el modelo más estudiado ha sido el modelo de regresión beta, donde \citep{Paolino1} estima mediante máxima verosimilitud modelos de variables dependientes de una distribución beta, \cite{kieschnick1} realiza un análisis de regresión para proporciones, porcentajes y fracciones entre cero y uno, además \cite{Ferrari2} proponen el modelo de regresión beta para tasas y proporciones, más adelante \cite{Zeileis1} implementan un paquete  de dicha regresión en el software R, también \cite{Ferrari1} y \cite{Simas1} realizan mejoras de los estimadores de los parámetros del modelo de regresión beta \textsl{betareg}. Además, otros autores como \cite{Smithson1}, \cite{Venezuela1} realizan diferentes estudios sobre los modelos de regresión para datos proporcionales principalmente para variables respuestas provenientes de la distribución beta. Por otro lado se han realizado diversas aplicaciones sobre datos proporcionales por ejemplo \cite{Cook1} realizan una aplicación en finanzas de los modelos de regresión para datos proporcionales, con los modelos descritos.\\
+\\
+Los modelos mixtos han sido de mucho interés en la última época, por su capacidad de estimar el efecto de una variable sobre el modelo a través de la estimación de la varianza de la distribución de la variable, estos fueron introducidos de una manera general por \cite{Laird1}. \cite{Stasinopoulos2} en los modelos aditivos generalizados para localización, escala y forma (gamlss) implementan el modelo de regresión beta con intercepto aleatorio normal. \cite{Verkuilen1} y \cite{Bonat1} proponen modelos de regresión beta con efectos aleatorios normales, estimando los parámetros por medio de máxima verosimilitud marginal y metodologías bayesianas.\citep{Figueroa1} extienden el modelo propuesto por \cite{Ferrari2}  a un modelo con efectos fijos y aleatorios bajo la distribución normal y bajo la distribución t en estructuras de regresión tanto de la media como del parámetro de precisión, además optan también por estimar los parámetros bajo una perspectiva bayesiana. \cite{Usuga1} desarrollan el modelo de regresión beta mixto para datos proporcionales longitudinales, estimando los parámetros por medio de máxima verosimilitud y la cuadratura de Gauss-Hermite. Otros autores como \cite{Song1} implementan un modelo de regresión mixto para una variable respuesta bajo la distribución simplex y \cite{Bonat2} tambien realiza un análisis de verosimilitud del modelo beta mixto.\\
+\\
+La  metodología de estimación de parámetros propuesta por \cite{Usuga1} bajo la cuadratura de Gauss-Hermite fue implementada anteriormente por \cite{Fahrmeir1} sobre los modelos lineales generalizados. Diversos estudios para la estimación de parámetros sobre modelos estadísticos mediante esta técnica han sido implementados, por ejemplo el trabajo realizado por \cite{Liu1} y \cite{Smithson1} que estima los parámetros del modelo de regresión beta bajo la cuadratura de Gauss-Hermite. Por otra parte se han realizado diversas modificaciones sobre la cuadratura de Gauss-Hermite original, la cuadratura de Gauss-Hermite adaptativa y algunas mejoras sobre esta como la cuadratura de Gauss-Hermite adaptativa con pruning \citep{Hernandez1}, y la metodología reducción secuencial propuesta por \cite{Ogden1}.\\
+\\
+Los modelos que se han nombrado anteriormente no tienen en cuenta que los datos proporcionales pueden llegar a tomar valores de ceros y/o unos, es por eso que algunos autores como \cite{Ospina2} presentan una distribución de beta inflada en la que hacen una combinación entre una distribución discreta para la parte de los valores que pueden tomar cero o uno y continua para la parte de los valores continuos entre cero y uno. Esta distribución dio pie para que así mismo \cite{Ospina1} propusieran una clase general de modelos de regresión beta inflados en cero o uno. Además \cite{Kosmidis1} han estudiado dichos modelos inflados recientemente, pero con una distribución distinta a la presentada por \cite{Ospina1}. Los anteriores autores han realizado todos sus estudios sobre los modelos de regresión considerando solo efectos fijos para datos proporcionales inflados con ceros y/o unos, por eso otros autores como \cite{Galvis1} incluyen efectos aleatorios dentro del modelo de regresión inflado con ceros y/o unos, teniendo en cuenta además diversas distribuciones tales como beta, simplex y beta-rectangular, la estimación de los parámetros del modelo es realizada  por medio de MCMC.\\
+\\
+En el trabajo se implementara el modelo de regresión mixto para datos proporcionales inflados en cero y/o uno, en particular cuando hay intercepto aleatorio bajo las distintas distribuciones para datos proporcionales, tales como la distribución beta y Simplex; con una estimación de los parámetros por medio de máxima verosimilitud y las distintas variaciones de la cuadratura de Gauss-Hermite adaptativa mencionadas en la sección \ref{sec:Cuadratura}.
+
+
+
+\section{Metodología propuesta}
+
+La metodología que se llevara a cabo para la elaboración del trabajo es la siguiente:\\
+\\
+Inicialmente se definirán los conceptos fundamentales del modelo de regresión mixto para datos proporcionales inflados en cero y/o uno, que es en realidad la combinación de dos distribuciones una discreta y una continua, donde la parte continua podrá ser caracterizada por alguna distribución de probabilidad para datos proporcionales. Luego se derivara analíticamente la función de verosimilitud para el modelo de regresión planteado.\\
+\\
+Posteriormente se implementara las distintas variaciones de la cuadratura de Gauss-Hermite para encontrar los parámetros del modelo vía máxima verosimilitud y se realizaran aplicaciones y estudios de simulación para evaluar el desempeño del proceso de estimación de los parámetros.\\
+\\
+Se creara  un paquete en el software estadístico R, que permita estimar un modelo de regresión mixto para datos proporcionales inflados en cero y/o uno mediante máxima verosimilitud.
+
+
+  
+\section{Cronograma}
+{\footnotesize
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}\hline
+\multirow{2}{*}{\bf Actividad} & \multicolumn{10}{|c|}{{\bf Meses}} \\ \cline{2-11}
+& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+Revisión & X & X & X & X & X & X & X &  &  &\\
+bibliográfica &  &  &  &  &  &  &  &  &  & \\ \hline
+Desarrollo &  & X & X & X & X & X &  &  &  &\\
+analítico &  &  &  &  &  &  &  &  &  &  \\ \hline
+Simulaciones&  & X & X & X & X & X & X &  &  & \\
+y comparaciones & & & & & & & & & & \\ \hline
+Aplicaciones &  &  & X & X & X & X & X &  &  &\\ 
+& & & & & & & & & & \\ \hline
+Paquete en R&  &  &  & X & X & X & X & X &  & \\
+& & & & & & & & & & \\ \hline
+Redacción del articulo y documento&  &  &  & X & X & X & X & X  &  &  \\
+de trabajo de grado escrito&  &  &  &  &  &  &  &  &  &  \\
+\hline
+Correcciones& & & & & & & &  & X & X\\
+& & & & & & & & & &\\ \hline
+\end{tabular}
+\end{center}
+}
+
+
+\section{Compromisos}
+
+\begin{itemize}
+\item Presentación de los resultados parciales del proyecto en un evento de carácter nacional.
+\item Sometimiento de un articulo con los resultados relevantes de la metodología propuesta a una revista de circulación nacional o internacional. 
+\item Creación de un paquete en R con la metodología propuesta.
+\end{itemize}
+
+\newpage
+\bibliography{sample}
+
+
+\end{document}

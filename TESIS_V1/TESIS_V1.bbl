@@ -1,0 +1,204 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Barndorff-Nielsen and J{\o}rgensen(1991)]{Barndorff1}
+Barndorff-Nielsen and B.~J{\o}rgensen.
+\newblock Some parametric models on the simplex.
+\newblock \emph{Journal of multivariate analysis}, 39\penalty0 (1):\penalty0
+  106--116, 1991.
+
+\bibitem[Bonat et~al.(2012)Bonat, Ribeiro, and Zeviani]{Bonat1}
+W.~Bonat, P.~Ribeiro, and W.~Zeviani.
+\newblock Modelo beta com efeitos aleat{\'o}rios.
+\newblock 2012.
+
+\bibitem[Bonat et~al.(2015)Bonat, Ribeiro, and Zeviani]{Bonat2}
+W.~Bonat, P.~Ribeiro, and W.~Zeviani.
+\newblock Likelihood analysis for a class of beta mixed models.
+\newblock \emph{Journal of Applied Statistics online:
+  doi:10.1080/02664763.2014.947248}, 42\penalty0 (2):\penalty0 252--266, 2015.
+
+\bibitem[Cook et~al.(2008)Cook, Kieschnick, and McCullough]{Cook1}
+D.~Cook, R.~Kieschnick, and B.~McCullough.
+\newblock Regression analysis of proportions in finance with self selection.
+\newblock \emph{Journal of Empirical Finance}, 15:\penalty0 860--867, 2008.
+
+\bibitem[Fahrmeir and Tutz(2001)]{Fahrmeir1}
+L.~Fahrmeir and G.~Tutz.
+\newblock \emph{Multivariate statistical modelling based on generalized linear
+  models}.
+\newblock Springer, 2001.
+
+\bibitem[Ferrari and Cribari-Neto(2004)]{Ferrari2}
+S.~Ferrari and F.~Cribari-Neto.
+\newblock Beta regression for modelling rates and proportions.
+\newblock \emph{Journal of applied statistics}, 31\penalty0 (7):\penalty0
+  799--815, 2004.
+
+\bibitem[Ferrari and Pinheiro(2010)]{Ferrari1}
+S.~Ferrari and E.~Pinheiro.
+\newblock Improved likelihood inference in beta regression.
+\newblock \emph{Journal of statistical computation and simulation available
+  online:doi:10.1080/00949650903389993}, 2010.
+
+\bibitem[Figueroa-Zu{\~n}iga et~al.(2012)Figueroa-Zu{\~n}iga, arellano, and
+  Ferrari]{Figueroa1}
+Z.~Figueroa-Zu{\~n}iga, R.~arellano, and S.~Ferrari.
+\newblock Mixed beta regression: a bayesian perspective.
+\newblock 2012.
+
+\bibitem[Galvis and Lachos(2014)]{Galvis1}
+D.~Galvis and V.~Lachos.
+\newblock \emph{Bayesian analysis of regression models for proportional data in
+  the presence of zeros and ones}.
+\newblock PhD thesis, Estatal University of Campinas, 2014.
+
+\bibitem[Hahn(2008)]{Hahn1}
+E.~Hahn.
+\newblock Mixture densities for project management activity times: A robust
+  approach to pert.
+\newblock \emph{European Journal of operational research}, 188\penalty0
+  (2):\penalty0 450--459, 2008.
+
+\bibitem[Hern\'andez et~al.(2013)Hern\'andez, Usuga, and Giampaoli]{Hernandez1}
+F.~Hern\'andez, O.~Usuga, and V.~Giampaoli.
+\newblock Improving the adaptive gaussian quadrature.
+\newblock 2013.
+
+\bibitem[Hossain(2015)]{Hossain1}
+A.~Hossain.
+\newblock Modelling a proportion response variable using generalized additive
+  models for location scale and shape.
+\newblock \emph{International Workshop on Statistical Modelling}, 2:\penalty0
+  137--140, 2015.
+
+\bibitem[J{\o}rgensen(1997)]{Jorgensen1}
+B.~J{\o}rgensen.
+\newblock The theory of dispersion models.
+\newblock \emph{Computational statistics and Data analysis}, 76, 1997.
+
+\bibitem[Kieschnick and McCullough(2003)]{kieschnick1}
+R.~Kieschnick and B.~McCullough.
+\newblock Regression analysis of variates observed on (0,1):percentages,
+  proportions, and fractions.
+\newblock \emph{Statistical Modelling}, 3\penalty0 (3):\penalty0 193--213,
+  2003.
+
+\bibitem[Kosmidis et~al.(2015)Kosmidis, Zou, and Jagan]{Kosmidis1}
+I.~Kosmidis, A.~Zou, and K.~Jagan.
+\newblock Beyond beta regression: modelling percentages and fractions in the
+  presence of boundary observations.
+\newblock \emph{International Workshop on Statistical Modelling}, 1:\penalty0
+  267--272, 2015.
+
+\bibitem[Laird and Ware(1982)]{Laird1}
+N.~Laird and J.~Ware.
+\newblock Random-effects models for longitudinal data.
+\newblock \emph{Biometrics}, 38\penalty0 (4):\penalty0 963--974, 1982.
+
+\bibitem[Liu and Pierce(1994)]{Liu1}
+Q.~Liu and D.~Pierce.
+\newblock A note on gauss-hermite quadrature.
+\newblock \emph{Biometrika}, 81\penalty0 (3):\penalty0 624--629, 1994.
+
+\bibitem[Ogden(2015)]{Ogden1}
+H.~Ogden.
+\newblock A sequential reduction method for inference in generalized linear
+  mixed models.
+\newblock \emph{Electronic Journal of Statistics}, 9:\penalty0 135--152, 2015.
+
+\bibitem[Ospina and Ferrari(2010)]{Ospina2}
+R.~Ospina and S.~Ferrari.
+\newblock Inflated beta distributions online: doi:10.1007/s00362-008-0125-4.
+\newblock \emph{Statitical papers}, 2010.
+
+\bibitem[Ospina and Ferrari(2012)]{Ospina1}
+R.~Ospina and S.~Ferrari.
+\newblock A general class of zero-or-one inflated beta regression models.
+\newblock \emph{Computational Statistics and Data Analysis}, 56\penalty0
+  (6):\penalty0 1609--1623, 2012.
+
+\bibitem[Paolino(2001)]{Paolino1}
+P.~Paolino.
+\newblock Maximim likelihood estimation of models with beta-distributed
+  dependent variables.
+\newblock \emph{Polotical Analysis}, 9\penalty0 (4):\penalty0 325--346, 2001.
+
+\bibitem[Pinheiro and Bates(1995)]{Pinheiro1}
+J.~Pinheiro and D.~Bates.
+\newblock Apprximations to the log-likelihood function in the nonlinear
+  mixed-effects model.
+\newblock \emph{Journal of Computational and Grapchical Statistics}, 4\penalty0
+  (1):\penalty0 12--35, 1995.
+
+\bibitem[Qiu et~al.(2008)Qiu, Song, and Tan]{Qiu1}
+Z.~Qiu, P.~Song, and M.~Tan.
+\newblock Simplex mixed-effects models for longitudinal proportional data.
+\newblock \emph{Scandinavian Journal of Statistics}, 35\penalty0 (4):\penalty0
+  577--596, 2008.
+
+\bibitem[Rigby and Stasinopoulos(2005)]{Stasinopoulos2}
+B.~Rigby and M.~Stasinopoulos.
+\newblock Generalized additive models for location, scale and shape.
+\newblock \emph{Applied Statistical}, 54\penalty0 (3):\penalty0 507--554, 2005.
+
+\bibitem[Rigby and Stasinopoulos(2008)]{Stasinopoulos1}
+B.~Rigby and M.~Stasinopoulos.
+\newblock Instructions on how to use the gamlss package in r.
+\newblock \emph{Computational statistics and Data analysis}, 2:\penalty0
+  194--195, 2008.
+
+\bibitem[Seoane(2014)]{Seoane1}
+J.~Seoane.
+\newblock {?`}modelos mixtos (lineales)? una introducci{\'o}n para el usuario
+  temeroso.
+\newblock \emph{Temas actuales de Etolog{\'i}a}, 2014.
+
+\bibitem[Simas et~al.(2010)Simas, Barrero-Souza, and Rocha]{Simas1}
+A.~Simas, W.~Barrero-Souza, and A.~Rocha.
+\newblock Improved estimators for a general class of beta regression models.
+\newblock \emph{Computational statistics and Data analysis}, 54:\penalty0
+  348--366, 2010.
+
+\bibitem[Smithson and Verkuilen(2006)]{Smithson1}
+M.~Smithson and J.~Verkuilen.
+\newblock A better lemon squeezer? maximum-likelihood regression with
+  beta-distributed dependent variables.
+\newblock \emph{Psychological Methods}, 11\penalty0 (1):\penalty0 54--71, 2006.
+
+\bibitem[Song et~al.(2004)Song, Qi, and Tan]{Song1}
+P.~Song, Z.~Qi, and M.~Tan.
+\newblock Modelling heterogeneous dispersion in marginal models for
+  longitudinal proportional data.
+\newblock \emph{Biometrical Journal}, 46\penalty0 (5):\penalty0 540--533, 2004.
+
+\bibitem[Usuga and Giampaoli(2013)]{Usuga1}
+O.~Usuga and V.~Giampaoli.
+\newblock \emph{Modelos de regress{\~a}o beta com efeitos aleat{\'o}rios
+  normais e n{\~a}o normais para datos longitudinais}.
+\newblock PhD thesis, Universidade de S{\~a}o Paulo, 2013.
+
+\bibitem[Venezuela(2008)]{Venezuela1}
+M.~Venezuela.
+\newblock \emph{Equac{\~a}o generalizada e influencia local para modelos de
+  regress{\~a}o beta con medidas repetidas}.
+\newblock PhD thesis, Universidade de S{\~a}o Paulo, 2008.
+
+\bibitem[Verkuilen and Smithson(2012)]{Verkuilen1}
+J.~Verkuilen and M.~Smithson.
+\newblock Mixed and mixture regression model for continuos bounded responses
+  using the beta distribution.
+\newblock \emph{Journal of education and behavioral statistics}, 37\penalty0
+  (1):\penalty0 82--113, 2012.
+
+\bibitem[Zeileis et~al.(2010)Zeileis, Cribari-Neto, and Gr{\"u}n]{Zeileis1}
+A.~Zeileis, F.~Cribari-Neto, and B.~Gr{\"u}n.
+\newblock Beta regression in r.
+\newblock \emph{Journal of statistical software}, 34\penalty0 (2):\penalty0
+  1--24, 2010.
+
+\end{thebibliography}

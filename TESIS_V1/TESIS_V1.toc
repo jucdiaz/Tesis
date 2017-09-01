@@ -1,0 +1,17 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Resumen ejecutivo}{2}{section.1}
+\contentsline {section}{\numberline {2}Descripci\'on del proyecto}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Planteamiento del problema}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Objetivos}{5}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Objetivo general}{5}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Objetivos espec\IeC {\'\i }ficos}{5}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Marco Te\'orico}{5}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Distribuciones para datos proporcionales.}{5}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Distribuci\'on para datos proporcionales inflada con ceros y unos}{7}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Modelo de regresi\'on mixto para datos proporcionales inflados en cero y/o uno}{8}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Funci\'on de verosimilitud}{9}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}Cuadratura de Gauss-Hermite}{10}{subsubsection.2.3.5}
+\contentsline {section}{\numberline {3}Estado del arte}{13}{section.3}
+\contentsline {section}{\numberline {4}Metodolog\IeC {\'\i }a propuesta}{15}{section.4}
+\contentsline {section}{\numberline {5}Cronograma}{16}{section.5}
+\contentsline {section}{\numberline {6}Compromisos}{16}{section.6}
