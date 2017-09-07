@@ -1,2 +1,197 @@
-\chapter{Cap\'{\i}tulo 3}
-Se deben incluir tantos cap\'{\i}tulos como se requieran; sin embargo, se recomienda que la tesis  o trabajo de investigaci\'{o}n tenga un m\'{\i}nimo 3 cap\'{\i}tulos y m\'{a}ximo de 6 cap\'{\i}tulos (incluyendo las conclusiones).\\
+\chapter{Cap\'{\i}tulo 3: Modelo de regresi\'{o}n ZOIP con efectos mixtos}
+%{\Huge \textbf{Modelo de regresi\'{o}n ZOIP con efectos mixtos\\}}
+
+Introduccion......
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Modelo de regresi\'{o}n ZOIP mixto}
+
+
+Una escritura jer\'{a}rquica de dos niveles considerada para un modelo con variable respuesta dada por la distribuci\'{o}n para datos proporcionales inflados con ceros y/o unos (ZOIP), vista en la secci\'{o}n \ref{Sec_dist_zoip}. Denotando a $y_{ij}$ como la $j-$\'{e}sima medida del $i-$\'{e}simo grupo, adem\'{a}s si asumisos interceptos aleatorios $\gamma_{i1}$ y $\gamma_{i2}$, los cuales son independientes y cada uno sigue una distribuci\'{o}n normal con media cero y desviaci\'{o}n est\'{a}ndar $\lambda_1$ y $\lambda_2$, respectivamente. Asumimos tambi\'{e}n que los interceptos aleatorios $\gamma_{i1}$ y $\gamma_{i2}$ son independientes entre s\'{\i}. Una escritura matem\'{a}tica para el modelo es el siguiente:
+
+\[
+y_{ij}| \gamma_{i1},\gamma_{i2} \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),
+\]
+\[
+\gamma_{i1} \overset{\text{i.i.d}}{\sim}  N(0,\lambda_1^2),
+\]
+\[
+\gamma_{i2} \overset{\text{i.i.d}}{\sim}  N(0,\lambda_2^2),
+\]
+\\
+Para $i=1,2,\ldots, N$ y $j=1,2,\ldots, n_i$ Los par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$ son modelados linealmente en funci\'{o}n de un conjunto de covariables respectivamente, por:
+
+
+\[
+h_1(\mu_{ij})=\mathbf{x}_{ij1}^{\top} \boldsymbol{\beta}_1+ \gamma_{i1},
+\]
+\[
+h_2(\sigma_{ij})=\mathbf{x}_{ij2}^{\top} \boldsymbol{\beta}_2+ \gamma_{i2},
+\]
+\[
+h_3(p_0)=\mathbf{x}_{ij3}^{\top} \boldsymbol{\beta}_3,
+\]
+\[
+h_4(p_1)=\mathbf{x}_{ij4}^{\top} \boldsymbol{\beta}_4
+\]
+
+
+donde $\mathbf{x}_{ij1}$, $\mathbf{x}_{ij2}$, $\mathbf{x}_{ij3}$ y $\mathbf{x}_{ij4}$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente. $\boldsymbol{\beta}_1$, $\boldsymbol{\beta}_2$, $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ son vectores de par\'{a}metros desconocidos fijos asociados a las covariables y $\gamma_{i1}$, $\gamma_{i2}$ son los interceptos aleatorios asociados al $i-$\'{e}simo grupo. Adem\'{a}s las funciones $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son funciones de enlace conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n,  para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace como logit, probit, clog-log.
+
+\subsection{Inferencia estad\'{\i}stica}
+
+La estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n con intercepto aleatorio para datos proporcionales inflados con ceros y/o unos, por medio de m\'{a}xima verosimilitud, es necesario hallar la funci\'{o}n de verosimilitud.
+
+Considere $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top},\lambda_1,\lambda_2)^{\top}$ un vector de par\'{a}metros a ser estimado en el espacio:
+\[
+\Theta=\left\{\boldsymbol{\theta} \in \mathbb{R}^k | \boldsymbol{\beta_1} \in \mathbb{R}^{k_1}, \boldsymbol{\beta_2} \in \mathbb{R}^{k_2}, \boldsymbol{\beta_3} \in \mathbb{R}^{k_3}, \boldsymbol{\beta_4} \in \mathbb{R}^{k_4}, \lambda_1 \in \mathbb{R}^+, \lambda_2 \in \mathbb{R}^+  \right\}
+\]
+
+en el que $k=k_1+k_2+k_3+k_4+2$, tenemos que una distribuci\'{o}n marginal de $\mathbf{y}_i=(y_{1i},\ldots, y_{n_i}i)^{\top}$ es dada por:
+
+\[
+f(\mathbf{y}_i;\boldsymbol{\theta})=\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2},
+\]
+
+Entonces una funci\'{o}n de verosimilitud para las observaciones $\mathbf{y}=(y_1, \cdots, y_N)^{\top}$ es de la forma:
+
+\[
+L(\boldsymbol{\theta})=\prod_{i=1}^{N}f(\mathbf{y}_i;\boldsymbol{\theta})
+\]
+\[
+=\prod_{i=1}^{N}\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2},
+\]
+
+\begin{equation}
+\ell(\boldsymbol{\theta})=\sum_{i=1}^{N}log \left[\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2}\right],
+ \label{func_ver_mix}
+\end{equation}
+
+
+donde $f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})$ es la funci\'{o}n de densidad de probabilidad condicional de $y_{ij}$ que distribuye $ZOIP(\mu,\sigma,p_0,p_1)$. $\gamma_{i1}$, $\gamma_{i2}$ y $f(\gamma_{i1};\lambda_1)$ y $f(\gamma_{i2};\lambda_2)$ son funciones de densidades de probabilidad normales de $\gamma_{i1}$ y $\gamma_{i2}$, respectivamente. Para encontrar el m\'{a}ximo de la funci\'{o}n $\ell(\boldsymbol{\theta})$ no es posible mediante una manera cerrada anal\'{\i}ticamente, una dificultad adicional es la soluci\'{o}n de la integral para encontrar la maximizaci\'{o}n de la funci\'{o}n $\ell(\boldsymbol{\theta})$, por lo que es necesario utilizar t\'{e}cnicas computacionales para la soluci\'{o}n de esta, t\'{e}cnicas tales como aproximaciones de Laplace, algoritmos EM, integraci\'{o}n Monte Carlo o t\'{e}cnicas bayesianas. Para solucionar dicha funci\'{o}n de log-verosimilitud utilizamos el m\'{e}todo de integraci\'{o}n num\'{e}rica Gauss-Hermite adaptativa multidimensional con y sin pruning, tal como se describe en la siguiente secci\'{o}n.
+
+
+\subsection{Cuadratura de Gauss-Hermite}\label{sec:Cuadratura}
+
+\subsubsection{Cuadratura de Gauss-Hermite unidimensional}
+
+La cuadratura de Gauss-Hermite (GQ) es una herramienta \'{u}til para aproximar una integral de una funci\'{o}n $g(x)$ sobre $\Re$ con una suma ponderada, donde la variable $x$ es reemplazada por una cuadratura de $n$ puntos o nodos. Cada punto de la cuadratura, es denotado por $p_i$, es evaluado en la funci\'{o}n y los resultados son ponderados por los pesos de la cuadratura asociados $w_i$.
+\[
+\int_\Re{g(x)dx}\approx\sum_{i=1}^{n}{g(p_i)exp(p_i^2)w_i.}
+\]
+\\
+El conjunto de los $n$ puntos de la cuadratura $\textbf{P}=\left\{p_1,p_2,\ldots,p_n\right\}$ corresponde a las ra\'{\i}ces del polinomio de Hermite dado por:
+
+\[
+H_n{(x)}=(-1)^ne^{-x^2}\frac{d^n}{dx^n}e^{-x^2},
+\]
+\\
+con pesos asociados $\textbf{W}=\left\{w_1,w_2,\ldots,w_n\right\}$ dados por
+
+\[
+w_i=\frac{2^{n-1}n!\sqrt{\pi}}{n^2{[H_{n-1}(x_i)]}^2}.
+\]
+
+\subsubsection{Cuadratura de Gauss-Hermite adaptativa}
+
+\textbf{Unidimensional\\}
+La cuadratura de Gauss-Hermite adaptativa (AGQ) es propuesta por \cite{Liu1}; \citep{Pinheiro1}, es b\'{a}sicamente una transformaci\'{o}n de los puntos asociados a la cuadratura, centrando y extendiendo alrededor del m\'{a}ximo valor de $\hat{x}$ de la funci\'{o}n $log(g(x))$. La transformaci\'{o}n de los puntos de la cuadratura $p_i$ definido como $p_i^*$, est\'{a} dado por $p_i^*=\sqrt{2}\hat{\sigma}p_i+\hat{x}$ donde:
+
+\[
+\hat{\sigma}^2={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+\\
+As\'{\i}, la aproximaci\'{o}n de la integral de $g(x)$ sobre $\Re$ est\'{a} dado por:
+
+\[
+\int_\Re{g(x)dx}\approx\sqrt{2}\hat{\sigma}\sum_{i=1}^{n}{g(p_i^*)exp(p_i^2)w_i.}
+\]
+
+\textbf{Multidimensional\\}
+Si extendemos la AGQ a una integral de dimensi\'{o}n q de la funci\'{o}n $g(x)$ sobre $\Re^q$, en este caso, con una cuadratura de $n$ puntos, $\textbf{Z}$ est\'{a} basado en el producto cartesiano de $\textbf{P}$, y los pesos de la cuadratura de $\textbf{A}$ est\'{a} basado similarmente en el producto Kronecker, denotado por $\otimes$, los pesos originales $\textbf{W}$, es dado:
+
+\[
+\textbf{Z}=\underbrace{P \times \ldots \times P}_{q\ \text{veces}}=P^q,
+\]
+
+\[
+\textbf{A}=\underbrace{W \otimes \ldots \otimes W}_{q\ \text{veces}}.
+\]
+\\
+As\'{\i}, la expresi\'{o}n para la integral aproximada de $g(x)$ sobre $\Re^q$ est\'{a} dado por:
+
+\[
+\int_{\Re^q}{g(x)dx}\approx|\hat{Q}|^{1/2} 2^{q/2}\sum_{i=1}^{n^q}g(z_i^*)exp(z_i^{\top}z_i)a_i,
+\]
+\\
+donde $z_i$ y $a_i$ corresponde a los elementos de $\textbf{Z}$ y $\textbf{A}$, respectivamente. Los nuevos puntos de la cuadratura $z_i^*$ estan centrados en el m\'{a}ximo de $\hat{x}$ del $log(g(x))$ y est\'{a} dado por $z_i^*=\hat{x}+\sqrt{2}\hat{Q}^{1/2}z_i$, donde $\hat{Q}^{1/2}$ corresponde a la descomposici\'{o}n de Cholesky de la curvatura de la matriz $\hat{Q}$, que se encuentra dado por:
+
+\[
+\hat{Q}={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+
+\subsubsection{Cuadratura de Gauss-Hermite adaptativa con Pruning}
+
+Es claro que los resultados obtenidos por la AGQ son mejores que los de GQ, debido a que se encuentran centrados, sin embargo, la AGQ requiere un tiempo de optimizacion mas elevado, debido a la transformacion de los puntos de cuadratura, pero no todos los puntos de la AGQ aportan de manera significativa un valor sobre la solucion de la integral, es por esto que \cite{Hernandez1} desarrolla un mejoramiento de la AGQ, donde elimina los puntos de la cuadratura que no son significativos sobre la solucion de la integral, de modo que no afectan de manera significaativa los resultados finales de la integral, pero si afectan de manera positiva el tiempo de ejecucion, dicho mejoramiento es llamado cuadratura de Gauss-Hermite con pruning. 
+
+La cuadratura de Gauss-Hermite adaptativa con pruning consiste en eliminar puntos de la cuadratura, tales que el peso $a_i$ asociado al punto es menor que un valor de referencia dado por $\theta$, que est\'{a} dado por:
+\[
+\theta=\frac{w_{[1]}w_{[\frac{n+1}{2}]}}{n^{q-1}}.
+\]
+\\
+donde $w_{[1]}$ y $w_{[\frac{n+1}{2}]}$ corresponden respectivamente, a el valor minimo y la mediana de los pesos originales \textbf{W}. (Ver m\'{a}s en \cite{Hernandez1}.)
+
+
+\subsection{Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i}a cuadratura de Gauss-Hermite}
+
+En la funci\'{o}n de verosimilitud definida en \eqref{func_ver_mix} se tiene que para cada i-esimo grupo se debe resolver la siguiente integral:
+
+\begin{align*}
+I_i &= \int_{\Re^2}{\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{i1};\lambda_1) f(\gamma_{i2};\lambda_2) d\gamma_{i1}d\gamma_{i2}}\\
+&=\int_{\Re^2}{\prod_{j=1}^{n_i}f(y_{ij}|\gamma_{i1},\gamma_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{exp({\gamma_{i1}^2}/{2\lambda_1^2})}{\lambda_1\sqrt{2\pi}} \cdot \frac{exp({\gamma_{i2}^2}/{2\lambda_2^2})}{\lambda_2\sqrt{2\pi}} d\gamma_{i1}d\gamma_{i2}}
+\end{align*}
+
+Si se realiza el siguiente cambio de variables
+
+\begin{equation*}
+\begin{aligned}
+b_{i1}&=\frac{\gamma_{i1}}{\sqrt{2}\lambda_1}\\
+\therefore b_{i1}^2&=\frac{\gamma_{i1}^2}{2\lambda_1^2}\\
+\therefore \gamma_{i1}&=\sqrt{2}\lambda_1b_{i1}\\
+\end{aligned}
+\quad
+\begin{aligned}
+b_{i2}&=\frac{\gamma_{i2}}{\sqrt{2}\lambda_2}\\
+b_{i2}^2&=\frac{\gamma_{i2}^2}{2\lambda_2^2}\\
+\gamma_{i2}&=\sqrt{2}\lambda_2 b_{i2}
+\end{aligned}
+\end{equation*}
+
+Por lo anterior se tiene que la integral $I_i$ se convierte en:
+
+\begin{equation}
+I_i=\int_{\Re^2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1b_{i1},\sqrt{2}\lambda_2 b_{i2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{exp(-b_{i1}^2) exp(-b_{i2}^2)}{\pi} db_{i1}db_{i2}}
+\label{Int_vero_mix}
+\end{equation}
+
+La integral definida en \eqref{Int_vero_mix} tiene una forma factible para ser aproximada usando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin pruning, vista en la secci\'{o}n \ref{sec:Cuadratura}, de este modo la integral $I_i$ es aproximada por:
+
+\[
+I_i=\sum_{k_1=1}^{Q_1}{\sum_{k_2=1}^{Q_2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1 z_{k_1},\sqrt{2}\lambda_2 z_{k_2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{w_{k_1}w_{k_2}}{\pi}}}
+\]
+
+donde $z_{k_1}$ y $z_{k_2}$ son los puntos de la cuadratura, $w_{k_1}$ y $w_{k_2}$ son los pesos asociados a los puntos de la cuadratura, por lo tanto la funci\'{o}n de verosimilitud aproximada es dado por:
+
+\[
+L(\boldsymbol{\theta})=\prod_{i=1}^{N}{\left[\sum_{k_1=1}^{Q_1}{\sum_{k_2=1}^{Q_2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1 z_{k_1},\sqrt{2}\lambda_2 z_{k_2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{w_{k_1}w_{k_2}}{\pi}}}\right]}
+\]
+
+y la funci\'{o}n de log verosimilitud esta dado por:
+
+\begin{equation}
+\ell(\boldsymbol{\theta})=\sum_{i=1}^{N}log{\left[\sum_{k_1=1}^{Q_1}{\sum_{k_2=1}^{Q_2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1 z_{k_1},\sqrt{2}\lambda_2 z_{k_2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{w_{k_1}w_{k_2}}{\pi}}}\right]}
+\label{LOG_vero_mix}
+\end{equation}
+
+Al tener la funci\'{o}n de log verosimilitud definida en \eqref{LOG_vero_mix}, para hallar los estimadores m\'{a}ximos veros\'{\i}miles se debe utilizar herramientas computacionales, como algoritmos de optimizaci\'{o}n, tales como las funciones de \proglang{R}, \code{nlminb} o \code{optim}. La metodolog\'{\i}a de estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n ZOIP con intercepto aleatorio en la media y la varianza, utilizando m\'{a}xima verosimilitud v\'{\i}a cuadratura de Gauss-Hermite adaptativa multidimensional con o sin pruning, se encuentra implementada en el paquete \pkg{ZOIP} de \proglang{R}, por medio de la funci\'{o}n \code{RMM.ZOIP}.

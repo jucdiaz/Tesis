@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -70,6 +70,12 @@ L.~Pace and A.~Salvan.
 \newblock Principles of statistical inference from a neo-fisherian perspective.
   in: Advanced series on statistical science and applied probability.
 \newblock \emph{World Scientific}, 4:\penalty0 128, 1997.
+
+\bibitem[Paolino(2001)]{Paolino1}
+P.~Paolino.
+\newblock Maximim likelihood estimation of models with beta-distributed
+  dependent variables.
+\newblock \emph{Polotical Analysis}, 9\penalty0 (4):\penalty0 325--346, 2001.
 
 \bibitem[Qiu et~al.(2008)Qiu, Song, and Tan]{Qiu1}
 Z.~Qiu, P.~Song, and M.~Tan.

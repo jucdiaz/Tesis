@@ -1,6 +1,6 @@
-\chapter{Cap\'{\i}tulo 2}
-{\Huge \textbf{Modelo de regresi\'{o}n ZOIP con efectos fijos}}\vspace{1cm}
-Los datos obtenidos a partir de variables medidas bajo porcentajes, tasas y proporciones, son llamados datos proporcionales y estos se encuentran ubicados por lo general en el intervalo (0,1), sin embargo existen casos de este tipo de variables pueden dar resultados de cero y/o uno, representando la ausencia o presencia total de la caracter\'{\i}stica medida a partir de una variable, este tipo de datos son conocidos como datos proporcionales inflados con ceros y/o unos, existen diferentes distribuciones que explican estos datos, tales como la distribuci\'{o}n beta inflada con ceros o unos \citep{Ospina2} o de una manera m\'{a}s general la distribuci\'{o}n ZOIP (Zeros Ones inflated Proportional) que busca reunir la distribuci\'{o}n simplex y beta bajo diferentes parametrizaciones en una sola distribuci\'{o}n.\\
+\chapter{Cap\'{\i}tulo 2: Modelo de regresi\'{o}n ZOIP con efectos fijos}
+%{\Huge \textbf{Modelo de regresi\'{o}n ZOIP con efectos fijos\\}}
+%Los datos obtenidos a partir de variables medidas bajo porcentajes, tasas y proporciones, son llamados datos proporcionales y estos se encuentran ubicados por lo general en el intervalo (0,1), sin embargo existen casos de este tipo de variables pueden dar resultados de cero y/o uno, representando la ausencia o presencia total de la caracter\'{\i}stica medida a partir de una variable, este tipo de datos son conocidos como datos proporcionales inflados con ceros y/o unos, existen diferentes distribuciones que explican estos datos, tales como la distribuci\'{o}n beta inflada con ceros o unos \citep{Ospina2} o de una manera m\'{a}s general la distribuci\'{o}n ZOIP (Zeros Ones inflated Proportional) que busca reunir la distribuci\'{o}n simplex y beta bajo diferentes parametrizaciones en una sola distribuci\'{o}n.\\
 
 En muchos casos de estudios es factible preguntarse c\'{o}mo puede ser explicada una variable aleatoria proveniente de datos proporcionales a partir de diferentes variables, es decir un modelo de regresi\'{o}n para datos proporcionales, el modelo m\'{a}s conocido en la literatura para este tipo de datos es la regresi\'{o}n beta, donde \cite{Paolino1} estima mediante m\'{a}xima verosimilitud modelos de variables dependientes de una distribuci\'{o}n beta, utilizando la parametrizaci\'{o}n original, m\'{a}s adelante  \cite{Ferrari2} reparametrizan la distribuci\'{o}n e introducen la regresi\'{o}n beta bajo esta nueva parametrizaci\'{o}n, m\'{a}s adelante en el paquete \pkg{betareg} de \proglang{R} \citep{Zeileis1} implementan dicha regresi\'{o}n. Por otro parte \cite{Stasinopoulos2} tambi\'{e}n realizan otra reparametrizaci\'{o}n de la distribuci\'{o}n beta original, basado en par\'{a}metros como la media y la dispersi\'{o}n, adem\'{a}s introducen un modelo de regresi\'{o}n beta basado en dicha distribuci\'{o}n y lo implementan en el paquete \pkg{gamlss} de \proglang{R}, sin embargo existen otros tipos de regresiones basadas en otras distribuciones, como la regresi\'{o}n simplex, que se encuentra bajo la distribuci\'{o}n para datos proporcionales simplex \citep{Barndorff1}, dicha regresi\'{o}n fue realizada por \cite{Qiu1} e implementada en el paquete \pkg{simplexreg} de \proglang{R} \citep{Zhang1}.\\
 
@@ -8,7 +8,7 @@ Sin embargo los anteriores modelos de regresi\'{o}n son realizados para datos pr
 
 Es por esto que en este trabajo se implementa de manera te\'{o}rica y de forma pr\'{a}ctica mediante el paquete \pkg{ZOIP} en el sistema de computaci\'{o}n \proglang{R} \citep{R} y disponible en el repositorio web \verb|GitHub|, un modelo de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos (Modelo de regresi\'{o}n ZOIP) que permita mediante una misma funci\'{o}n ajustar modelos en diferentes distribuciones para datos proporcionales y en diferentes parametrizaciones.\\
 
-El art\'{\i}culo se encuentra organizado de la siguiente manera: primero se presenta la distribuci\'{o}n ZOIP, en la siguiente secci\'{o}n el modelo de regresi\'{o}n ZOIP y su debida estimaci\'{o}n, en la secci\'{o}n n\'{u}mero cuatro se presenta unas aplicaciones a datos simulados y a datos reales y por \'{u}ltimo se presenta la implementaci\'{o}n del modelo de regresi\'{o}n ZOIP en el paquete \pkg{ZOIP} de \proglang{R}.
+Este cap\'{\i}tul se encuentra organizado de la siguiente manera: primero se presenta el modelo de regresi\'{o}n ZOIP que es basado en la distribucion ZOIP visto en el capitulo anterior y su debida estimaci\'{o}n, mediante maxima verosimilitud, en la siguiente secci\'{o}n se presenta la implementaci\'{o}n del modelo de regresi\'{o}n ZOIP en el paquete \pkg{ZOIP} de \proglang{R} y por \'{u}ltimo se presenta unas aplicaciones a datos simulados y a datos reales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,7 +27,7 @@ Una clase general de modelos de regresi\'{o}n ZOIP puede definirse como sigue. S
 \end{equation}
 
 donde $\mathbf{x}_{i1}=(x_{i11}, x_{i12},\ldots, x_{i1k_1})$, $\mathbf{x}_{i2}=(x_{i21}, x_{i22},\ldots, x_{i2k_2})$, \\
-$\mathbf{x}_{i3}=(x_{i31}, x_{i32},\ldots, x_{i1k_3})$ y $\mathbf{x}_{i4}=(x_{i41}, x_{i42},\ldots, x_{i1k_4})$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente, $\boldsymbol{\beta}_1=(\beta_{11}, \beta_{12},\ldots, \beta_{1k_1})$, $\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s se asume que las funciones de enlace $h_1:(0,1) \rightarrow \mathbb{R}$, $h_2:(0,1) \rightarrow \mathbb{R}$, $h_3:(0,1) \rightarrow \mathbb{R}$ y $h_4:(0,1) \rightarrow \mathbb{R}$ son estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n,  para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace como logit, probit, clog-log.
+$\mathbf{x}_{i3}=(x_{i31}, x_{i32},\ldots, x_{i1k_3})$ y $\mathbf{x}_{i4}=(x_{i41}, x_{i42},\ldots, x_{i1k_4})$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente, $\boldsymbol{\beta}_1=(\beta_{11}, \beta_{12},\ldots, \beta_{1k_1})$, $\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s se asume que las funciones de enlace $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son conocidas y apropiadas para mapear de los reales a los valores admisibles del parámetro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n,  para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace como logit, probit, clog-log. Estudios sobre funciones enlace mal especificadas sobre modelos de regresi\'{o}n beta se encuentran en \cite{andrade07}.
 
 \subsection{Inferencia estad\'{\i}stica}
 
@@ -197,7 +197,7 @@ Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 En esta secci\'{o}n se muestran diferentes resultados sobre el ajuste de un modelo de regresi\'{o}n ZOIP, por medio del paquete \pkg{ZOIP}, primero se realiz\'{o} un estudio de simulaci\'{o}n para analizar la convergencia de la estimaci\'{o}n de los par\'{a}metros regresores de una regresi\'{o}n ZOIP, y en segunda instancia se ajusta un modelo de regresi\'{o}n ZOIP a datos reales, sobre c\'{o}mo puede ser explicado el porcentaje de utilizaci\'{o}n de una tarjeta de cr\'{e}dito (tdc) de una entidad financiera con diferentes variables del negocio.
 
 \subsection{Datos simulados}
-En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad de estimaci\'{o}n que tiene el m\'{e}todo de m\'{a}xima verosimilitud sobre los par\'{a}metros regresores de un modelo de regresi\'{o}n ZOIP. Para comprobar esto se generaron muestras pertenecientes a una distribuci\'{o}n ZOIP a partir de dos variables aleatorias uniformes cero uno, con tama\~{n}os de muestra de 25, 50, 75, y 100 a partir de este punto no se realizar\'{a}n incrementos de 25 si no de 100, es decir 100, 200, 300 hasta 3500, y se realizaron 1000 r\'{e}plicas para cada tama\~{n}o de muestra, posteriormente se calcul\'{o} la mediana de la estimaci\'{o}n de cada par\'{a}metro regresor para cada distribuci\'{o}n y parametrizaci\'{o}n utilizada. A continuaci\'{o}n, se muestra la estructura simulada para cada par\'{a}metro de la distribuci\'{o}n ZOIP.
+En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad de estimaci\'{o}n que tiene el m\'{e}todo de m\'{a}xima verosimilitud sobre los par\'{a}metros regresores de un modelo de regresi\'{o}n ZOIP. Para comprobar esto se generaron muestras pertenecientes a una distribuci\'{o}n ZOIP a partir de dos variables aleatorias uniformes cero uno, con tama\~{n}os de muestra de 25, 50, 75, y 100 a partir de este punto no se realizar\'{a}n incrementos de 25 si no de 100, es decir 100, 200, 300 hasta 3500, y se realizaron 1000 r\'{e}plicas para cada tama\~{n}o de muestra, posteriormente se calcul\'{o} la mediana de la estimaci\'{o}n de cada par\'{a}metro regresor para cada distribuci\'{o}n y parametrizaci\'{o}n utilizada. A continuaci\'{o}n, se muestra la estructura simulada para cada par\'{a}metro de la distribuci\'{o}n ZOIP.\\
 
 \begin{equation}
 \begin{split}
@@ -209,19 +209,19 @@ En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad 
 \label{S_eq_reg}
 \end{equation}
 
-Donde para la regresi\'{o}n de $\mu$: $\beta_0=0.2$ y $\beta_1=-1$, para la de $\sigma$ se escogieron dos escenarios distintos si la regresi\'{o}n a modelar es ZOIP-beta parametrizaci\'{o}n de \cite{Stasinopoulos2}, entonces: $\beta_0=0.3$, $\beta_1=-2$, $\beta_2=-4$, para las dem\'{a}s parametrizaci\'{o}n y distribuciones $\beta_0=0.3$, $\beta_1=3$, $\beta_2=0.9$, esto para tener una variabilidad de los datos moderada. Para el par\'{a}metro $p_0$: $\beta_0=0.07$ y para $p_1$: $\beta_0=0.02$ y $\beta_1=-4$ para todos los casos posibles de selecci\'{o}n de la regresi\'{o}n ZOIP, y $x_{1i} \sim U(0,1)$, $x_{2i} \sim U(0,1)$. Las funciones de enlace adecuadas para cada distribuci\'{o}n y parametrizaci\'{o}n se muestran en la tabla \ref{T_F_enlace}.
+Donde para la regresi\'{o}n de $\mu$: $\beta_0=0.2$ y $\beta_1=-1$, para la de $\sigma$ se escogieron dos escenarios distintos si la regresi\'{o}n a modelar es ZOIP-beta parametrizaci\'{o}n de \cite{Stasinopoulos2}, entonces: $\beta_0=0.3$, $\beta_1=-2$, $\beta_2=-4$, para las dem\'{a}s parametrizaci\'{o}n y distribuciones $\beta_0=0.3$, $\beta_1=3$, $\beta_2=0.9$, esto para tener una variabilidad de los datos moderada. Para el par\'{a}metro $p_0$: $\beta_0=0.07$ y para $p_1$: $\beta_0=0.02$ y $\beta_1=-4$ para todos los casos posibles de selecci\'{o}n de la regresi\'{o}n ZOIP, y $x_{1i} \sim U(0,1)$, $x_{2i} \sim U(0,1)$. Las funciones de enlace adecuadas para cada distribuci\'{o}n y parametrizaci\'{o}n se muestran en la tabla \ref{T_F_enlace}.\\
 
 \begin{table}[!hbt]
 {\scriptsize
 \begin{center}
 \begin{tabular}{|c|c|c|}\hline
 Familia & Par\'{a}metro & $h(\cdot)$ \\ \hline
-\multirow{4}{*}{R-S \footnotemark[1]} & $\mu$ & Logit \\
+\multirow{4}{*}{R-S} & $\mu$ & Logit \\
  & $\sigma$ & Logit \\
  & $p_0$ & NA \\
  & $p_1$ & Logit \\ \hline
 
-\multirow{4}{*}{F-C \footnotemark[2]} & $\mu$ & Logit \\
+\multirow{4}{*}{F-C} & $\mu$ & Logit \\
  & $\sigma$ & Log. \\
  & $p_0$ & NA \\
  & $p_1$ & Logit \\ \hline
@@ -251,7 +251,7 @@ Familia & Par\'{a}metro & $h(\cdot)$ \\ \hline
 	\end{center}
 \end{figure}
 
-En la figura \ref{Simu_RS} se describen los valores estimados para diferentes valores de tama\~{n}o de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Stasinopoulos2}, en ella se ve como todos los par\'{a}metros estimados oscilan alrededor del valor real del par\'{a}metro que es representado por la l\'{\i}nea roja, sin embargo, se nota como unos par\'{a}metros tienen una oscilaci\'{o}n mayor que otros, como es el caso de los par\'{a}metros de intercepto de la media y el del par\'{a}metro de inflaci\'{o}n de unos, asociada a $p_1$. Los de m\'{a}s par\'{a}metros convergen r\'{a}pidamente a sus valores reales, como los par\'{a}metros que representan la variabilidad ($\sigma$) y el par\'{a}metro de $p_0$.   
+En la figura \ref{Simu_RS} se describen los valores estimados para diferentes valores de tama\~{n}o de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Stasinopoulos2}, en ella se ve como todos los par\'{a}metros estimados oscilan alrededor del valor real del par\'{a}metro que es representado por la l\'{\i}nea roja, sin embargo, se nota como unos par\'{a}metros tienen una oscilaci\'{o}n mayor que otros, como es el caso de los par\'{a}metros de intercepto de la media y el del par\'{a}metro de inflaci\'{o}n de unos, asociada a $p_1$. Los de m\'{a}s par\'{a}metros convergen r\'{a}pidamente a sus valores reales, como los par\'{a}metros que representan la variabilidad ($\sigma$) y el par\'{a}metro de $p_0$.\\
 
 \begin{figure}
 	\begin{center}
@@ -261,7 +261,7 @@ En la figura \ref{Simu_RS} se describen los valores estimados para diferentes va
 	\end{center}
 \end{figure}
 
-En la figura \ref{Simu_FC} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Ferrari2}, en dicha figura se nota como la estimaci\'{o}n de los par\'{a}metros asociados con la media tienen una oscilaci\'{o}n mayor que los dem\'{a}s par\'{a}metros, sin embargo, en todos los par\'{a}metros se obsserva como a medida que el tama\~{n}o de muestra es m\'{a}s grande la oscilaci\'{o}n de los par\'{a}metros es menor y van convergiendo satisfactoriamente a sus valores reales.
+En la figura \ref{Simu_FC} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Ferrari2}, en dicha figura se nota como la estimaci\'{o}n de los par\'{a}metros asociados con la media tienen una oscilaci\'{o}n mayor que los dem\'{a}s par\'{a}metros, sin embargo, en todos los par\'{a}metros se obsserva como a medida que el tama\~{n}o de muestra es m\'{a}s grande la oscilaci\'{o}n de los par\'{a}metros es menor y van convergiendo satisfactoriamente a sus valores reales.\\
 
 \begin{figure}
 	\begin{center}
@@ -271,7 +271,7 @@ En la figura \ref{Simu_FC} se describen los valores estimados para diferentes ta
 	\end{center}
 \end{figure}
 
-En la figura \ref{Simu_Ori} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original, se puede ver como con los valores del escenario de simulaci\'{o}n elegidos, se obtiene una distribuci\'{o}n ZOIP con mayor variabilidad, por lo que los valores de los par\'{a}metros asociados a $\sigma$ tienen una mayor oscilaci\'{o}n, sin embargo, este oscila solo en un 0.01 de sus unidades, lo que no es preocupante. Por otra parte, se observa como el par\'{a}metro de intercepto del par\'{a}metro de inflaci\'{o}n de unos ($p_1$) si oscila mucho m\'{a}s ya que este tiene una desviaci\'{o}n est\'{a}ndar de 0.04 en promedio, pero se observa como a trav\'{e}s de que el tama\~{n}o de muestra es mayor la oscilaci\'{o}n va dis\-mi\-nu\-yen\-do, por lo que se sospecha que se necesita un mayor tama\~{n}o de muestra para que esta converja con mayor satisfacci\'{o}n.
+En la figura \ref{Simu_Ori} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original, se puede ver como con los valores del escenario de simulaci\'{o}n elegidos, se obtiene una distribuci\'{o}n ZOIP con mayor variabilidad, por lo que los valores de los par\'{a}metros asociados a $\sigma$ tienen una mayor oscilaci\'{o}n, sin embargo, este oscila solo en un 0.01 de sus unidades, lo que no es preocupante. Por otra parte, se observa como el par\'{a}metro de intercepto del par\'{a}metro de inflaci\'{o}n de unos ($p_1$) si oscila mucho m\'{a}s ya que este tiene una desviaci\'{o}n est\'{a}ndar de 0.04 en promedio, pero se observa como a trav\'{e}s de que el tama\~{n}o de muestra es mayor la oscilaci\'{o}n va dis\-mi\-nu\-yen\-do, por lo que se sospecha que se necesita un mayor tama\~{n}o de muestra para que esta converja con mayor satisfacci\'{o}n.\\
 
 \begin{figure}
 	\begin{center}
@@ -281,7 +281,7 @@ En la figura \ref{Simu_Ori} se describen los valores estimados para diferentes t
 	\end{center}
 \end{figure}
 
-En la figura \ref{Simu_simplex} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-simplex, Se nota como todos los par\'{a}metros oscilan alrededor de los valores verdaderos y como estas oscilaciones se van reduciendo a trav\'{e}s de que el tama\~{n}o de muestra crece, sin embargo, unos par\'{a}metros toman mayor tiempo de convergencia como es el par\'{a}metro $\beta_1$ asociado al par\'{a}metro de dispersi\'{o}n ($\sigma$).
+En la figura \ref{Simu_simplex} se describen los valores estimados para diferentes tama\~{n}os de muestra, cuando se elige realizar una regresi\'{o}n ZOIP-simplex, Se nota como todos los par\'{a}metros oscilan alrededor de los valores verdaderos y como estas oscilaciones se van reduciendo a trav\'{e}s de que el tama\~{n}o de muestra crece, sin embargo, unos par\'{a}metros toman mayor tiempo de convergencia como es el par\'{a}metro $\beta_1$ asociado al par\'{a}metro de dispersi\'{o}n ($\sigma$).\\
 
 
 
@@ -302,11 +302,11 @@ simplex & 13.93 & 5.89 & 24.49 & 3.11 & 11.01 & 4.85 & 91.15 & 4.81 \\ \hline
 }
 \end{table}
 
-En la tabla \ref{MAPE} se muestra la mediana del MAPE de los diferentes par\'{a}metros regresores para cada posible caso de la distribuci\'{o}n o parametrizaci\'{o}n de la distribuci\'{o}n ZOIP, en dicha tabla se nota como el MAPE en los interceptos de cualquier regresi\'{o}n asociada a los par\'{a}metros de la distribuci\'{o}n ZOIP son un poco m\'{a}s grandes que los dem\'{a}s par\'{a}metros regresores de cada regresi\'{o}n, adem\'{a}s se comete un MAPE m\'{a}s grande en las regresiones asociadas a todos los par\'{a}metros de inflaci\'{o}n, esto nos permite concluir que hallar los par\'{a}metros verdaderos en los par\'{a}metros de inflaci\'{o}n es un poco m\'{a}s dif\'{\i}cil que en los par\'{a}metros de localizaci\'{o}n y escala como lo son $\mu$ y $\sigma$, esto se debe a que se posee una menor cantidad de datos en cero y uno, en este escenario de simulaci\'{o}n elegido. Por otro lado, el intercepto asociado a la regresi\'{o}n del par\'{a}metro de inflaci\'{o}n de los unos posee un MAPE muy grande, por lo que nos permite concluir que a pesar de que los diferentes par\'{a}metros estimados en la simulaci\'{o}n oscilan alrededor del valor real este todav\'{\i}a tiene una variabilidad muy grande por lo que hace que este MAPE sea grande y el par\'{a}metro no haya convergido con un tama\~{n}o de muestra de 3500.
+En la tabla \ref{MAPE} se muestra la mediana del MAPE de los diferentes par\'{a}metros regresores para cada posible caso de la distribuci\'{o}n o parametrizaci\'{o}n de la distribuci\'{o}n ZOIP, en dicha tabla se nota como el MAPE en los interceptos de cualquier regresi\'{o}n asociada a los par\'{a}metros de la distribuci\'{o}n ZOIP son un poco m\'{a}s grandes que los dem\'{a}s par\'{a}metros regresores de cada regresi\'{o}n, adem\'{a}s se comete un MAPE m\'{a}s grande en las regresiones asociadas a todos los par\'{a}metros de inflaci\'{o}n, esto nos permite concluir que hallar los par\'{a}metros verdaderos en los par\'{a}metros de inflaci\'{o}n es un poco m\'{a}s dif\'{\i}cil que en los par\'{a}metros de localizaci\'{o}n y escala como lo son $\mu$ y $\sigma$, esto se debe a que se posee una menor cantidad de datos en cero y uno, en este escenario de simulaci\'{o}n elegido. Por otro lado, el intercepto asociado a la regresi\'{o}n del par\'{a}metro de inflaci\'{o}n de los unos posee un MAPE muy grande, por lo que nos permite concluir que a pesar de que los diferentes par\'{a}metros estimados en la simulaci\'{o}n oscilan alrededor del valor real este todav\'{\i}a tiene una variabilidad muy grande por lo que hace que este MAPE sea grande y el par\'{a}metro no haya convergido con un tama\~{n}o de muestra de 3500.\\
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{MAPE_gnral.eps}	
+		\includegraphics[scale=0.6]{MAPE_gnral.eps}	
 		\caption{Mape (Error porcentual absoluto medio) para modelo de regresion ZOIP simulado para distintas parametrizaciones y valores de $n$.}
 		\label{Mape_gnrl}
 	\end{center}
@@ -315,21 +315,22 @@ En la tabla \ref{MAPE} se muestra la mediana del MAPE de los diferentes par\'{a}
 En la figura \ref{Mape_gnrl} se muestra la mediana del MAPE de la mediana del MAPE de todos los par\'{a}metros asociados a cada parametrizaci\'{o}n y distribuci\'{o}n para diferentes tama\~{n}os de muestra, en ella se evidencia como el caso de la regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n \cite{Stasinopoulos2} tiene un MAPE menor, donde este tiene asociados unos par\'{a}metros distintos con una distribuci\'{o}n ZOIP con menor variabilidad, por lo que no es del todo comparable con las dem\'{a}s parametrizaciones y distribuciones, se nota un MAPE menor al $20\%$ a partir de un tama\~{n}o de muestra mayor a 500, por lo que se puede concluir que con un tama\~{n}o de muestra mayor a 500 el modelo tendr\'{a} un MAPE aceptable para la estimaci\'{o}n de todos los par\'{a}metros de la regresi\'{o}n ZOIP, sin embargo, esto siempre depender\'{a} de la variabilidad que posean los datos.
 
 \subsection{Datos reales}
-En una entidad financiera tiene gran importancia conocer el comportamiento del porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito (tdc), con el fin de conocer el comportamiento de la cartera de tarjeta de cr\'{e}dito, adem\'{a}s de detectar los diferentes factores que pueden afectar este tipo de cartera. Se define a $y$ como el porcentaje de uso de una tdc, claramente $y$ se encuentra entre cero y uno, pero adicional es normal que se tengan tdc que no son utilizadas ($y=0$) y tdc que est\'{a}n utilizadas en la totalidad de su cupo asignado ($y=1$), por lo que se trata a $y$ como una variable aleatoria perteneciente a datos proporcionales inflados con ceros y unos. Se tiene un total de 9206 tarjetas de cr\'{e}dito. Se quiere estudiar el impacto de algunas variables sobre el porcentaje de utilizaci\'{o}n de una tdc, para ello se busca ajustar un modelo de regresi\'{o}n ZOIP mediante la funci\'{o}n \code{RM.ZOIP} del paquete \pkg{ZOIP} de \proglang{R}, que permita explicar el comportamiento del porcentaje de utilizaci\'{o}n de una tdc mediante bajo las siguientes tres variables, \textsl{Score:} variable entre cero y 1000 que para nuestro caso se cambiara de escala entre cero y uno, est\'{a} explica la calificaci\'{o}n sobre el comportamiento de pago de un cliente que pertenece a la entidad financiera, donde cero es el peor valor y mil un comportamiento de pago ideal; \textsl{Prom Cuotas:} se define como el promedio al que ha diferido sus compras en los \'{u}ltimos seis meses; \textsl{Cupo tdc Entidad:} es el cupo de la tdc asignada, esta ser\'{a} tratada como el logaritmo de su cupo m\'{a}s uno, para una mayor estabilidad de su varianza.
 
-En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n, para ser ajustados que nos permitan explicar el comportamiento de los cuatro par\'{a}metros que se compone la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.
+En una entidad financiera tiene gran importancia conocer el comportamiento del porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito (tdc), con el fin de conocer el comportamiento de la cartera de tarjeta de cr\'{e}dito, adem\'{a}s de detectar los diferentes factores que pueden afectar este tipo de cartera. Se define a $y$ como el porcentaje de uso de una tdc, es de notar que $y$ se encuentra entre cero y uno, pero adicional es normal que se tengan tdc que no sean utilizadas ($y=0$) y tdc que est\'{a}n utilizadas en la totalidad de su cupo asignado ($y=1$), por lo que se trata a $y$ como una variable aleatoria perteneciente a datos proporcionales inflados con ceros y unos, es decir $y$ puede ser explicada a partir de una distribuci\'{o}n ZOIP. Se tiene un total de 9206 tarjetas de cr\'{e}dito. Se quiere estudiar el impacto de algunas variables sobre el porcentaje de utilizaci\'{o}n de una tdc, para ello se busca ajustar un modelo de regresi\'{o}n ZOIP mediante la funci\'{o}n \code{RM.ZOIP} del paquete \pkg{ZOIP} de \proglang{R}, que permita explicar el comportamiento del porcentaje de utilizaci\'{o}n de una tdc mediante las siguientes tres variables, \textsl{Score:} variable entre cero y 1000 que para nuestro caso se cambiara de escala entre cero y uno, est\'{a} explica la calificaci\'{o}n del comportamiento de pago del cliente asociada a la tdc, que pertenece a la entidad financiera, donde cero es la peor calificacion y uno un comportamiento de pago ideal; \textsl{Prom Cuotas:} se define como el promedio de cantidad de cuotas al que ha diferido sus compras en los \'{u}ltimos seis meses; \textsl{Cupo tdc Entidad:} es el cupo total asignado a la tdc, esta ser\'{a} tratada como el logaritmo de su cupo m\'{a}s uno, para una mayor estabilidad de su varianza.\\
+
+En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n para ser ajustados, de tal forma que nos permita ver el efecto de las variables descritas anteriormente sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.
 
 \begin{equation}
 \begin{split}
 &h_1(\mu_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
 &h_2(\sigma_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
-&h_3(p_0)=\beta_0+\beta_1 x_{1i}+\beta_2 x_{3i}+\epsilon_i,\\
-&h_4(p_1) =\beta_0+\epsilon_i
+&h_3(p_0)=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
+&h_4(p_1) =\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i
 \end{split}
 \label{A_eq_reg}
 \end{equation}
 
-donde $x_{1i}$: es el valor del score del i-esimo individuo asociada a la tarjeta de cr\'{e}dito, $x_{2i}$: es valor del promedio de cuotas al que difiere sus compras el i-esimo individuo asociada a la tarjeta de cr\'{e}dito, $x_{3i}$: es el valor del cupo otorgado en la tdc del i-esimo individuo. 
+donde $x_{1i}$: es el valor del score del i-esimo individuo asociada a la tarjeta de cr\'{e}dito, $x_{2i}$: es valor del promedio de cuotas al que difiere sus compras de la i-esima tarjeta de cr\'{e}dito, $x_{3i}$: es el valor del cupo otorgado de la i-esima tarjeta de cr\'{e}dito. 
 
 \begin{table}[!hbt]
 {\scriptsize
@@ -339,22 +340,22 @@ Familia & Par\'{a}metro & $h(\cdot)$ \\ \hline
 \multirow{4}{*}{R-S} & $\mu$ & Logit \\
  & $\sigma$ & Logit \\
  & $p_0$ & Logit \\
- & $p_1$ & NA \\ \hline
+ & $p_1$ & Logit \\ \hline
 
 \multirow{4}{*}{F-C} & $\mu$ & Logit \\
  & $\sigma$ & Log. \\
  & $p_0$ & Logit \\
- & $p_1$ & NA \\ \hline
+ & $p_1$ & Logit \\ \hline
 
 \multirow{4}{*}{original} & $\mu$ & Log. \\
  & $\sigma$ & Log. \\
  & $p_0$ & Logit \\
- & $p_1$ & NA \\ \hline
+ & $p_1$ & Logit \\ \hline
 
 \multirow{4}{*}{simplex} & $\mu$ & Logit \\
  & $\sigma$ & Log. \\
  & $p_0$ & Logit \\
- & $p_1$ & NA \\ \hline
+ & $p_1$ & Logit \\ \hline
 
 \end{tabular}
 \caption{Funciones de enlace adecuadas para cada par\'{a}metro, seg\'{u}n su distribuci\'{o}n y/o parametrizaci\'{o}n para el modelo de regresi\'{o}n ZOIP en el porcentaje de utilizaci\'{o}n de una tdc.}
@@ -363,15 +364,14 @@ Familia & Par\'{a}metro & $h(\cdot)$ \\ \hline
 }
 \end{table}
 
-En las ecuaciones dadas en \eqref{A_eq_reg} se puede ver como los par\'{a}metros $\mu$, $\sigma$ ser\'{a}n explicados por las variables score, cupo de su tdc y el promedio al que difiere sus compras, el par\'{a}metro $p_0$ por las variables score y el cupo de su tdc, para observar como ajusta el par\'{a}metro $p_1$ sin covariables, no se pusieron variables regresoras.
-
+En las ecuaciones dadas en \eqref{A_eq_reg} se puede ver como los par\'{a}metros $\mu$, $\sigma$, $p_0$, $p_1$  ser\'{a}n explicados por las variables score, cupo asignado a su tdc y el promedio al que difiere sus compras, bajo estas ecuaciones podemos observar como se explica el porcentaje utilizaci\'{o}n de una tdc, la variabilidad de este porcentaje de utilizaci\'{o}n, el por que un cliente no llega a utilizar nunca su tdc y adicional y contrariamente a lo anterior, por que un cliente utiliza la total capacidad de su tdc.\\
 
 \begin{table}[!hbt]
 {\scriptsize
 \begin{center}
 \begin{tabular}{|c|c|c|ccc|c|c|}\hline
 Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
-\multirow{12}{*}{R-S} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.046	&0.050	&0.3618 & \multirow{12}{*}{-5732.63} & \multirow{12}{*}{101}  \\
+\multirow{12}{*}{R-S} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.046	&0.050	&0.3618 & \multirow{12}{*}{-5414.738} & \multirow{12}{*}{125}  \\
 & & $\hat{\beta_1}$ & -0.354	&0.107	&0.0009 & &\\
 & & $\hat{\beta_2}$ & 0.022	&0.002	&$<2.2e^{-16}$ & & \\
 & & $\hat{\beta_3}$ & -0.025	&0.009	&0.0074 & & \\ \cline{2-6}
@@ -379,12 +379,29 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 & & $\hat{\beta_1}$ & -0.197	&0.078	&0.0114  & &\\
 & & $\hat{\beta_2}$ & -0.006	&0.002	&0.0013  & &\\
 & & $\hat{\beta_3}$ & -0.003	&0.007	&0.6741  & &\\ \cline{2-6}
-& \multirow{3}{*}{$p_0$} & $\hat{\beta_0}$ & -1.834	&0.096	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & 0.882	&0.178	&0.0000007  & &\\
-& & $\hat{\beta_2}$ & -0.007	&0.015	&0.6480  & &\\ \cline{2-6}
-& $p_1$ & $\hat{\beta_0}$ & 0.070	&0.003	&$<2.2e^{-16}$  & &\\ \hline \hline
+& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
-\multirow{12}{*}{F-C} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.045	&0.050	&0.3667  & \multirow{12}{*}{-5732.50} & \multirow{12}{*}{84} \\
+\end{tabular}
+\caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Rigby y Stasinopoulos (2005) en el porcentaje de utilizaci\'{o}n de una tdc.}
+\label{T_Apli_CC_RS}
+\end{center}
+}
+\end{table}
+
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|ccc|c|c|}\hline
+Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
+\multirow{12}{*}{F-C} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.045	&0.050	&0.3667  & \multirow{12}{*}{-5414.605} & \multirow{12}{*}{105} \\
 & & $\hat{\beta_1}$ & -0.354	&0.107	&0.0009   & &\\
 & & $\hat{\beta_2}$ & 0.022	&0.002	&$<2.2e^{-16}$   & &\\
 & & $\hat{\beta_3}$ & -0.025	&0.009	&0.0074   & &\\ \cline{2-6}
@@ -392,12 +409,29 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 & & $\hat{\beta_1}$ & 0.238	&0.094	&0.0117   & &\\
 & & $\hat{\beta_2}$ & 0.007	&0.002	&0.0012   & &\\
 & & $\hat{\beta_3}$ & 0.003	&0.008	&0.6854   & &\\ \cline{2-6}
-& \multirow{3}{*}{$p_0$} & $\hat{\beta_0}$ & -1.834	&0.959	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_1}$ & 0.882	&0.178	&0.0000007   & &\\
-& & $\hat{\beta_2}$ & -0.007	&0.015	&0.6481   & &\\ \cline{2-6}
-& $p_1$ & $\hat{\beta_0}$ & 0.070	&0.003	&$<2.2e^{-16}$   & &\\ \hline \hline
+& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
-\multirow{12}{*}{original} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.649	&0.048	&$<2.2e^{-16}$  & \multirow{12}{*}{-5733.28} & \multirow{12}{*}{91} \\
+\end{tabular}
+\caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Ferrari y Cribari-Neto (2004) en el porcentaje de utilizaci\'{o}n de una tdc.}
+\label{T_Apli_CC_FC}
+\end{center}
+}
+\end{table}
+
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|ccc|c|c|}\hline
+Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
+\multirow{12}{*}{original} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.649	&0.048	&$<2.2e^{-16}$  & \multirow{12}{*}{-5415.386} & \multirow{12}{*}{121} \\
 & & $\hat{\beta_1}$ & 0.035	&0.103	&0.7311   & &\\
 & & $\hat{\beta_2}$ & 0.019	&0.002	&$<2.2e^{-16}$   & &\\
 & & $\hat{\beta_3}$ & -0.011	&0.009	&0.2267 & & \\ \cline{2-6}
@@ -405,41 +439,63 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 & & $\hat{\beta_1}$ & 0.397	&0.111	&0.0003   & &\\
 & & $\hat{\beta_2}$ & -0.002	&0.003	&0.4724   & &\\
 & & $\hat{\beta_3}$ & 0.015	&0.010	&0.1456   & &\\ \cline{2-6}
-& \multirow{3}{*}{$p_0$} & $\hat{\beta_0}$ & -1.834	&0.096	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_1}$ & 0.882	&0.178	&0.0000007   & &\\
-& & $\hat{\beta_2}$ & -0.007	&0.015	&0.6480   & &\\ \cline{2-6}
-& $p_1$ & $\hat{\beta_0}$ & 0.070	&0.003	&$<2.2e^{-16}$   & &\\ \hline \hline
+& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
-\multirow{12}{*}{simplex} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & 0.180	&0.050	&0.0003  & \multirow{12}{*}{-22703.67} & \multirow{12}{*}{123} \\
-& & $\hat{\beta_1}$ & -3.889	&0.206	&$<2.2e^{-16}$& &\\
-& & $\hat{\beta_2}$ & 0.166	&0.004	&$<2.2e^{-16}$& &\\
-& & $\hat{\beta_3}$ & 0.128	&0.019	&$5.84e^{-12}$& & \\ \cline{2-6}
-& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & 11.586	&0.062	&$<2.2e^{-16}$& &\\
-& & $\hat{\beta_1}$ & 0.063	&0.240	&0.7915& &\\
-& & $\hat{\beta_2}$ & 0.133	&0.004	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_3}$ & -0.344	&0.023	&$<2.2e^{-16}$   & &\\ \cline{2-6}
-& \multirow{3}{*}{$p_0$} & $\hat{\beta_0}$ & -1.834	&0.096	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_1}$ & 0.882	&0.178	&0.0000007   & &\\
-& & $\hat{\beta_2}$ & -0.007	&0.015	&0.6480   & &\\ \cline{2-6}
-& $p_1$ & $\hat{\beta_0}$ & 0.070	&0.003	&$<2.2e^{-16}$   & &\\ \hline
 
 \end{tabular}
-\caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP en el porcentaje de utilizaci\'{o}n de una tdc.}
-\label{T_Apli_CC}
+\caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original en el porcentaje de utilizaci\'{o}n de una tdc.}
+\label{T_Apli_CC_Ori}
 \end{center}
 }
 \end{table}
 
 
-En la tabla \ref{T_Apli_CC} se tiene informaci\'{o}n sobre como las variables influyen en el modelo, primero se puede ver que al modelar el par\'{a}metro de la media, es decir, el porcentaje medio de utilizaci\'{o}n de la tdc, la variable regresora score afecta de manera negativa y significativa en cada uno de los modelos ajustados, excepto en el mo\-de\-lo con parametrizaci\'{o}n original en el cual el par\'{a}metro no dio significativo; esto nos indica que a un mejor comportamiento de pago, menos utilizaci\'{o}n de la tdc, sobre el par\'{a}metro del promedio de cuotas diferidas vemos como el par\'{a}metro $\beta_2$ sin excepci\'{o}n alguna en todos los modelos es la variable m\'{a}s significativa que permite explicar la proporci\'{o}n media de la utilizaci\'{o}n de una tdc, esto nos indica que a medida que los clientes difieren a mayores cuotas sus compras con la tdc estar\'{a}n utilizando m\'{a}s su tdc, algo muy l\'{o}gico, desde el punto de vista del problema; ahora el par\'{a}metro $\beta_3$ asociado al cupo de su tdc tiene un efecto negativo aunque no muy fuerte sobre la variable respuesta excepto en el modelo ZOIP-simplex donde tiene un efecto positivo mucho m\'{a}s fuerte.\\
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|ccc|c|c|}\hline
+Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
+\multirow{12}{*}{simplex} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & 0.180	&0.050	&0.0003  & \multirow{12}{*}{-22385.78} & \multirow{12}{*}{117} \\
+& & $\hat{\beta_1}$ & -3.890	&0.206	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta_2}$ & 0.166	&0.004	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta_3}$ & -0.128	&0.019	&$5.85e^{-12}$   & &\\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & 11.59	&0.062	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta_1}$ & 0.063	&0.240	&0.7918   & &\\
+& & $\hat{\beta_2}$ & 0.134	&0.004	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_3}$ & 0.344	&0.023	&$<2.2e^{-16}$   & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
-Al analizar el efecto de la variabilidad de la utilizaci\'{o}n de las tdc, se observa como el par\'{a}metro de score tiene un efecto positivo sobre la variabilidad excepto en el modelo ZOIP-beta parametrizaci\'{o}n \cite{Stasinopoulos2}, cabe resaltar que $\beta_1$ no es significativo en el modelo simplex. Adem\'{a}s el par\'{a}metro $\beta_3$ asociado al cupo de la tdc no influye sobre la variabilidad en ninguno de los modelos propuestos.\\
+\end{tabular}
+\caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-simplex en el porcentaje de utilizaci\'{o}n de una tdc.}
+\label{T_Apli_CC_Sim}
+\end{center}
+}
+\end{table}
 
-Por otra parte el efecto de que alguien no utilice su tdc es exactamente igual en los cuatro modelos, esto por la metodolog\'{\i}a de estimaci\'{o}n y se puede observar como el cupo de la tdc no influye. Adem\'{a}s como la variable score que describe el comportamiento de pago de una persona influye de manera positiva con la no utilizaci\'{o}n de la tdc.\\
+En las tablas \ref{T_Apli_CC_RS}, \ref{T_Apli_CC_FC}, \ref{T_Apli_CC_Ori}, \ref{T_Apli_CC_Sim} se tiene informaci\'{o}n sobre como las covariables influyen en los par\'{a}metros de los cuatro diferentes modelos ajustados de la regresi\'{o}n ZOIP, primero se puede ver que al modelar el par\'{a}metro de la media, es decir, el porcentaje medio de utilizaci\'{o}n de la tdc, la variable regresora score afecta de manera negativa y significativa en cada uno de los modelos ajustados, excepto en el mo\-de\-lo con parametrizaci\'{o}n original, en el cual el par\'{a}metro no dio significativo, esto nos indica que a un mejor comportamiento de pago, menos utilizaci\'{o}n de la tdc, sobre el par\'{a}metro del promedio de cuotas diferidas vemos como el par\'{a}metro $\beta_2$ sin excepci\'{o}n alguna en todos los modelos es la variable m\'{a}s significativa que permite explicar la proporci\'{o}n media de la utilizaci\'{o}n de una tdc, esto nos indica que a medida que los clientes difieren a mayores cuotas sus compras con la tdc estar\'{a}n utilizando m\'{a}s su tdc, algo muy l\'{o}gico, desde el punto de vista del problema; ahora el par\'{a}metro $\beta_3$ asociado al cupo de su tdc tiene un efecto negativo aunque no muy significativo sobre la variable respuesta, lo cual indicar\'{\i}a que a mayor cupo en su tdc un poco menos de utilizaci\'{o}n de la tdc estar\'{a} acompa\~{n}ado.\\
 
-En el porcentaje de utilizaci\'{o}n global de la tdc, vemos como sin ninguna covariable el par\'{a}metro es significativo, indic\'{a}ndonos como no se ve afectado su estimaci\'{o}n del par\'{a}metro por la estimaci\'{o}n de los par\'{a}metros regresores de los dem\'{a}s modelos.\\
+Al analizar el efecto de la variabilidad de la utilizaci\'{o}n de las tdc, se observa como el par\'{a}metro de score tiene un efecto positivo sobre la precisi\'{o}n de la utilizaci\'{o}n de la tdc, en el modelo ZOIP-beta parametrizaci\'{o}n \cite{Stasinopoulos2} este efecto parece ser negativo, pero $\sigma$ al estar representando la dispersi\'{o}n y no la precisi\'{o}n, estar\'{\i}a dando un efecto positivo sobre la precisi\'{o}n, por lo tanto a mejor comportamiento de pago la utilizaci\'{o}n de la tdc ser\'{a}n m\'{a}s parecidas entre los individuos, cabe resaltar que $\beta_1$ no es significativo en el modelo simplex. Adem\'{a}s el par\'{a}metro $\beta_3$ asociado al cupo de la tdc no influye sobre la variabilidad en ninguno de los modelos propuestos, excepto en modelo de regresi\'{o}n ZOIP-simplex que tiene un efecto positivo sobre la variabilidad de los porcentajes de utilizaci\'{o}n de las tdc.\\
 
-Al analizar el valor de la log-verosimilitud se observa que el mejor modelo de regresi\'{o}n que explica el porcentaje de utilizaci\'{o}n de una tdc en esta entidad financiera es la regresi\'{o}n ZOIP-beta, ya que posee un valor de log-verosimilitud menor que el modelo de regresi\'{o}n ZOIP-simplex, sin embargo no importa la parametrizaci\'{o}n que se tenga en la regresion ZOIP-beta, porque el valor de la log-verosimilitud son significativamente iguales, sin embargo el modelo que requiere menor n\'{u}mero de iteraciones para ser ajustado es la regresi\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2} seguido por la parametrizaci\'{o}n original y por \'{u}ltimo la parametrizacion de \cite{Stasinopoulos2}.
+Por otra parte el efecto de que alguien no utilice su tdc es exactamente igual en los cuatro modelos propuestos, esto por la metodolog\'{\i}a de estimaci\'{o}n de m\'{a}xima verosimilitud, y se puede observar como el comportamiento de pago y la cantidad de cuotas a las que se difiere las compras el cliente afectan de manera significativa la no utilizaci\'{o}n de las tdc. Adem\'{a}s es de resaltar que si los clientes no difieren a grandes cuotas sus compras y su comportamiento de pago es muy bueno estos clientes tendr\'{a}n mayor probabilidad de no utilizar para nada las tdc.\\
+
+En el porcentaje de utilizaci\'{o}n global de la tdc, vemos como las tres covariables incluidas en el modelo afectan de manera significativa la utilizaci\'{o}n por completo de la tdc y vemos como la variable que es m\'{a}s significativa es el cupo de las tdc y que este tiene un efecto negativo sobre la probabilidad de utilizar por completo mi tdc, lo que me indica que a mayor cupo menor probabilidad de utilizar por completo de mi tdc (efecto que hab\'{\i}amos evidenciado en la explicaci\'{o}n de la utilizaci\'{o}n media de las tdc), el mismo efecto pasa sobre la variable score que me indica que a peor comportamiento de pago m\'{a}s utilizaci\'{o}n la tdc, sin embargo si el cliente difiere a grandes cuotas su compras este tendera a tener una mayor probabilidad de utilizar por completo su tdc. cabe resaltar que el efecto de las covariables sobre la probabilidad de utilizar por completo la tdc es totalmente contrario al efecto causado sobre la probabilidad de no utilizar para nada la tdc, algo l\'{o}gico y esperado.\\
+
+Al analizar el valor de la log-verosimilitud se observa que el mejor modelo de regresi\'{o}n que explica el porcentaje de utilizaci\'{o}n de una tdc en esta entidad financiera es la regresi\'{o}n ZOIP-beta, ya que posee un valor de log-verosimilitud menor que el modelo de regresi\'{o}n ZOIP-simplex, sin embargo no importa la parametrizaci\'{o}n que se tenga en la regresi\'{o}n ZOIP-beta, porque el valor de la log-verosimilitud son significativamente iguales, sin embargo el modelo que requiere menor n\'{u}mero de iteraciones para ser ajustado es la regresi\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2} seguido por la parametrizaci\'{o}n original y por \'{u}ltimo la parametrizacion de \cite{Stasinopoulos2}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
