@@ -195,3 +195,145 @@ y la funci\'{o}n de log verosimilitud esta dado por:
 \end{equation}
 
 Al tener la funci\'{o}n de log verosimilitud definida en \eqref{LOG_vero_mix}, para hallar los estimadores m\'{a}ximos veros\'{\i}miles se debe utilizar herramientas computacionales, como algoritmos de optimizaci\'{o}n, tales como las funciones de \proglang{R}, \code{nlminb} o \code{optim}. La metodolog\'{\i}a de estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n ZOIP con intercepto aleatorio en la media y la varianza, utilizando m\'{a}xima verosimilitud v\'{\i}a cuadratura de Gauss-Hermite adaptativa multidimensional con o sin pruning, se encuentra implementada en el paquete \pkg{ZOIP} de \proglang{R}, por medio de la funci\'{o}n \code{RMM.ZOIP}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modelo de regresi\'{o}n ZOIP mixto en el paquete ZOIP}
+
+En esta secci\'{o}n se mostrara como ajustar un modelo de regresi\'{o}n ZOIP con interceptos aleatorios en los par\'{a}metros de media y varianza, mediante el paquete \pkg{ZOIP} de \proglang{R}, utilizando el m\'{e}todo de m\'{a}xima verisimilitud y su aproximaci\'{o}n mediante la cuadratura de Gauss-Hermite adaptativa multidimensional con pruning o sin pruning.
+
+\subsection{Funci\'{o}n RMM.ZOIP} 
+
+La funci\'{o}n \code{RMM.ZOIP} estima los par\'{a}metros de un modelo regresi\'{o}n ZOIP con y sin covariables e interceptos aleatorios en los par\'{a}metros de la media y la dispersi\'{o}n, dicha estimaci\'{o}n se realiza v\'{\i}a m\'{a}xima verosimilitud utilizando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin pruning, adem\'{a}s se utilizara el optimizador \code{nlminb} o \code{optim} para la estimaci\'{o}n de los efectos fijos. La estructura de la funci\'{o}n \code{RMM.ZOIP} es la siguiente:
+
+\begin{verbatim}
+RMM.ZOIP(formula.mu, 
+		formula.sigma = ~ 1,
+		formula.p0 = ~ 1,
+		formula.p1 = ~ 1,
+		data,
+		formula.random,
+		link = c('identity', 'identity', 'identity', 'identity'),
+		family = 'R-S',
+		optimizer = 'nlminb',
+    n.points = 11,
+		pruning = TRUE)
+\end{verbatim}
+
+Los argumentos de la funci\'{o}n \code{RMM.ZOIP} son:
+
+
+\begin{itemize}[noitemsep, nolistsep]
+
+\item \code{formula.mu}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $\mu$, Un valor posible es \code{y $\sim$ x1 + x2}, es necesario definir la variable respuesta (y).
+\item \code{formula.sigma}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $\sigma$, Un valor posible es \code{$\sim$ x1}. Por defecto \code{$\sim$ 1}.
+\item \code{formula.p0}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $p_0$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
+\item \code{formula.p1}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $p_1$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
+\item \code{data}: Es el conjunto de datos en formato \code{data.frame} donde debe contener las nombres de las columnas tal cual como est\'{a}n en las f\'{o}rmulas.
+\item \code{formula.random}: Formula que define el efecto mixto dentro del modelo, debe ser solo el intercepto aleatorio que se tendr\'{a} en cuenta en el par\'{a}metro de la media y la dispersi\'{o}n, la estructura admisible es la siguiente \code{formula.random= ~ 1 | X1}, donde \code{X1} es la variable que indica los grupos o sujetos en el modelo, siempre debe ser definido.
+\item \code{family}: Elecci\'{o}n de la parametrizaci\'{o}n de la distribuci\'{o}n beta o distribuci\'{o}n deseada en la parte continua de la distribuci\'{o}n ZOIP, si toma el valor de \code{`R-S'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{`F-C'} se utilizara la distribuci\'{o}n beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{`Original'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n original, \code{`Simplex'} Utilizara la distribuci\'{o}n simplex.
+\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Si el modelo de regresi\'{o}n no posee covariables se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity}, independientemente del valor escogido en familia, opciones posibles son \code{logit}, \code{log}. Por defecto \code{link=c(`identity',`identity',`identity',`identity')}.
+\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud en los par\'{a}metros de efectos fijos. se puede elegir el valor de \code{`nlminb'} o \code{`optim'}. Por defecto \code{`nlminb'}
+\item \code{n.points}: N\'{u}mero de puntos a utilizar en la aproximaci\'{o}n de la funci\'{o}n de verosimilitud por medio de la cuadratura de Gauss-Hermite adaptativa multidimensional. por defecto es 11. se recomienda no dar un valor muy grande a este par\'{a}metro, por que afectara de manera significativamente los tiempos de convergencia del modelo.
+\item \code{pruning}: Es un valor booleano que indica si se utilizara pruning o no, para la cuadratura de Gauss-Hermite adaptativa multidimensional. por defecto es TRUE.
+
+\end{itemize}
+
+En el siguiente ejemplo se mostrara el ajuste de un modelo de regresi\'{o}n ZOIP mixto, el cual proviene de datos simulados, se muestra el c\'{o}digo utilizado para dicha simulaci\'{o}n, como se utiliza la funci\'{o}n \code{RMM.ZOIP} para ajustar el modelo y cu\'{a}l es la salida del modelo, explicando cada uno de sus componentes de salida. Los datos simulados son provenientes de una distribuci\'{o}n ZOIP con parametrizaci\'{o}n \cite{Stasinopoulos2} con par\'{a}metros, como $\mu$ y $\sigma$ que depender\'{a}n de un intercepto aleatorio y una covariable discreta definida como cantidad de d\'{\i}as (2, 10, 20, 40), los par\'{a}metros de inflaci\'{o}n son fijados como $p_0=p_1=0.1$, el n\'{u}mero de grupos o sujetos ser\'{a} fijado a partir de $N$ como 21 grupos.
+
+\begin{verbatim}
+library(ZOIP)
+ N<-21 # Numeros de grupos o sujetos
+
+ Times <- c(2, 10, 20, 40) # cantidad de dias
+
+ subject <- rep(1:N, each=length(Times)) 
+# numero de sujetos en la muestra repetidos tantas veces haya dias
+
+ Days <- rep(Times, times=N)
+ b0i <- rep(rnorm(n=N,sd=1), each=length(Times))
+ b1i <- rep(rnorm(n=N,sd=0.5), each=length(Times))
+
+ neta <- (1.6+b0i) -1.3*log(Days)
+ neta2 <-(0.1+b1i) -0.8*log(Days)
+
+
+ mu <- 1 / (1 + exp(-neta))
+ sigma <- 1 / (1 + exp(-neta2))
+
+ p0 <- 0.1
+ p1 <- 0.1
+
+ mu[mu==1] <- 0.999
+ mu[mu==0] <- 0.001
+
+ sigma[sigma==1] <- 0.999
+ sigma[sigma==0] <- 0.001
+
+ family<-'R-S'
+
+ Y <- rZOIP(n=length(mu), mu = mu, sigma = sigma , 
+						p0=p0, p1=p1, family = family) 
+ base<-data.frame(Y, Days, subject)
+
+ formula.mu <- Y ~ log(Days)
+ formula.sigma <- ~ log(Days)
+ formula.p0 <- ~ 1
+ formula.p1 <- ~ 1
+
+ formula.random = ~1 | subject
+
+ link <- c('logit', 'logit', 'identity', 'identity')
+
+ optimizer <- 'nlminb'
+ n.points <-11
+ pruning <- TRUE
+
+ mod<-RMM.ZOIP(formula.mu = formula.mu, formula.sigma = formula.sigma, 
+							 formula.p0 = formula.p0, formula.p1 = formula.p1,
+							 data=base, formula.random = formula.random, link = link,
+							 family = family, optimizer = optimizer,
+               n.points = n.points, pruning = pruning)
+ mod
+\end{verbatim}
+
+Los resultados obtenidos se muestran a continuaci\'{o}n.
+
+\begin{verbatim}
+Fixed_Parameters.mu
+(Intercept)   log(Days) 
+   2.023440   -1.309534 
+
+Fixed_Parameters.sigma
+(Intercept)   log(Days) 
+ -0.1321908  -0.4179976 
+
+Fixed_Parameters.p0
+(Intercept) 
+   0.119078 
+
+Fixed_Parameters.p1
+(Intercept) 
+  0.1071032 
+
+Parameters.randoms
+                                     log(.)
+Random Intercept mu    0.6955629 -0.3630339
+Random Intercept sigma 0.5580406 -0.5833235
+
+logverosimilitud
+[1] 32.82957
+
+message
+[1] "relative convergence (4)"
+
+Time
+[1] 219.15
+
+num.iter
+[1] 37
+\end{verbatim}
+
+En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, se tiene primero que todo los efectos fijos ajustados al modelo de regresi\'{o}n para el par\'{a}metro de la media $\mu$, luego los efectos fijos estimados para el modelo de regresi\'{o}n del par\'{a}metro de dispersi\'{o}n $\sigma$, luego los par\'{a}metros ajustados para la regresi\'{o}n sobre el par\'{a}metro de inflaci\'{o}n de ceros $p_0$, despu\'{e}s los efectos estimados de la regresi\'{o}n del par\'{a}metro de inflaci\'{o}n de unos $p_1$,Luego sigue la estimaci\'{o}n de los interceptos aleatorios para $\mu$ y para $\sigma$, en ella se muestra una matriz donde la primera columna son los valores de la desviaci\'{o}n est\'{a}ndar asociada a la distribuci\'{o}n normal, es decir, el valor asociado a $\lambda_1$ y $\lambda_2$, dichos valores generan el efecto aleatorio sobre los par\'{a}metros de la media y la dispersi\'{o}n en su intercepto, la segunda columna nos muestra el valor del logaritmo natural de $\lambda_1$ y $\lambda_2$, respectivamente; luego el siguiente resultado es el valor de la log verosimilitud, para ser utilizado como posibles comparaciones entre modelos, despu\'{e}s se muestra un mensaje de convergencia heredado del algoritmo de optimizaci\'{o}n \code{nlminb}, luego el tiempo que demoro el ajuste del modelo en segundos y por \'{u}ltimo el n\'{u}mero de iteraciones necesarias para la convergencia de encontrar la m\'{a}xima verosimilitud.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

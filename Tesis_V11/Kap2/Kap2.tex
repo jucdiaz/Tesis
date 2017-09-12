@@ -395,15 +395,58 @@ Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
 En el siguiente ejemplo se mostrara el ajuste de una distribuci\'{o}n ZOIP, para ello mostraremos la salida de la funci\'{o}n \code{RM.ZOIP} de $1000$ observaciones simuladas para la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Stasinopoulos2}.\\
 
 \begin{verbatim}
-yi <- as.data.frame(rZOIP(n=1000, mu=0.6, sigma=0.2,
+yi <- data.frame(yi = rZOIP(n=1000, mu=0.6, sigma=0.2,
                           p0=0.03, p1=0.05, family='R-S'))
+
 mod <- RM.ZOIP(formula.mu=yi ~ 1, formula.sigma= ~ 1, 
                formula.p0= ~ 1, formula.p1= ~ 1, data=yi,
                family='R-S')
-summary(mod)
+mod
+
 \end{verbatim}
 
 \begin{verbatim}
+Call:
+RM.ZOIP(formula.mu = yi ~ 1, formula.sigma = ~1, formula.p0 = ~1, 
+    formula.p1 = ~1, data = yi, family = "R-S")
+
+ Results: 
+
+ Estimated coefficients for h(mu): 
+(Intercept) 
+   0.605174 
+
+ Estimated coefficients for h(sigma): 
+(Intercept) 
+  0.2038938 
+
+ Estimated coefficients for h(p0): 
+(Intercept) 
+ 0.03000002 
+
+ Estimated coefficients for h(p1): 
+(Intercept) 
+       0.05 
+
+ Convergence 
+[1] 0
+
+ message 
+[1] "relative convergence (4)"
+
+ iterations 
+[1] 22
+
+ Log-likelihood 
+[1] 488.2683
+\end{verbatim}
+
+En el anterior resultado se obtienen varios aspectos importantes de la salida del ajuste de la distribuci\'{o}n y leyendo de arriba hacia abajo, primero que todo nos muestra la distribuci\'{o}n ajustada, luego para cada el valor ajustado para cada par\'{a}metro de la distribuci\'{o}n ZOIP, luego un indicador de convergencia del ajuste, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el ajuste de la distribuci\'{o}n, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre ajustes de distribuciones.\\ 
+
+ Al aplicar a la distribuci\'{o}n ajustada (\code{mod}) la funci\'{o}n \code{summary} se obtiene el siguiente resultado:
+
+\begin{verbatim}
+summary(mod)
 ---------------------------------------------------------------
 Fixed effects for identity(mu)
 ---------------------------------------------------------------
@@ -435,8 +478,10 @@ Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ---------------------------------------------------------------
 ---------------------------------------------------------------
 \end{verbatim}
+Con la funci\'{o}n \code{summary} aplicada a la distribuci\'{o}n ZOIP ajustada, se obtiene m\'{a}s detalles de los par\'{a}metros estimados, primero se obtiene el valor estimado (Estimate), su error est\'{a}ndar (Std.Error), el valor Z del estimador (z value) y el valor p que nos indicara la significancia del par\'{a}metro estimado (\code{Pr(>|z|)}).\\
 
 En el resultado anterior se obtienen los valores de $\hat{\mu}=0.6066914$, $\hat{\sigma}=0.196643$, $\hat{p_0}=0.0339992$ y $\hat{p_1}=0.0450005$, que son a los par\'{a}metros con los que se simulo $y_i$. Adem\'{a}s cabe resaltar que en la funci\'{o}n \code{RM.ZOIP} para ajustar distribuciones de probabilidad no es necesario colocar funciones de enlace ni espacio de busqueda de los par\'{a}metros, ya que estos son introducidas autom\'{a}ticamente de acuerdo a el valor tomado en \code{family}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

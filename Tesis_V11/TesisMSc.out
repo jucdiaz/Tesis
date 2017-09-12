@@ -20,7 +20,7 @@
 \BOOKMARK [0][-]{chapter.3}{Cap\355tulo 2: Modelo de regresi\363n ZOIP con efectos fijos}{}% 20
 \BOOKMARK [1][-]{section.3.1}{Modelo de regresi\363n ZOIP}{chapter.3}% 21
 \BOOKMARK [2][-]{subsection.3.1.1}{Inferencia estad\355stica}{section.3.1}% 22
-\BOOKMARK [1][-]{section.3.2}{Modelo de regresion ZOIP en el Paquete ZOIP}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.2}{Modelo de regresi\363n ZOIP en el Paquete ZOIP}{chapter.3}% 23
 \BOOKMARK [2][-]{subsection.3.2.1}{Funci\363n RM.ZOIP}{section.3.2}% 24
 \BOOKMARK [1][-]{section.3.3}{Aplicaci\363n}{chapter.3}% 25
 \BOOKMARK [2][-]{subsection.3.3.1}{Datos simulados}{section.3.3}% 26
@@ -31,11 +31,13 @@
 \BOOKMARK [2][-]{subsection.4.1.1}{Inferencia estad\355stica}{section.4.1}% 31
 \BOOKMARK [2][-]{subsection.4.1.2}{Cuadratura de Gauss-Hermite}{section.4.1}% 32
 \BOOKMARK [2][-]{subsection.4.1.3}{Aproximaci\363n de la funci\363n de verosimilitud v\355a cuadratura de Gauss-Hermite}{section.4.1}% 33
-\BOOKMARK [0][-]{chapter.5}{Cap\355tulo ...}{}% 34
-\BOOKMARK [0][-]{chapter.6}{Conclusiones y recomendaciones}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{Recomendaciones}{chapter.6}% 37
-\BOOKMARK [0][-]{appendix.A}{Anexo: Nombrar el anexo A de acuerdo con su contenido}{}% 38
-\BOOKMARK [0][-]{appendix.B}{Anexo: Nombrar el anexo B de acuerdo con su contenido}{}% 39
-\BOOKMARK [0][-]{appendix.C}{Anexo: Nombrar el anexo C de acuerdo con su contenido}{}% 40
-\BOOKMARK [0][-]{appendix.C}{Bibliograf\355a}{}% 41
+\BOOKMARK [1][-]{section.4.2}{Modelo de regresi\363n ZOIP mixto en el paquete ZOIP}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.2.1}{Funci\363n RMM.ZOIP}{section.4.2}% 35
+\BOOKMARK [0][-]{chapter.5}{Cap\355tulo ...}{}% 36
+\BOOKMARK [0][-]{chapter.6}{Conclusiones y recomendaciones}{}% 37
+\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.2}{Recomendaciones}{chapter.6}% 39
+\BOOKMARK [0][-]{appendix.A}{Anexo: Nombrar el anexo A de acuerdo con su contenido}{}% 40
+\BOOKMARK [0][-]{appendix.B}{Anexo: Nombrar el anexo B de acuerdo con su contenido}{}% 41
+\BOOKMARK [0][-]{appendix.C}{Anexo: Nombrar el anexo C de acuerdo con su contenido}{}% 42
+\BOOKMARK [0][-]{appendix.C}{Bibliograf\355a}{}% 43

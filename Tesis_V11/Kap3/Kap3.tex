@@ -27,7 +27,7 @@ Una clase general de modelos de regresi\'{o}n ZOIP puede definirse como sigue. S
 \end{equation}
 
 donde $\mathbf{x}_{i1}=(x_{i11}, x_{i12},\ldots, x_{i1k_1})$, $\mathbf{x}_{i2}=(x_{i21}, x_{i22},\ldots, x_{i2k_2})$, \\
-$\mathbf{x}_{i3}=(x_{i31}, x_{i32},\ldots, x_{i1k_3})$ y $\mathbf{x}_{i4}=(x_{i41}, x_{i42},\ldots, x_{i1k_4})$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente, $\boldsymbol{\beta}_1=(\beta_{11}, \beta_{12},\ldots, \beta_{1k_1})$, $\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s se asume que las funciones de enlace $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son conocidas y apropiadas para mapear de los reales a los valores admisibles del parámetro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n,  para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace como logit, probit, clog-log. Estudios sobre funciones enlace mal especificadas sobre modelos de regresi\'{o}n beta se encuentran en \cite{andrade07}.
+$\mathbf{x}_{i3}=(x_{i31}, x_{i32},\ldots, x_{i1k_3})$ y $\mathbf{x}_{i4}=(x_{i41}, x_{i42},\ldots, x_{i1k_4})$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente, $\boldsymbol{\beta}_1=(\beta_{11}, \beta_{12},\ldots, \beta_{1k_1})$, $\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s se asume que las funciones de enlace $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n,  para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace como logit, probit, clog-log. Estudios sobre funciones enlace mal especificadas sobre modelos de regresi\'{o}n beta se encuentran en \cite{andrade07}.
 
 \subsection{Inferencia estad\'{\i}stica}
 
@@ -78,7 +78,7 @@ No existen expresiones que den una soluci\'{o}n cerrada anal\'{\i}ticamente para
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Modelo de regresion ZOIP en el Paquete \pkg{ZOIP}}
+\section{Modelo de regresi\'{o}n ZOIP en el Paquete \pkg{ZOIP}}
 
 En esta secci\'{o}n presentaremos como el paquete \pkg{ZOIP} realizado en \proglang{R} ajusta un modelo de regresi\'{o}n ZOIP con efectos fijos, v\'{\i}a m\'{a}xima verosimilitud.
 
@@ -94,12 +94,19 @@ En esta secci\'{o}n presentaremos como el paquete \pkg{ZOIP} realizado en \progl
 
 \subsection{Funci\'{o}n RM.ZOIP}
 
-La funci\'{o}n \code{RM.ZOIP} estima los par\'{a}metros de un modelo ZOIP con y sin covariables v\'{\i}a m\'{a}xima verosimilitud utilizando el optimizador \code{nlminb} o \code{optim}. La estructura de la funci\'{o}n \code{RM.ZOIP} es la siguiente:
+La funci\'{o}n \code{RM.ZOIP} estima los par\'{a}metros de un modelo de regresi\'{o}n ZOIP con y sin covariables v\'{\i}a m\'{a}xima verosimilitud utilizando el optimizador \code{nlminb} o \code{optim}. La estructura de la funci\'{o}n \code{RM.ZOIP} es la siguiente:
 
 \begin{verbatim}
-RM.ZOIP(formula.mu,formula.sigma=~1,formula.p0=~1,formula.p1=~1,
-				data,link=c('identity','identity','identity','identity'),
-				family='R-S')
+RM.ZOIP(
+  formula.mu,
+  formula.sigma = ~ 1,
+  formula.p0 = ~ 1,
+  formula.p1 = ~ 1,
+  data,
+  link = c('identity', 'identity', 'identity', 'identity'),
+  family = 'R-S',
+	optimizer='nlminb'
+)
 \end{verbatim}
 
 Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
@@ -123,73 +130,119 @@ Primero se simula la variable respuesta a partir de la funci\'{o}n \code{rZOIP} 
 \begin{verbatim}
 devtools::install_github('jucdiaz/ZOIP', force=TRUE)
 library(ZOIP)
-n<-1000
-x1<-runif(n);x2<-runif(n)
+n <- 1000
+x1 <- runif(n) ; x2 <- runif(n)
 
-c1<-0.2;c2<--1
-mu_i<-inv.logit(c1+c2*x1)
+c1 <- 0.2 ; c2 <- -1
+mu_i <- inv.logit(c1+c2*x1)
 
-b1<-0.3;b2<-3;b3<-0.9
-sigma_i<-inv.logit(b1+b2*x1+b3*x2)
+b1 <- 0.3 ; b2 <- 3 ; b3 <- 0.9
+sigma_i <- inv.logit(b1+b2*x1+b3*x2)
 
-d1<-0.07
-p0_i<-rep(d1,n)
+d1 <- 0.07
+p0_i <- rep(d1,n)
 
-e1<-0.02;e2<--4
-p1_i<-inv.logit(e1+e2*x2)
+e1 <- 0.02 ; e2 <- -4
+p1_i <- inv.logit(e1+e2*x2)
 
-param<-cbind(mu_i,sigma_i,p0_i,p1_i)
-y_i<-apply(param,1,function(x){rZOIP(1,mu=x[1],sigma=x[2]
-                                     ,p0=x[3],p1=x[4]
-                                     ,family='R-S')})
-data<-as.data.frame(cbind(y_i,x1,x2))
+param <- cbind(mu_i, sigma_i, p0_i, p1_i)
+y_i <- apply(param, 1, function(x){rZOIP(1, 
+																		mu=x[1], sigma=x[2],
+																		p0=x[3], p1=x[4],
+																		family='R-S')})
+																		
+data <- as.data.frame(cbind(y_i, x1, x2))
 
-link=c('logit','logit','identity','logit')
-mod<-RM.ZOIP(formula.mu=y_i~x1,formula.sigma=~x1+x2
-             ,formula.p0=~1,formula.p1=~x2
-             ,data=data,link=link,family='R-S')
-summary(mod)
+link=c('logit', 'logit', 'identity', 'logit')
+mod<-RM.ZOIP(formula.mu=y_i~x1, formula.sigma=~x1+x2,
+							formula.p0=~1, formula.p1=~x2,
+							data=data, link=link, family='R-S')
+
+mod
 \end{verbatim}
 
 Los resultados obtenidos se muestran a continuaci\'{o}n.
 
 \begin{verbatim}
+Call:
+RM.ZOIP(formula.mu = y_i ~ x1, formula.sigma = ~x1 + x2, formula.p0 = ~1, 
+    formula.p1 = ~x2, data = data, link = link, family = "R-S")
+
+ Results: 
+
+ Estimated coefficients for h(mu): 
+(Intercept)          x1 
+  0.3395118  -1.4808985 
+
+ Estimated coefficients for h(sigma): 
+(Intercept)          x1          x2 
+  0.7006753   2.4493508   0.5328350 
+
+ Estimated coefficients for h(p0): 
+(Intercept) 
+ 0.08199999 
+
+ Estimated coefficients for h(p1): 
+(Intercept)          x2 
+ -0.1252807  -3.0092159 
+
+ Convergence 
+[1] 0
+
+ message 
+[1] "relative convergence (4)"
+
+ iterations 
+[1] 39
+
+ Log-likelihood 
+[1] 7688.628
+
+\end{verbatim}
+
+En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, primero que todo nos muestra el modelo ajustado, luego para cada par\'{a}metro de la distribuci\'{o}n ZOIP los valores estimados para cada uno de los par\'{a}metros de regresi\'{o}n asociados a cada covariable, luego un indicador de convergencia, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el modelo, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre modelos.\\ 
+
+ Al aplicar al modelo ajustado (\code{mod}) la funci\'{o}n \code{summary} se obtiene el siguiente resultado:
+
+\begin{verbatim}
+summary(mod)
 ---------------------------------------------------------------
-Fixed effects for logit(mu)
----------------------------------------------------------------
-            Estimate Std. Error z value  Pr(>|z|)    
-(intercept)  0.35500    0.09953  3.5668 0.0003614 ***
-x1          -1.52936    0.18172 -8.4158 < 2.2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for logit(sigma)
----------------------------------------------------------------
-            Estimate Std. Error z value  Pr(>|z|)    
-(intercept)  0.30456    0.10158  2.9983  0.002715 ** 
-x1           2.67959    0.13954 19.2030 < 2.2e-16 ***
-x2           1.03339    0.12824  8.0585 7.723e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for identity(p0)
+Fixed effects for logit(mu) 
 ---------------------------------------------------------------
              Estimate Std. Error z value  Pr(>|z|)    
-(intercept) 0.0710777  0.0081293  8.7434 < 2.2e-16 ***
+(Intercept)  0.339512   0.098754  3.4379 0.0005862 ***
+x1          -1.480898   0.179015 -8.2725 < 2.2e-16 ***
 ---
 Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ---------------------------------------------------------------
-Fixed effects for logit(p1)
+Fixed effects for logit(sigma) 
+---------------------------------------------------------------
+            Estimate Std. Error z value  Pr(>|z|)    
+(Intercept)  0.70068    0.10726  6.5323 6.476e-11 ***
+x1           2.44935    0.13775 17.7812 < 2.2e-16 ***
+x2           0.53283    0.13273  4.0143 5.961e-05 ***
+---
+Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+---------------------------------------------------------------
+Fixed effects for identity(p0) 
+---------------------------------------------------------------
+             Estimate Std. Error z value  Pr(>|z|)    
+(Intercept) 0.0820000  0.0086762  9.4512 < 2.2e-16 ***
+---
+Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+---------------------------------------------------------------
+Fixed effects for logit(p1) 
 ---------------------------------------------------------------
             Estimate Std. Error z value Pr(>|z|)    
-(intercept) -0.20773    0.14623 -1.4205   0.1555    
-x2          -3.15715    0.33901 -9.3128   <2e-16 ***
+(Intercept) -0.12528    0.15084 -0.8305   0.4062    
+x2          -3.00922    0.34242 -8.7881   <2e-16 ***
 ---
 Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ---------------------------------------------------------------
 ---------------------------------------------------------------
 \end{verbatim}
 
+Con la funci\'{o}n \code{summary} aplicada al modelo de regresi\'{o}n ZOIP, se obtiene m\'{a}s detalles de los par\'{a}metros regresores estimados para cada par\'{a}metro del modelo de regresi\'{o}n ZOIP, se obtiene el valor estimado (Estimate), su error est\'{a}ndar (Std.Error), el valor Z del estimador (z value) y el valor p que nos indicara la significancia del par\'{a}metro estimado (\code{Pr(>|z|)}), es de notar que para cada par\'{a}metro del modelo de regresi\'{o}n ZOIP le es mostrado la respectiva funci\'{o}n enlace utilizada y definida al inicio del modelo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

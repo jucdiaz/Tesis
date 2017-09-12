@@ -14,32 +14,34 @@
 \contentsline {subsection}{\numberline {2.4.1}Instalaci\'{o}n}{13}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Funciones sobre distribuci\'{o}n ZOIP}{14}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Funci\'{o}n RM.ZOIP}{15}{subsection.2.4.3}
-\contentsline {section}{\numberline {2.5}Aplicaci\'{o}n}{18}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Datos simulados}{18}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Datos reales}{22}{subsection.2.5.2}
-\contentsline {section}{\numberline {2.6}Conclusiones}{24}{section.2.6}
-\contentsline {chapter}{\numberline {3}Cap\'{\i }tulo 2: Modelo de regresi\'{o}n ZOIP con efectos fijos}{26}{chapter.3}
-\contentsline {section}{\numberline {3.1}Modelo de regresi\'{o}n ZOIP}{27}{section.3.1}
+\contentsline {section}{\numberline {2.5}Aplicaci\'{o}n}{19}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Datos simulados}{19}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Datos reales}{23}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Conclusiones}{25}{section.2.6}
+\contentsline {chapter}{\numberline {3}Cap\'{\i }tulo 2: Modelo de regresi\'{o}n ZOIP con efectos fijos}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Modelo de regresi\'{o}n ZOIP}{28}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Inferencia estad\'{\i }stica}{28}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Modelo de regresion ZOIP en el Paquete {\normalfont \fontseries {b}\selectfont \par@update ZOIP}}{29}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Funci\'{o}n RM.ZOIP}{29}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}Aplicaci\'{o}n}{33}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Datos simulados}{33}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Datos reales}{37}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Conclusi\'{o}n}{42}{section.3.4}
-\contentsline {chapter}{\numberline {4}Cap\'{\i }tulo 3: Modelo de regresi\'{o}n ZOIP con efectos mixtos}{44}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modelo de regresi\'{o}n ZOIP mixto}{44}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Inferencia estad\'{\i }stica}{45}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Cuadratura de Gauss-Hermite}{46}{subsection.4.1.2}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite unidimensional}{46}{section*.5}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa}{46}{section*.6}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa con Pruning}{48}{section*.7}
-\contentsline {subsection}{\numberline {4.1.3}Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i }a cuadratura de Gauss-Hermite}{48}{subsection.4.1.3}
-\contentsline {chapter}{\numberline {5}Cap\'{\i }tulo ...}{50}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusiones y recomendaciones}{51}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{51}{section.6.1}
-\contentsline {section}{\numberline {6.2}Recomendaciones}{51}{section.6.2}
-\contentsline {chapter}{\numberline {A}Anexo: Nombrar el anexo A de acuerdo con su contenido}{52}{appendix.A}
-\contentsline {chapter}{\numberline {B}Anexo: Nombrar el anexo B de acuerdo con su contenido}{53}{appendix.B}
-\contentsline {chapter}{\numberline {C}Anexo: Nombrar el anexo C de acuerdo con su contenido}{54}{appendix.C}
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{56}{appendix.C}
+\contentsline {section}{\numberline {3.2}Modelo de regresi\'{o}n ZOIP en el Paquete {\normalfont \fontseries {b}\selectfont \par@update ZOIP}}{30}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Funci\'{o}n RM.ZOIP}{30}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Aplicaci\'{o}n}{36}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Datos simulados}{36}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Datos reales}{41}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Conclusi\'{o}n}{46}{section.3.4}
+\contentsline {chapter}{\numberline {4}Cap\'{\i }tulo 3: Modelo de regresi\'{o}n ZOIP con efectos mixtos}{47}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modelo de regresi\'{o}n ZOIP mixto}{47}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Inferencia estad\'{\i }stica}{48}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Cuadratura de Gauss-Hermite}{49}{subsection.4.1.2}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite unidimensional}{49}{section*.5}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa}{49}{section*.6}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa con Pruning}{51}{section*.7}
+\contentsline {subsection}{\numberline {4.1.3}Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i }a cuadratura de Gauss-Hermite}{51}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Modelo de regresi\'{o}n ZOIP mixto en el paquete ZOIP}{52}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Funci\'{o}n RMM.ZOIP}{53}{subsection.4.2.1}
+\contentsline {chapter}{\numberline {5}Cap\'{\i }tulo ...}{58}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusiones y recomendaciones}{59}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{59}{section.6.1}
+\contentsline {section}{\numberline {6.2}Recomendaciones}{59}{section.6.2}
+\contentsline {chapter}{\numberline {A}Anexo: Nombrar el anexo A de acuerdo con su contenido}{60}{appendix.A}
+\contentsline {chapter}{\numberline {B}Anexo: Nombrar el anexo B de acuerdo con su contenido}{61}{appendix.B}
+\contentsline {chapter}{\numberline {C}Anexo: Nombrar el anexo C de acuerdo con su contenido}{62}{appendix.C}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{64}{appendix.C}

@@ -2,17 +2,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\textbf {2-1}}{\ignorespaces Densidades para la distribuci\'{o}n ZOIP para algunos valores de los par\'{a}metros, donde R-S se refiere a Rigby \& Stasinopoulos (2005) y F-C es Ferrari \& Cribari-Neto (2004).}}{10}{figure.2.1}
-\contentsline {figure}{\numberline {\textbf {2-2}}{\ignorespaces Mediana de los par\'{a}metros estimados en el escenario 1 para distintas parametrizaciones y valores de $n$, las l\'{\i }neas rojas representan el verdadero valor del par\'{a}metro.}}{19}{figure.2.2}
-\contentsline {figure}{\numberline {\textbf {2-3}}{\ignorespaces Simulaci\'{o}n de distribuci\'{o}n ZOIP para distintas par\'{a}metrizaciones con par\'{a}metros de inflaci\'{o}n grandes, distribuciones y valores de $n$.}}{21}{figure.2.3}
-\contentsline {figure}{\numberline {\textbf {2-4}}{\ignorespaces Mape (Error porcentual absoluto medio) para los dos escenarios de simulaci\'{o}n y para distintas parametrizaciones y valores de $n$.}}{22}{figure.2.4}
-\contentsline {figure}{\numberline {\textbf {2-5}}{\ignorespaces Histograma del porcentaje de utilizaci\'{o}n de las tdc en un banco.}}{23}{figure.2.5}
-\contentsline {figure}{\numberline {\textbf {2-6}}{\ignorespaces Ajuste de diferentes distribuciones y parametrizaciones ZOIP al porcentaje de utilizaci\'{o}n de una tdc.}}{24}{figure.2.6}
+\contentsline {figure}{\numberline {\textbf {2-2}}{\ignorespaces Mediana de los par\'{a}metros estimados en el escenario 1 para distintas parametrizaciones y valores de $n$, las l\'{\i }neas rojas representan el verdadero valor del par\'{a}metro.}}{20}{figure.2.2}
+\contentsline {figure}{\numberline {\textbf {2-3}}{\ignorespaces Simulaci\'{o}n de distribuci\'{o}n ZOIP para distintas par\'{a}metrizaciones con par\'{a}metros de inflaci\'{o}n grandes, distribuciones y valores de $n$.}}{22}{figure.2.3}
+\contentsline {figure}{\numberline {\textbf {2-4}}{\ignorespaces Mape (Error porcentual absoluto medio) para los dos escenarios de simulaci\'{o}n y para distintas parametrizaciones y valores de $n$.}}{23}{figure.2.4}
+\contentsline {figure}{\numberline {\textbf {2-5}}{\ignorespaces Histograma del porcentaje de utilizaci\'{o}n de las tdc en un banco.}}{24}{figure.2.5}
+\contentsline {figure}{\numberline {\textbf {2-6}}{\ignorespaces Ajuste de diferentes distribuciones y parametrizaciones ZOIP al porcentaje de utilizaci\'{o}n de una tdc.}}{25}{figure.2.6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\textbf {3-1}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion R-S con diferentes valores de $n$.}}{35}{figure.3.1}
-\contentsline {figure}{\numberline {\textbf {3-2}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion F-C con diferentes valores de $n$.}}{35}{figure.3.2}
-\contentsline {figure}{\numberline {\textbf {3-3}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion original con diferentes valores de $n$.}}{36}{figure.3.3}
-\contentsline {figure}{\numberline {\textbf {3-4}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-simplex con diferentes valores de $n$.}}{36}{figure.3.4}
-\contentsline {figure}{\numberline {\textbf {3-5}}{\ignorespaces Mape (Error porcentual absoluto medio) para modelo de regresion ZOIP simulado para distintas parametrizaciones y valores de $n$.}}{38}{figure.3.5}
+\contentsline {figure}{\numberline {\textbf {3-1}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion R-S con diferentes valores de $n$.}}{38}{figure.3.1}
+\contentsline {figure}{\numberline {\textbf {3-2}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion F-C con diferentes valores de $n$.}}{38}{figure.3.2}
+\contentsline {figure}{\numberline {\textbf {3-3}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametricazion original con diferentes valores de $n$.}}{39}{figure.3.3}
+\contentsline {figure}{\numberline {\textbf {3-4}}{\ignorespaces Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-simplex con diferentes valores de $n$.}}{40}{figure.3.4}
+\contentsline {figure}{\numberline {\textbf {3-5}}{\ignorespaces Mape (Error porcentual absoluto medio) para modelo de regresion ZOIP simulado para distintas parametrizaciones y valores de $n$.}}{41}{figure.3.5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
