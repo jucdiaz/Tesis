@@ -337,3 +337,127 @@ En el anterior resultado se obtienen varios aspectos importantes de la salida de
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aplicaci\'{o}n}
+
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+& & \multicolumn{3}{|c|}{Con Pruning} & \multicolumn{3}{|c|}{Sin Pruning} \\ \hline
+Par\'{a}metro & $\beta$'s & $Q=3$ & $Q=10$ & $Q=20$ & $Q=3$ & $Q=10$ & $Q=20$ \\ \hline \hline
+\multirow{3}{*}{$\mu$} & $\hat{\beta_0}$ & -1.122	& -1.069	& -1.120	& -1.117	& -1.076	& -1.129 \\ 
+& $\hat{\beta_1}$ & 0.323	&0.322	&0.333	&0.334	&0.322	&0.329 \\
+& $\hat{\lambda_1}$ & 0.632	&0.626	&0.634	&0.629	&0.616	&0.623 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.400	&0.365	&0.366	&0.382	&0.379	&0.373 \\ 
+& $\hat{\beta_1}$ & 0.117	&0.119	&0.120	&0.123	&0.117	&0.121 \\
+& $\hat{\lambda_2}$ & 0.490	&0.487	&0.491	&0.501	&0.482	&0.486 \\ \hline
+$p_0$& $\hat{\beta_0}$ &0.228	&0.228	&0.226	&0.226	&0.226	&0.226 \\ \hline
+$p_1$& $\hat{\beta_0}$ &0.068	&0.070	&0.070	&0.070	&0.068	&0.070 \\ \hline
+Tiempo(Seg)& &75.295	&128.28	&271.825	&74.295	&162.35	&367.545 \\ \hline
+Nro Iteraciones& &30	&29	&29	&29	&29	&29 \\ \hline
+\end{tabular}
+\caption{Par}
+\label{T_Apli_mix_ncua}
+\end{center}
+}
+\end{table}
+
+
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+& & \multicolumn{3}{|c|}{Con Pruning} & \multicolumn{3}{|c|}{Sin Pruning} \\ \hline
+Par\'{a}metro & $\beta$'s & $Q=3$ & $Q=10$ & $Q=20$ & $Q=3$ & $Q=10$ & $Q=20$ \\ \hline \hline
+\multirow{3}{*}{$\mu$} & $\hat{\beta_0}$ & -1.137	&-1.110	&-1.076	&-1.128	&-1.120	&-1.080 \\ 
+& $\hat{\beta_1}$ & 0.321	&0.327	&0.326	&0.331	&0.330	&0.327 \\
+& $\hat{\lambda_1}$ & 0.879	&0.576	&0.507	&0.882	&0.568	&0.498 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.445	&0.380	&0.336	&0.452	&0.377	&0.345 \\ 
+& $\hat{\beta_1}$ & 0.072	&0.118	&0.132	&0.066	&0.121	&0.133\\
+& $\hat{\lambda_2}$ & 0.728	&0.450	&0.396	&0.727	&0.456	&0.398\\ \hline
+$p_0$& $\hat{\beta_0}$ &0.220	&0.230	&0.230	&0.220	&0.230	&0.230 \\ \hline
+$p_1$& $\hat{\beta_0}$ &0.060	&0.070	&0.070	&0.060	&0.070	&0.072 \\ \hline
+Tiempo(Seg)& &115.72	&130.85	&140.58	&61.69	&163.36	&218.68 \\ \hline
+Nro Iteraciones& &22	&30	&34	&22	&30	&34 \\ \hline
+\end{tabular}
+\caption{Par}
+\label{T_Apli_mix_ni}
+\end{center}
+}
+\end{table}
+
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta0_mu.eps}	
+		\caption{Anadir}
+		\label{MAPE_bo_mu}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta1_mu.eps}	
+		\caption{Anadir}
+		\label{MAPE_beta1_mu}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_lambda1_mu.eps}	
+		\caption{Anadir}
+		\label{MAPE_lambda1_mu}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta0_sigma.eps}	
+		\caption{Anadir}
+		\label{MAPE_beta0_sigma}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta1_sigma.eps}	
+		\caption{Anadir}
+		\label{MAPE_beta1_sigma}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_lambda2_sigma.eps}	
+		\caption{Anadir}
+		\label{MAPE_lambda2_sigma}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta0_p0.eps}	
+		\caption{Anadir}
+		\label{MAPE_beta0_p0}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{MAPE_beta0_p1.eps}	
+		\caption{Anadir}
+		\label{MAPE_beta0_p1}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{time_mix_ZOIP.eps}	
+		\caption{Anadir}
+		\label{time_mix_ZOIP}
+	\end{center}
+\end{figure}
+

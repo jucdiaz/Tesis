@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  10 SEP 2017 08:05
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  13 SEP 2017 00:05
 entering extended mode
 **TesisMSc.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.tex"
@@ -957,13 +957,10 @@ Class scrbook Info: You've told me to use the font selection of the element
 ]
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 40.
-Class scrbook Info: You've told me to use the font selection of the element
-(scrbook)           `sectioning' that is an alias of element `disposition'
 (scrbook)            on input line 41.
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 44.
+(scrbook)            on input line 42.
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
 (scrbook)            on input line 45.
@@ -973,6 +970,9 @@ Class scrbook Info: You've told me to use the font selection of the element
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
 (scrbook)            on input line 47.
+Class scrbook Info: You've told me to use the font selection of the element
+(scrbook)           `sectioning' that is an alias of element `disposition'
+(scrbook)            on input line 48.
 )
 \tf@toc=\write4
  [12] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.lof"
@@ -1482,7 +1482,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [54]
 Overfull \vbox (223.55092pt too high) has occurred while \output is active []
 
- [55] [56]) [57]
+ [55] [56]
+File: MAPE_beta0_mu.eps Graphic file (type eps)
+ <MAPE_beta0_mu.eps>
+File: MAPE_beta1_mu.eps Graphic file (type eps)
+
+<MAPE_beta1_mu.eps>
+File: MAPE_lambda1_mu.eps Graphic file (type eps)
+ <MAPE_lambda1_mu.eps>
+File: MAPE_beta0_sigma.eps Graphic file (type eps)
+ <MAPE_beta0_sigma.eps>
+File: MAPE_beta1_sigma.eps Graphic file (type eps)
+ <MAPE_beta1_sigma.eps>
+File: MAPE_lambda2_sigma.eps Graphic file (type eps)
+ <MAPE_lambda2_sigma.eps>
+File: MAPE_beta0_p0.eps Graphic file (type eps)
+
+<MAPE_beta0_p0.eps>
+File: MAPE_beta0_p1.eps Graphic file (type eps)
+ <MAPE_beta0_p1.eps>
+File: time_mix_ZOIP.eps Graphic file (type eps)
+ <time_mix_ZOIP.eps>) [57] [58] [59] [60] [61] [62]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
 Cap\'{\i }tulo 5.
 )
@@ -1490,7 +1510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--25
 
  []
 
-[58
+[63
 
 
 
@@ -1506,7 +1526,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--26
 
  []
 
-[59
+[64
 
 
 
@@ -1517,7 +1537,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[60
+[65
 
 
 
@@ -1528,7 +1548,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[61
+[66
 
 ]
 Ap\'{e}ndice C.
@@ -1557,9 +1577,9 @@ Underfull \hbox (badness 2790) in paragraph at lines 25--25
 []|\OT1/cmr/m/n/12 National Li-brary of Medicine (NLM)
  []
 
-[62
+[67
 
-]) [63] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [64
+]) [68] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [69
 
 
 ]
@@ -1572,7 +1592,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
-[65]
+[70]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
  ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.aux"
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\HojaTitulo/HojaTituloMSc.aux")
@@ -1585,7 +1605,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Anexos/Anexos.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
 Package rerunfilecheck Info: File `TesisMSc.out' has not changed.
-(rerunfilecheck)             Checksum: 5E722B5BC763571704D08FED1F286954;3371.
+(rerunfilecheck)             Checksum: 7E60CFE6CAC7DB89CC2C5F6A5F7C87D9;3432.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1595,12 +1615,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11345 strings out of 495286
- 169312 string characters out of 3179895
- 407844 words of memory out of 3000000
- 14160 multiletter control sequences out of 15000+200000
+ 11375 strings out of 495286
+ 169834 string characters out of 3179895
+ 408035 words of memory out of 3000000
+ 14181 multiletter control sequences out of 15000+200000
  22408 words of font info for 86 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,15n,52p,1844b,595s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TesisMSc.dvi (78 pages, 355136 bytes).
+Output written on TesisMSc.dvi (83 pages, 373832 bytes).
