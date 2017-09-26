@@ -251,18 +251,20 @@ En esta secci\'{o}n se muestran diferentes resultados sobre el ajuste de un mode
 
 \subsection{Datos simulados}
 En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad de estimaci\'{o}n que tiene el m\'{e}todo de m\'{a}xima verosimilitud sobre los par\'{a}metros regresores de un modelo de regresi\'{o}n ZOIP. Para comprobar esto se generaron muestras pertenecientes a una distribuci\'{o}n ZOIP a partir de dos variables aleatorias uniformes cero uno, con tama\~{n}os de muestra de 25, 50, 75, y 100 a partir de este punto no se realizar\'{a}n incrementos de 25 si no de 100, es decir 100, 200, 300 hasta 3500, y se realizaron 1000 r\'{e}plicas para cada tama\~{n}o de muestra, posteriormente se calcul\'{o} la mediana de la estimaci\'{o}n de cada par\'{a}metro regresor para cada distribuci\'{o}n y parametrizaci\'{o}n utilizada. A continuaci\'{o}n, se muestra la estructura simulada para cada par\'{a}metro de la distribuci\'{o}n ZOIP.\\
-
+\[
+Si y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),
+\]
 \begin{equation}
 \begin{split}
-&h_1(\mu_{i})=\beta_0+\beta_1x_{1i}+\epsilon_i,\\
-&h_2(\sigma_{i})=\beta_0+\beta_1x_{1i}+\beta_2x_{2i}+\epsilon_i,\\
-&h_3(p_0)=\beta_0+\epsilon_i,\\
-&h_4(p_1) =\beta_0+\beta_1x_{2i}+\epsilon_i
+&h_1(\mu_{i})=\beta_0+\beta_1x_{1i},\\
+&h_2(\sigma_{i})=\beta_0+\beta_1x_{1i}+\beta_2x_{2i},\\
+&h_3(p_{0i})=\beta_0,\\
+&h_4(p_{1i}) =\beta_0+\beta_1x_{2i},
 \end{split}
 \label{S_eq_reg}
 \end{equation}
 
-Donde para la regresi\'{o}n de $\mu$: $\beta_0=0.2$ y $\beta_1=-1$, para la de $\sigma$ se escogieron dos escenarios distintos si la regresi\'{o}n a modelar es ZOIP-beta parametrizaci\'{o}n de \cite{Stasinopoulos2}, entonces: $\beta_0=0.3$, $\beta_1=-2$, $\beta_2=-4$, para las dem\'{a}s parametrizaci\'{o}n y distribuciones $\beta_0=0.3$, $\beta_1=3$, $\beta_2=0.9$, esto para tener una variabilidad de los datos moderada. Para el par\'{a}metro $p_0$: $\beta_0=0.07$ y para $p_1$: $\beta_0=0.02$ y $\beta_1=-4$ para todos los casos posibles de selecci\'{o}n de la regresi\'{o}n ZOIP, y $x_{1i} \sim U(0,1)$, $x_{2i} \sim U(0,1)$. Las funciones de enlace adecuadas para cada distribuci\'{o}n y parametrizaci\'{o}n se muestran en la tabla \ref{T_F_enlace}.\\
+donde para la regresi\'{o}n de $\mu$: $\beta_0=0.2$ y $\beta_1=-1$, para la de $\sigma$ se escogieron dos escenarios distintos si la regresi\'{o}n a modelar es ZOIP-beta parametrizaci\'{o}n de \cite{Stasinopoulos2}, entonces: $\beta_0=0.3$, $\beta_1=-2$, $\beta_2=-4$, para las dem\'{a}s parametrizaci\'{o}n y distribuciones $\beta_0=0.3$, $\beta_1=3$, $\beta_2=0.9$, esto para tener una variabilidad de los datos moderada. Para el par\'{a}metro $p_0$: $\beta_0=0.07$ y para $p_1$: $\beta_0=0.02$ y $\beta_1=-4$ para todos los casos posibles de selecci\'{o}n de la regresi\'{o}n ZOIP, y $x_{1i} \sim U(0,1)$, $x_{2i} \sim U(0,1)$. Las funciones de enlace adecuadas para cada distribuci\'{o}n y parametrizaci\'{o}n se muestran en la tabla \ref{T_F_enlace}.\\
 
 \begin{table}[!hbt]
 {\scriptsize
@@ -372,18 +374,20 @@ En la figura \ref{Mape_gnrl} se muestra la mediana del MAPE de la mediana del MA
 En una entidad financiera tiene gran importancia conocer el comportamiento del porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito (tdc), con el fin de conocer el comportamiento de la cartera de tarjeta de cr\'{e}dito, adem\'{a}s de detectar los diferentes factores que pueden afectar este tipo de cartera. Se define a $y$ como el porcentaje de uso de una tdc, es de notar que $y$ se encuentra entre cero y uno, pero adicional es normal que se tengan tdc que no sean utilizadas ($y=0$) y tdc que est\'{a}n utilizadas en la totalidad de su cupo asignado ($y=1$), por lo que se trata a $y$ como una variable aleatoria perteneciente a datos proporcionales inflados con ceros y unos, es decir $y$ puede ser explicada a partir de una distribuci\'{o}n ZOIP. Se tiene un total de 9206 tarjetas de cr\'{e}dito. Se quiere estudiar el impacto de algunas variables sobre el porcentaje de utilizaci\'{o}n de una tdc, para ello se busca ajustar un modelo de regresi\'{o}n ZOIP mediante la funci\'{o}n \code{RM.ZOIP} del paquete \pkg{ZOIP} de \proglang{R}, que permita explicar el comportamiento del porcentaje de utilizaci\'{o}n de una tdc mediante las siguientes tres variables, \textsl{Score:} variable entre cero y 1000 que para nuestro caso se cambiara de escala entre cero y uno, est\'{a} explica la calificaci\'{o}n del comportamiento de pago del cliente asociada a la tdc, que pertenece a la entidad financiera, donde cero es la peor calificacion y uno un comportamiento de pago ideal; \textsl{Prom Cuotas:} se define como el promedio de cantidad de cuotas al que ha diferido sus compras en los \'{u}ltimos seis meses; \textsl{Cupo tdc Entidad:} es el cupo total asignado a la tdc, esta ser\'{a} tratada como el logaritmo de su cupo m\'{a}s uno, para una mayor estabilidad de su varianza.\\
 
 En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n para ser ajustados, de tal forma que nos permita ver el efecto de las variables descritas anteriormente sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.
-
+\[
+Si y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),
+\]
 \begin{equation}
 \begin{split}
-&h_1(\mu_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
-&h_2(\sigma_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
-&h_3(p_0)=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i,\\
-&h_4(p_1) =\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i}+\epsilon_i
+&h_1(\mu_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+&h_2(\sigma_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+&h_3(p_{0i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+&h_4(p_{1i}) =\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},
 \end{split}
 \label{A_eq_reg}
 \end{equation}
 
-donde $x_{1i}$: es el valor del score del i-esimo individuo asociada a la tarjeta de cr\'{e}dito, $x_{2i}$: es valor del promedio de cuotas al que difiere sus compras de la i-esima tarjeta de cr\'{e}dito, $x_{3i}$: es el valor del cupo otorgado de la i-esima tarjeta de cr\'{e}dito. 
+donde $y_i$ es porcentaje de utilizacion de la i-esima tdc, $x_{1i}$: es el valor del score del i-esimo individuo asociada a la tarjeta de cr\'{e}dito, $x_{2i}$: es valor del promedio de cuotas al que difiere sus compras de la i-esima tarjeta de cr\'{e}dito, $x_{3i}$: es el valor del cupo otorgado de la i-esima tarjeta de cr\'{e}dito. 
 
 \begin{table}[!hbt]
 {\scriptsize

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  13 SEP 2017 00:05
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  25 SEP 2017 23:51
 entering extended mode
 **TesisMSc.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.tex"
@@ -957,22 +957,22 @@ Class scrbook Info: You've told me to use the font selection of the element
 ]
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 41.
+(scrbook)            on input line 43.
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 42.
-Class scrbook Info: You've told me to use the font selection of the element
-(scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 45.
-Class scrbook Info: You've told me to use the font selection of the element
-(scrbook)           `sectioning' that is an alias of element `disposition'
-(scrbook)            on input line 46.
+(scrbook)            on input line 44.
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
 (scrbook)            on input line 47.
 Class scrbook Info: You've told me to use the font selection of the element
 (scrbook)           `sectioning' that is an alias of element `disposition'
 (scrbook)            on input line 48.
+Class scrbook Info: You've told me to use the font selection of the element
+(scrbook)           `sectioning' that is an alias of element `disposition'
+(scrbook)            on input line 49.
+Class scrbook Info: You've told me to use the font selection of the element
+(scrbook)           `sectioning' that is an alias of element `disposition'
+(scrbook)            on input line 50.
 )
 \tf@toc=\write4
  [12] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.lof"
@@ -985,11 +985,31 @@ Overfull \hbox (5.38033pt too wide) in paragraph at lines 6--6
  [][] [][][]\OT1/cmr/m/n/12 Simulacion de dis-tribu-cion ZOIP para dis-tin-tas parametriza-ciones con paramet- 
  []
 
-)
-\tf@lof=\write5
+
+Overfull \hbox (7.2942pt too wide) in paragraph at lines 19--19
+ [][] [][][]\OT1/cmr/m/n/12 Mediana del er-ror rel-a-ti-vo de la es-ti-macion del parametro $\OML/cmm/m/it/12 []$ \OT
+1/cmr/m/n/12 desviacion estandar 
+ []
+
+
+Underfull \vbox (badness 6348) has occurred while \output is active []
+
  [13
 
-] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.lot")
+]
+Overfull \hbox (7.2942pt too wide) in paragraph at lines 22--22
+ [][] [][][]\OT1/cmr/m/n/12 Mediana del er-ror rel-a-ti-vo de la es-ti-macion del parametro $\OML/cmm/m/it/12 []$ \OT
+1/cmr/m/n/12 desviacion estandar 
+ []
+
+
+Overfull \hbox (0.9891pt too wide) detected at line 26
+\OT1/cmr/bx/n/12 4-10\OT1/cmr/m/n/12 . 
+ []
+
+)
+\tf@lof=\write5
+ [14] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.lot")
 \tf@lot=\write6
  [1
 
@@ -1097,7 +1117,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
 File: Dist_ZOIP.eps Graphic file (type eps)
 <Dist_ZOIP.eps> [9]
-Underfull \hbox (badness 10000) in paragraph at lines 195--198
+Underfull \hbox (badness 10000) in paragraph at lines 196--199
 
  []
 
@@ -1105,68 +1125,68 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--198
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 266--269
+Underfull \hbox (badness 10000) in paragraph at lines 267--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 273--274
 
  []
 
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 314.
+(hyperref)                removing `\<def>-command' on input line 315.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\f@series' on input line 314.
+(hyperref)                removing `\f@series' on input line 315.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 314.
+(hyperref)                removing `\<def>-command' on input line 315.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\font@name' on input line 314.
+(hyperref)                removing `\font@name' on input line 315.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\OT1/cmr/b/n/17.28' on input line 314.
+(hyperref)                removing `\OT1/cmr/b/n/17.28' on input line 315.
 
 [13]
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 330.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 331.
  ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ts1cmtt.fd"
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 
  []
 
 [14]
-Overfull \hbox (13.21378pt too wide) in paragraph at lines 390--391
+Overfull \hbox (13.21378pt too wide) in paragraph at lines 391--392
 \OT1/cmr/m/n/12 los[][][] ([][]2005[][][]), si toma el val-or de \OT1/cmtt/m/n/12 `F-C' \OT1/cmr/m/n/12 se uti-lizara l
 a dis-tribu-cion ZOIP-beta parametrizacion
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
@@ -1174,7 +1194,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 395--396
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 
  []
 
@@ -1182,22 +1202,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 444--445
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Underfull \hbox (badness 10000) in paragraph at lines 481--482
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
 [18]
-Overfull \hbox (2.4428pt too wide) in paragraph at lines 492--493
+Overfull \hbox (2.4428pt too wide) in paragraph at lines 493--494
 \OT1/cmr/m/n/12 gener-aron mues-tras de una dis-tribu-cion ZOIP ba-jo las difer-entes dis-tribu-ciones y parametriza-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
@@ -1205,17 +1225,17 @@ File: Simulacion_RS_FC.eps Graphic file (type eps)
 <Simulacion_RS_FC.eps>
 File: Simulacion_Ori_Sim.eps Graphic file (type eps)
  <Simulacion_Ori_Sim.eps>
-Underfull \hbox (badness 1052) in paragraph at lines 502--502
+Underfull \hbox (badness 1052) in paragraph at lines 503--503
 [][][][][][][][]\OT1/cmr/m/n/12 Mediana de los paramet-ros es-ti-ma-dos en el es-ce-nario 1 para dis-tin-tas
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
@@ -1223,7 +1243,7 @@ File: Simulacion_RS_FC_Infla.eps Graphic file (type eps)
 <Simulacion_RS_FC_Infla.eps>
 File: Simulacion_Ori_Sim_Infla.eps Graphic file (type eps)
  <Simulacion_Ori_Sim_Infla.eps>
-Underfull \hbox (badness 2150) in paragraph at lines 518--518
+Underfull \hbox (badness 2150) in paragraph at lines 519--519
 [][][][][][][][]\OT1/cmr/m/n/12 Simulacion de dis-tribu-cion ZOIP para dis-tin-tas parametriza-ciones con
  []
 
@@ -1231,21 +1251,21 @@ File: Mape_gnrl.eps Graphic file (type eps)
 <Mape_gnrl.eps>
 File: Mape_gnrl_infla.eps Graphic file (type eps)
  <Mape_gnrl_infla.eps> [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
 
  []
 
 [23]
 File: Hist_tdc.eps Graphic file (type eps)
  <Hist_tdc.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 
  []
 
 [24]
 File: Aplicacion_SC.eps Graphic file (type eps)
  <Aplicacion_SC.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 
  []
 
@@ -1349,45 +1369,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 253--254
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
 File: Converg_RS.eps Graphic file (type eps)
 <Converg_RS.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 
  []
 
 [36]
 File: Converg_FC.eps Graphic file (type eps)
  <Converg_FC.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
 File: Converg_Ori.eps Graphic file (type eps)
 <Converg_Ori.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
 
  []
 
 [37] [38]
 File: Converg_Simplex.eps Graphic file (type eps)
  <Converg_Simplex.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 [39]
 File: MAPE_gnral.eps Graphic file (type eps)
  <MAPE_gnral.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
@@ -1398,35 +1418,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 2762) has occurred while \output is active []
 
  [41]
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
-
- []
-
-[42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
-
- []
-
-
-Underfull \vbox (badness 3148) has occurred while \output is active []
-
- [44]
 Underfull \hbox (badness 10000) in paragraph at lines 546--547
 
  []
 
-
+[42] [43]
 Underfull \hbox (badness 10000) in paragraph at lines 548--549
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+Underfull \vbox (badness 6157) has occurred while \output is active []
+
+ [44]
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
@@ -1449,6 +1469,10 @@ Package natbib Warning: Citation `Pinheiro1' on page 49 undefined on input line 
 
 [49]
 
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 134.
+
+
 Package natbib Warning: Citation `Hernandez1' on page 50 undefined on input line 136.
 
 
@@ -1459,19 +1483,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Package natbib Warning: Citation `Hernandez1' on page 51 undefined on input line 143.
 
 [51] [52]
-Overfull \hbox (7.4777pt too wide) in paragraph at lines 227--228
+Overfull \hbox (7.4777pt too wide) in paragraph at lines 220--221
 []\OT1/cmtt/m/n/12 formula.mu\OT1/cmr/m/n/12 : For-mu-la que de-fine la fun-cion de re-gre-sion de efec-tos fi-jos, pa
 ra el parametro
  []
 
 
-Overfull \hbox (7.4777pt too wide) in paragraph at lines 229--230
+Overfull \hbox (7.4777pt too wide) in paragraph at lines 222--223
 []\OT1/cmtt/m/n/12 formula.p0\OT1/cmr/m/n/12 : For-mu-la que de-fine la fun-cion de re-gre-sion de efec-tos fi-jos, pa
 ra el parametro
  []
 
 
-Overfull \hbox (7.4777pt too wide) in paragraph at lines 230--231
+Overfull \hbox (7.4777pt too wide) in paragraph at lines 223--224
 []\OT1/cmtt/m/n/12 formula.p1\OT1/cmr/m/n/12 : For-mu-la que de-fine la fun-cion de re-gre-sion de efec-tos fi-jos, pa
 ra el parametro
  []
@@ -1480,37 +1504,141 @@ ra el parametro
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [54]
-Overfull \vbox (223.55092pt too high) has occurred while \output is active []
+Overfull \hbox (55.4048pt too wide) in paragraph at lines 273--273
+[]\OT1/cmtt/m/n/12 Y <- rZOIP(n = length(mu), mu = mu, sigma = sigma, p0 = p0, p1 = p1, family = family)[] 
+ []
 
- [55] [56]
+
+Overfull \hbox (141.85484pt too wide) in paragraph at lines 296--296
+[]    \OT1/cmtt/m/n/12 formula.p0 = formula.p0, formula.p1 = formula.p1, data = base, formula.random = formula.random,[]
+ 
+ []
+
+
+Overfull \hbox (6.00478pt too wide) in paragraph at lines 296--296
+[]    \OT1/cmtt/m/n/12 link = link, family = family, optimizer = optimizer, n.points = n.points,[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58] [59]
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 461--462
+
+ []
+
+[61]
+File: Ajuste_expo_mix.eps Graphic file (type eps)
+ <Ajuste_expo_mix.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+
+Underfull \vbox (badness 2635) has occurred while \output is active []
+
+ [62]
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
+
+ []
+
+[63]
 File: MAPE_beta0_mu.eps Graphic file (type eps)
  <MAPE_beta0_mu.eps>
-File: MAPE_beta1_mu.eps Graphic file (type eps)
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
-<MAPE_beta1_mu.eps>
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
 File: MAPE_lambda1_mu.eps Graphic file (type eps)
- <MAPE_lambda1_mu.eps>
+<MAPE_lambda1_mu.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+ []
+
+[65]
+File: MAPE_beta1_mu.eps Graphic file (type eps)
+ <MAPE_beta1_mu.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
+
+ []
+
 File: MAPE_beta0_sigma.eps Graphic file (type eps)
- <MAPE_beta0_sigma.eps>
-File: MAPE_beta1_sigma.eps Graphic file (type eps)
- <MAPE_beta1_sigma.eps>
+<MAPE_beta0_sigma.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 566--567
+
+ []
+
+[66] [67]
 File: MAPE_lambda2_sigma.eps Graphic file (type eps)
  <MAPE_lambda2_sigma.eps>
-File: MAPE_beta0_p0.eps Graphic file (type eps)
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 
+ []
+
+[68]
+File: MAPE_beta1_sigma.eps Graphic file (type eps)
+ <MAPE_beta1_sigma.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+
+ []
+
+File: MAPE_beta0_p0.eps Graphic file (type eps)
 <MAPE_beta0_p0.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
+
+ []
+
+[69] [70]
 File: MAPE_beta0_p1.eps Graphic file (type eps)
  <MAPE_beta0_p1.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
+
+ []
+
 File: time_mix_ZOIP.eps Graphic file (type eps)
- <time_mix_ZOIP.eps>) [57] [58] [59] [60] [61] [62]
-("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
+<time_mix_ZOIP.eps>) [71] [72] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex
+"
 Cap\'{\i }tulo 5.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 2--25
 
  []
 
-[63
+[73
 
 
 
@@ -1526,7 +1654,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--26
 
  []
 
-[64
+[74
 
 
 
@@ -1537,7 +1665,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[65
+[75
 
 
 
@@ -1548,7 +1676,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[66
+[76
 
 ]
 Ap\'{e}ndice C.
@@ -1577,9 +1705,9 @@ Underfull \hbox (badness 2790) in paragraph at lines 25--25
 []|\OT1/cmr/m/n/12 National Li-brary of Medicine (NLM)
  []
 
-[67
+[77
 
-]) [68] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [69
+]) [78] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [79
 
 
 ]
@@ -1592,7 +1720,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
-[70]
+[80]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
  ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.aux"
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\HojaTitulo/HojaTituloMSc.aux")
@@ -1605,7 +1733,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Anexos/Anexos.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
 Package rerunfilecheck Info: File `TesisMSc.out' has not changed.
-(rerunfilecheck)             Checksum: 7E60CFE6CAC7DB89CC2C5F6A5F7C87D9;3432.
+(rerunfilecheck)             Checksum: AB6C75024534EFD58F48D97FE774371D;3569.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1615,12 +1743,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11375 strings out of 495286
- 169834 string characters out of 3179895
- 408035 words of memory out of 3000000
- 14181 multiletter control sequences out of 15000+200000
- 22408 words of font info for 86 fonts, out of 3000000 for 9000
+ 11387 strings out of 495286
+ 170014 string characters out of 3179895
+ 411066 words of memory out of 3000000
+ 14191 multiletter control sequences out of 15000+200000
+ 22760 words of font info for 87 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,15n,52p,1844b,595s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,15n,52p,1919b,601s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TesisMSc.dvi (83 pages, 373832 bytes).
+Output written on TesisMSc.dvi (94 pages, 434600 bytes).
