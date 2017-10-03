@@ -12,11 +12,7 @@
 \contentsline {table}{\numberline {\textbf {3-6}}{\ignorespaces Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original en el porcentaje de utilizaci\'{o}n de una tdc.}}{44}{table.3.6}
 \contentsline {table}{\numberline {\textbf {3-7}}{\ignorespaces Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-simplex en el porcentaje de utilizaci\'{o}n de una tdc.}}{44}{table.3.7}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\textbf {4-1}}{\ignorespaces Estimacion de los efectos fijos y aleatorios del modelo de regresion ZOIP mixto para el porcentaje utilizacion de una tdc.}}{61}{table.4.1}
-\contentsline {table}{\numberline {\textbf {4-2}}{\ignorespaces Estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n y los interceptos aleatorios de un modelo de regresi\'{o}n simulado ZOIP mixto. visto a partir del tama\~{n}o de muestra y si se utiliza \textit {pruning} o no.}}{63}{table.4.2}
-\contentsline {table}{\numberline {\textbf {4-3}}{\ignorespaces Estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n y los interceptos aleatorios de un modelo de regresi\'{o}n simulado ZOIP mixto. visto a partir del n\'{u}mero de puntos de la cuadratura y si se utiliza \textit {pruning} o no.}}{63}{table.4.3}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {\textbf {4-1}}{\ignorespaces Estimacion de los efectos fijos y aleatorios del modelo de regresion ZOIP mixto para el porcentaje utilizacion de una tdc.}}{63}{table.4.1}
+\contentsline {table}{\numberline {\textbf {4-2}}{\ignorespaces Estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n y los interceptos aleatorios de un modelo de regresi\'{o}n simulado ZOIP mixto. visto a partir del tama\~{n}o de muestra y si se utiliza \textit {pruning} o no.}}{65}{table.4.2}
+\contentsline {table}{\numberline {\textbf {4-3}}{\ignorespaces Estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n y los interceptos aleatorios de un modelo de regresi\'{o}n simulado ZOIP mixto. visto a partir del n\'{u}mero de puntos de la cuadratura y si se utiliza \textit {pruning} o no.}}{65}{table.4.3}
 \addvspace {10\p@ }

@@ -2,6 +2,7 @@
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Resumen}{\es@scroman {ix}}{section*.1}
 \select@language {spanish}
 \contentsline {chapter}{\numberline {1}Introducci\'{o}n}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Organizaci\'{o}n del trabajo}{3}{section.1.1}
 \contentsline {chapter}{\numberline {2}Cap\'{\i }tulo 1: Distribuci\'{o}n ZOIP}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}Distribuci\'{o}n para datos proporcionales}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Distribuci\'{o}n beta original}{5}{subsection.2.1.1}
@@ -28,23 +29,20 @@
 \contentsline {subsection}{\numberline {3.3.2}Datos reales}{41}{subsection.3.3.2}
 \contentsline {section}{\numberline {3.4}Conclusi\'{o}n}{46}{section.3.4}
 \contentsline {chapter}{\numberline {4}Cap\'{\i }tulo 3: Modelo de regresi\'{o}n ZOIP con efectos mixtos}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modelo de regresi\'{o}n ZOIP mixto}{47}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Inferencia estad\'{\i }stica}{48}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Cuadratura de Gauss-Hermite}{49}{subsection.4.1.2}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite unidimensional}{49}{section*.5}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa}{49}{section*.6}
-\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa con \textit {pruning}}{51}{section*.7}
-\contentsline {subsection}{\numberline {4.1.3}Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i }a cuadratura de Gauss-Hermite}{51}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Modelo de regresi\'{o}n ZOIP mixto en el paquete ZOIP}{52}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Funci\'{o}n RMM.ZOIP}{53}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}Aplicaci\'{o}n}{59}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Datos reales}{59}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Datos simulados}{61}{subsection.4.3.2}
-\contentsline {chapter}{\numberline {5}Cap\'{\i }tulo ...}{73}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusiones y recomendaciones}{74}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{74}{section.6.1}
-\contentsline {section}{\numberline {6.2}Recomendaciones}{74}{section.6.2}
-\contentsline {chapter}{\numberline {A}Anexo: Nombrar el anexo A de acuerdo con su contenido}{75}{appendix.A}
-\contentsline {chapter}{\numberline {B}Anexo: Nombrar el anexo B de acuerdo con su contenido}{76}{appendix.B}
-\contentsline {chapter}{\numberline {C}Anexo: Nombrar el anexo C de acuerdo con su contenido}{77}{appendix.C}
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{79}{appendix.C}
+\contentsline {section}{\numberline {4.1}Modelo de regresi\'{o}n ZOIP mixto}{48}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Inferencia estad\'{\i }stica}{49}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Cuadratura de Gauss-Hermite}{50}{subsection.4.1.2}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite unidimensional}{50}{section*.5}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa}{51}{section*.6}
+\contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa con \textit {pruning}}{52}{section*.7}
+\contentsline {subsection}{\numberline {4.1.3}Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i }a cuadratura de Gauss-Hermite}{53}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Modelo de regresi\'{o}n ZOIP mixto en el paquete ZOIP}{54}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Funci\'{o}n RMM.ZOIP}{54}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Aplicaci\'{o}n}{61}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Datos reales}{61}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Datos simulados}{63}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Conclusi\'{o}n}{74}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusiones y recomendaciones}{76}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusiones}{76}{section.5.1}
+\contentsline {section}{\numberline {5.2}Recomendaciones}{77}{section.5.2}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{79}{section.5.2}

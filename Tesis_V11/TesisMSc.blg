@@ -5,12 +5,8 @@ A level-1 auxiliary file: Kap2/Kap2.aux
 A level-1 auxiliary file: Kap3/Kap3.aux
 A level-1 auxiliary file: Kap4/Kap4.aux
 A level-1 auxiliary file: Kap5/Kap5.aux
-A level-1 auxiliary file: Kap6/Kap6.aux
-A level-1 auxiliary file: Anexos/Anexos.aux
 The style file: plainnat.bst
 Database file #1: BibliMSc.bib
-Warning--I didn't find a database entry for "andrade07"
-Warning--I didn't find a database entry for "Liu1"
-Warning--I didn't find a database entry for "Pinheiro1"
-Warning--I didn't find a database entry for "Hernandez1"
-(There were 4 warnings)
+Warning--empty journal in Bonat1
+Warning--empty journal in Hernandez1
+(There were 2 warnings)
