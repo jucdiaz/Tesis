@@ -12,3 +12,23 @@ A nivel computacional es posible mencionar que existen diferentes paquetes en el
 En este trabajo se incluye en una sola distribuci\'{o}n y en un solo modelo de regresi\'{o}n de efectos fijos y mixtos, las principales distribuciones y modelos de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos, por lo que es creado la distribuci\'{o}n ZOIP (Zeros Ones Inflated Proporcional), los modelos de regresi\'{o}n ZOIP para efectos fijos y mixtos. La estimaci\'{o}n de los par\'{a}metros regresores de los modelos de regresi\'{o}n ZOIP, son realizados v\'{\i}a m\'{a}xima verosimilitud y la cuadratura de Gauss-Hermite. Adicional como no existe un paquete en \proglang{R} que re\'{u}na las principales distribuciones y regresiones de efectos fijos y mixtos para modelar los datos proporcionales inflados con ceros y/o unos, se implementa el paquete \pkg{ZOIP}, que permite generar y ajustar distribuciones y modelos de regresi\'{o}n para efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos.
 
 \section{Organizaci\'{o}n del trabajo}
+
+La estructura de este trabajo es considerada de la siguiente manera, en el cap\'{\i}tulo \ref{cap2} se muestra primero que todo las principales distribuciones descritas en la literatura para datos proporcionales, en diferentes parametrizaciones, adem\'{a}s se implementa la distribuci\'{o}n ZOIP para datos proporcionales inflados con ceros y/o unos, propuesta en este trabajo, luego se muestra c\'{o}mo se utiliza la distribuci\'{o}n ZOIP en el paquete propuesto \pkg{ZOIP}, por \'{u}ltimo se realizan diferentes estudios de simulaci\'{o}n para argumentar la convergencia satisfactoria del ajuste de la distribuci\'{o}n ZOIP y una aplicaci\'{o}n a datos reales.\\
+
+Un modelo de regresi\'{o}n de efectos fijos para datos proporcionales es planteado en el cap\'{\i}tulo \ref{cap3}, con base a la distribuci\'{o}n ZOIP propuesta en el cap\'{\i}tulo anterior, se muestra la inferencia estad\'{\i}stica para la estimaci\'{o}n de los par\'{a}metros v\'{\i}a m\'{a}xima verosimilitud, luego se observa c\'{o}mo utilizar el modelo de regresi\'{o}n para efectos fijos en el paquete \pkg{ZOIP} y las salidas de las funciones de dicho paquete asociadas a la estimaci\'{o}n de un modelo de regresi\'{o}n ZOIP, por \'{u}ltimo se realiza un estudio de simulaci\'{o}n donde se demuestra la convergencia de la estimaci\'{o}n de los par\'{a}metros regresores y se muestra el ajuste de un modelo de regresi\'{o}n ZOIP a datos reales.\\
+
+En el cap\'{\i}tulo \ref{cap4} se muestra la implementaci\'{o}n y el desarrollo anal\'{\i}tico de un modelo de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos, teniendo en cuenta efectos fijos e interceptos aleatorios en los par\'{a}metros de la media y la varianza, se muestra la derivaci\'{o}n de la funci\'{o}n de verosimilitud necesaria para estimar los par\'{a}metros regresores asociados al modelo, para dicha estimaci\'{o}n es necesario utilizar una aproximaci\'{o}n, la aproximaci\'{o}n utilizada en este trabajo es la cuadratura de Gauss-Hermite, en este cap\'{\i}tulo tambi\'{e}n se muestran las diferentes variaciones que existen en la cuadratura de Gauss-Hermite, luego se muestra la aproximaci\'{o}n de la funci\'{o}n de verosimilitud por medio de la cuadratura de Gauss-Hermite adaptativa. Se observa la forma de utilizar el paquete \pkg{ZOIP} para el ajuste de un modelo de regresi\'{o}n ZOIP mixto. Luego se muestra el ajuste de un modelo de regresi\'{o}n ZOIP mixto a datos reales y un estudio de simulaci\'{o}n con varios escenarios que nos permite concluir, cual es la mejor metodolog\'{\i}a de estimaci\'{o}n de los par\'{a}metros regresores, en un modelo de regresi\'{o}n mixto para datos proporcionales inflados con ceros y/o unos.\\
+
+Finalmente, en el cap\'{\i}tulo \ref{cap5} es presentada las conclusiones, recomendaciones y trabajos futuros derivados de este trabajo.
+
+
+ 
+
+
+
+
+
+
+
+
+

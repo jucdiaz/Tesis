@@ -2,7 +2,7 @@
 \BOOKMARK [0][-]{section*.1}{Resumen}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 3
 \BOOKMARK [1][-]{section.1.1}{Organizaci\363n del trabajo}{chapter.1}% 4
-\BOOKMARK [0][-]{chapter.2}{Cap\355tulo 1: Distribuci\363n ZOIP}{}% 5
+\BOOKMARK [0][-]{chapter.2}{Cap\355tulo 2: Distribuci\363n ZOIP}{}% 5
 \BOOKMARK [1][-]{section.2.1}{Distribuci\363n para datos proporcionales}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.1.1}{Distribuci\363n beta original}{section.2.1}% 7
 \BOOKMARK [2][-]{subsection.2.1.2}{Distribuci\363n beta parametrizaci\363n Ferrari y Cribari-Neto \(2004\)}{section.2.1}% 8
@@ -18,7 +18,7 @@
 \BOOKMARK [2][-]{subsection.2.5.1}{Datos simulados}{section.2.5}% 18
 \BOOKMARK [2][-]{subsection.2.5.2}{Datos reales}{section.2.5}% 19
 \BOOKMARK [1][-]{section.2.6}{Conclusiones}{chapter.2}% 20
-\BOOKMARK [0][-]{chapter.3}{Cap\355tulo 2: Modelo de regresi\363n ZOIP con efectos fijos}{}% 21
+\BOOKMARK [0][-]{chapter.3}{Cap\355tulo 3: Modelo de regresi\363n ZOIP con efectos fijos}{}% 21
 \BOOKMARK [1][-]{section.3.1}{Modelo de regresi\363n ZOIP}{chapter.3}% 22
 \BOOKMARK [2][-]{subsection.3.1.1}{Inferencia estad\355stica}{section.3.1}% 23
 \BOOKMARK [1][-]{section.3.2}{Modelo de regresi\363n ZOIP en el Paquete ZOIP}{chapter.3}% 24
@@ -27,7 +27,7 @@
 \BOOKMARK [2][-]{subsection.3.3.1}{Datos simulados}{section.3.3}% 27
 \BOOKMARK [2][-]{subsection.3.3.2}{Datos reales}{section.3.3}% 28
 \BOOKMARK [1][-]{section.3.4}{Conclusi\363n}{chapter.3}% 29
-\BOOKMARK [0][-]{chapter.4}{Cap\355tulo 3: Modelo de regresi\363n ZOIP con efectos mixtos}{}% 30
+\BOOKMARK [0][-]{chapter.4}{Cap\355tulo 4: Modelo de regresi\363n ZOIP con efectos mixtos}{}% 30
 \BOOKMARK [1][-]{section.4.1}{Modelo de regresi\363n ZOIP mixto}{chapter.4}% 31
 \BOOKMARK [2][-]{subsection.4.1.1}{Inferencia estad\355stica}{section.4.1}% 32
 \BOOKMARK [2][-]{subsection.4.1.2}{Cuadratura de Gauss-Hermite}{section.4.1}% 33
