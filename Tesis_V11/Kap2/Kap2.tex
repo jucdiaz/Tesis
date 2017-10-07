@@ -126,7 +126,7 @@ donde $\Gamma(a,b)$ est\'{a} dado por la funci\'{o}n$-\Gamma$ incompleta definid
 
 En las distribuciones vistas en la secci\'{o}n \ref{Sec_dist_prop}, se evidenciaron ciertas distribuciones que se ajustan al comportamiento de datos proporcionales, porcentajes o tasas que est\'{a}n en el intervalo (0,1), sin embargo es com\'{u}n que estos datos tomen valores en cero y/o uno que representar\'{\i}an la ausencia o presencia total de cierta caracter\'{\i}stica, por lo que no ser\'{\i}a posible ajustar los datos a las distribuciones vistas anteriormente y es por eso que en este trabajo se propone la distribuci\'{o}n ZOIP, como un conjunto de distribuciones para datos proporcionales inflados con ceros y/o unos.
 
-La distribuci\'{o}n para datos proporcionales inflados con ceros y/o unos se compone de la mezcla de tres distribuciones, dos de ellas discretas, que son distribuciones degeneradas en cero y uno, y una tercera distribuci\'{o}n continua que adem\'{a}s es una funci\'{o}n de densidad de probabilidad para datos proporcionales, como las presentadas anteriormente, si la variable aleatoria $y$ tiene distribuci\'{o}n ZOIP con par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotar\'{a} como $y \sim$ ZOIP$(\mu,\sigma, p_0, p_1)$, la funci\'{o}n de densidad de probabilidad est\'{a} dado por:
+La distribuci\'{o}n para datos proporcionales inflados con ceros y/o unos se compone de la mezcla de tres distribuciones, dos de ellas discretas, que son distribuciones degeneradas en cero y uno, y una tercera distribuci\'{o}n continua que adem\'{a}s es una funci\'{o}n de densidad de probabilidad para datos proporcionales, como las presentadas anteriormente, si la variable aleatoria $y$ tiene distribuci\'{o}n ZOIP con par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotar\'{a} como $y \sim ZOIP(\mu,\sigma, p_0, p_1)$, la funci\'{o}n de densidad de probabilidad est\'{a} dado por:
 
 \begin{equation}
 g(y;\mu,\sigma, p_{0}, p_{1})=
@@ -144,11 +144,11 @@ donde $p_{0} \geq 0$ representa la probabilidad que $y=0$ y $p_{1} \geq 0$ repre
 	E(y) = p_1+(1-p_0-p_1)E^*(y)
 \end{equation}
 
-\begin{multline}
-	Var(y) = p_1(1-p1)+\\
-	+(1-p_0-p_1)\left[Var^*(y)+(p_0+p_1)[E^*(y)]^2-2E^*(y)p_1\right]
-\end{multline}
-
+\begin{equation}
+%\begin{multline}
+	Var(y) = p_1(1-p1)+(1-p_0-p_1)\left[Var^*(y)+(p_0+p_1)[E^*(y)]^2-2E^*(y)p_1\right]
+%\end{multline}
+\end{equation}
 
 donde $E^*(y)$ es el valor esperado de una distribuci\'{o}n para datos proporcionales como las descritas en \eqref{E_Origin}, \eqref{E_FC}, \eqref{E_RS} y \eqref{E_Simplex}. Adem\'{a}s la $Var^*(y)$ es la varianza de una distribuci\'{o}n para datos proporcionales como se muestra en  \eqref{V_Origin}, \eqref{V_FC}, \eqref{V_RS} y \eqref{V_Simplex}.\\
 
@@ -218,10 +218,10 @@ Ahora sacando logaritmo natural a la funci\'{o}n de verosimilitud.
 \frac{\delta \ell_1(p_0)}{\delta p_0}=\frac{\sum_{i=1}^{n}{S_0(y_i)}}{p_0}-\frac{n-\sum_{i=1}^{n}{S_0(y_i)}}{1-p_0}=\sum_{i=1}^{n}{S_0(y_i)}-p_0n=0
 \]
 \[
-\hat{p_0}=\frac{1}{n}\sum_{i=1}^{n}{S_0(y_i)}
+\hat{p}_0=\frac{1}{n}\sum_{i=1}^{n}{S_0(y_i)}
 \]
 \[
-\therefore \hat{p_1}=\frac{1}{n}\sum_{i=1}^{n}{S_1(y_i)}
+\therefore \hat{p}_1=\frac{1}{n}\sum_{i=1}^{n}{S_1(y_i)}
 \]
 \\
 Ahora se halla MLE para los par\'{a}metros del componente continuo de la funci\'{o}n.
@@ -292,7 +292,7 @@ no es admisible que $\sigma=0$ entonces:
 -n\sigma^2+\sum_{i=1:y_i \in (0,1)}^{n}{d(y_i;\mu)}=0
 \]
 \[
-\therefore \hat{\sigma^2}=\frac{1}{n}\sum_{i=1:y_i \in (0,1)}^{n}{d(y_i;\mu)}
+\therefore \hat{\sigma}^2=\frac{1}{n}\sum_{i=1:y_i \in (0,1)}^{n}{d(y_i;\mu)}
 \]
 \\
 El estimador MLE de $\sigma^2$ depende del valor estimado en $\mu$, entonces:
@@ -321,12 +321,12 @@ En esta secci\'{o}n se presenta el paquete \pkg{ZOIP} de \proglang{R} alojado en
 Para acceder a la \'{u}ltima versi\'{o}n del paquete \pkg{ZOIP}, se encuentra ubicada en \verb|GitHub|, el cual es un alojamiento de repositorios Git, para obtener dicha versi\'{o}n es necesario ejecutar el siguiente c\'{o}digo que instala el paquete \pkg{devtools}, que es necesario para descargar el paquete \pkg{ZOIP} y otros paquetes complementarios, para el correcto funcionamiento del paquete.
 
 \begin{verbatim}
-if (!require('devtools')) install.packages('devtools')
-if (!require('rmutil')) install.packages('rmutil')
-if (!require('boot')) install.packages('boot')
-if (!require('numDeriv')) install.packages('numDeriv')
-if (!require('GHQp')) install.packages('GHQp')
-devtools::install_github('jucdiaz/ZOIP', force=TRUE)
+if (!require("devtools")) install.packages("devtools")
+if (!require("rmutil")) install.packages("rmutil")
+if (!require("boot")) install.packages("boot")
+if (!require("numDeriv")) install.packages("numDeriv")
+if (!require("GHQp")) install.packages("GHQp")
+devtools::install_github("jucdiaz/ZOIP", force = TRUE)
 library(ZOIP)  # Carga el paquete
 \end{verbatim}
 
@@ -335,31 +335,32 @@ library(ZOIP)  # Carga el paquete
 En el paquete \pkg{ZOIP} existen cuatro funciones llamadas \code{dZOIP}, \code{pZOIP}, \code{qZOIP} y \code{rZOIP} el cual corresponden a las funciones de densidad de probabilidad, la funci\'{o}n de distribuci\'{o}n acumulada, la funci\'{o}n cuantil y la funci\'{o}n generadora de n\'{u}meros aleatorios de la distribuci\'{o}n ZOIP, respectivamente; en el siguiente c\'{o}digo se observa como se halla la densidad de probabilidad en el punto $0.5$ de una distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n \cite{Stasinopoulos2} descrita como $\text{ZOIP}(\mu=0.2, \, \sigma=0.5, \, p_0=0.2, \, p_1=0.2)$\\
 
 \begin{verbatim}
-dZOIP(x=0.5, mu=0.2, sigma=0.5, p0=0.2, p1=0.2, family='R-S')
-##[1] 0.3243543
+dZOIP(x = 0.5, mu = 0.2, sigma = 0.5, p0 = 0.2, p1 = 0.2, family = "R-S")
+## [1] 0.3243543
 \end{verbatim}
 
-Adem\'{a}s se halla la probabilidad acumulada hasta el punto $0.5$ de una distribuci\'{o}n OIP-beta con parametrizaci\'{o}n \cite{Ferrari2} dada por $\text{ZOIP}(\mu=0.2, \, \sigma=3, \, p_0=0, \, p_1=0.2)$\\
+Adem\'{a}s se halla la probabilidad acumulada hasta el punto $0.5$ de una distribuci\'{o}n OIP-beta con parametrizaci\'{o}n \cite{Ferrari2} dada por $ZOIP(\mu=0.2, \, \sigma=3, \, p_0=0, \, p_1=0.2)$\\
 
 \begin{verbatim}
-pZOIP(q=0.5, mu=0.2, sigma=3, p0=0, p1=0.2, family='F-C')
-##[1] 0.7181223
+pZOIP(q = 0.5, mu = 0.2, sigma = 3, p0 = 0, p1 = 0.2, family = "F-C")
+## [1] 0.7181223
 \end{verbatim}
 
-Se calcula el percentil en el punto $0.7$ de una distribuci\'{o}n ZIP-beta original dada por $\text{ZOIP}(\mu=0.6, \, \sigma=2.4, \, p_0=0.2, \, p_1=0)$\\
+Se calcula el percentil en el punto $0.7$ de una distribuci\'{o}n ZIP-beta original dada por $ZOIP(\mu=0.6, \, \sigma=2.4, \, p_0=0.2, \, p_1=0)$\\
 
 \begin{verbatim}
-qZOIP(p=0.7, mu=0.6, sigma=2.4, p0=0.2, p1=0, family='Original')
-##[1] 0.2061418
+qZOIP(p = 0.7, mu = 0.6, sigma = 2.4, p0 = 0.2, p1 = 0, 
+    family = "Original")
+## [1] 0.2061418
 \end{verbatim}
 
-Por \'{u}ltimo se generaron 8 valores aleatorios de una distribuci\'{o}n ZOIP-simplex descrita como $\text{ZOIP}(\mu=0.6, \, \sigma=3, \, p_0=0.2, \, p_1=0.2)$. La funci\'{o}n \code{set.seed} sirve para garantizar la repetici\'{o}n de los valores aleatorios generados en el ejemplo.\\
+Por \'{u}ltimo se generaron 8 valores aleatorios de una distribuci\'{o}n ZOIP-simplex descrita como $ZOIP(\mu=0.6, \, \sigma=3, \, p_0=0.2, \, p_1=0.2)$. La funci\'{o}n \code{set.seed} sirve para garantizar la repetici\'{o}n de los valores aleatorios generados en el ejemplo.\\
 
 \begin{verbatim}
 set.seed(12345)
-rZOIP(n=8, mu=0.2, sigma=3, p0=0.2, p1=0.2, family='Simplex')
-##[1] 0.3185479 1.0000000 0.3765073 1.0000000 0.1626598
-##[6] 0.0000000 0.1138673 0.1840670
+rZOIP(n = 8, mu = 0.2, sigma = 3, p0 = 0.2, p1 = 0.2, family = "Simplex")
+## [1] 0.3185479 1.0000000 0.3765073 1.0000000 0.1626598
+## [6] 0.0000000 0.1138673 0.1840670
 \end{verbatim}
 
 \subsection{Funci\'{o}n RM.ZOIP}
@@ -367,16 +368,9 @@ rZOIP(n=8, mu=0.2, sigma=3, p0=0.2, p1=0.2, family='Simplex')
 La funci\'{o}n \code{RM.ZOIP} estima los par\'{a}metros de una distribuci\'{o}n ZOIP, v\'{\i}a m\'{a}xima verosimilitud utilizando el optimizador deseado (\code{nlminb}, \code{optim}). La estructura de la funci\'{o}n \code{RM.ZOIP} es la siguiente:
 
 \begin{verbatim}
-RM.ZOIP(
-  formula.mu,
-  formula.sigma = ~ 1,
-  formula.p0 = ~ 1,
-  formula.p1 = ~ 1,
-  data,
-  link = c('identity', 'identity', 'identity', 'identity'),
-  family = 'R-S',
-	optimizer='nlminb'
-)
+RM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, 
+    formula.p1 = ~1, data, link = c("identity", "identity", 
+        "identity", "identity"), family = "R-S", optimizer = "nlminb")
 \end{verbatim}
 
 Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
@@ -388,58 +382,58 @@ Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
 \item \code{formula.p0}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_0$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
 \item \code{formula.p1}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_1$,Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
 \item \code{data}: es el conjunto de datos en formato \code{data.frame} donde debe contener los datos de la variable a ajustar y el nombre debe ser la tal cual como est\'{a} en las f\'{o}rmula para el par\'{a}metro $\mu$.
-\item \code{family}: Elecci\'{o}n de la distribuci\'{o}n ZOIP deseada para ajustar, si toma el valor de \code{`R-S'} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{`F-C'} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{`Original'} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n original, \code{`Simplex'} Utilizar\'{a} la distribuci\'{o}n ZOIP-simplex.
-\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Para ajustar una distribuci i\'{o}n ZOIP se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity} en sus cuatro par\'{a}metros, independientemente de la distribuci i\'{o}n ZOIP escogida, en familia. Por defecto \code{link=c(`identity',`identity',`identity',`identity')}.
-\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{`nlminb'} o \code{`optim'}. Por defecto \code{`nlminb'}
+\item \code{family}: Elecci\'{o}n de la distribuci\'{o}n ZOIP deseada para ajustar, si toma el valor de \code{``R-S''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{``F-C''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{``Original''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n original, \code{``Simplex''} Utilizar\'{a} la distribuci\'{o}n ZOIP-simplex.
+\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Para ajustar una distribuci i\'{o}n ZOIP se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity} en sus cuatro par\'{a}metros, independientemente de la distribuci i\'{o}n ZOIP escogida, en familia. Por defecto \code{link=c(``identity'',``identity'',``identity'',``identity'')}.
+\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{``nlminb''} o \code{``optim''}. Por defecto \code{``nlminb''}
 \end{itemize}
 
 En el siguiente ejemplo se mostrara el ajuste de una distribuci\'{o}n ZOIP, para ello mostraremos la salida de la funci\'{o}n \code{RM.ZOIP} de $1000$ observaciones simuladas para la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Stasinopoulos2}.\\
 
 \begin{verbatim}
-yi <- data.frame(yi = rZOIP(n=1000, mu=0.6, sigma=0.2,
-                          p0=0.03, p1=0.05, family='R-S'))
+yi <- data.frame(yi = rZOIP(n = 1000, mu = 0.6, sigma = 0.2, 
+    p0 = 0.03, p1 = 0.05, family = "R-S"))
 
-mod <- RM.ZOIP(formula.mu=yi ~ 1, formula.sigma= ~ 1, 
-               formula.p0= ~ 1, formula.p1= ~ 1, data=yi,
-               family='R-S')
+mod <- RM.ZOIP(formula.mu = yi ~ 1, formula.sigma = ~1, 
+    formula.p0 = ~1, formula.p1 = ~1, data = yi, family = "R-S")
 mod
-
 \end{verbatim}
 
 \begin{verbatim}
-Call:
-RM.ZOIP(formula.mu = yi ~ 1, formula.sigma = ~1, formula.p0 = ~1, 
-    formula.p1 = ~1, data = yi, family = "R-S")
-
- Results: 
-
- Estimated coefficients for h(mu): 
-(Intercept) 
-   0.605174 
-
- Estimated coefficients for h(sigma): 
-(Intercept) 
-  0.2038938 
-
- Estimated coefficients for h(p0): 
-(Intercept) 
- 0.03000002 
-
- Estimated coefficients for h(p1): 
-(Intercept) 
-       0.05 
-
- Convergence 
-[1] 0
-
- message 
-[1] "relative convergence (4)"
-
- iterations 
-[1] 22
-
- Log-likelihood 
-[1] 488.2683
+## Call:
+## RM.ZOIP(formula.mu = yi ~ 1, formula.sigma = ~1, formula.p0 = ~1, 
+##     formula.p1 = ~1, data = yi, family = "R-S")
+## 
+##  Results: 
+## 
+##  Estimated coefficients for h(mu): 
+## (Intercept) 
+##    0.605174 
+## 
+##  Estimated coefficients for h(sigma): 
+## (Intercept) 
+##   0.2038938 
+## 
+##  Estimated coefficients for h(p0): 
+## (Intercept) 
+##  0.03000002 
+## 
+##  Estimated coefficients for h(p1): 
+## (Intercept) 
+##        0.05 
+\end{verbatim}
+\begin{verbatim}
+## 
+##  Convergence 
+## [1] 0
+## 
+##  message 
+## [1] "relative convergence (4)"
+## 
+##  iterations 
+## [1] 22
+## 
+##  Log-likelihood 
+## [1] 488.2683
 \end{verbatim}
 
 En el anterior resultado se obtienen varios aspectos importantes de la salida del ajuste de la distribuci\'{o}n y leyendo de arriba hacia abajo, primero que todo nos muestra la distribuci\'{o}n ajustada, luego para cada el valor ajustado para cada par\'{a}metro de la distribuci\'{o}n ZOIP, luego un indicador de convergencia del ajuste, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el ajuste de la distribuci\'{o}n, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre ajustes de distribuciones.\\ 
@@ -448,41 +442,44 @@ En el anterior resultado se obtienen varios aspectos importantes de la salida de
 
 \begin{verbatim}
 summary(mod)
----------------------------------------------------------------
-Fixed effects for identity(mu)
----------------------------------------------------------------
-             Estimate Std. Error z value  Pr(>|z|)    
-(intercept) 0.6066914  0.0031636  191.78 < 2.2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for identity(sigma)
----------------------------------------------------------------
-            Estimate Std. Error z value  Pr(>|z|)    
-(intercept) 0.196643   0.004322  45.498 < 2.2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for identity(p0)
----------------------------------------------------------------
-             Estimate Std. Error z value Pr(>|z|)    
-(intercept) 0.0339992  0.0057308  5.9327 2.98e-09 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for identity(p1)
----------------------------------------------------------------
-             Estimate Std. Error z value  Pr(>|z|)    
-(intercept) 0.0450005  0.0065556  6.8644 6.675e-12 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
----------------------------------------------------------------
+## ---------------------------------------------------------------
+## Fixed effects for identity(mu)
+## ---------------------------------------------------------------
+##              Estimate Std. Error z value  Pr(>|z|)    
+## (intercept) 0.6066914  0.0031636  191.78 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+\end{verbatim}
+\begin{verbatim}
+## ---------------------------------------------------------------
+## Fixed effects for identity(sigma)
+## ---------------------------------------------------------------
+##             Estimate Std. Error z value  Pr(>|z|)    
+## (intercept) 0.196643   0.004322  45.498 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## Fixed effects for identity(p0)
+## ---------------------------------------------------------------
+##              Estimate Std. Error z value Pr(>|z|)    
+## (intercept) 0.0339992  0.0057308  5.9327 2.98e-09 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## Fixed effects for identity(p1)
+## ---------------------------------------------------------------
+##              Estimate Std. Error z value  Pr(>|z|)    
+## (intercept) 0.0450005  0.0065556  6.8644 6.675e-12 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## ---------------------------------------------------------------
 \end{verbatim}
 Con la funci\'{o}n \code{summary} aplicada a la distribuci\'{o}n ZOIP ajustada, se obtiene m\'{a}s detalles de los par\'{a}metros estimados, primero se obtiene el valor estimado (Estimate), su error est\'{a}ndar (Std.Error), el valor Z del estimador (z value) y el valor p que nos indicara la significancia del par\'{a}metro estimado (\code{Pr(>|z|)}).\\
 
-En el resultado anterior se obtienen los valores de $\hat{\mu}=0.6066914$, $\hat{\sigma}=0.196643$, $\hat{p_0}=0.0339992$ y $\hat{p_1}=0.0450005$, que son a los par\'{a}metros con los que se simulo $y_i$. Adem\'{a}s cabe resaltar que en la funci\'{o}n \code{RM.ZOIP} para ajustar distribuciones de probabilidad no es necesario colocar funciones de enlace ni espacio de busqueda de los par\'{a}metros, ya que estos son introducidas autom\'{a}ticamente de acuerdo a el valor tomado en \code{family}.
+En el resultado anterior se obtienen los valores de $\hat{\mu}=0.6066914$, $\hat{\sigma}=0.196643$, $\hat{p}_0=0.0339992$ y $\hat{p}_1=0.0450005$, que son a los par\'{a}metros con los que se simulo $y_i$. Adem\'{a}s cabe resaltar que en la funci\'{o}n \code{RM.ZOIP} para ajustar distribuciones de probabilidad no es necesario colocar funciones de enlace ni espacio de busqueda de los par\'{a}metros, ya que estos son introducidas autom\'{a}ticamente de acuerdo a el valor tomado en \code{family}.\\
 
+As\'{\i} como la funci\'{o}n \code{summary} puede ser aplicada a un objeto de la clase \code{ZOIP} o \code{ZOIPM}, en este trabajo se implementaron otros tipo de funciones asociadas a m\'{e}todos S3 de \proglang{R} a objetos de clase \code{ZOIP} o clase \code{ZOIPM}, tales como la funci\'{o}n \code{print} y \code{coef}, que permiten mostrar los resultados del modelo ajustado en general y los par\'{a}metros regresores estimados, respetivamente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -507,7 +504,7 @@ En el primer escenario del estudio de simulaci\'{o}n se generaron los datos de u
 
 En la Figura \ref{Simu_1} se presentan las medianas de la estimaci\'{o}n de los par\'{a}metros para cada tama\~{n}o de muestra, de esta figura se observa que independientemente de la distribuci\'{o}n y pa\-ra\-me\-tri\-za\-ci\-\'{o}n escogida en la distribuci\'{o}n ZOIP, todos las estimaciones convergen al valor verdadero del par\'{a}metro a medida que aumenta el tama\~{n}o de muestra n, de la Figura \ref{Simu_1} se nota que las estimaciones de $\sigma$ cuando son par\'{a}metros con significado de dispersi\'{o}n como es en la distribuci\'{o}n beta con parametrizaci\'{o}n \cite{Stasinopoulos2} y en la distribuci\'{o}n simplex, tienden a dar valores subestimados, por otra parte, en las distribuciones que $\sigma$ tiene significado de forma y precisi\'{o}n tienden a dar valores sobrestimados. Se observa que las estimaciones de los par\'{a}metros de inflaci\'{o}n a pesar de que son peque\~{n}as dan resultados muy satisfactorios y casi sin variaci\'{o}n en su forma de estimaci\'{o}n de distribuci\'{o}n a distribuci\'{o}n.\\
 
-Como medida global del proceso de estimaci\'{o}n se eligi\'{o} el MAPE (Error porcentual absoluto medio. $(\sum_{i=1}^{n}{|y_i-\hat{y_i}/y_i}|)/n$) debido a los cambios de escala entre los diferentes par\'{a}metros de las diferentes distribuciones y parametrizaciones. Esta media se realiz\'{o} como un promedio de los MAPES generados por cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP en cada tama\~{n}o de muestra. En la Figura \ref{Mapes}a se presenta el MAPE para las diferentes distribuciones y parametrizaciones estimadas, se observa como a medida que el tama\~{n}o de muestra aumenta, el MAPE va decreciendo r\'{a}pidamente, aunque des\-pu\'{e}s de un tama\~{n}o de muestra de 200, el MAPE decrece de una manera m\'{a}s lenta, adem\'{a}s los errores de estimaci\'{o}n son muy parecidos entre los cuatro casos de simulaci\'{o}n, la estimaci\'{o}n sobre los par\'{a}metros de la distribuci\'{o}n ZOIP-simplex tiene un error un poco m\'{a}s grande, pero no es significativo sobre los dem\'{a}s casos.\\
+Como medida global del proceso de estimaci\'{o}n se eligi\'{o} el MAPE (Error porcentual absoluto medio. $(\sum_{i=1}^{n}{|y_i-\hat{y}_i/y_i}|)/n$) debido a los cambios de escala entre los diferentes par\'{a}metros de las diferentes distribuciones y parametrizaciones. Esta media se realiz\'{o} como un promedio de los MAPES generados por cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP en cada tama\~{n}o de muestra. En la Figura \ref{Mapes}a se presenta el MAPE para las diferentes distribuciones y parametrizaciones estimadas, se observa como a medida que el tama\~{n}o de muestra aumenta, el MAPE va decreciendo r\'{a}pidamente, aunque des\-pu\'{e}s de un tama\~{n}o de muestra de 200, el MAPE decrece de una manera m\'{a}s lenta, adem\'{a}s los errores de estimaci\'{o}n son muy parecidos entre los cuatro casos de simulaci\'{o}n, la estimaci\'{o}n sobre los par\'{a}metros de la distribuci\'{o}n ZOIP-simplex tiene un error un poco m\'{a}s grande, pero no es significativo sobre los dem\'{a}s casos.\\
  
 En el segundo escenario de simulaci\'{o}n se gener\'{o} el mismo ejercicio de simulaci\'{o}n anterior sobre las mismas distribuciones y parametrizaciones, solo que los valores de $p_0$ y $p_1$ cambian por $0.3$ y $0.2$, respectivamente. Dando as\'{\i} que el 50\% de los datos se vean contaminados por ceros y unos, esto para ver si de alguna forma afecta el aumento de la presencia de ceros y unos sobre las estimaciones de los par\'{a}metros de la parte continua de la distribuci\'{o}n ZOIP.
 
@@ -529,7 +526,7 @@ En la Figura \ref{Simu_2} se presentan las estimaciones de los par\'{a}metros de
 		\includegraphics[scale=0.45]{Mape_gnrl.eps}	
 		\quad
 		\includegraphics[scale=0.45]{Mape_gnrl_infla.eps}
-		\caption{Mape (Error porcentual absoluto medio) para los dos escenarios de simulaci\'{o}n y para distintas parametrizaciones y valores de $n$.}
+		\caption{MAPE (Error porcentual absoluto medio) para los dos escenarios de simulaci\'{o}n y para distintas parametrizaciones y valores de $n$.}
 		\label{Mapes}
 	\end{center}
 \end{figure}
@@ -556,8 +553,8 @@ En la Figura \ref{Simu_2} se presentan las estimaciones de los par\'{a}metros de
 & Caso simplex 	&20.8 & 5.51\\ \hline
 
 \multirow{4}{*}{$p_1$} &Caso R-S 	&15.2 & 7.28\\
-& Caso F-C &16 & 7  \\
-& Caso original &15.7	 & 7	\\
+& Caso F-C &16.0 & 7.00  \\
+& Caso original &15.7	 & 7.00	\\
 & Caso simplex &16.2 & 7.12	 \\ \hline
 & Promedio & 10.57 & 5.26 \\ \hline
 \end{tabular}
@@ -603,7 +600,7 @@ Familia & Par\'{a}metro & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Ve
 & $p_1$ & 0.0695	&0.0027	&$<2.2e^{-16}$& \\ \hline
 
 \multirow{4}{*}{simplex} &$\mu$ & 0.5741	&0.0010	&$<2.2e^{-16}$ &\multirow{4}{*}{54425.63}\\
-& $\sigma$ & 4885.4370	&18.2430	&$<2.2e^{-16}$ &\\
+& $\sigma$ & 4885.44	&18.2430	&$<2.2e^{-16}$ &\\
 & $p_0$ & 0.1497	&0.0032	&$<2.2e^{-16}$ &\\
 & $p_1$ & 0.0090	&0.0004	&$<2.2e^{-16}$ &\\ \hline
 

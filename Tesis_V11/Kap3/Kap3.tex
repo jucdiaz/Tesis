@@ -97,16 +97,9 @@ En esta secci\'{o}n presentaremos como el paquete \pkg{ZOIP} realizado en \progl
 La funci\'{o}n \code{RM.ZOIP} estima los par\'{a}metros de un modelo de regresi\'{o}n ZOIP con y sin covariables v\'{\i}a m\'{a}xima verosimilitud utilizando el optimizador \code{nlminb} o \code{optim}. La estructura de la funci\'{o}n \code{RM.ZOIP} es la siguiente:
 
 \begin{verbatim}
-RM.ZOIP(
-  formula.mu,
-  formula.sigma = ~ 1,
-  formula.p0 = ~ 1,
-  formula.p1 = ~ 1,
-  data,
-  link = c('identity', 'identity', 'identity', 'identity'),
-  family = 'R-S',
-	optimizer='nlminb'
-)
+RM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, 
+    formula.p1 = ~1, data, link = c("identity", "identity", 
+        "identity", "identity"), family = "R-S", optimizer = "nlminb")
 \end{verbatim}
 
 Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
@@ -118,9 +111,9 @@ Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
 \item \code{formula.p0}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_0$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
 \item \code{formula.p1}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_1$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
 \item \code{data}: es el conjunto de datos en formato \code{data.frame} donde debe contener las nombres de las columnas tal cual como est\'{a}n en las f\'{o}rmulas.
-\item \code{family}: Elecci\'{o}n de la parametrizaci\'{o}n de la distribuci\'{o}n beta o distribuci\'{o}n deseada en la parte continua de la distribuci\'{o}n ZOIP, si toma el valor de \code{`R-S'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{`F-C'} se utilizara la distribuci\'{o}n beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{`Original'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n original, \code{`Simplex'} Utilizara la distribuci\'{o}n simplex.
-\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Si el modelo de regresi\'{o}n no posee covariables se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity}, independientemente del valor escogido en familia, opciones posibles son \code{logit}, \code{log}. Por defecto \code{link=c(`identity',`identity',`identity',`identity')}.
-\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{`nlminb'} o \code{`optim'}. Por defecto \code{`nlminb'}
+\item \code{family}: Elecci\'{o}n de la parametrizaci\'{o}n de la distribuci\'{o}n beta o distribuci\'{o}n deseada en la parte continua de la distribuci\'{o}n ZOIP, si toma el valor de \code{``R-S''} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{``F-C''} se utilizara la distribuci\'{o}n beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{``Original''} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n original, \code{``Simplex''} Utilizara la distribuci\'{o}n simplex.
+\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Si el modelo de regresi\'{o}n no posee covariables se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity}, independientemente del valor escogido en familia, opciones posibles son \code{logit}, \code{log}. Por defecto \code{link=c(``identity'',``identity'',``identity'',``identity'')}.
+\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{``nlminb''} o \code{``optim''}. Por defecto \code{``nlminb''}
 \end{itemize}
 
 En el siguiente ejemplo nos concentraremos en el ajuste de un modelo regresi\'{o}n ZOIP, para ello se mostrar\'{a} el c\'{o}digo utilizado y la salida de la funci\'{o}n \code{RM.ZOIP}, para una variable aleatoria simulada de una distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n \cite{Stasinopoulos2} y dos covariables simuladas a partir de una distribuci\'{o}n uniforme entre cero y uno, el tama\~{n}o de la muestra simulada es 1000. Esto replicando exactamente uno de los casos de simulaci\'{o}n vistos en la pr\'{o}xima secci\'{o}n.\\
@@ -128,35 +121,41 @@ En el siguiente ejemplo nos concentraremos en el ajuste de un modelo regresi\'{o
 Primero se simula la variable respuesta a partir de la funci\'{o}n \code{rZOIP} con los debidos valores de los par\'{a}metros para cada observaci\'{o}n, y las covariables.
 
 \begin{verbatim}
-devtools::install_github('jucdiaz/ZOIP', force=TRUE)
 library(ZOIP)
 n <- 1000
-x1 <- runif(n) ; x2 <- runif(n)
+x1 <- runif(n)
+x2 <- runif(n)
 
-c1 <- 0.2 ; c2 <- -1
-mu_i <- inv.logit(c1+c2*x1)
+c1 <- 0.2
+c2 <- -1
+mu_i <- inv.logit(c1 + c2 * x1)
 
-b1 <- 0.3 ; b2 <- 3 ; b3 <- 0.9
-sigma_i <- inv.logit(b1+b2*x1+b3*x2)
-
+b1 <- 0.3
+b2 <- 3
+b3 <- 0.9
+sigma_i <- inv.logit(b1 + b2 * x1 + b3 * x2)
+\end{verbatim}
+\begin{verbatim}
 d1 <- 0.07
-p0_i <- rep(d1,n)
+p0_i <- rep(d1, n)
 
-e1 <- 0.02 ; e2 <- -4
-p1_i <- inv.logit(e1+e2*x2)
+e1 <- 0.02
+e2 <- -4
+p1_i <- inv.logit(e1 + e2 * x2)
 
 param <- cbind(mu_i, sigma_i, p0_i, p1_i)
-y_i <- apply(param, 1, function(x){rZOIP(1, 
-																		mu=x[1], sigma=x[2],
-																		p0=x[3], p1=x[4],
-																		family='R-S')})
-																		
+y_i <- apply(param, 1, function(x)
+{
+    rZOIP(1, mu = x[1], sigma = x[2], p0 = x[3], p1 = x[4], 
+        family = "R-S")
+})
+
 data <- as.data.frame(cbind(y_i, x1, x2))
 
-link=c('logit', 'logit', 'identity', 'logit')
-mod<-RM.ZOIP(formula.mu=y_i~x1, formula.sigma=~x1+x2,
-							formula.p0=~1, formula.p1=~x2,
-							data=data, link=link, family='R-S')
+link <- c("logit", "logit", "identity", "logit")
+mod <- RM.ZOIP(formula.mu = y_i ~ x1, formula.sigma = ~x1 + 
+    x2, formula.p0 = ~1, formula.p1 = ~x2, data = data, 
+    link = link, family = "R-S")
 
 mod
 \end{verbatim}
@@ -164,40 +163,41 @@ mod
 Los resultados obtenidos se muestran a continuaci\'{o}n.
 
 \begin{verbatim}
-Call:
-RM.ZOIP(formula.mu = y_i ~ x1, formula.sigma = ~x1 + x2, formula.p0 = ~1, 
-    formula.p1 = ~x2, data = data, link = link, family = "R-S")
-
- Results: 
-
- Estimated coefficients for h(mu): 
-(Intercept)          x1 
-  0.3395118  -1.4808985 
-
- Estimated coefficients for h(sigma): 
-(Intercept)          x1          x2 
-  0.7006753   2.4493508   0.5328350 
-
- Estimated coefficients for h(p0): 
-(Intercept) 
- 0.08199999 
-
- Estimated coefficients for h(p1): 
-(Intercept)          x2 
- -0.1252807  -3.0092159 
-
- Convergence 
-[1] 0
-
- message 
-[1] "relative convergence (4)"
-
- iterations 
-[1] 39
-
- Log-likelihood 
-[1] 7688.628
-
+## Call:
+## RM.ZOIP(formula.mu = y_i ~ x1, formula.sigma = ~x1 + x2, formula.p0 = ~1, 
+##     formula.p1 = ~x2, data = data, link = link, family = "R-S")
+## 
+##  Results: 
+## 
+##  Estimated coefficients for h(mu): 
+## (Intercept)          x1 
+##   0.3395118  -1.4808985 
+## 
+\end{verbatim}
+\begin{verbatim}
+##  Estimated coefficients for h(sigma): 
+## (Intercept)          x1          x2 
+##   0.7006753   2.4493508   0.5328350 
+## 
+##  Estimated coefficients for h(p0): 
+## (Intercept) 
+##  0.08199999 
+## 
+##  Estimated coefficients for h(p1): 
+## (Intercept)          x2 
+##  -0.1252807  -3.0092159 
+## 
+##  Convergence 
+## [1] 0
+## 
+##  message 
+## [1] "relative convergence (4)"
+## 
+##  iterations 
+## [1] 39
+## 
+##  Log-likelihood 
+## [1] 7688.628
 \end{verbatim}
 
 En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, primero que todo nos muestra el modelo ajustado, luego para cada par\'{a}metro de la distribuci\'{o}n ZOIP los valores estimados para cada uno de los par\'{a}metros de regresi\'{o}n asociados a cada covariable, luego un indicador de convergencia, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el modelo, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre modelos.\\ 
@@ -206,54 +206,53 @@ En el anterior resultado se obtienen varios aspectos importantes de la salida de
 
 \begin{verbatim}
 summary(mod)
----------------------------------------------------------------
-Fixed effects for logit(mu) 
----------------------------------------------------------------
-             Estimate Std. Error z value  Pr(>|z|)    
-(Intercept)  0.339512   0.098754  3.4379 0.0005862 ***
-x1          -1.480898   0.179015 -8.2725 < 2.2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for logit(sigma) 
----------------------------------------------------------------
-            Estimate Std. Error z value  Pr(>|z|)    
-(Intercept)  0.70068    0.10726  6.5323 6.476e-11 ***
-x1           2.44935    0.13775 17.7812 < 2.2e-16 ***
-x2           0.53283    0.13273  4.0143 5.961e-05 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for identity(p0) 
----------------------------------------------------------------
-             Estimate Std. Error z value  Pr(>|z|)    
-(Intercept) 0.0820000  0.0086762  9.4512 < 2.2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
-Fixed effects for logit(p1) 
----------------------------------------------------------------
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -0.12528    0.15084 -0.8305   0.4062    
-x2          -3.00922    0.34242 -8.7881   <2e-16 ***
----
-Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
----------------------------------------------------------------
----------------------------------------------------------------
+## ---------------------------------------------------------------
+## Fixed effects for logit(mu) 
+## ---------------------------------------------------------------
+##              Estimate Std. Error z value  Pr(>|z|)    
+## (Intercept)  0.339512   0.098754  3.4379 0.0005862 ***
+## x1          -1.480898   0.179015 -8.2725 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## Fixed effects for logit(sigma) 
+## ---------------------------------------------------------------
+##             Estimate Std. Error z value  Pr(>|z|)    
+## (Intercept)  0.70068    0.10726  6.5323 6.476e-11 ***
+## x1           2.44935    0.13775 17.7812 < 2.2e-16 ***
+## x2           0.53283    0.13273  4.0143 5.961e-05 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## Fixed effects for identity(p0) 
+## ---------------------------------------------------------------
+##              Estimate Std. Error z value  Pr(>|z|)    
+## (Intercept) 0.0820000  0.0086762  9.4512 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## Fixed effects for logit(p1) 
+## ---------------------------------------------------------------
+##             Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) -0.12528    0.15084 -0.8305   0.4062    
+## x2          -3.00922    0.34242 -8.7881   <2e-16 ***
+## ---
+## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+## ---------------------------------------------------------------
+## ---------------------------------------------------------------
 \end{verbatim}
 
 Con la funci\'{o}n \code{summary} aplicada al modelo de regresi\'{o}n ZOIP, se obtiene m\'{a}s detalles de los par\'{a}metros regresores estimados para cada par\'{a}metro del modelo de regresi\'{o}n ZOIP, se obtiene el valor estimado (Estimate), su error est\'{a}ndar (Std.Error), el valor Z del estimador (z value) y el valor p que nos indicara la significancia del par\'{a}metro estimado (\code{Pr(>|z|)}), es de notar que para cada par\'{a}metro del modelo de regresi\'{o}n ZOIP le es mostrado la respectiva funci\'{o}n enlace utilizada y definida al inicio del modelo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \section{Aplicaci\'{o}n}
 En esta secci\'{o}n se muestran diferentes resultados sobre el ajuste de un modelo de regresi\'{o}n ZOIP, por medio del paquete \pkg{ZOIP}, primero se realiz\'{o} un estudio de simulaci\'{o}n para analizar la convergencia de la estimaci\'{o}n de los par\'{a}metros regresores de una regresi\'{o}n ZOIP, y en segunda instancia se ajusta un modelo de regresi\'{o}n ZOIP a datos reales, sobre c\'{o}mo puede ser explicado el porcentaje de utilizaci\'{o}n de una tarjeta de cr\'{e}dito (tdc) de una entidad financiera con diferentes variables del negocio.
 
 \subsection{Datos simulados}
 En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad de estimaci\'{o}n que tiene el m\'{e}todo de m\'{a}xima verosimilitud sobre los par\'{a}metros regresores de un modelo de regresi\'{o}n ZOIP. Para comprobar esto se generaron muestras pertenecientes a una distribuci\'{o}n ZOIP a partir de dos variables aleatorias uniformes cero uno, con tama\~{n}os de muestra de 25, 50, 75, y 100 a partir de este punto no se realizar\'{a}n incrementos de 25 si no de 100, es decir 100, 200, 300 hasta 3500, y se realizaron 1000 r\'{e}plicas para cada tama\~{n}o de muestra, posteriormente se calcul\'{o} la mediana de la estimaci\'{o}n de cada par\'{a}metro regresor para cada distribuci\'{o}n y parametrizaci\'{o}n utilizada. A continuaci\'{o}n, se muestra la estructura simulada para cada par\'{a}metro de la distribuci\'{o}n ZOIP.\\
-\[
-Si y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),
-\]
+
+Si $y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),$
+
 \begin{equation}
 \begin{split}
 &h_1(\mu_{i})=\beta_0+\beta_1x_{1i},\\
@@ -345,7 +344,7 @@ En la figura \ref{Simu_simplex} se describen los valores estimados para diferent
 \begin{center}
 \begin{tabular}{|c|cc|ccc|c|cc|}\hline
 \multirow{2}{*}{Familia} & \multicolumn{2}{|c|}{$\mu$} & \multicolumn{3}{|c|}{$\sigma$} & $p_0$ & \multicolumn{2}{|c|}{$p_1$} \\ \cline{2-9}
-& $\hat{\beta_0}$& $\hat{\beta_1}$& $\hat{\beta_0}$& $\hat{\beta_1}$& $\hat{\beta_2}$& $\hat{\beta_0}$ & $\hat{\beta_0}$ & $\hat{\beta_1}$ \\ \hline \hline
+& $\hat{\beta}_0$& $\hat{\beta}_1$& $\hat{\beta}_0$& $\hat{\beta}_1$& $\hat{\beta}_2$& $\hat{\beta}_0$ & $\hat{\beta}_0$ & $\hat{\beta}_1$ \\ \hline \hline
 R-S & 1.25 & 0.32 & 1.45 & 2.55 & 1.38 & 4.86 & 383.09 & 4.88 \\ 
 F-C & 14.22 & 3.96 & 22.21 & 2.9 & 10.14 & 4.86 & 91.21 & 4.88 \\
 original & 22.34 & 8.03 & 22.55 & 3.62 & 8.69 & 4.84 & 90.58 & 4.96 \\
@@ -373,10 +372,10 @@ En la figura \ref{Mape_gnrl} se muestra la mediana del MAPE de la mediana del MA
 
 En una entidad financiera tiene gran importancia conocer el comportamiento del porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito (tdc), con el fin de conocer el comportamiento de la cartera de tarjeta de cr\'{e}dito, adem\'{a}s de detectar los diferentes factores que pueden afectar este tipo de cartera. Se define a $y$ como el porcentaje de uso de una tdc, es de notar que $y$ se encuentra entre cero y uno, pero adicional es normal que se tengan tdc que no sean utilizadas ($y=0$) y tdc que est\'{a}n utilizadas en la totalidad de su cupo asignado ($y=1$), por lo que se trata a $y$ como una variable aleatoria perteneciente a datos proporcionales inflados con ceros y unos, es decir $y$ puede ser explicada a partir de una distribuci\'{o}n ZOIP. Se tiene un total de 9206 tarjetas de cr\'{e}dito. Se quiere estudiar el impacto de algunas variables sobre el porcentaje de utilizaci\'{o}n de una tdc, para ello se busca ajustar un modelo de regresi\'{o}n ZOIP mediante la funci\'{o}n \code{RM.ZOIP} del paquete \pkg{ZOIP} de \proglang{R}, que permita explicar el comportamiento del porcentaje de utilizaci\'{o}n de una tdc mediante las siguientes tres variables, \textsl{Score:} variable entre cero y 1000 que para nuestro caso se cambiara de escala entre cero y uno, est\'{a} explica la calificaci\'{o}n del comportamiento de pago del cliente asociada a la tdc, que pertenece a la entidad financiera, donde cero es la peor calificacion y uno un comportamiento de pago ideal; \textsl{Prom Cuotas:} se define como el promedio de cantidad de cuotas al que ha diferido sus compras en los \'{u}ltimos seis meses; \textsl{Cupo tdc Entidad:} es el cupo total asignado a la tdc, esta ser\'{a} tratada como el logaritmo de su cupo m\'{a}s uno, para una mayor estabilidad de su varianza.\\
 
-En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n para ser ajustados, de tal forma que nos permita ver el efecto de las variables descritas anteriormente sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.
-\[
-Si y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),
-\]
+En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n para ser ajustados, de tal forma que nos permita ver el efecto de las variables descritas anteriormente sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.\\
+
+Si $y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),$
+
 \begin{equation}
 \begin{split}
 &h_1(\mu_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
@@ -428,22 +427,22 @@ En las ecuaciones dadas en \eqref{A_eq_reg} se puede ver como los par\'{a}metros
 \begin{center}
 \begin{tabular}{|c|c|c|ccc|c|c|}\hline
 Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
-\multirow{12}{*}{R-S} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.046	&0.050	&0.3618 & \multirow{12}{*}{-5414.738} & \multirow{12}{*}{125}  \\
-& & $\hat{\beta_1}$ & -0.354	&0.107	&0.0009 & &\\
-& & $\hat{\beta_2}$ & 0.022	&0.002	&$<2.2e^{-16}$ & & \\
-& & $\hat{\beta_3}$ & -0.025	&0.009	&0.0074 & & \\ \cline{2-6}
-& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.822	&0.038	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & -0.197	&0.078	&0.0114  & &\\
-& & $\hat{\beta_2}$ & -0.006	&0.002	&0.0013  & &\\
-& & $\hat{\beta_3}$ & -0.003	&0.007	&0.6741  & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
-& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
-& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
-& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
+\multirow{12}{*}{R-S} & \multirow{4}{*}{$\mu$} & $\hat{\beta}_0$ & -0.046	&0.050	&0.3618 & \multirow{12}{*}{-5414.738} & \multirow{12}{*}{125}  \\
+& & $\hat{\beta}_1$ & -0.354	&0.107	&0.0009 & &\\
+& & $\hat{\beta}_2$ & 0.022	&0.002	&$<2.2e^{-16}$ & & \\
+& & $\hat{\beta}_3$ & -0.025	&0.009	&0.0074 & & \\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta}_0$ & 0.822	&0.038	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & -0.197	&0.078	&0.0114  & &\\
+& & $\hat{\beta}_2$ & -0.006	&0.002	&0.0013  & &\\
+& & $\hat{\beta}_3$ & -0.003	&0.007	&0.6741  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta}_0$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta}_2$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_3$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta}_0$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta}_2$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta}_3$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
 \end{tabular}
 \caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Rigby y Stasinopoulos (2005) en el porcentaje de utilizaci\'{o}n de una tdc.}
@@ -458,22 +457,22 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 \begin{center}
 \begin{tabular}{|c|c|c|ccc|c|c|}\hline
 Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
-\multirow{12}{*}{F-C} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.045	&0.050	&0.3667  & \multirow{12}{*}{-5414.605} & \multirow{12}{*}{105} \\
-& & $\hat{\beta_1}$ & -0.354	&0.107	&0.0009   & &\\
-& & $\hat{\beta_2}$ & 0.022	&0.002	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_3}$ & -0.025	&0.009	&0.0074   & &\\ \cline{2-6}
-& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.068	&0.045	&0.1286   & &\\
-& & $\hat{\beta_1}$ & 0.238	&0.094	&0.0117   & &\\
-& & $\hat{\beta_2}$ & 0.007	&0.002	&0.0012   & &\\
-& & $\hat{\beta_3}$ & 0.003	&0.008	&0.6854   & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
-& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
-& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
-& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
+\multirow{12}{*}{F-C} & \multirow{4}{*}{$\mu$} & $\hat{\beta}_0$ & -0.045	&0.050	&0.3667  & \multirow{12}{*}{-5414.605} & \multirow{12}{*}{105} \\
+& & $\hat{\beta}_1$ & -0.354	&0.107	&0.0009   & &\\
+& & $\hat{\beta}_2$ & 0.022	&0.002	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_3$ & -0.025	&0.009	&0.0074   & &\\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta}_0$ & 0.068	&0.045	&0.1286   & &\\
+& & $\hat{\beta}_1$ & 0.238	&0.094	&0.0117   & &\\
+& & $\hat{\beta}_2$ & 0.007	&0.002	&0.0012   & &\\
+& & $\hat{\beta}_3$ & 0.003	&0.008	&0.6854   & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta}_0$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta}_2$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_3$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta}_0$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta}_2$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta}_3$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
 \end{tabular}
 \caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Ferrari y Cribari-Neto (2004) en el porcentaje de utilizaci\'{o}n de una tdc.}
@@ -488,22 +487,22 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 \begin{center}
 \begin{tabular}{|c|c|c|ccc|c|c|}\hline
 Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
-\multirow{12}{*}{original} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & -0.649	&0.048	&$<2.2e^{-16}$  & \multirow{12}{*}{-5415.386} & \multirow{12}{*}{121} \\
-& & $\hat{\beta_1}$ & 0.035	&0.103	&0.7311   & &\\
-& & $\hat{\beta_2}$ & 0.019	&0.002	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_3}$ & -0.011	&0.009	&0.2267 & & \\ \cline{2-6}
-& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & -0.611	&0.054	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_1}$ & 0.397	&0.111	&0.0003   & &\\
-& & $\hat{\beta_2}$ & -0.002	&0.003	&0.4724   & &\\
-& & $\hat{\beta_3}$ & 0.015	&0.010	&0.1456   & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
-& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
-& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
-& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
+\multirow{12}{*}{original} & \multirow{4}{*}{$\mu$} & $\hat{\beta}_0$ & -0.649	&0.048	&$<2.2e^{-16}$  & \multirow{12}{*}{-5415.386} & \multirow{12}{*}{121} \\
+& & $\hat{\beta}_1$ & 0.035	&0.103	&0.7311   & &\\
+& & $\hat{\beta}_2$ & 0.019	&0.002	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_3$ & -0.011	&0.009	&0.2267 & & \\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta}_0$ & -0.611	&0.054	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_1$ & 0.397	&0.111	&0.0003   & &\\
+& & $\hat{\beta}_2$ & -0.002	&0.003	&0.4724   & &\\
+& & $\hat{\beta}_3$ & 0.015	&0.010	&0.1456   & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta}_0$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta}_2$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_3$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta}_0$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta}_2$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta}_3$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
 
 \end{tabular}
@@ -519,22 +518,22 @@ Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valo
 \begin{center}
 \begin{tabular}{|c|c|c|ccc|c|c|}\hline
 Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud & Iteraciones \\ \hline \hline
-\multirow{12}{*}{simplex} & \multirow{4}{*}{$\mu$} & $\hat{\beta_0}$ & 0.180	&0.050	&0.0003  & \multirow{12}{*}{-22385.78} & \multirow{12}{*}{117} \\
-& & $\hat{\beta_1}$ & -3.890	&0.206	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_2}$ & 0.166	&0.004	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_3}$ & -0.128	&0.019	&$5.85e^{-12}$   & &\\ \cline{2-6}
-& \multirow{4}{*}{$\sigma$} & $\hat{\beta_0}$ & 11.59	&0.062	&$<2.2e^{-16}$   & &\\
-& & $\hat{\beta_1}$ & 0.063	&0.240	&0.7918   & &\\
-& & $\hat{\beta_2}$ & 0.134	&0.004	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_3}$ & 0.344	&0.023	&$<2.2e^{-16}$   & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_0$} & $\hat{\beta_0}$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
-& & $\hat{\beta_2}$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_3}$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
-& \multirow{4}{*}{$p_1$} & $\hat{\beta_0}$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
-& & $\hat{\beta_1}$ & -0.630	&0.254	&0.0132  & &\\
-& & $\hat{\beta_2}$ & 0.011	&0.006	&0.0666  & &\\
-& & $\hat{\beta_3}$ & -0.069	&0.022	&0.0022  & &\\ \hline
+\multirow{12}{*}{simplex} & \multirow{4}{*}{$\mu$} & $\hat{\beta}_0$ & 0.180	&0.050	&0.0003  & \multirow{12}{*}{-22385.78} & \multirow{12}{*}{117} \\
+& & $\hat{\beta}_1$ & -3.890	&0.206	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_2$ & 0.166	&0.004	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_3$ & -0.128	&0.019	&$5.85e^{-12}$   & &\\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta}_0$ & 11.59	&0.062	&$<2.2e^{-16}$   & &\\
+& & $\hat{\beta}_1$ & 0.063	&0.240	&0.7918   & &\\
+& & $\hat{\beta}_2$ & 0.134	&0.004	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_3$ & 0.344	&0.023	&$<2.2e^{-16}$   & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta}_0$ & -1.496	&0.101	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & 0.724	&0.185	&$8.87e^{-5}$  & &\\
+& & $\hat{\beta}_2$ & -0.153	&0.009	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_3$ & 0.002	&0.015	&0.1243  & &\\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta}_0$ &-1.480	&0.095	&$<2.2e^{-16}$  & &\\
+& & $\hat{\beta}_1$ & -0.630	&0.254	&0.0132  & &\\
+& & $\hat{\beta}_2$ & 0.011	&0.006	&0.0666  & &\\
+& & $\hat{\beta}_3$ & -0.069	&0.022	&0.0022  & &\\ \hline
 
 \end{tabular}
 \caption{Parametros regresores estimados de un modelo de regresi\'{o}n ZOIP-simplex en el porcentaje de utilizaci\'{o}n de una tdc.}

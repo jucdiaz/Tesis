@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,12 +16,28 @@ W.~Bonat, P.~Ribeiro, y W.~Zeviani.
 \newblock \emph{Journal of Applied Statistics online:
   doi:10.1080/02664763.2014.947248}, 42\penalty0 (2):\penalty0 252--266, 2015.
 
+\bibitem[Chacon y Straub(2014)Chacon and Straub]{Git1}
+S.~Chacon y B.~Straub.
+\newblock \emph{Pro Git}.
+\newblock Apress, 2014.
+
+\bibitem[Cook et~al.(2008)Cook, Kieschnick, and McCullough]{Cook1}
+D.~Cook, R.~Kieschnick, y B.~McCullough.
+\newblock Regression analysis of proportions in finance with self selection.
+\newblock \emph{Journal of Empirical Finance}, 15:\penalty0 860--867, 2008.
+
 \bibitem[de~Andrade(2007)]{andrade07}
 A.C.G de~Andrade.
 \newblock Efeitos da especifica\c{c}{\~a}o incorreta da fun\c{c}{\~a}o
   deliga\c{c}{\~a}o no modelo derregress{\~a}o beta. disseta\c{c}{\~a}o de
   mestrado.
 \newblock \emph{Institudo de Matem\'{a}tica e Estat\'{\i}stica}, 2007.
+
+\bibitem[Evans y Swartz(2000)Evans and Swartz]{Evans1}
+M.~Evans y T.~Swartz.
+\newblock \emph{Approximating integrals via Monte Carlo and deterministic
+  methods}.
+\newblock Oxford University Press Inc., 2000.
 
 \bibitem[Fahrmeir y Tutz(2001)Fahrmeir and Tutz]{Fahrmeir1}
 L.~Fahrmeir y G.~Tutz.
@@ -73,6 +89,12 @@ A.~Hossain.
 \newblock \emph{International Workshop on Statistical Modelling}, 2:\penalty0
   137--140, 2015.
 
+\bibitem[Houston y James(1996)Houston and James]{Houston1}
+J.~Houston y C.~James.
+\newblock Bank information monopolies and the mix of private and public debt
+  claims.
+\newblock \emph{Journal of Finance}, 51:\penalty0 1863--1889, 1996.
+
 \bibitem[J{\o}rgensen(1997)]{Jorgensen1}
 B.~J{\o}rgensen.
 \newblock The theory of dispersion models.
@@ -85,6 +107,13 @@ B.~J{\o}rgensen y Barndorff-Nielsen.
 \newblock \emph{Journal of multivariate analysis}, 39\penalty0 (1):\penalty0
   106--116, 1991.
 
+\bibitem[Kieschnick y McCullough(2003)Kieschnick and McCullough]{kieschnick1}
+R.~Kieschnick y B.~McCullough.
+\newblock Regression analysis of variates observed on (0,1):percentages,
+  proportions, and fractions.
+\newblock \emph{Statistical Modelling}, 3\penalty0 (3):\penalty0 193--213,
+  2003.
+
 \bibitem[Kosmidis et~al.(2015)Kosmidis, Zou, and Jagan]{Kosmidis1}
 I.~Kosmidis, A.~Zou, y K.~Jagan.
 \newblock Beyond beta regression: modelling percentages and fractions in the
@@ -96,6 +125,13 @@ I.~Kosmidis, A.~Zou, y K.~Jagan.
 N.~Laird y J.~Ware.
 \newblock Random-effects models for longitudinal data.
 \newblock \emph{Biometrics}, 38\penalty0 (4):\penalty0 963--974, 1982.
+
+\bibitem[Lindstrom y Bates(1988)Lindstrom and Bates]{Lindstrom1}
+M.~Lindstrom y D.~Bates.
+\newblock Newton-raphson and em algorithms for linear mixed-effects models for
+  repeated-measures data.
+\newblock \emph{Journal of the American Statistical Association}, 83\penalty0
+  (404):\penalty0 1014--1022, 1988.
 
 \bibitem[Liu y Pierce(1994)Liu and Pierce]{Liu1}
 Q.~Liu y D.~Pierce.
@@ -167,6 +203,12 @@ B.~Rigby y M.~Stasinopoulos.
 \newblock \emph{Computational statistics and Data analysis}, 2:\penalty0
   194--195, 2008.
 
+\bibitem[Seoane(2014)]{Seoane1}
+J.~Seoane.
+\newblock {?`}modelos mixtos (lineales)? una introducci{\'o}n para el usuario
+  temeroso.
+\newblock \emph{Temas actuales de Etolog{\'i}a}, 2014.
+
 \bibitem[Simas et~al.(2010)Simas, Barrero-Souza, and Rocha]{Simas1}
 A.~Simas, W.~Barrero-Souza, y A.~Rocha.
 \newblock Improved estimators for a general class of beta regression models.
@@ -190,6 +232,12 @@ O.~Usuga y V.~Giampaoli.
 \newblock \emph{Modelos de regress{\~a}o beta com efeitos aleat{\'o}rios
   normais e n{\~a}o normais para datos longitudinais}.
 \newblock PhD thesis, Universidade de S{\~a}o Paulo, 2013.
+
+\bibitem[Venezuela(2008)]{Venezuela1}
+M.~Venezuela.
+\newblock \emph{Equac{\~a}o generalizada e influencia local para modelos de
+  regress{\~a}o beta con medidas repetidas}.
+\newblock PhD thesis, Universidade de S{\~a}o Paulo, 2008.
 
 \bibitem[Verkuilen y Smithson(2012)Verkuilen and Smithson]{Verkuilen1}
 J.~Verkuilen y M.~Smithson.

@@ -3,9 +3,9 @@
 
 Los modelos de regresi\'{o}n mixto han sido de mucho inter\'{e}s en la \'{u}ltima \'{e}poca, por su capacidad de estimar el efecto de una variable sobre el modelo a trav\'{e}s de la estimaci\'{o}n de la varianza de la distribuci\'{o}n de la variable, estos fueron introducidos de una manera general por \cite{Laird1}. Es por esto que los modelos de regresi\'{o}n mixto tambi\'{e}n han sido implementados cuando la variable respuesta es tomada por una variable aleatoria perteneciente a datos proporcionales, tal es el caso de \cite{Stasinopoulos2} en los modelos aditivos generalizados para localizaci\'{o}n, escala y forma (gamlss) implementan el modelo de regresi\'{o}n beta con intercepto aleatorio normal, as\'{\i} otros autores como \cite{Verkuilen1} y \cite{Bonat1} proponen modelos de regresi\'{o}n beta con efectos aleatorios normales, estimados a partir de m\'{a}xima verosimilitud marginal y metodolog\'{\i}as bayesianas. \cite{Figueroa1} extienden el modelo propuesto por \cite{Ferrari2} a un modelo con efectos fijos y aleatorios bajo la distribuci\'{o}n normal y bajo la distribuci\'{o}n t en estructuras de regresi\'{o}n tanto para el par\'{a}metro de la media como del par\'{a}metro de precisi\'{o}n, la estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n fue realizado bajo una perspectiva bayesiana, mediante implementaciones computacionales del muestreador de Gibbs. \cite{Usuga1} desarrollan el modelo de regresi\'{o}n beta mixto para datos proporcionales longitudinales, bajo intercepto y pendiente aleatoria normal y no normal, la estimaci\'{o}n de los par\'{a}metros es realizada v\'{\i}a m\'{a}xima verosimilitud y la cuadratura de Gauss-Hermite adaptativa. Otros autores como \cite{Song1} implementan un modelo de regresi\'{o}n mixto para una variable respuesta bajo la distribuci\'{o}n simplex y \cite{Bonat2} tambi\'{e}n realiza un an\'{a}lisis de verosimilitud del modelo beta mixto, donde la estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n es realizada bajo algoritmos MCMC.\\
 
-Como se pudo notar anteriormente, se ve que las metodolog\'{\i}as de estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n mixto no tienen una soluci\'{o}n cerrada anal\'{\i}ticamente y un poco m\'{a}s complicada cuando se trata de una variable respuesta perteneciente a datos proporcionales, por lo que se utilizan ciertas aproximaciones o en la mayor\'{\i}a de los casos metodolog\'{\i}as y algoritmos bayesianos para la estimaci\'{o}n de los par\'{a}metros regresores. Una de las metodolog\'{\i}as utilizadas es la aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i}a la cuadratura de Gauss-Hermite adaptativa, utilizada e implementada en los modelos de regresi\'{o}n beta mixtos por \cite{Usuga1} y ser\'{a} utilizada para la estimaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, dicha cuadratura fue implementada anteriormente por \cite{Fahrmeir1} sobre los modelos lineales generalizados. Diversos estudios para la estimaci\'{o}n de par\'{a}metros sobre modelos estad\'{\i}sticos han sido implementados mediante esta t\'{e}cnica, por ejemplo, el trabajo realizado por \cite{Liu1} y \cite{Smithson1} que estima los par\'{a}metros del modelo de regresi\'{o}n beta bajo la cuadratura de Gauss-Hermite. Por otra parte, se han realizado diversas modificaciones sobre la cuadratura de Gauss-Hermite original, tales como la cuadratura de Gauss-Hermite adaptativa y algunas mejoras sobre esta como la cuadratura de Gauss-Hermite adaptativa con \textit{pruning} \citep{Hernandez1}.\\
+Como se pudo notar anteriormente, se ve que las metodolog\'{\i}as de estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n mixto no tienen una soluci\'{o}n cerrada anal\'{\i}ticamente y es un poco m\'{a}s complicada cuando se trata de una variable respuesta perteneciente a datos proporcionales, por lo que se utilizan ciertas aproximaciones o en la mayor\'{\i}a de los casos metodolog\'{\i}as y algoritmos bayesianos para la estimaci\'{o}n de los par\'{a}metros regresores. Una de las metodolog\'{\i}as utilizadas es la aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i}a la cuadratura de Gauss-Hermite adaptativa, utilizada e implementada en los modelos de regresi\'{o}n beta mixtos por \cite{Usuga1} y es utilizada para la estimaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, dicha cuadratura fue implementada anteriormente por \cite{Fahrmeir1} sobre los modelos lineales generalizados. Diversos estudios para la estimaci\'{o}n de par\'{a}metros sobre modelos estad\'{\i}sticos han sido implementados mediante esta t\'{e}cnica, por ejemplo, el trabajo realizado por \cite{Liu1} y \cite{Smithson1} que estima los par\'{a}metros del modelo de regresi\'{o}n beta bajo la cuadratura de Gauss-Hermite. Por otra parte, se han realizado diversas modificaciones sobre la cuadratura de Gauss-Hermite original, tales como la cuadratura de Gauss-Hermite adaptativa y algunas mejoras sobre esta como la cuadratura de Gauss-Hermite adaptativa con \textit{pruning} \citep{Hernandez1}.\\
 
-Los modelos de regresi\'{o}n mixto que se han mencionado anteriormente sobre datos proporcionales, no se encuentran con presencia de datos en cero y/o uno, es decir inflados con ceros y/o unos, por lo que otros autores como \cite{Ospina2} presentaron una distribuci\'{o}n beta inflada con ceros o con unos, mediante una combinaci\'{o}n de una distribuci\'{o}n discreta y una distribuci\'{o}n continua dada por la distribuci\'{o}n beta con parametrizaci\'{o}n de \cite{Ferrari2} y la cual dio pie para que m\'{a}s adelante \cite{Ospina1} propusieron una clase general de modelos de regresi\'{o}n beta inflados en cero y uno. Recientemente \cite{Kosmidis1} han estudiado los modelos de regresi\'{o}n inflados para datos proporcionales, pero basados en una distribuci\'{o}n distinta a la propuesta por \cite{Ospina1}, sin embargo, es de aclarar que los anteriores modelos son modelos de regresi\'{o}n para efectos fijos, es decir, no incluyen alg\'{u}n efecto aleatorio, por lo que otros autores como \cite{Galvis1} incluyen efectos aleatorios dentro de los modelos de regresi\'{o}n inflados con ceros y/o unos, basados en la distribuci\'{o}n propuesta por \cite{Ospina2}y otras distribuciones para datos proporcionales, como la distribuci\'{o}n simplex y beta-rectangular, la estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n se realiz\'{o} mediante metodolog\'{\i}as bayesianas MCMC.\\
+Los modelos de regresi\'{o}n mixto que se han mencionado anteriormente sobre datos proporcionales, no se encuentran con presencia de datos en cero y/o uno, es decir inflados con ceros y/o unos, por lo que otros autores como \cite{Ospina2} presentaron una distribuci\'{o}n beta inflada con ceros o con unos, mediante una combinaci\'{o}n de una distribuci\'{o}n discreta y una distribuci\'{o}n continua dada por la distribuci\'{o}n beta con parametrizaci\'{o}n de \cite{Ferrari2} y la cual dio pie para que m\'{a}s adelante \cite{Ospina1} propusieron una clase general de modelos de regresi\'{o}n beta inflados en cero y uno. Recientemente \cite{Kosmidis1} han estudiado los modelos de regresi\'{o}n inflados para datos proporcionales, pero basados en una distribuci\'{o}n distinta a la propuesta por \cite{Ospina1}, sin embargo, es de aclarar que los anteriores modelos son modelos de regresi\'{o}n para efectos fijos, es decir, no incluyen alg\'{u}n efecto aleatorio, por lo que otros autores como \cite{Galvis1} incluyen efectos aleatorios dentro de los modelos de regresi\'{o}n inflados con ceros y/o unos, basados en la distribuci\'{o}n propuesta por \cite{Ospina2}y otras distribuciones para datos proporcionales, como la distribuci\'{o}n simplex y beta-rectangular, la estimaci\'{o}n de los par\'{a}metros de regresi\'{o}n se realiz\'{o} mediante metodolog\'{\i}as bayesianas, MCMC.\\
 
 Este cap\'{\i}tulo se encuentra organizado de la siguiente manera: primero se presenta el modelo de regresi\'{o}n ZOIP mixto basado en la distribuci\'{o}n ZOIP visto en el cap\'{\i}tulo \ref{cap2} y su debida estimaci\'{o}n, mediante m\'{a}xima verosimilitud, se muestra los diferentes tipos de cuadratura de Gauss-Hermite, para que posteriormente se muestre la aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i}a la cuadratura de Gauss-Hermite adaptativa multidimensional,  en la siguiente secci\'{o}n se presenta la implementaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto en el paquete \pkg{ZOIP} de \proglang{R} y por \'{u}ltimo se presenta unas aplicaciones a datos simulados y a datos reales.
 
@@ -204,7 +204,7 @@ y la funci\'{o}n de log verosimilitud esta dado por:
 Al tener la funci\'{o}n de log verosimilitud definida en \eqref{LOG_vero_mix}, para hallar los estimadores m\'{a}ximos veros\'{\i}miles se debe utilizar herramientas computacionales, como algoritmos de optimizaci\'{o}n, tales como las funciones de \proglang{R}, \code{nlminb} o \code{optim}. La metodolog\'{\i}a de estimaci\'{o}n de los par\'{a}metros del modelo de regresi\'{o}n ZOIP con intercepto aleatorio en la media y la varianza, utilizando m\'{a}xima verosimilitud v\'{\i}a cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}, se encuentra implementada en el paquete \pkg{ZOIP} de \proglang{R}, por medio de la funci\'{o}n \code{RMM.ZOIP}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Modelo de regresi\'{o}n ZOIP mixto en el paquete ZOIP}
+\section{Modelo de regresi\'{o}n ZOIP mixto en el paquete \pkg{ZOIP}}
 
 En esta secci\'{o}n se mostrara como ajustar un modelo de regresi\'{o}n ZOIP con interceptos aleatorios en los par\'{a}metros de media y varianza, mediante el paquete \pkg{ZOIP} de \proglang{R}, utilizando el m\'{e}todo de m\'{a}xima verisimilitud y su aproximaci\'{o}n mediante la cuadratura de Gauss-Hermite adaptativa multidimensional con \textit{pruning} o sin \textit{pruning}.
 
@@ -213,10 +213,10 @@ En esta secci\'{o}n se mostrara como ajustar un modelo de regresi\'{o}n ZOIP con
 La funci\'{o}n \code{RMM.ZOIP} estima los par\'{a}metros de un modelo regresi\'{o}n ZOIP con y sin covariables e interceptos aleatorios en los par\'{a}metros de la media y la dispersi\'{o}n, dicha estimaci\'{o}n se realiza v\'{\i}a m\'{a}xima verosimilitud utilizando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}, adem\'{a}s se utilizara el optimizador \code{nlminb} o \code{optim} para la estimaci\'{o}n de los efectos fijos. La estructura de la funci\'{o}n \code{RMM.ZOIP} es la siguiente:
 
 \begin{verbatim}
-RMM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, formula.p1 = ~1, 
-    data, formula.random, link = c("identity", "identity", "identity", 
-        "identity"), family = "R-S", optimizer = "nlminb", n.points = 11, 
-    pruning = TRUE)
+RMM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, 
+    formula.p1 = ~1, data, formula.random, link = c("identity", 
+        "identity", "identity", "identity"), family = "R-S", 
+    optimizer = "nlminb", n.points = 11, pruning = TRUE)
 \end{verbatim}
 
 Los argumentos de la funci\'{o}n \code{RMM.ZOIP} son:
@@ -229,10 +229,10 @@ Los argumentos de la funci\'{o}n \code{RMM.ZOIP} son:
 \item \code{formula.p0}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $p_0$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
 \item \code{formula.p1}: Formula que define la funci\'{o}n de regresi\'{o}n de efectos fijos, para el par\'{a}metro $p_1$, Un valor posible es \code{$\sim $x1}. Por defecto \code{$\sim $1}.
 \item \code{data}: Es el conjunto de datos en formato \code{data.frame} donde debe contener las nombres de las columnas tal cual como est\'{a}n en las f\'{o}rmulas.
-\item \code{formula.random}: Formula que define el efecto mixto dentro del modelo, debe ser solo el intercepto aleatorio que se tendr\'{a} en cuenta en el par\'{a}metro de la media y la dispersi\'{o}n, la estructura admisible es la siguiente \code{formula.random= ~ 1 | X1}, donde \code{X1} es la variable que indica los grupos o sujetos en el modelo, siempre debe ser definido.
-\item \code{family}: Elecci\'{o}n de la parametrizaci\'{o}n de la distribuci\'{o}n beta o distribuci\'{o}n deseada en la parte continua de la distribuci\'{o}n ZOIP, si toma el valor de \code{`R-S'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{`F-C'} se utilizara la distribuci\'{o}n beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{`Original'} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n original, \code{`Simplex'} Utilizara la distribuci\'{o}n simplex.
-\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Si el modelo de regresi\'{o}n no posee covariables se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity}, independientemente del valor escogido en familia, opciones posibles son \code{logit}, \code{log}. Por defecto \code{link=c(`identity',`identity',`identity',`identity')}.
-\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud en los par\'{a}metros de efectos fijos. se puede elegir el valor de \code{`nlminb'} o \code{`optim'}. Por defecto \code{`nlminb'}
+\item \code{formula.random}: Formula que define el efecto mixto dentro del modelo, debe ser solo el intercepto aleatorio que se tendr\'{a} en cuenta en el par\'{a}metro de la media y la dispersi\'{o}n, la estructura admisible es la siguiente \code{formula.random = ~1 | G1}, donde \code{G1} es la variable que indica los grupos o sujetos en el modelo, siempre debe ser definido.
+\item \code{family}: Elecci\'{o}n de la parametrizaci\'{o}n de la distribuci\'{o}n beta o distribuci\'{o}n deseada en la parte continua de la distribuci\'{o}n ZOIP, si toma el valor de \code{``R-S''} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{``F-C''} se utilizara la distribuci\'{o}n beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{``Original''} se utilizara la distribuci\'{o}n beta con parametrizaci\'{o}n original, \code{``Simplex''} Utilizara la distribuci\'{o}n simplex.
+\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Si el modelo de regresi\'{o}n no posee covariables se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity}, independientemente del valor escogido en familia, opciones posibles son \code{logit}, \code{log}. Por defecto \code{link=c(``identity'',``identity'',``identity'',``identity'')}.
+\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud en los par\'{a}metros de efectos fijos. se puede elegir el valor de \code{``nlminb''} o \code{``optim''}. Por defecto \code{``nlminb''}
 \item \code{n.points}: N\'{u}mero de puntos a utilizar en la aproximaci\'{o}n de la funci\'{o}n de verosimilitud por medio de la cuadratura de Gauss-Hermite adaptativa multidimensional. por defecto es 11. se recomienda no dar un valor muy grande a este par\'{a}metro, por que afectara de manera significativamente los tiempos de convergencia del modelo.
 \item \code{pruning}: Es un valor booleano que indica si se utilizara \textit{pruning} o no, para la cuadratura de Gauss-Hermite adaptativa multidimensional. por defecto es TRUE.
 
@@ -248,7 +248,8 @@ N <- 21  # Numeros de grupos o sujetos
 Times <- c(2, 10, 20, 40)  # cantidad de dias
 
 subject <- rep(1:N, each = length(Times))
-# numero de sujetos en la muestra repetidos tantas veces haya dias
+# numero de sujetos en la muestra repetidos tantas veces
+# haya dias
 
 Days <- rep(Times, times = N)
 b0i <- rep(rnorm(n = N, sd = 1), each = length(Times))
@@ -275,7 +276,8 @@ sigma[sigma == 0] <- 0.001
 
 family <- "R-S"
 
-Y <- rZOIP(n = length(mu), mu = mu, sigma = sigma, p0 = p0, p1 = p1, family = family)
+Y <- rZOIP(n = length(mu), mu = mu, sigma = sigma, p0 = p0, 
+    p1 = p1, family = family)
 base <- data.frame(Y, Days, subject)
 \end{verbatim}
 
@@ -296,9 +298,9 @@ n.points <- 11
 pruning <- TRUE
 
 mod <- RMM.ZOIP(formula.mu = formula.mu, formula.sigma = formula.sigma, 
-    formula.p0 = formula.p0, formula.p1 = formula.p1, data = base, formula.random = formula.random, 
-    link = link, family = family, optimizer = optimizer, n.points = n.points, 
-    pruning = pruning)
+    formula.p0 = formula.p0, formula.p1 = formula.p1, data = base, 
+    formula.random = formula.random, link = link, family = family, 
+    optimizer = optimizer, n.points = n.points, pruning = pruning)
 mod
 \end{verbatim}
 
@@ -328,9 +330,6 @@ Los resultados obtenidos se muestran a continuaci\'{o}n.
 ##  Estimated fixed coefficients for h(p1): 
 ## (Intercept) 
 ##   0.1191148 
-\end{verbatim}
-
-\begin{verbatim}
 ##  Estimated random coefficients for h(mu) and h(sigma) 
 ##                                      log(.)
 ## Random Intercept mu    0.7610678 -0.2730329
@@ -370,7 +369,6 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 \end{verbatim}
-
 \begin{verbatim}
 ## ---------------------------------------------------------------
 ## Fixed effects for identity(p0) 
@@ -387,9 +385,6 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ## ---------------------------------------------------------------
-\end{verbatim}
-
-\begin{verbatim}
 ## ---------------------------------------------------------------
 ## Random effects for mu and sigma 
 ## ---------------------------------------------------------------
@@ -411,10 +406,10 @@ En esta secci\'{o}n se muestran diferentes resultados sobre el ajuste de un mode
 
 \subsection{Datos reales}
 
-En una entidad financiera es de importancia estudiar los efectos de ciertas variables sobre el porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito de la entidad, porque esto dar\'{a} respuestas a activaci\'{o}n de campa\~{n}as publicitarias y estudios de mercadeo para incentivar la utilizaci\'{o}n de las tdc, de acuerdo a la situaci\'{o}n o caracter\'{\i}sticas de la persona due\~{n}a de la tdc, es por esto que en esta secci\'{o}n se analiz\'{o} el efecto que tiene la variable \textsl{Total mora} y la \textsl{ciudad}, sobre el porcentaje de utilizaci\'{o}n de la tdc. La variable \textsl{Total mora} nos indica el n\'{u}mero de meses que la tarjeta ha entrado en mora en toda la vida de la tdc; la \textsl{ciudad} nos indicara donde vive el cliente perteneciente de la tdc. Estas dos variables son importantes para la entidad financiera, porque indicara o estimara el porcentaje de utilizaci\'{o}n de una tdc para cuando un cliente ha llegado a estar en mora varios meses y vive en cierta ciudad, por lo que indicara a la entidad financiera, como actuar sobre ciertas personas de inter\'{e}s. Para poder cuantificar dicho efecto se plante\'{o} un modelo de regresi\'{o}n ZOIP-beta con intercepto aleatorio en el par\'{a}metro de la media y la varianza, dado por la variable \textsl{ciudad} y un efecto fijo en la media y la varianza dado por la variable \textsl{Total mora}, el modelo es planteado bajo la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Stasinopoulos2}. El n\'{u}mero de datos con que se cuenta es un total de 15 tarjetas de cr\'{e}dito por cada ciudad, el n\'{u}mero de ciudades tomadas en cuenta son 10 (Bogot\'{a}, Medell\'{\i}n, Cali, Barranquilla, Bucaramanga, Cartagena, C\'{u}cuta, Ibagu\'{e}, Envigado y Neiva), para as\'{\i} obtener una base total de 150 tdc. el modelo planteado se muestra a continuaci\'{o}n:
-\[
-Si y_{ij}| \gamma_{i1},\gamma_{i2} \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),
-\]
+En una entidad financiera es de importancia estudiar los efectos de ciertas variables sobre el porcentaje de utilizaci\'{o}n de las tarjetas de cr\'{e}dito de la entidad, porque esto dar\'{a} respuestas a activaci\'{o}n de campa\~{n}as publicitarias y estudios de mercadeo para incentivar la utilizaci\'{o}n de las tdc, de acuerdo a la situaci\'{o}n o caracter\'{\i}sticas de la persona due\~{n}a de la tdc, es por esto que en esta secci\'{o}n se analiz\'{o} el efecto que tiene la variable \textsl{Total mora} y la \textsl{ciudad}, sobre el porcentaje de utilizaci\'{o}n de la tdc. La variable \textsl{Total mora} nos indica el n\'{u}mero de meses que la tarjeta ha entrado en mora en toda la vida de la tdc; la \textsl{ciudad} nos indicara donde vive el cliente perteneciente de la tdc. Estas dos variables son importantes para la entidad financiera, porque indicara o estimara el porcentaje de utilizaci\'{o}n de una tdc para cuando un cliente ha llegado a estar en mora varios meses y vive en cierta ciudad, por lo que indicara a la entidad financiera, como actuar sobre ciertas personas de inter\'{e}s. Para poder cuantificar dicho efecto se plante\'{o} un modelo de regresi\'{o}n ZOIP-beta con intercepto aleatorio en el par\'{a}metro de la media y la varianza, dado por la variable \textsl{ciudad} y un efecto fijo en la media y la varianza dado por la variable \textsl{Total mora}, el modelo es planteado bajo la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n de \cite{Stasinopoulos2}. El n\'{u}mero de datos con que se cuenta es un total de 15 tarjetas de cr\'{e}dito por cada ciudad, el n\'{u}mero de ciudades tomadas en cuenta son 10 (Bogot\'{a}, Medell\'{\i}n, Cali, Barranquilla, Bucaramanga, Cartagena, C\'{u}cuta, Ibagu\'{e}, Envigado y Neiva), para as\'{\i} obtener una base total de 150 tdc. el modelo planteado se muestra a continuaci\'{o}n:\\
+
+Si $y_{ij}| \gamma_{i1},\gamma_{i2} \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),$
+
 \begin{equation}
 \begin{split}
 &h_1(\mu_{ij})=\beta_0+\gamma_{1i}+\beta_1 x_{1ij},\\
@@ -445,7 +440,7 @@ $p_1$ & 0.07 (0.02)& & & \\ \hline
 }
 \end{table}
 
-En la tabla \ref{T_Apli_mix} se muestra la estimaci\'{o}n de los efectos fijos y aleatorios del modelo de regresi\'{o}n ZOIP-beta mixto, estimado v\'{\i}a m\'{a}xima verosimilitud y mediante la aproximaci\'{o}n de la cuadratura de Gauss-Hermite adaptativa multidimensional utilizando 11 puntos de cuadratura y con \textit{pruning}. en esta tabla se evidencia como al tener un numero de meses en mora m\'{a}s alto se aumenta el porcentaje medio y la varianza de utilizaci\'{o}n de las tdc, adem\'{a}s se observa que $\hat{\lambda_1}=0.51$ dando as\'{\i} que $\gamma_{1i} \sim N(0, 0.51)$, lo que nos permite ver el efecto del cambio de ciudad sobre el porcentaje medio de utilizaci\'{o}n de las tdc, el valor $\hat{\lambda_2}$ es de $0.4$, evidenciando que $\gamma_{2i} \sim N(0, 0.4)$, lo que nos indicara cuantificar el efecto del cambio de ciudad sobre la variabilidad del porcentaje de utilizaci\'{o}n de las tdc, por otra parte se evidencia que alrededor de un 20\% de las tdc no se utilizan para nada y que un 7\% tienen utilizado la totalidad de su cupo de la tarjeta de cr\'{e}dito. por \'{u}ltimo el modelo fue ajustado mediante la funci\'{o}n \code{RMM.ZOIP} del paquete \pkg{ZOIP}, tardando un total de 83.5 segundos, un tiempo relativamente prudente para el ajuste un modelo complejo, como lo es el modelo de regresi\'{o}n ZOIP-beta mixto.\\
+En la tabla \ref{T_Apli_mix} se muestra la estimaci\'{o}n de los efectos fijos y aleatorios del modelo de regresi\'{o}n ZOIP-beta mixto, estimado v\'{\i}a m\'{a}xima verosimilitud y mediante la aproximaci\'{o}n de la cuadratura de Gauss-Hermite adaptativa multidimensional utilizando 11 puntos de cuadratura y con \textit{pruning}. en esta tabla se evidencia como al tener un numero de meses en mora m\'{a}s alto se aumenta el porcentaje medio y la varianza de utilizaci\'{o}n de las tdc, adem\'{a}s se observa que $\hat{\lambda}_1=0.51$ dando as\'{\i} que $\gamma_{1i} \sim N(0, 0.51)$, lo que nos permite ver el efecto del cambio de ciudad sobre el porcentaje medio de utilizaci\'{o}n de las tdc, el valor $\hat{\lambda}_2$ es de $0.4$, evidenciando que $\gamma_{2i} \sim N(0, 0.4)$, lo que nos indicara cuantificar el efecto del cambio de ciudad sobre la variabilidad del porcentaje de utilizaci\'{o}n de las tdc, por otra parte se evidencia que alrededor de un 20\% de las tdc no se utilizan para nada y que un 7\% tienen utilizado la totalidad de su cupo de la tarjeta de cr\'{e}dito. por \'{u}ltimo el modelo fue ajustado mediante la funci\'{o}n \code{RMM.ZOIP} del paquete \pkg{ZOIP}, tardando un total de 83.5 segundos, un tiempo relativamente prudente para el ajuste un modelo complejo, como lo es el modelo de regresi\'{o}n ZOIP-beta mixto.\\
 
 El modelo propuesto en \eqref{A_eq_reg_mix} se puede reescribir con los par\'{a}metros estimados como:
 \[
@@ -485,14 +480,14 @@ Al tener la distribuci\'{o}n que genera los datos de la variable \textsl{Total m
 \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
 & & \multicolumn{3}{|c|}{Con \textit{pruning}} & \multicolumn{3}{|c|}{Sin \textit{pruning}} \\ \hline
 Par\'{a}metro & $\beta$'s & $n_i=5$ & $n_i=20$ & $n_i=50$ & $n_i=5$ & $n_i=20$ & $n_i=50$ \\ \hline \hline
-\multirow{3}{*}{$\mu$} & $\hat{\beta_0}$ & -1.137	&-1.110	&-1.076	&-1.128	&-1.120	&-1.080 \\ 
-& $\hat{\beta_1}$ & 0.321	&0.327	&0.326	&0.331	&0.330	&0.327 \\
-& $\hat{\lambda_1}$ & 0.879	&0.576	&0.507	&0.882	&0.568	&0.498 \\ \hline
-\multirow{3}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.445	&0.380	&0.336	&0.452	&0.377	&0.345 \\ 
-& $\hat{\beta_1}$ & 0.072	&0.118	&0.132	&0.066	&0.121	&0.133\\
-& $\hat{\lambda_2}$ & 0.728	&0.450	&0.396	&0.727	&0.456	&0.398\\ \hline
-$p_0$& $\hat{\beta_0}$ &0.220	&0.230	&0.230	&0.220	&0.230	&0.230 \\ \hline
-$p_1$& $\hat{\beta_0}$ &0.060	&0.070	&0.070	&0.060	&0.070	&0.072 \\ \hline
+\multirow{3}{*}{$\mu$} & $\hat{\beta}_0$ & -1.137	&-1.110	&-1.076	&-1.128	&-1.120	&-1.080 \\ 
+& $\hat{\beta}_1$ & 0.321	&0.327	&0.326	&0.331	&0.330	&0.327 \\
+& $\hat{\lambda}_1$ & 0.879	&0.576	&0.507	&0.882	&0.568	&0.498 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\hat{\beta}_0$ & 0.445	&0.380	&0.336	&0.452	&0.377	&0.345 \\ 
+& $\hat{\beta}_1$ & 0.072	&0.118	&0.132	&0.066	&0.121	&0.133\\
+& $\hat{\lambda}_2$ & 0.728	&0.450	&0.396	&0.727	&0.456	&0.398\\ \hline
+$p_0$& $\hat{\beta}_0$ &0.220	&0.230	&0.230	&0.220	&0.230	&0.230 \\ \hline
+$p_1$& $\hat{\beta}_0$ &0.060	&0.070	&0.070	&0.060	&0.070	&0.072 \\ \hline
 Tiempo(Seg)& &115.72	&130.85	&140.58	&61.69	&163.36	&218.68 \\ \hline
 Nro Iteraciones& &22	&30	&34	&22	&30	&34 \\ \hline
 \end{tabular}
@@ -510,14 +505,14 @@ En la tabla \ref{T_Sim_mix_ni} se muestra los valores estimados de cada uno de l
 \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
 & & \multicolumn{3}{|c|}{Con \textit{pruning}} & \multicolumn{3}{|c|}{Sin \textit{pruning}} \\ \hline
 Par\'{a}metro & $\beta$'s & $Q=3$ & $Q=10$ & $Q=20$ & $Q=3$ & $Q=10$ & $Q=20$ \\ \hline \hline
-\multirow{3}{*}{$\mu$} & $\hat{\beta_0}$ & -1.122	& -1.069	& -1.120	& -1.117	& -1.076	& -1.129 \\ 
-& $\hat{\beta_1}$ & 0.323	&0.322	&0.333	&0.334	&0.322	&0.329 \\
-& $\hat{\lambda_1}$ & 0.632	&0.626	&0.634	&0.629	&0.616	&0.623 \\ \hline
-\multirow{3}{*}{$\sigma$} & $\hat{\beta_0}$ & 0.400	&0.365	&0.366	&0.382	&0.379	&0.373 \\ 
-& $\hat{\beta_1}$ & 0.117	&0.119	&0.120	&0.123	&0.117	&0.121 \\
-& $\hat{\lambda_2}$ & 0.490	&0.487	&0.491	&0.501	&0.482	&0.486 \\ \hline
-$p_0$& $\hat{\beta_0}$ &0.228	&0.228	&0.226	&0.226	&0.226	&0.226 \\ \hline
-$p_1$& $\hat{\beta_0}$ &0.068	&0.070	&0.070	&0.070	&0.068	&0.070 \\ \hline
+\multirow{3}{*}{$\mu$} & $\hat{\beta}_0$ & -1.122	& -1.069	& -1.120	& -1.117	& -1.076	& -1.129 \\ 
+& $\hat{\beta}_1$ & 0.323	&0.322	&0.333	&0.334	&0.322	&0.329 \\
+& $\hat{\lambda}_1$ & 0.632	&0.626	&0.634	&0.629	&0.616	&0.623 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\hat{\beta}_0$ & 0.400	&0.365	&0.366	&0.382	&0.379	&0.373 \\ 
+& $\hat{\beta}_1$ & 0.117	&0.119	&0.120	&0.123	&0.117	&0.121 \\
+& $\hat{\lambda}_2$ & 0.490	&0.487	&0.491	&0.501	&0.482	&0.486 \\ \hline
+$p_0$& $\hat{\beta}_0$ &0.228	&0.228	&0.226	&0.226	&0.226	&0.226 \\ \hline
+$p_1$& $\hat{\beta}_0$ &0.068	&0.070	&0.070	&0.070	&0.068	&0.070 \\ \hline
 Tiempo(Seg)& &75.295	&128.28	&271.825	&74.295	&162.35	&367.545 \\ \hline
 Nro Iteraciones& &30	&29	&29	&29	&29	&29 \\ \hline
 \end{tabular}
@@ -539,7 +534,7 @@ En la tabla \ref{T_Sim_mix_ncua} se muestra los valores estimados de cada uno de
 
 La mediana del error relativo de un par\'{a}metro estimado es calculado a partir de hallar el error relativo de las 1000 r\'{e}plicas de cada escenario de simulaci\'{o}n para cada par\'{a}metro estimado y calcularle la mediana a los mil valores calculados, el error relativo se puede definir como $|\theta-\hat{\theta}/\theta|$, donde $\theta$ representa cualquier par\'{a}metro estimado en el modelo de regresi\'{o}n ZOIP mixto. \\
 
-En la figura \ref{MAPE_bo_mu} se muestra la mediana del error relativo de variar el tama\~{n}o de muesta $n_i$, el n\'{u}mero de puntos de la cuadratura $Q$ y si se utiliza \textit{pruning} o no, sobre el intercepto fijo ($\hat{\beta_0}$) asociado a $\mu$, en dicha figura se muestra como el aumentar el tama\~{n}o de muestra en cada ciudad se obtiene una reducci\'{o}n de la mediana error relativo de $\hat{\beta_0}$, sin embargo al aumentar el n\'{u}mero de puntos de la cuadratura se obtienen errores muy parecidos en todos los tama\~{n}os de muestra, por lo que se podr\'{\i}a decir que el aumento del n\'{u}mero de puntos de cuadratura no mejora la estimaci\'{o}n del intercepto fijo sobre la media, por otra parte se obtienen errores relativos parecidos cuando se utiliza \textit{pruning} que cuando no, sin embargo se puede rescatar que hay puntos como cuando el tama\~{n}o de muestra es 50 y $Q=10$ el error relativo de con \textit{pruning} es m\'{a}s grande del que no utiliza \textit{pruning}.\\
+En la figura \ref{MAPE_bo_mu} se muestra la mediana del error relativo de variar el tama\~{n}o de muesta $n_i$, el n\'{u}mero de puntos de la cuadratura $Q$ y si se utiliza \textit{pruning} o no, sobre el intercepto fijo ($\hat{\beta}_0$) asociado a $\mu$, en dicha figura se muestra como el aumentar el tama\~{n}o de muestra en cada ciudad se obtiene una reducci\'{o}n de la mediana error relativo de $\hat{\beta}_0$, sin embargo al aumentar el n\'{u}mero de puntos de la cuadratura se obtienen errores muy parecidos en todos los tama\~{n}os de muestra, por lo que se podr\'{\i}a decir que el aumento del n\'{u}mero de puntos de cuadratura no mejora la estimaci\'{o}n del intercepto fijo sobre la media, por otra parte se obtienen errores relativos parecidos cuando se utiliza \textit{pruning} que cuando no, sin embargo se puede rescatar que hay puntos como cuando el tama\~{n}o de muestra es 50 y $Q=10$ el error relativo de con \textit{pruning} es m\'{a}s grande del que no utiliza \textit{pruning}.\\
 
 \begin{figure}
 	\begin{center}
@@ -570,7 +565,7 @@ En la figura \ref{MAPE_beta1_mu} se muestra la mediana del error relativo de var
 	\end{center}
 \end{figure}
 
-En la figura \ref{MAPE_beta0_sigma} se muestra la mediana del error relativo de variar el tama\~{n}o de muestra $n_i$, el n\'{u}mero de puntos de la cuadratura $Q$ y si se utiliza \textit{pruning} o no, sobre el intercepto fijo ($\hat{\beta_0}$) del par\'{a}metro de $\sigma$, en dicha figura se muestra como cuando se aumenta el tama\~{n}o de muestra en cada ciudad se obtiene una reducci\'{o}n de la mediana del error relativo, por otra parte al aumentar el n\'{u}mero de puntos de la cuadratura se obtienen errores muy parecidos en todos los tama\~{n}os de muestra, sin embargo cuando $Q=20$ y se realiza sin \textit{pruning} se nota una reducci\'{o}n en el error, Ahora si observamos las medianas de los errores relativos son relativamente parecidos cuando se utiliza \textit{pruning} que cuando no, sin embargo se puede rescatar que hay puntos como cuando el tama\~{n}o de muestra es 20 o 50 y el $Q=20$ el error relativo, de la metodolog\'{\i}a sin utilizar \textit{pruning} se ve reducido la mediana del error relativo, mejorando as\'{\i} la estimaci\'{o}n del par\'{a}metro.\\
+En la figura \ref{MAPE_beta0_sigma} se muestra la mediana del error relativo de variar el tama\~{n}o de muestra $n_i$, el n\'{u}mero de puntos de la cuadratura $Q$ y si se utiliza \textit{pruning} o no, sobre el intercepto fijo ($\hat{\beta}_0$) del par\'{a}metro de $\sigma$, en dicha figura se muestra como cuando se aumenta el tama\~{n}o de muestra en cada ciudad se obtiene una reducci\'{o}n de la mediana del error relativo, por otra parte al aumentar el n\'{u}mero de puntos de la cuadratura se obtienen errores muy parecidos en todos los tama\~{n}os de muestra, sin embargo cuando $Q=20$ y se realiza sin \textit{pruning} se nota una reducci\'{o}n en el error, Ahora si observamos las medianas de los errores relativos son relativamente parecidos cuando se utiliza \textit{pruning} que cuando no, sin embargo se puede rescatar que hay puntos como cuando el tama\~{n}o de muestra es 20 o 50 y el $Q=20$ el error relativo, de la metodolog\'{\i}a sin utilizar \textit{pruning} se ve reducido la mediana del error relativo, mejorando as\'{\i} la estimaci\'{o}n del par\'{a}metro.\\
 
 \begin{figure}
 	\begin{center}
@@ -627,6 +622,6 @@ En la figura \ref{time_mix_ZOIP} se muestra la mediana del tiempo de ejecuci\'{o
 
 \section{Conclusi\'{o}n}
 
-El modelo de regresi\'{o}n ZOIP con efectos mixtos permite hacer ajustes a un modelo de regresi\'{o}n mixto, donde la variable respuesta est\'{a} dada por datos proporcionales inflados con ceros y/o unos, es decir, bajo una distribuci\'{o}n ZOIP, se considera un modelo de regresi\'{o}n mixto porque adem\'{a}s de considerar efectos fijos sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, permite incluir efectos aleatorios, tales como interceptos aleatorios sobre los par\'{a}metros de la media y la dispersi\'{o}n, la estimaci\'{o}n de estos par\'{a}metros se realiza bajo m\'{a}xima verosimilitud y bajo la aproximaci\'{o}n de la cuadratura de Gauss-Hermite adaptativa multidimensional, dicha estimaci\'{o}n puede ser realizada en el paquete \pkg{ZOIP} de \proglang{R}, de una forma muy agradable para el usuario, en el paquete es posible realizar diferentes tipos de regresi\'{o}n ZOIP mixto, bajo diferentes distribuciones y parametrizaciones, adem\'{a}s de obtener resultados del modelo mediante funciones de metodolog\'{\i}a S3 de \proglang{R},.
+El modelo de regresi\'{o}n ZOIP con efectos mixtos permite hacer ajustes a un modelo de regresi\'{o}n mixto, donde la variable respuesta est\'{a} dada por datos proporcionales inflados con ceros y/o unos, es decir, bajo una distribuci\'{o}n ZOIP, se considera un modelo de regresi\'{o}n mixto porque adem\'{a}s de considerar efectos fijos sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, permite incluir efectos aleatorios, tales como interceptos aleatorios sobre los par\'{a}metros de la media y la dispersi\'{o}n, la estimaci\'{o}n de estos par\'{a}metros se realiza bajo m\'{a}xima verosimilitud y bajo la aproximaci\'{o}n de la cuadratura de Gauss-Hermite adaptativa multidimensional, dicha estimaci\'{o}n puede ser realizada en el paquete \pkg{ZOIP} de \proglang{R}, de una forma muy agradable para el usuario, en el paquete es posible realizar diferentes tipos de regresi\'{o}n ZOIP mixto, bajo diferentes distribuciones y parametrizaciones, adem\'{a}s de obtener resultados del modelo mediante funciones de metodolog\'{\i}a S3 de \proglang{R}.\\
 
 El modelo de regresi\'{o}n ZOIP mixto a manera de resultados, presenta una excelente convergencia de sus par\'{a}metros bajo los estudios de simulaci\'{o}n realizados, adem\'{a}s nos permite concluir que la mejor metodolog\'{\i}a para obtener un buen tiempo de ejecuci\'{o}n y de convergencia de los par\'{a}metros del modelo de regresi\'{o}n ZOIP mixto, es cuando se utiliza un numero prudente de puntos de la cuadratura, es decir, entre cinco y quince puntos, utilizando la metodolog\'{\i}a \textit{pruning} y obteniendo un buen tama\~{n}o de observaciones por cada grupo de la variable de agrupaci\'{o}n del modelo mixto, este tama\~{n}o de muestra es el que mejor efecto obtiene sobre la mejora circunstancial de la convergencia de los par\'{a}metros regresores del modelo de regresi\'{o}n ZOIP mixto. Durante el estudio de simulaci\'{o}n tambi\'{e}n se observ\'{o} que el efecto de aumentar el n\'{u}mero de puntos de la cuadratura, afecta de manera positiva a la convergencia de los par\'{a}metros asociados a los interceptos aleatorios.
