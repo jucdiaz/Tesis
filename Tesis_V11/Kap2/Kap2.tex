@@ -150,13 +150,13 @@ donde $p_{0} \geq 0$ representa la probabilidad que $y=0$ y $p_{1} \geq 0$ repre
 %\end{multline}
 \end{equation}
 
-donde $E^*(y)$ es el valor esperado de una distribuci\'{o}n para datos proporcionales como las descritas en \eqref{E_Origin}, \eqref{E_FC}, \eqref{E_RS} y \eqref{E_Simplex}. Adem\'{a}s la $Var^*(y)$ es la varianza de una distribuci\'{o}n para datos proporcionales como se muestra en  \eqref{V_Origin}, \eqref{V_FC}, \eqref{V_RS} y \eqref{V_Simplex}.\\
+donde $E^*(y)$ es el valor esperado de una distribuci\'{o}n para datos proporcionales como las descritas en \eqref{E_Origin}, \eqref{E_FC}, \eqref{E_RS} y \eqref{E_Simplex}. Adem\'{a}s la $Var^*(y)$ es la varianza de una distribuci\'{o}n para datos proporcionales como se muestra en \eqref{V_Origin}, \eqref{V_FC}, \eqref{V_RS} y \eqref{V_Simplex}.\\
 
 Si para la distribuci\'{o}n $ZOIP(\mu, \sigma, p_0, p_1)$ se elige la distribuci\'{o}n beta con parametri- zaci\'{o}n \cite{Ferrari2} entonces el par\'{a}metro $\sigma$ tomar\'{a} el rol del par\'{a}metro $\phi$ de la distribuci\'{o}n, si la parametrizaci\'{o}n es beta original $\mu$ y $\sigma$ tomar\'{a}n el rol de $p$ y $q$ respectivamente. En las dem\'{a}s distribuciones y parametrizaciones $\mu$ y $\sigma$ tomaran los valores y dominios correspondientes a su distribuci\'{o}n.\\
 
 La distribuci\'{o}n ZOIP se encuentra inflada con ceros y unos, es decir bilateralmente, pero existe la posibilidad que hayan casos de estudio en que se encuentren datos inflados con unos \'{u}nicamente, por lo que $p_0=0$ y por lo tanto se estar\'{a} llamando no una distribuci\'{o}n ZOIP, sino una distribuci\'{o}n OIP (Ones Inflated Proporcional) y si los datos se encuentran inflados con ceros \'{u}nicamente, es decir $p_1=0$ se tendr\'{a} una distribuci\'{o}n ZIP (Zeros Inflated Proporcional), Si los datos no se encuentran inflados, entonces $p_0=p_1=0$ y la distribuci\'{o}n ZOIP ser\'{a} una distribuci\'{o}n para datos proporcionales cl\'{a}sica.\\
 
-En la Figura \ref{Dist_ZOIP} se muestran las densidades para varias de las distribuciones ZOIP-beta en sus diferentes parametrizaciones y ZOIP-simplex, es de aclarar que en las Figuras 1a. 1b. 1c. los valores de los par\'{a}metros son diferentes pero dan como resultado la misma distribuci\'{o}n gracias a las ecuaciones descritas en \eqref{FC_Origin1}, \eqref{FC_Origin2} para el caso \cite{Ferrari2} y \eqref{RS_Origin1}, \eqref{RS_Origin2} para el caso \cite{Stasinopoulos2}. Adem\'{a}s se puede observar en la Figura 1d. como la distribuci\'{o}n ZOIP-simplex hereda el comportamiento  bimodal de la distribuci\'{o}n cl\'{a}sica simplex, con valores m\'{\i}nimo y m\'{a}ximo en cero y uno respectivamente. 
+En la Figura \ref{Dist_ZOIP} se muestran las densidades para varias de las distribuciones ZOIP-beta en sus diferentes parametrizaciones y ZOIP-simplex, es de aclarar que en las Figuras 1a. 1b. 1c. los valores de los par\'{a}metros son diferentes pero dan como resultado la misma distribuci\'{o}n gracias a las ecuaciones descritas en \eqref{FC_Origin1}, \eqref{FC_Origin2} para el caso \cite{Ferrari2} y \eqref{RS_Origin1}, \eqref{RS_Origin2} para el caso \cite{Stasinopoulos2}. Adem\'{a}s se puede observar en la Figura 1d. como la distribuci\'{o}n ZOIP-simplex hereda el comportamiento bimodal de la distribuci\'{o}n cl\'{a}sica simplex, con valores m\'{\i}nimo y m\'{a}ximo en cero y uno respectivamente. 
 
 \begin{figure}
 	\begin{center}
@@ -187,7 +187,7 @@ Para encontrar los estimadores de m\'{a}xima verosimilitud (MLE) de la distribuc
 
 \begin{enumerate}
 	\item \textbf{ZOIP-beta original}\\
-	Considera la parametrizaci\'{o}n de la distribuci\'{o}n beta original  y la ecuaci\'{o}n definida en \eqref{F_likel} se tiene que:
+	Considera la parametrizaci\'{o}n de la distribuci\'{o}n beta original y la ecuaci\'{o}n definida en \eqref{F_likel} se tiene que:
 	\[
 	\boldsymbol{\theta}=(p,q,p_0,p_1)^{\top}
 	\]
@@ -327,7 +327,7 @@ if (!require("boot")) install.packages("boot")
 if (!require("numDeriv")) install.packages("numDeriv")
 if (!require("GHQp")) install.packages("GHQp")
 devtools::install_github("jucdiaz/ZOIP", force = TRUE)
-library(ZOIP)  # Carga el paquete
+library(ZOIP) # Carga el paquete
 \end{verbatim}
 
 \subsection{Funciones sobre distribuci\'{o}n ZOIP}

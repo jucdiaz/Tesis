@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  7 OCT 2017 13:32
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  12 OCT 2017 23:34
 entering extended mode
 **TesisMSc.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.tex"
@@ -709,10 +709,10 @@ LaTeX Info: Redefining \cite on input line 694.
 )
 
 Package hyperref Warning: Option `pagebackref' has already been used,
-(hyperref)                setting the option has no effect on input line 47.
+(hyperref)                setting the option has no effect on input line 48.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 47.
-Package hyperref Info: Option `breaklinks' set `true' on input line 47.
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
+Package hyperref Info: Option `breaklinks' set `true' on input line 48.
 ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\enumitem\enumitem.sty"
 Package: enumitem 2009/05/18 v2.2 Customized lists
 \enit@toks=\toks41
@@ -1619,22 +1619,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 598--599
  []
 
 File: MAPE_beta0_p1.eps Graphic file (type eps)
-<MAPE_beta0_p1.eps>
+<MAPE_beta0_p1.eps> [71] [72]
 Underfull \hbox (badness 10000) in paragraph at lines 608--609
 
  []
 
-[71] [72] [73]
 File: time_mix_ZOIP.eps Graphic file (type eps)
- <time_mix_ZOIP.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74]
+<time_mix_ZOIP.eps> [73]
 Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
-) [75] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
+[74]) [75] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
 Cap\'{\i }tulo 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -1691,12 +1687,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11390 strings out of 495286
- 168876 string characters out of 3179895
+ 11391 strings out of 495286
+ 168884 string characters out of 3179895
  404234 words of memory out of 3000000
- 14219 multiletter control sequences out of 15000+200000
+ 14220 multiletter control sequences out of 15000+200000
  19603 words of font info for 73 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,15n,52p,2079b,601s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,15n,52p,2086b,601s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TesisMSc.dvi (95 pages, 484104 bytes).
+Output written on TesisMSc.dvi (95 pages, 483904 bytes).
