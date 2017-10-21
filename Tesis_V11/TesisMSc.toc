@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {2.6}Conclusiones}{26}{section.2.6}
 \contentsline {chapter}{\numberline {3}Cap\'{\i }tulo 3: Modelo de regresi\'{o}n ZOIP con efectos fijos}{28}{chapter.3}
 \contentsline {section}{\numberline {3.1}Modelo de regresi\'{o}n ZOIP}{29}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Inferencia estad\'{\i }stica}{29}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}Inferencia estad\'{\i }stica}{30}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Modelo de regresi\'{o}n ZOIP en el Paquete {\normalfont \fontseries {b}\selectfont \par@update ZOIP}}{31}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Funci\'{o}n RM.ZOIP}{31}{subsection.3.2.1}
 \contentsline {section}{\numberline {3.3}Aplicaci\'{o}n}{36}{section.3.3}
