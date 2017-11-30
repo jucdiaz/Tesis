@@ -39,7 +39,7 @@ donde los par\'{a}metros $p>0$, $q>0$ y $\Gamma(\cdot)$ es la funci\'{o}n gamma.
 \subsection{Distribuci\'{o}n beta parametrizaci\'{o}n Ferrari y Cribari-Neto (2004)}
 
 
-\cite{Ferrari2} propusieron otra parametrizaci\'{o}n para la distribuci\'{o}n beta en funci\'{o}n de los par\'{a}metos $\mu$ y $\phi$ donde $\mu$ corresponde a la media de la distribuci\'{o}n y $\phi$ es interpretado como un par\'{a}metro de precisi\'{o}n. Si $0<y<1$ y $y \sim$ Be$(\mu,\phi)$ la funci\'{o}n de densidad de probabilidad de la distribuci\'{o}n est\'{a} dada por:
+\cite{Ferrari2} propusieron otra parametrizaci\'{o}n para la distribuci\'{o}n beta en funci\'{o}n de los par\'{a}metos $\mu$ y $\phi$ donde $\mu$ corresponde a la media de la distribuci\'{o}n y $\phi$ es interpretado como un par\'{a}metro de precisi\'{o}n. Si $0<y<1$ y $Y \sim$ Be$(\mu,\phi)$ la funci\'{o}n de densidad de probabilidad de la distribuci\'{o}n est\'{a} dada por:
 \begin{equation}
 f(y;\mu,\phi)=\frac{\Gamma(\phi)}{\Gamma(\mu\phi)\Gamma((1-\mu)\phi)}y^{\mu\phi-1}(1-y)^{(1-\mu)\phi-1}
 \end{equation}
@@ -70,7 +70,7 @@ q &= (1-\mu)\phi
 
 \subsection{Distribuci\'{o}n beta parametrizaci\'{o}n Rigby y Stasinopoulos (2005)}
 
-\cite{Stasinopoulos2} propusieron una nueva parametrizaci\'{o}n para la distribuci\'{o}n beta con par\'{a}metros $\mu$ y $\sigma$ donde $\mu$ es la media de la distribuci\'{o}n y $\sigma$ es interpretado como un par\'{a}metro de dispersi\'{o}n, se dice que $y \sim$ Be$(\mu,\sigma)$ con $0<y<1$, si la funci\'{o}n de densidad de probabilidad de la distribuci\'{o}n est\'{a} dada por:
+\cite{Stasinopoulos2} propusieron una nueva parametrizaci\'{o}n para la distribuci\'{o}n beta con par\'{a}metros $\mu$ y $\sigma$ donde $\mu$ es la media de la distribuci\'{o}n y $\sigma$ es interpretado como un par\'{a}metro de dispersi\'{o}n, se dice que $Y \sim$ Be$(\mu,\sigma)$ con $0<y<1$, si la funci\'{o}n de densidad de probabilidad de la distribuci\'{o}n est\'{a} dada por:
 
 \begin{equation}
 f(y;\mu,\sigma)=B(\mu,\sigma)y^{\mu((1-\sigma^2)/\sigma^2)-1}(1-y)^{(1-\mu)((1-\sigma^2)/\sigma^2)-1}
@@ -93,7 +93,7 @@ Adem\'{a}s note que la parametrizacion de la distribucion beta original es equiv
 
 \begin{align}
 \begin{split}
-	p &= \frac{\mu(1-\sigma^2)}{\sigma^2} \phi
+	p &= \frac{\mu(1-\sigma^2)}{\sigma^2}
 \end{split} \label{RS_Origin1} \\
 \begin{split}
 q &= \frac{(1-\mu)(1-\sigma^2)}{\sigma^2} 
@@ -102,7 +102,7 @@ q &= \frac{(1-\mu)(1-\sigma^2)}{\sigma^2}
 
 \subsection{Distribuci\'{o}n simplex}
 
-La distribuci\'{o}n simplex fue introducida por \cite{Barndorff1} y es un caso particular de los modelos de dispersi\'{o}n propuestos por \cite{Jorgensen1}, dicha distribuci\'{o}n depende de los par\'{a}metros $\mu$ que es la media de la distribuci\'{o}n y $\sigma^2$ que es un par\'{a}metro de dispersi\'{o}n. Si $0<y<1$ y $y \sim S^{-}(\mu, \sigma^2)$ la funci\'{o}n de densidad de probabilidad esta dada por:
+La distribuci\'{o}n simplex fue introducida por \cite{Barndorff1} y es un caso particular de los modelos de dispersi\'{o}n propuestos por \cite{Jorgensen1}, dicha distribuci\'{o}n depende de los par\'{a}metros $\mu$ que es la media de la distribuci\'{o}n y $\sigma^2$ que es un par\'{a}metro de dispersi\'{o}n. Si $0<y<1$ y $Y \sim S^{-}(\mu, \sigma^2)$ la funci\'{o}n de densidad de probabilidad esta dada por:
 
 \begin{equation}
 f(y;\mu,\sigma^2)=\left\{2\pi\sigma^2[y(1-y)]^3\right\}^{-1/2}\exp\left\{-\frac{y(1-y)\mu^2(1-\mu)^2}{2\sigma^2(y-\mu)^2}\right\}
@@ -126,7 +126,7 @@ donde $\Gamma(a,b)$ est\'{a} dado por la funci\'{o}n$-\Gamma$ incompleta definid
 
 En las distribuciones vistas en la secci\'{o}n \ref{Sec_dist_prop}, se evidenciaron ciertas distribuciones que se ajustan al comportamiento de datos proporcionales, porcentajes o tasas que est\'{a}n en el intervalo (0,1), sin embargo, es com\'{u}n que estos datos tomen valores en cero y/o uno que representar\'{\i}an la ausencia o presencia total de cierta caracter\'{\i}stica, por lo que no ser\'{\i}a posible ajustar los datos a las distribuciones vistas anteriormente y es por eso que en este trabajo se propone la distribuci\'{o}n ZOIP, como un conjunto de distribuciones para datos proporcionales inflados con ceros y/o unos.
 
-La distribuci\'{o}n para datos proporcionales inflados con ceros y/o unos se compone de la mezcla de tres distribuciones, dos de ellas discretas, que son distribuciones degeneradas en cero y uno, y una tercera distribuci\'{o}n continua que adem\'{a}s es una funci\'{o}n de densidad de probabilidad para datos proporcionales, como las presentadas anteriormente, si la variable aleatoria $y$ tiene distribuci\'{o}n ZOIP con par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotar\'{a} como $y \sim ZOIP(\mu,\sigma, p_0, p_1)$, la funci\'{o}n de densidad de probabilidad est\'{a} dado por:
+La distribuci\'{o}n para datos proporcionales inflados con ceros y/o unos se compone de la mezcla de tres distribuciones, dos de ellas discretas, que son distribuciones degeneradas en cero y uno, y una tercera distribuci\'{o}n continua que adem\'{a}s es una funci\'{o}n de densidad de probabilidad para datos proporcionales, como las presentadas anteriormente, si la variable aleatoria $y$ tiene distribuci\'{o}n ZOIP con par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotar\'{a} como $Y \sim ZOIP(\mu,\sigma, p_0, p_1)$, la funci\'{o}n de densidad de probabilidad est\'{a} dado por:
 
 \begin{equation}
 g(y;\mu,\sigma, p_{0}, p_{1})=
