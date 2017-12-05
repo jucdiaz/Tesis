@@ -31,7 +31,7 @@ A.C.G de~Andrade.
 \newblock Efeitos da especifica\c{c}{\~a}o incorreta da fun\c{c}{\~a}o
   deliga\c{c}{\~a}o no modelo derregress{\~a}o beta. disseta\c{c}{\~a}o de
   mestrado.
-\newblock \emph{Institudo de Matem\'{a}tica e Estat\'{\i}stica}, 2007.
+\newblock \emph{Instituto de Matem\'{a}tica e Estat\'{\i}stica}, 2007.
 
 \bibitem[Evans y Swartz(2000)Evans and Swartz]{Evans1}
 M.~Evans y T.~Swartz.
@@ -168,7 +168,7 @@ L.~Pace y A.~Salvan.
 
 \bibitem[Paolino(2001)]{Paolino1}
 P.~Paolino.
-\newblock Maximim likelihood estimation of models with beta-distributed
+\newblock Maximum likelihood estimation of models with beta-distributed
   dependent variables.
 \newblock \emph{Polotical Analysis}, 9\penalty0 (4):\penalty0 325--346, 2001.
 
@@ -235,8 +235,8 @@ O.~Usuga y V.~Giampaoli.
 
 \bibitem[Venezuela(2008)]{Venezuela1}
 M.~Venezuela.
-\newblock \emph{Equac{\~a}o generalizada e influencia local para modelos de
-  regress{\~a}o beta con medidas repetidas}.
+\newblock \emph{Equa{\c c}{\~a}o generalizada e influencia local para modelos
+  de regress{\~a}o beta con medidas repetidas}.
 \newblock PhD thesis, Universidade de S{\~a}o Paulo, 2008.
 
 \bibitem[Verkuilen y Smithson(2012)Verkuilen and Smithson]{Verkuilen1}
@@ -248,14 +248,14 @@ J.~Verkuilen y M.~Smithson.
 
 \bibitem[Zeileis et~al.(2010)Zeileis, Cribari-Neto, and Gr{\"u}n]{Zeileis1}
 A.~Zeileis, F.~Cribari-Neto, y B.~Gr{\"u}n.
-\newblock Beta regression in r.
+\newblock Beta regression in \proglang{R}.
 \newblock \emph{Journal of statistical software}, 34\penalty0 (2):\penalty0
   1--24, 2010.
 
 \bibitem[Zhang et~al.(2016)Zhang, Qiu, and Shi]{Zhang1}
 P.~Zhang, Z.~Qiu, y C.~Shi.
-\newblock simplexreg: An r package for regression analysis of proportional data
-  using the simplex distribution.
+\newblock simplexreg: An \proglang{R} package for regression analysis of
+  proportional data using the simplex distribution.
 \newblock \emph{Journal of Statistical Sftware}, 71\penalty0 (11), 2016.
 
 \end{thebibliography}
