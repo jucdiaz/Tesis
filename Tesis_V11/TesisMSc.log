@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  5 DEC 2017 00:19
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  6 DEC 2017 22:40
 entering extended mode
 **TesisMSc.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.tex"
@@ -1604,7 +1604,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
-[67] [68]
+[67]
 File: MAPE_beta1_mu.eps Graphic file (type eps)
  <MAPE_beta1_mu.eps>
 Underfull \hbox (badness 10000) in paragraph at lines 612--613
@@ -1613,53 +1613,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 612--613
 
 File: MAPE_lambda1_mu.eps Graphic file (type eps)
 <MAPE_lambda1_mu.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 623--624
 
  []
 
-[69] [70]
+[68]
 File: MAPE_beta0_sigma.eps Graphic file (type eps)
  <MAPE_beta0_sigma.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 634--635
 
  []
 
 File: MAPE_beta1_sigma.eps Graphic file (type eps)
-<MAPE_beta1_sigma.eps> [71]
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
+<MAPE_beta1_sigma.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
 
  []
 
+[69]
 File: MAPE_lambda2_sigma.eps Graphic file (type eps)
-<MAPE_lambda2_sigma.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 657--658
+ <MAPE_lambda2_sigma.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
 
  []
 
-[72] [73]
+[70]
 File: MAPE_beta0_p0.eps Graphic file (type eps)
  <MAPE_beta0_p0.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 668--669
+Underfull \hbox (badness 10000) in paragraph at lines 667--668
 
  []
 
 File: MAPE_beta0_p1.eps Graphic file (type eps)
 <MAPE_beta0_p1.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
+Underfull \hbox (badness 10000) in paragraph at lines 677--678
 
  []
 
-[74] [75]
+[71]
 File: time_mix_ZOIP.eps Graphic file (type eps)
  <time_mix_ZOIP.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [76]
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
 
  []
 
-) [77] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
+[72]) [73] [74] [75] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
 Cap\'{\i }tulo 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -1681,21 +1679,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[78
+[76
 
 
 
-] [79]) [80] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [81
+] [77]) [78] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [79
 
 
-] [82]
+] [80]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 191.
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
- [83]
+ [81]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
  ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.aux"
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\HojaTitulo/HojaTituloMSc.aux")
@@ -1724,4 +1722,4 @@ Here is how much of TeX's memory you used:
  24 hyphenation exceptions out of 8191
  38i,18n,52p,2086b,601s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TesisMSc.dvi (97 pages, 487628 bytes).
+Output written on TesisMSc.dvi (95 pages, 486220 bytes).
