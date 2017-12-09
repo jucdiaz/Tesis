@@ -256,14 +256,13 @@ En esta secci\'{o}n se muestran diferentes resultados sobre el ajuste de un mode
 \subsection{Datos simulados}
 En el estudio de simulaci\'{o}n se analizan diferentes aspectos de la capacidad de estimaci\'{o}n que tiene el m\'{e}todo de m\'{a}xima verosimilitud sobre los par\'{a}metros regresores de un modelo de regresi\'{o}n ZOIP. Para comprobar esto se generaron muestras pertenecientes a una distribuci\'{o}n ZOIP a partir de dos variables aleatorias uniformes cero uno, con tama\~{n}os de muestra de 25, 50, 75, y 100 a partir de este punto no se realizar\'{a}n incrementos de 25 si no de 100, es decir 100, 200, 300 hasta 3500, y se realizaron 1000 r\'{e}plicas para cada tama\~{n}o de muestra, posteriormente se calcul\'{o} la mediana de la estimaci\'{o}n de cada par\'{a}metro regresor para cada distribuci\'{o}n y parametrizaci\'{o}n utilizada. A continuaci\'{o}n, se muestra la estructura simulada para cada par\'{a}metro de la distribuci\'{o}n ZOIP.\\
 
-Si $y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),$
-
 \begin{equation}
 \begin{split}
-&h_1(\mu_{i})=\beta_0+\beta_1x_{1i},\\
-&h_2(\sigma_{i})=\beta_0+\beta_1x_{1i}+\beta_2x_{2i},\\
-&h_3(p_{0i})=\beta_0,\\
-&h_4(p_{1i}) =\beta_0+\beta_1x_{2i},
+y_{i} & \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),\\
+h_1(\mu_{i}) &=\beta_0+\beta_1x_{1i},\\
+h_2(\sigma_{i}) &=\beta_0+\beta_1x_{1i}+\beta_2x_{2i},\\
+h_3(p_{0i}) &=\beta_0,\\
+h_4(p_{1i}) &=\beta_0+\beta_1x_{2i},
 \end{split}
 \label{S_eq_reg}
 \end{equation}
@@ -379,14 +378,13 @@ En una entidad financiera tiene gran importancia conocer el comportamiento del p
 
 En el modelo de regresi\'{o}n ZOIP se deben definir cuatro diferentes modelos de regresi\'{o}n para ser ajustados, de tal forma que nos permita ver el efecto de las variables descritas anteriormente sobre cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP, adicionalmente dependiendo de la parametrizaci\'{o}n o distribuci\'{o}n que se est\'{e} utilizando, se debe utilizar una funci\'{o}n enlace adecuada para cada regresi\'{o}n, en las ecuaciones dadas en \eqref{A_eq_reg} se pueden ver los modelos de regresi\'{o}n a aplicar en cada par\'{a}metro, en estas ecuaciones se ve que dependen de una funci\'{o}n enlace $h(\cdot)$, en la tabla \ref{T_F_enlace2} se muestran las diferentes funciones enlaces adecuadas para cada par\'{a}metro dependiendo de la distribuci\'{o}n escogida y/o la parametrizaci\'{o}n.\\
 
-Si $y_{i} \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),$
-
 \begin{equation}
 \begin{split}
-&h_1(\mu_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
-&h_2(\sigma_{i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
-&h_3(p_{0i})=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
-&h_4(p_{1i}) =\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},
+y_{i} & \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),\\
+h_1(\mu_{i}) &=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+h_2(\sigma_{i}) &=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+h_3(p_{0i}) &=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},\\
+h_4(p_{1i}) &=\beta_0+\beta_1 x_{1i}+\beta_2 x_{2i}+\beta_3 x_{3i},
 \end{split}
 \label{A_eq_reg}
 \end{equation}

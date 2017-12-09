@@ -160,7 +160,7 @@ En la Figura \ref{Dist_ZOIP} se muestran las densidades para varias de las distr
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.6]{Dist_ZOIP.eps}
+		\includegraphics[scale=0.5]{Dist_ZOIP.eps}
 		\caption{Densidades para la distribuci\'{o}n ZOIP para algunos valores de los par\'{a}metros, donde R-S se refiere a Rigby \& Stasinopoulos (2005) y F-C es Ferrari \& Cribari-Neto (2004).}
 		\label{Dist_ZOIP}
 	\end{center}
@@ -322,10 +322,6 @@ Para acceder a la \'{u}ltima versi\'{o}n del paquete \pkg{ZOIP}, se encuentra ub
 
 \begin{verbatim}
 if (!require("devtools")) install.packages("devtools")
-if (!require("rmutil")) install.packages("rmutil")
-if (!require("boot")) install.packages("boot")
-if (!require("numDeriv")) install.packages("numDeriv")
-if (!require("GHQp")) install.packages("GHQp")
 devtools::install_github("jucdiaz/ZOIP", force = TRUE)
 library(ZOIP) # Carga el paquete
 \end{verbatim}
@@ -377,14 +373,14 @@ Los argumentos de la funci\'{o}n \code{RM.ZOIP} son:
 
 \begin{itemize}[noitemsep, nolistsep]
 
-\item \code{formula.mu}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $\mu$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{y $\sim$ 1}, donde y es la variable a ajustar.
-\item \code{formula.sigma}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $\sigma$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim$ 1}.
-\item \code{formula.p0}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_0$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
-\item \code{formula.p1}: Formula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_1$,Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
-\item \code{data}: Es el conjunto de datos en formato \code{data.frame} donde debe contener los datos de la variable a ajustar y el nombre debe ser la tal cual como est\'{a} en las f\'{o}rmula para el par\'{a}metro $\mu$.
-\item \code{family}: Elecci\'{o}n de la distribuci\'{o}n ZOIP deseada para ajustar, si toma el valor de \code{``R-S''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{``F-C''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{``Original''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n original, \code{``Simplex''} utilizar\'{a} la distribuci\'{o}n ZOIP-simplex.
-\item \code{link}: Es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Para ajustar una distribuci i\'{o}n ZOIP se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity} en sus cuatro par\'{a}metros, independientemente de la distribuci i\'{o}n ZOIP escogida, en familia, por defecto \code{link=c(``identity'',``identity'',``identity'',``identity'')}.
-\item \code{optimizer}: Elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{``nlminb''} o \code{``optim''}, por defecto \code{``nlminb''}
+\item \code{formula.mu}: f\'{o}rmula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $\mu$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{y $\sim$ 1}, donde y es la variable a ajustar.
+\item \code{formula.sigma}: f\'{o}rmula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $\sigma$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim$ 1}.
+\item \code{formula.p0}: f\'{o}rmula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_0$, Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
+\item \code{formula.p1}: f\'{o}rmula que define la funci\'{o}n de regresi\'{o}n para el par\'{a}metro $p_1$,Para ajustar una distibuci\'{o}n ZOIP debe tomar el valor de \code{$\sim $1}.
+\item \code{data}: es el conjunto de datos en formato \code{data.frame} donde debe contener los datos de la variable a ajustar y el nombre debe ser la tal cual como est\'{a} en las f\'{o}rmula para el par\'{a}metro $\mu$.
+\item \code{family}: elecci\'{o}n de la distribuci\'{o}n ZOIP deseada para ajustar, si toma el valor de \code{``R-S''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n  \cite{Stasinopoulos2}, si toma el valor de \code{``F-C''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Ferrari2}, el valor de \code{``Original''} se utilizar\'{a} la distribuci\'{o}n ZOIP-beta con parametrizaci\'{o}n original, \code{``Simplex''} utilizar\'{a} la distribuci\'{o}n ZOIP-simplex.
+\item \code{link}: es un vector con las funciones enlace adecuadas para cada par\'{a}metro a estimar de acuerdo a las opciones escogidas en los par\'{a}metros de familia y formula. Para ajustar una distribuci i\'{o}n ZOIP se debe utilizar como funci\'{o}n enlace la opci\'{o}n \code{identity} en sus cuatro par\'{a}metros, independientemente de la distribuci i\'{o}n ZOIP escogida, en familia, por defecto \code{link=c(``identity'',``identity'',``identity'',``identity'')}.
+\item \code{optimizer}: elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud. se puede elegir el valor de \code{``nlminb''} o \code{``optim''}, por defecto \code{``nlminb''}
 \end{itemize}
 
 En el siguiente ejemplo se mostrara el ajuste de una distribuci\'{o}n ZOIP, para ello mostraremos la salida de la funci\'{o}n \code{RM.ZOIP} de $1000$ observaciones simuladas para la distribuci\'{o}n ZOIP-beta parametrizaci\'{o}n \cite{Stasinopoulos2}.\\
