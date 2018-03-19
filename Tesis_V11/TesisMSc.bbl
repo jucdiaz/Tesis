@@ -8,7 +8,7 @@
 \bibitem[Bonat et~al.(2012)Bonat, Ribeiro, and Zeviani]{Bonat1}
 W.~Bonat, P.~Ribeiro, y W.~Zeviani.
 \newblock Modelo beta com efeitos aleat{\'o}rios.
-\newblock 2012.
+\newblock \emph{Computational Statistics \& Data Analysis}, 2012.
 
 \bibitem[Bonat et~al.(2015)Bonat, Ribeiro, and Zeviani]{Bonat2}
 W.~Bonat, P.~Ribeiro, y W.~Zeviani.
@@ -77,10 +77,10 @@ E.~Hahn.
 \newblock \emph{European Journal of operational research}, 188\penalty0
   (2):\penalty0 450--459, 2008.
 
-\bibitem[Hern\'andez et~al.(2013)Hern\'andez, Usuga, and Giampaoli]{Hernandez1}
+\bibitem[Hern\'andez et~al.(2014)Hern\'andez, Usuga, and Giampaoli]{Hernandez1}
 F.~Hern\'andez, O.~Usuga, y V.~Giampaoli.
 \newblock Improving the adaptive gaussian quadrature.
-\newblock 2013.
+\newblock \emph{Journal of Statistical Software, submitting}, 2014.
 
 \bibitem[Hossain(2015)]{Hossain1}
 A.~Hossain.
@@ -158,7 +158,7 @@ R.~Ospina y S.~Ferrari.
 \bibitem[Owen(2008)]{Owen1}
 C.~Owen.
 \newblock Parameter estimation for the beta distribution.
-\newblock Master's thesis, Brigham young university, 2008.
+\newblock Master's thesis, Brigham Young University, 2008.
 
 \bibitem[Pace y Salvan(1997)Pace and Salvan]{Pace1}
 L.~Pace y A.~Salvan.
@@ -170,7 +170,7 @@ L.~Pace y A.~Salvan.
 P.~Paolino.
 \newblock Maximum likelihood estimation of models with beta-distributed
   dependent variables.
-\newblock \emph{Polotical Analysis}, 9\penalty0 (4):\penalty0 325--346, 2001.
+\newblock \emph{Polical Analysis}, 9\penalty0 (4):\penalty0 325--346, 2001.
 
 \bibitem[Pinheiro y Bates(1995)Pinheiro and Bates]{Pinheiro1}
 J.~Pinheiro y D.~Bates.
