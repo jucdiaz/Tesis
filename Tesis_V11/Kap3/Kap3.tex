@@ -44,33 +44,14 @@ $\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})^{\top}$, $\b
 
 Para estimar los par\'{a}metros del modelo de regresi\'{o}n ZOIP se usar\'{a} el m\'{e}todo de m\'{a}xima verosimilitud. La funci\'{o}n de verosimilitud para $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top})^{\top}$, basado en una muestra de observaciones independientes, es de la forma:
 \begin{equation}
-L(\boldsymbol{\theta})=\prod_{i=1}^{n}g(\mathbf{y}_i;\mu_i,\sigma_i,p_{0i},p_{1i})=\prod_{i=1}^{n}f_1(\mathbf{y}_i;p_{0i})\prod_{i=1}^{n}f_2(\mathbf{y}_i;p_{1i})\prod_{i=1}^{n}f_3(\mathbf{y}_i;\mu_i,\sigma_i)
+L(\boldsymbol{\theta})=\prod_{i=1}^{n}g(\mathbf{y}_i;\mu_i,\sigma_i,p_{0i},p_{1i})=\prod_{i=1}^{n}f_0(\mathbf{y}_i;p_{0i})\prod_{i=1}^{n}f_1(\mathbf{y}_i;p_{1i})\prod_{i=1}^{n}f_2(\mathbf{y}_i;\mu_i,\sigma_i)
 \label{F_likel}
 \end{equation}
 
-%\[
-%\ell(\boldsymbol{\theta})=\sum_{i=1}^{n}{\ell_i(\mu_i,\sigma_i,p_{0i},p_{1i}) }
-%\]
-
-donde, para el caso de ZOIP-beta original, $\mu_i=p_i$, $\sigma_i=q_i$; si la distribuci\'{o}n ZOIP-beta fuese con parametrizaci\'{o}n de \cite{Ferrari2} el \'{u}nico par\'{a}metro que cambiar\'{\i}a es $\sigma_i=\phi_i$, el resto de los par\'{a}metros no tendr\'{\i}an modificaciones seg\'{u}n su parametrizaci\'{o}n o distribuci\'{o}n.\\
-
-La funci\'{o}n de verosimilitud definida en \eqref{F_likel} al aplicar logaritmo natural produce la funci\'{o}n de log-verosimilitud definida como:
+donde las funciones $f_0(\mathbf{y}_i;p_{0i})$ y $f_1(\mathbf{y}_i;p_{1i})$ son expliacadas por:
 \[
-\ell(\boldsymbol{\theta})=\ell_1(\boldsymbol{\beta_3})+\ell_2(\boldsymbol{\beta_4})+\ell_3(\boldsymbol{\beta_1},\boldsymbol{\beta_2})
+f_j(\mathbf{y}_i;p_{ji})={p_{ji}^{S_j(y_i)}(1-p_{ji})^{1-S_j(y_i)}} \quad ; \quad j=0,1
 \]
-\\
-Note que la funci\'{o}n de verosimilitud es factorizada en tres t\'{e}rminos, dos de ellos del componente discreto y uno compuesto por $\boldsymbol{\beta_1}$ y $\boldsymbol{\beta_2}$ del componente continuo, por tanto los par\'{a}metros son separables \citep{Pace1}, as\'{\i} la m\'{a}xima verosimilitud puede ser tratada por separado y por lo tanto:\\
-\begin{align*}
-\begin{split}
-	\ell_1(\boldsymbol{\beta_3}) &= \sum_{i=1}^{n}{p_{0i}^{S_0(y_i)}(1-p_{0i})^{1-S_0(y_i)}}
-\end{split}\\
-\begin{split}
-	\ell_2(\boldsymbol{\beta_4}) &= \sum_{i=1}^{n}{p_{1i}^{S_1(y_i)}(1-p_{1i})^{1-S_1(y_i)}}
-\end{split}\\
-\begin{split}
-	\ell_3(\boldsymbol{\beta_1},\boldsymbol{\beta_2}) &= \sum_{i=1:y_i \in (0,1)}^{n}{f_3(y_i;\mu_i,\sigma_i)} 
-\end{split}
-\end{align*}
 
 Con
 \[
@@ -81,8 +62,31 @@ S_j(y_i)=
 \end{cases}
 \quad ; \quad j=0,1
 \]
+%\[
+%\ell(\boldsymbol{\theta})=\sum_{i=1}^{n}{\ell_i(\mu_i,\sigma_i,p_{0i},p_{1i}) }
+%\]
+
+adem\'{a}s, para el caso de ZOIP-beta original, $\mu_i=p_i$, $\sigma_i=q_i$; si la distribuci\'{o}n ZOIP-beta fuese con parametrizaci\'{o}n de \cite{Ferrari2} el \'{u}nico par\'{a}metro que cambiar\'{\i}a es $\sigma_i=\phi_i$, el resto de los par\'{a}metros no tendr\'{\i}an modificaciones seg\'{u}n su parametrizaci\'{o}n o distribuci\'{o}n.\\
+
+La funci\'{o}n de verosimilitud definida en \eqref{F_likel} al aplicar logaritmo natural produce la funci\'{o}n de log-verosimilitud definida como:
+\[
+\ell(\boldsymbol{\theta})=\ell_0(\boldsymbol{\beta_3})+\ell_1(\boldsymbol{\beta_4})+\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2})
+\]
 \\
-Con $p_{0i}=h_3^{-1}(\mathbf{x}_{i3}^{\top} \boldsymbol{\beta}_3)$, $p_{1i}=h_4^{-1}(\mathbf{x}_{i4}^{\top} \boldsymbol{\beta}_4)$, $\mu_i=h_1^{-1}(\mathbf{x}_{i1}^{\top} \boldsymbol{\beta}_1)$ y $\sigma_i=h_2^{-1}(\mathbf{x}_{i2}^{\top} \boldsymbol{\beta}_2)$ como se defini\'{o} en \eqref{eq_reg}. La funcion de verosimilitud depende de tres terminos, el primero depende de $\boldsymbol{\beta}_3$ (componente discreto para inflaci\'{o}n en cero), el segundo de $\boldsymbol{\beta}_4$ (componente discreto para explicar la inflaci\'{o}n en uno) y el tercero depende de $(\boldsymbol{\beta}_1,\boldsymbol{\beta}_2)$ (Componentes para explicar la parte continua), por lo tanto los par\'{a}metros son separables y la inferencia de m\'{a}xima verosimilitud para $\boldsymbol{\beta}_1$ y $\boldsymbol{\beta}_2$ se puede hacer por separado de la de $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$, como si conociera a $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ y viceversa. \citep{Ospina1}.\\
+Note que la funci\'{o}n de verosimilitud es factorizada en tres t\'{e}rminos, dos de ellos del componente discreto y uno compuesto por $\boldsymbol{\beta_1}$ y $\boldsymbol{\beta_2}$ del componente continuo, por tanto los par\'{a}metros son separables \citep{Pace1}, as\'{\i} la m\'{a}xima verosimilitud puede ser tratada por separado y por lo tanto:\\
+\begin{align*}
+\begin{split}
+	\ell_0(\boldsymbol{\beta_3}) &= \sum_{i=1}^{n}{p_{0i}^{S_0(y_i)}(1-p_{0i})^{1-S_0(y_i)}}
+\end{split}\\
+\begin{split}
+	\ell_1(\boldsymbol{\beta_4}) &= \sum_{i=1}^{n}{p_{1i}^{S_1(y_i)}(1-p_{1i})^{1-S_1(y_i)}}
+\end{split}\\
+\begin{split}
+	\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2}) &= \sum_{i=1:y_i \in (0,1)}^{n}{f_3(y_i;\mu_i,\sigma_i)} 
+\end{split}
+\end{align*}
+
+Con $p_{0i}=h_3^{-1}(\mathbf{x}_{i3}^{\top} \boldsymbol{\beta}_3)$, $p_{1i}=h_4^{-1}(\mathbf{x}_{i4}^{\top} \boldsymbol{\beta}_4)$, $\mu_i=h_1^{-1}(\mathbf{x}_{i1}^{\top} \boldsymbol{\beta}_1)$ y $\sigma_i=h_2^{-1}(\mathbf{x}_{i2}^{\top} \boldsymbol{\beta}_2)$ como se defini\'{o} en \eqref{eq_reg}. La funcion de verosimilitud depende de tres terminos, el primero depende de $\boldsymbol{\beta}_3$ (componente discreto para inflaci\'{o}n en cero), el segundo de $\boldsymbol{\beta}_4$ (componente discreto para explicar la inflaci\'{o}n en uno) y el tercero depende de $(\boldsymbol{\beta}_1,\boldsymbol{\beta}_2)$ (Componentes para explicar la parte continua entre cero y uno), por lo tanto los par\'{a}metros son separables y la inferencia de m\'{a}xima verosimilitud para $\boldsymbol{\beta}_1$ y $\boldsymbol{\beta}_2$ se puede hacer por separado de la de $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$, como si conociera a $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ y viceversa. \citep{Ospina1}.\\
 
 No existen expresiones que den una soluci\'{o}n cerrada anal\'{\i}ticamente para encontrar los m\'{a}ximos de las funciones de las log-verosimilitudes descritas anteriormente, para as\'{\i} hallar los estimadores de m\'{a}xima verosimilitud de los par\'{a}metros de regresi\'{o}n de cada uno de los componentes de la distribuci\'{o}n ZOIP. Por lo que es necesario utilizar algoritmos de optimizaci\'{o}n no lineal como el m\'{e}todo de Newton-Raphson o Fisher's scoring. Para nuestro caso se usar\'{a} el algoritmo de optimizaci\'{o}n dado por la funci\'{o}n \code{nlminb} o \code{optim} del paquete \code{stats} de \proglang{R} e implementado en el paquete \pkg{ZOIP} de \proglang{R} para el modelo de regresi\'{o}n ZOIP.
 
@@ -213,7 +217,9 @@ Los resultados obtenidos se muestran a continuaci\'{o}n.
 ## [1] 7688.628
 \end{verbatim}
 
-En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, primero que todo nos muestra el modelo ajustado, luego para cada par\'{a}metro de la distribuci\'{o}n ZOIP los valores estimados para cada uno de los pa\-r\'{a}\-me\-tros de regresi\'{o}n asociados a cada covariable, luego un indicador de convergencia, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el modelo, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre modelos.\\ 
+En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, primero que todo nos muestra el modelo ajustado, luego para cada par\'{a}metro de la distribuci\'{o}n ZOIP los valores estimados para cada uno de los pa\-r\'{a}\-me\-tros de regresi\'{o}n asociados a cada covariable, luego un indicador de convergencia, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el modelo, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre modelos.\\
+
+En caso de que el modelo elegido no haya convergido, es necesario realizar exploraciones previas sobre la variable respuesta, debido a que esta pueda no ser explicada a partir del modelo elegido, por lo tanto es conveniente explorar otros modelos de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos, como modelos basados en la distribuci\'{o}n beta-rectangular o LogitSep.\\ 
 
  Al aplicar al modelo ajustado (\code{mod}) la funci\'{o}n \code{summary}, se obtiene el siguiente resultado:
 

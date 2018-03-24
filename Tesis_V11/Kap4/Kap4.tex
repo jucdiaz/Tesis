@@ -150,10 +150,11 @@ Si extendemos la AGQ a una integral de dimensi\'{o}n $q$ de la funci\'{o}n $g(x)
 \\
 As\'{\i}, la expresi\'{o}n para la integral aproximada de $g(x)$ sobre $\mathbb{R}^q$ est\'{a} dado por:
 
-\[
+\begin{equation}
 \int_{\mathbb{R}^q}{g(x)dx}\approx|\hat{Q}|^{1/2} 2^{q/2}\sum_{i=1}^{n^q}g(z_i^*)exp(z_i^{\top}z_i)a_i,
-\]
-\\
+\label{EQ_ghmulti}
+\end{equation}
+
 donde $z_i$ y $a_i$ corresponden a los elementos de $\textbf{Z}$ y $\textbf{A}$, respectivamente. Los nuevos puntos de la cuadratura $z_i^*$ est\'{a}n centrados en el m\'{a}ximo de $\hat{x}$ del $\log(g(x))$ y est\'{a} dado por \\
 $z_i^*=\hat{x}+\sqrt{2}\hat{Q}^{1/2}z_i$, donde $\hat{Q}^{1/2}$ corresponde a la descomposici\'{o}n de Cholesky de la curvatura de la matriz $\hat{Q}$, que se encuentra dada por:
 
@@ -206,7 +207,7 @@ I_i=\int_{\mathbb{R}^2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1b_{1i},\sqrt{
 \label{Int_vero_mix}
 \end{equation}
 
-La integral definida en \eqref{Int_vero_mix} tiene una forma factible para ser aproximada usando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}, vista en la secci\'{o}n \ref{sec:Cuadratura}, de este modo la integral $I_i$ es aproximada por:
+La integral definida en \eqref{Int_vero_mix} tiene una forma factible para ser aproximada usando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}, vista en la secci\'{o}n \ref{sec:Cuadratura}, debido a que tiene una forma similar al resultado de la ecuaci\'{o}n propuesta en \eqref{EQ_ghmulti}, de este modo la integral $I_i$ es aproximada por:
 
 \[
 I_i=\sum_{k_1=1}^{Q_1}{\sum_{k_2=1}^{Q_2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1 z_{k_1},\sqrt{2}\lambda_2 z_{k_2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{w_{k_1}w_{k_2}}{\pi}}},
