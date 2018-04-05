@@ -38,9 +38,9 @@ cada $y_i$ se distribuye ZOIP con par\'{a}metros $\mu = \mu_i$, $\sigma=\sigma_i
 
 donde $\mathbf{x}_{i1}=(x_{i11}, x_{i12},\ldots, x_{i1k_1})^{\top}$, $\mathbf{x}_{i2}=(x_{i21}, x_{i22},\ldots, x_{i2k_2})^{\top}$, \\
 $\mathbf{x}_{i3}=(x_{i31}, x_{i32},\ldots, x_{i1k_3})^{\top}$ y $\mathbf{x}_{i4}=(x_{i41}, x_{i42},\ldots, x_{i1k_4})^{\top}$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente, $\boldsymbol{\beta}_1=(\beta_{11}, \beta_{12},\ldots, \beta_{1k_1})^{\top}$, \\
-$\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})^{\top}$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})^{\top}$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})^{\top}$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s, se asume que las funciones de enlace $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones de enlace para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n. Para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace logit, probit y clog-log. Estudios sobre funciones enlace mal especificadas sobre modelos de regresi\'{o}n beta se encuentran en \cite{andrade07}.
+$\boldsymbol{\beta}_2=(\beta_{21}, \beta_{22},\ldots, \beta_{2k_2})^{\top}$, $\boldsymbol{\beta}_3=(\beta_{31}, \beta_{32},\ldots, \beta_{3k_3})^{\top}$ y $\boldsymbol{\beta}_4=(\beta_{41}, \beta_{42},\ldots, \beta_{4k_4})^{\top}$ son vectores de par\'{a}metros de regresi\'{o}n desconocidos. Adem\'{a}s, se asume que las funciones de enlace $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, ademas son funciones estrictamente mon\'{o}tonas y doblemente diferenciables, para conservar as\'{\i} el efecto de las variables sobre la variable respuesta ori\-gi\-nal. Las posibles funciones de enlace para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n. Para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace logit, probit y clog-log. Estudios sobre funciones enlace mal especificadas sobre modelos de regresi\'{o}n beta se encuentran en \cite{andrade07}.
 
-\subsection{Inferencia estad\'{\i}stica}
+\subsection*{Inferencia estad\'{\i}stica}
 
 Para estimar los par\'{a}metros del modelo de regresi\'{o}n ZOIP se usar\'{a} el m\'{e}todo de m\'{a}xima verosimilitud. La funci\'{o}n de verosimilitud para $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top})^{\top}$, basado en una muestra de observaciones independientes, es de la forma:
 \begin{equation}
@@ -106,7 +106,7 @@ En esta secci\'{o}n se ilustra como el paquete \pkg{ZOIP} realizado en \proglang
 %require(ZOIP)  # Carga el paquete
 %\end{verbatim}
 
-\subsection{Funci\'{o}n RM.ZOIP del paquete \pkg{ZOIP}}
+\subsection*{Funci\'{o}n RM.ZOIP del paquete \pkg{ZOIP}}
 
 La funci\'{o}n \code{RM.ZOIP} estima los par\'{a}metros de un modelo de regresi\'{o}n ZOIP con y sin covariables v\'{\i}a m\'{a}xima verosimilitud utilizando el optimizador \code{nlminb} o \code{optim}. La estructura de la funci\'{o}n \code{RM.ZOIP} es la siguiente:
 
@@ -151,8 +151,7 @@ b1 <- 0.3
 b2 <- 3
 b3 <- 0.9
 sigma_i <- inv.logit(b1 + b2 * x1 + b3 * x2)
-\end{verbatim}
-\begin{verbatim}
+
 d1 <- 0.07
 p0_i <- rep(d1, n)
 
@@ -190,8 +189,6 @@ Los resultados obtenidos se muestran a continuaci\'{o}n.
 ## (Intercept)          x1 
 ##   0.3395118  -1.4808985 
 ## 
-\end{verbatim}
-\begin{verbatim}
 ##  Estimated coefficients for h(sigma): 
 ## (Intercept)          x1          x2 
 ##   0.7006753   2.4493508   0.5328350 
@@ -219,7 +216,7 @@ Los resultados obtenidos se muestran a continuaci\'{o}n.
 
 En el anterior resultado se obtienen varios aspectos importantes de la salida del modelo y leyendo de arriba hacia abajo, primero que todo nos muestra el modelo ajustado, luego para cada par\'{a}metro de la distribuci\'{o}n ZOIP los valores estimados para cada uno de los pa\-r\'{a}\-me\-tros de regresi\'{o}n asociados a cada covariable, luego un indicador de convergencia, donde 0 indica la convergencia, despu\'{e}s un mensaje sobre la convergencia (resultados heredados de la funci\'{o}n \code{nlimnb}), despu\'{e}s se encuentra el n\'{u}mero de iteraciones que fueron necesarias para que convergiera el modelo, por \'{u}ltimo se encuentra valor de la log-verosimilitud que nos permitir\'{a} hacer comparaciones entre modelos.\\
 
-En caso de que el modelo elegido no haya convergido, es necesario realizar exploraciones previas sobre la variable respuesta, debido a que esta pueda no ser explicada a partir del modelo elegido, por lo tanto es conveniente explorar otros modelos de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos, como modelos basados en la distribuci\'{o}n beta-rectangular o LogitSep.\\ 
+En caso en que el modelo elegido no haya convergido, puede ser debido a que en ocasiones el conjunto de datos elegidos no es suficientemente grande y/o expl\'{\i}cito sobre el modelo elegido, por lo que la funci\'{o}n \code{RM.ZOIP} no es capaz encontrar el m\'{a}ximo de la funci\'{o}n de log-verosimilitud. En el estudio de simulaci\'{o}n propuesto en ocasiones ocurre que el resultado no converge por lo que era necesario realizar una nueva repetici\'{o}n del escenario de simulaci\'{o}n propuesto, sin embargo, esto no afecto nunca los n\'{u}meros de r\'{e}plicas propuestos, \citep{McCulloch1}. Por otra parte, hay ocasiones donde es necesario realizar exploraciones previas sobre la variable respuesta, debido a que esta puede no ser explicada a partir del modelo elegido, por lo tanto es conveniente explorar otros modelos de regresi\'{o}n para datos proporcionales inflados con ceros y/o unos, como modelos basados en la distribuci\'{o}n beta-rectangular o LogitSep.\\
 
  Al aplicar al modelo ajustado (\code{mod}) la funci\'{o}n \code{summary}, se obtiene el siguiente resultado:
 
@@ -245,6 +242,8 @@ summary(mod)
 ## ---------------------------------------------------------------
 ## Fixed effects for identity(p0) 
 ## ---------------------------------------------------------------
+\end{verbatim}
+\begin{verbatim}
 ##              Estimate Std. Error z value  Pr(>|z|)    
 ## (Intercept) 0.0820000  0.0086762  9.4512 < 2.2e-16 ***
 ## ---

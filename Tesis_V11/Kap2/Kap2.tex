@@ -408,9 +408,7 @@ yi <- data.frame(yi = rZOIP(n = 1000, mu = 0.6, sigma = 0.2,
 mod <- RM.ZOIP(f\'{o}rmula.mu = yi ~ 1, f\'{o}rmula.sigma = ~1, 
     f\'{o}rmula.p0 = ~1, f\'{o}rmula.p1 = ~1, data = yi, family = "R-S")
 mod
-\end{verbatim}
 
-\begin{verbatim}
 ## Call:
 ## RM.ZOIP(f\'{o}rmula.mu = yi ~ 1, f\'{o}rmula.sigma = ~1, f\'{o}rmula.p0 = ~1, 
 ##     f\'{o}rmula.p1 = ~1, data = yi, family = "R-S")
@@ -432,8 +430,6 @@ mod
 ##  Estimated coefficients for h(p1): 
 ## (Intercept) 
 ##        0.05 
-\end{verbatim}
-\begin{verbatim}
 ## 
 ##  Convergence 
 ## [1] 0
@@ -444,6 +440,8 @@ mod
 ##  iterations 
 ## [1] 22
 ## 
+\end{verbatim}
+\begin{verbatim}
 ##  Log-likelihood 
 ## [1] 488.2683
 \end{verbatim}
@@ -461,8 +459,6 @@ summary(mod)
 ## (intercept) 0.6066914  0.0031636  191.78 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
-\end{verbatim}
-\begin{verbatim}
 ## ---------------------------------------------------------------
 ## Fixed effects for identity(sigma)
 ## ---------------------------------------------------------------
@@ -478,6 +474,8 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ## ---------------------------------------------------------------
+\end{verbatim}
+\begin{verbatim}
 ## Fixed effects for identity(p1)
 ## ---------------------------------------------------------------
 ##              Estimate Std. Error z value  Pr(>|z|)    

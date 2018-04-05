@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -137,6 +137,21 @@ M.~Lindstrom y D.~Bates.
 Q.~Liu y D.~Pierce.
 \newblock A note on gauss-hermite quadrature.
 \newblock \emph{Biometrika}, 81\penalty0 (3):\penalty0 624--629, 1994.
+
+\bibitem[McCulloch y Neuhaus(2011{\natexlab{a}})McCulloch and
+  Neuhaus]{McCulloch1}
+C.~McCulloch y J.~Neuhaus.
+\newblock Prediction of random effects in linear and generalized linear models
+  under model misspecification.
+\newblock \emph{Biometrics}, 67:\penalty0 270--279, 2011{\natexlab{a}}.
+
+\bibitem[McCulloch y Neuhaus(2011{\natexlab{b}})McCulloch and
+  Neuhaus]{McCulloch2}
+C.~McCulloch y J.~Neuhaus.
+\newblock Misspecifying the shape of a random effects distribution: Why getting
+  it wrong may not matter.
+\newblock \emph{Statistical Science}, 26:\penalty0 388--402,
+  2011{\natexlab{b}}.
 
 \bibitem[Ogden(2015)]{Ogden1}
 H.~Ogden.

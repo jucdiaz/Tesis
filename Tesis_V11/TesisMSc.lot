@@ -2,17 +2,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {\textbf {2-1}}{\ignorespaces MAPE de las estimaciones para cada par\'{a}metro en diferentes parametrizaciones en los dos estudios de simulaci\'{o}n.}}{22}{table.2.1}
-\contentsline {table}{\numberline {\textbf {2-2}}{\ignorespaces Ajuste de diferentes distribuciones ZOIP en el porcentaje de utilizaci\'{o}n de una tdc, en un banco colombiano. Fuente: Cortes\'{\i }a del banco.}}{25}{table.2.2}
+\contentsline {table}{\numberline {\textbf {2-2}}{\ignorespaces Ajuste de diferentes distribuciones ZOIP en el porcentaje de utilizaci\'{o}n de una tdc, en un banco colombiano. Fuente: Cortes\'{\i }a del banco.}}{26}{table.2.2}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\textbf {3-1}}{\ignorespaces Funciones de enlace adecuadas para cada par\'{a}metro, seg\'{u}n su distribuci\'{o}n y/o parametrizaci\'{o}n.}}{38}{table.3.1}
+\contentsline {table}{\numberline {\textbf {3-1}}{\ignorespaces Funciones de enlace adecuadas para cada par\'{a}metro, seg\'{u}n su distribuci\'{o}n y/o parametrizaci\'{o}n.}}{37}{table.3.1}
 \contentsline {table}{\numberline {\textbf {3-2}}{\ignorespaces Mediana del MAPE (Error porcentual absoluto medio) en porcentaje para los diferentes Par\'{a}metros en las diferentes parametrizaciones.}}{40}{table.3.2}
 \contentsline {table}{\numberline {\textbf {3-3}}{\ignorespaces Funciones de enlace adecuadas para cada par\'{a}metro, seg\'{u}n su distribuci\'{o}n y/o parametrizaci\'{o}n para el modelo de regresi\'{o}n ZOIP en el porcentaje de utilizaci\'{o}n de una tdc.}}{43}{table.3.3}
-\contentsline {table}{\numberline {\textbf {3-4}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Rigby y Stasinopoulos (2005) en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}}{44}{table.3.4}
+\contentsline {table}{\numberline {\textbf {3-4}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Rigby y Stasinopoulos (2005) en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}}{43}{table.3.4}
 \contentsline {table}{\numberline {\textbf {3-5}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Ferrari y Cribari-Neto (2004) en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}}{44}{table.3.5}
-\contentsline {table}{\numberline {\textbf {3-6}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}}{45}{table.3.6}
+\contentsline {table}{\numberline {\textbf {3-6}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n original en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}}{44}{table.3.6}
 \contentsline {table}{\numberline {\textbf {3-7}}{\ignorespaces Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-simplex en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $2e^{-10}$}}{45}{table.3.7}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {\textbf {4-1}}{\ignorespaces Estimaci\'{o}n de los efectos fijos y los componentes de varianza $\lambda _1$ y $\lambda 2$ del modelo de regresi\'{o}n ZOIP mixto para el porcentaje utilizaci\'{o}n de una tdc.}}{65}{table.4.1}
 \contentsline {table}{\numberline {\textbf {4-2}}{\ignorespaces Mediana de los par\'{a}metros estimados en el modelo ZOIP mixto para tres tama\~{n}os de muestra y con la estrategia de ``con y sin \textit {pruning}'' y para todos los valores de $Q$.}}{67}{table.4.2}
-\contentsline {table}{\numberline {\textbf {4-3}}{\ignorespaces Mediana de los par\'{a}metros estimados en el modelo ZOIP mixto para tres diferentes n\'{u}meros de puntos de la cuadratura de Gauss-Hermite y con la estrategia de ``con y sin \textit {pruning}'' y para todos los tama\~{n}os de muestra.}}{67}{table.4.3}
+\contentsline {table}{\numberline {\textbf {4-3}}{\ignorespaces Mediana de los par\'{a}metros estimados en el modelo ZOIP mixto para tres diferentes n\'{u}meros de puntos de la cuadratura de Gauss-Hermite y con la estrategia de ``con y sin \textit {pruning}'' y para todos los tama\~{n}os de muestra.}}{68}{table.4.3}
 \addvspace {10\p@ }

@@ -50,8 +50,9 @@ y_{ij}| \gamma_{1i},\gamma_{2i} & \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigm
 %\]
 %\\
 
-con $i=1,2,\ldots, N$ y $j=1,2,\ldots, n_i$. Los par\'{a}metros $\mu$, $\sigma$, $p_0$, $p_1$ son modelados en funci\'{o}n de un conjunto de covariables tales que los $\mathbf{x}_{ij1}$, $\mathbf{x}_{ij2}$, $\mathbf{x}_{ij3}$ y $\mathbf{x}_{ij4}$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente. Los $\boldsymbol{\beta}_1$, $\boldsymbol{\beta}_2$, $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ son vectores de par\'{a}metros desconocidos fijos asociados a las covariables y $\gamma_{1i}$, $\gamma_{2i}$ son los interceptos aleatorios asociados al $i-$\'{e}simo grupo y cada uno distribuido normal con media cero y desviaci\'{o}n est\'{a}ndar $\lambda_1$ y $\lambda_2$, respectivamente, llamados componentes de varianza; se asume tambi\'{e}n que los interceptos aleatorios $\gamma_{1i}$ y $\gamma_{2i}$ son independientes entre s\'{\i}. Adem\'{a}s, las funciones $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son funciones de enlace conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, adem\'{a}s son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n usada, para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace logit, probit y clog-log.
+con $i=1,2,\ldots, N$ y $j=1,2,\ldots, n_i$. Los par\'{a}metros $\mu$, $\sigma$, $p_0$, $p_1$ son modelados en funci\'{o}n de un conjunto de covariables tales que los $\mathbf{x}_{ij1}$, $\mathbf{x}_{ij2}$, $\mathbf{x}_{ij3}$ y $\mathbf{x}_{ij4}$, son vectores de covariables conocidos de dimensi\'{o}n $k_1$, $k_2$, $k_3$ y $k_4$ respectivamente. Los $\boldsymbol{\beta}_1$, $\boldsymbol{\beta}_2$, $\boldsymbol{\beta}_3$ y $\boldsymbol{\beta}_4$ son vectores de par\'{a}metros desconocidos fijos asociados a las covariables y $\gamma_{1i}$, $\gamma_{2i}$ son los interceptos aleatorios asociados al $i-$\'{e}simo grupo y cada uno distribuido normal con media cero y desviaci\'{o}n est\'{a}ndar $\lambda_1$ y $\lambda_2$, respectivamente, llamados componentes de varianza; se asume tambi\'{e}n que los interceptos aleatorios $\gamma_{1i}$ y $\gamma_{2i}$ son independientes entre s\'{\i}. Adem\'{a}s, las funciones $h_1(\cdot)$, $h_2(\cdot)$, $h_3(\cdot)$ y $h_4(\cdot)$ son funciones de enlace conocidas y apropiadas para mapear de los reales a los valores admisibles del par\'{a}metro, adem\'{a}s son funciones estrictamente mon\'{o}tonas y doblemente diferenciables. Las posibles funciones para el par\'{a}metro $\mu$ y $\sigma$ son logit, probit, clog-log, o log dependiendo de la parametrizaci\'{o}n usada, para los par\'{a}metros de inflaci\'{o}n $p_0$ y $p_1$ son posibles funciones de enlace logit, probit y clog-log.\\
 
+Los interceptos aleatorios se asumen bajo una distribuci\'{o}n normal, en la pr\'{a}ctica no existe una forma aun conocida de probar si es conveniente utilizar una distribuci\'{o}n normal para describir los interceptos aleatorios antes de realizar el modelo, es decir, netamente con los datos, posteriormente si es posible saberlo mediante el pron\'{o}stico de los interceptos aleatorios, aunque dicha validaci\'{o}n no fue incluida en este trabajo. Ver m\'{a}s en \cite{McCulloch2} y en \cite{McCulloch1}.
 % Los par\'{a}metros $\mu$, $\sigma$, $p_0$ y $p_1$ son modelados linealmente en funci\'{o}n de un conjunto de covariables respectivamente, por:
 
 
@@ -236,7 +237,7 @@ La estimaci\'{o}n de pa\-r\'{a}\-me\-tros del modelo de regresi\'{o}n ZOIP con i
 
 En esta secci\'{o}n se mostrar\'{a} c\'{o}mo ajustar un modelo de regresi\'{o}n ZOIP con interceptos aleatorios en los par\'{a}metros de $\mu$ y $\sigma$, mediante el paquete \pkg{ZOIP} de \proglang{R}, utilizando el m\'{e}todo de m\'{a}xima verisimilitud y su aproximaci\'{o}n mediante la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}.
 
-\subsection{Funci\'{o}n RMM.ZOIP del paquete \pkg{ZOIP}} 
+\subsection*{Funci\'{o}n RMM.ZOIP del paquete \pkg{ZOIP}} 
 
 La funci\'{o}n \code{RMM.ZOIP} estima los par\'{a}metros de un modelo de regresi\'{o}n ZOIP con y sin covariables y con interceptos aleatorios en los par\'{a}metros de $\mu$ y $\sigma$; dicha estimaci\'{o}n se realiza v\'{\i}a m\'{a}xima verosimilitud utilizando la cuadratura de Gauss-Hermite adaptativa multidimensional con o sin \textit{pruning}. La funci\'{o}n \code{RMM.ZOIP} usa los optimizadores \code{nlminb} u \code{optim} para la estimaci\'{o}n de los efectos fijos, as\'{\i} mismo y con la ayuda de la aproximaci\'{o}n de la cuadratura de Gauss-Hermite se estiman los componentes de varianza de $\lambda_1$ y $\lambda_2$. La estructura de la funci\'{o}n \code{RMM.ZOIP} es la siguiente:
 
@@ -264,9 +265,7 @@ Los argumentos de la funci\'{o}n \code{RMM.ZOIP} son:
 \item \code{optimizer}: elecci\'{o}n del optimizador, utilizado para encontrar la convergencia de la m\'{a}xima verosimilitud en los par\'{a}metros de efectos fijos, se puede elegir el valor de \code{``nlminb''} u \code{``optim''}, por defecto \code{``nlminb''}.
 \item \code{n.points}: n\'{u}mero de puntos a utilizar en la aproximaci\'{o}n de la funci\'{o}n de ve\-ro\-si\-mi\-li\-tud por medio de la cuadratura de Gauss-Hermite adaptativa multidimensional, por defecto es 11, se recomienda dar n\'{u}meros impares para as\'{\i} dejar un punto de la cuadratura en el centro de la funci\'{o}n y no dar un valor muy grande a este par\'{a}metro, por que afectar\'{a} de manera significativamente los tiempos de convergencia del modelo.
 \item \code{pruning}: es un valor booleano que indica si se utiliza \textit{pruning} o no, para la cuadratura de Gauss-Hermite adaptativa multidimensional. Por defecto es TRUE.
-
 \end{itemize}
-
 En el siguiente ejemplo se mostrar\'{a} el ajuste de un modelo de regresi\'{o}n ZOIP mixto, usando un conjunto de datos simulados. primero se muestra el c\'{o}digo utilizado para generar los datos, luego se muestra c\'{o}mo usar la funci\'{o}n \code{RMM.ZOIP} para ajustar el modelo y por \'{u}ltimo la salida del modelo. Los datos simulados se generan de una distribuci\'{o}n ZOIP con la parametrizaci\'{o}n de \cite{Stasinopoulos2}, los par\'{a}metros $\mu$ y $\sigma$ tendr\'{a}n un intercepto aleatorio y una covariable discreta definida como el logaritmo natural de la cantidad de d\'{\i}as (2, 10, 20, 40), los par\'{a}metros de inflaci\'{o}n son fijados como $p_0=p_1=0.1$ (Si se usan valores m\'{a}s altos para estos par\'{a}metros ser\'{a} m\'{a}s dif\'{\i}cil la estimaci\'{o}n de los par\'{a}metros de la parte continua de la distribuci\'{o}n ZOIP, sin embargo con un gran cantidad de datos no se tendr\'{a} problema; la \'{u}nica restricci\'{o}n que existe sobre estos par\'{a}metros es que la suma de ambos debe estar entre cero y uno), el n\'{u}mero de grupos o sujetos ser\'{a} $N=21$ grupos.
 
 \begin{align*}
@@ -400,6 +399,8 @@ En el paquete \pkg{ZOIP} se tiene una funci\'{o}n gen\'{e}rica (m\'{e}todo S3) l
 ## 
 ##  iterations 
 ## [1] 39
+\end{verbatim}
+\begin{verbatim}
 ## 
 ##  Log-likelihood 
 ## [1] 15.75655
@@ -420,6 +421,8 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ## ---------------------------------------------------------------
+\end{verbatim}
+\begin{verbatim}
 ## Fixed effects for logit(sigma) 
 ## ---------------------------------------------------------------
 ##             Estimate Std. Error z value  Pr(>|z|)    
@@ -442,8 +445,6 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ## ---------------------------------------------------------------
-\end{verbatim}
-\begin{verbatim}
 ## ---------------------------------------------------------------
 ## Random effects for mu and sigma 
 ## ---------------------------------------------------------------
