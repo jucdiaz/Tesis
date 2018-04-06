@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  4 APR 2018 22:52
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  5 APR 2018 23:32
 entering extended mode
 **TesisMSc.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.tex"
@@ -1566,131 +1566,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58] [59]
+ [58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [61]
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
-
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
- [63]
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
 
-Underfull \vbox (badness 2538) has occurred while \output is active []
-
- [64]
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
 
  []
 
 [65]
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
 File: Ajuste_expo_mix.eps Graphic file (type eps)
-<Ajuste_expo_mix.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
-
- []
-
-[66]
+ <Ajuste_expo_mix.eps>
 Underfull \hbox (badness 10000) in paragraph at lines 537--538
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
+
+ []
+
+
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+ [66]
+Underfull \hbox (badness 10000) in paragraph at lines 589--590
 
  []
 
 [67]
-Underfull \hbox (badness 10000) in paragraph at lines 587--588
-
- []
-
 File: MAPE_beta0_mu.eps Graphic file (type eps)
-<MAPE_beta0_mu.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 597--598
-
- []
-
-[68]
+ <MAPE_beta0_mu.eps>
 Underfull \hbox (badness 10000) in paragraph at lines 599--600
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
+
+ []
+
+[68]
 File: MAPE_beta1_mu.eps Graphic file (type eps)
-<MAPE_beta1_mu.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 611--612
+ <MAPE_beta1_mu.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
+
+ []
+
+File: MAPE_lambda1_mu.eps Graphic file (type eps)
+<MAPE_lambda1_mu.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
 [69]
-File: MAPE_lambda1_mu.eps Graphic file (type eps)
- <MAPE_lambda1_mu.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
-
- []
-
 File: MAPE_beta0_sigma.eps Graphic file (type eps)
-<MAPE_beta0_sigma.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+ <MAPE_beta0_sigma.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 
  []
 
-[70]
 File: MAPE_beta1_sigma.eps Graphic file (type eps)
- <MAPE_beta1_sigma.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+<MAPE_beta1_sigma.eps> [70]
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
 File: MAPE_lambda2_sigma.eps Graphic file (type eps)
 <MAPE_lambda2_sigma.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
 
  []
 
 [71]
 File: MAPE_beta0_p0.eps Graphic file (type eps)
  <MAPE_beta0_p0.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 668--669
+
+ []
+
+File: MAPE_beta0_p1.eps Graphic file (type eps)
+<MAPE_beta0_p1.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 678--679
 
  []
 
 [72]
-File: MAPE_beta0_p1.eps Graphic file (type eps)
- <MAPE_beta0_p1.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 676--677
-
- []
-
 File: time_mix_ZOIP.eps Graphic file (type eps)
-<time_mix_ZOIP.eps> [73]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+ <time_mix_ZOIP.eps> [73]
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
-[74]) [75] [76] [77] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
+) [74] [75] [76] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\Kap5/Kap5.tex"
 Cap\'{\i }tulo 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -1712,21 +1714,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[78
+[77
 
 
 
-] [79]) [80] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [81
+] [78]) [79] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.bbl" [80
 
 
-] [82]
+] [81]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 206.
 
-[83])
+[82])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
- [84]
+ [83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
  ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\TesisMSc.aux"
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Tesis_V11\HojaTitulo/HojaTituloMSc.aux")
@@ -1747,12 +1749,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11420 strings out of 495286
- 169592 string characters out of 3179895
+ 11422 strings out of 495286
+ 169626 string characters out of 3179895
  409808 words of memory out of 3000000
- 14245 multiletter control sequences out of 15000+200000
- 20508 words of font info for 76 fonts, out of 3000000 for 9000
+ 14247 multiletter control sequences out of 15000+200000
+ 21117 words of font info for 78 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,18n,52p,2465b,605s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,18n,52p,2465b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on TesisMSc.dvi (98 pages, 502844 bytes).
+Output written on TesisMSc.dvi (97 pages, 502688 bytes).

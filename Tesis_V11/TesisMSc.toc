@@ -34,11 +34,11 @@
 \contentsline {subsubsection}{Cuadratura de Gauss-Hermite adaptativa con \textit {pruning}}{54}{section*.10}
 \contentsline {subsection}{\numberline {4.1.3}Aproximaci\'{o}n de la funci\'{o}n de verosimilitud v\'{\i }a cuadratura de Gauss-Hermite}{54}{subsection.4.1.3}
 \contentsline {section}{\numberline {4.2}Modelo de regresi\'{o}n ZOIP mixto en el paquete {\normalfont \fontseries {b}\selectfont \par@update ZOIP}}{56}{section.4.2}
-\contentsline {section}{\numberline {4.3}Aplicaci\'{o}n}{64}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Datos reales}{64}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Datos simulados}{66}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.3}Aplicaci\'{o}n}{63}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Datos reales}{63}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Datos simulados}{65}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}Conclusi\'{o}n}{74}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusiones y recomendaciones}{78}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conclusiones}{78}{section.5.1}
-\contentsline {section}{\numberline {5.2}Recomendaciones}{79}{section.5.2}
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{81}{section.5.2}
+\contentsline {chapter}{\numberline {5}Conclusiones y recomendaciones}{77}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusiones}{77}{section.5.1}
+\contentsline {section}{\numberline {5.2}Recomendaciones}{78}{section.5.2}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliograf\'{\i }a}{80}{section.5.2}
