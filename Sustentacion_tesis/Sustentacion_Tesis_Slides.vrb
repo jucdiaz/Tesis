@@ -1,0 +1,17 @@
+\frametitle {Aplicación modelo de regresión ZOIP mixto}
+
+El modelo propuesto se puede reescribir con los par\'{a}metros estimados as\'{\i}:
+
+\begin{equation*}
+\begin{split}
+y_{ij}| \gamma_{1i},\gamma_{2i} & \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),\\
+h_1(\mu_{ij})&=-1.13+\gamma_{1i}+0.33 x_{1ij},\\
+h_2(\sigma_{ij})&=0.33+\gamma_{2i}+0.14 x_{1ij},\\
+h_3(p_{0})&=0.23,\\
+h_4(p_{1})&=0.07,
+\end{split}
+%\label{A_eq_reg_mix2}
+\end{equation*}
+
+donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
+

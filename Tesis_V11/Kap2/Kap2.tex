@@ -1,7 +1,7 @@
 \chapter{Cap\'{\i}tulo 2: Distribuci\'{o}n ZOIP} \label{cap2}
 %{\Huge \textbf{Distribuci\'{o}n ZOIP\\}}
 
-En modelaci\'{o}n estad\'{\i}stica es posible encontrarnos con variables respuesta como proporciones, porcentajes o tasas que se encuentran en el intervalo (0, 1). La distribuci\'{o}n m\'{a}s utilizada en la literatura para caracterizar este tipo de variables es la distribuci\'{o}n beta con soporte en el intervalo (0,1), la cual ha sido reparametrizada por autores como \cite{Ferrari2} y \cite{Stasinopoulos2}; otras distribuciones no tan comunes en la literatura pero que caracterizan este tipo de variables son la distribuci\'{o}n simplex \citep{Jorgensen1}, beta-rectangular \citep{Hahn1} y la distribuci\'{o}n LogitSep \citep{Hossain1}. Por otra parte, es com\'{u}n que los porcentajes o proporciones puedan dar valores iguales a cero o uno, re\-pre\-sen\-tan\-do la ausencia o presencia total de la caracter\'{\i}stica de inter\'{e}s, respectivamente, Las distribuciones descritas anteriormente no pueden ser admisibles para este tipos de variables, es por esto que se han desarrollado distribuciones infladas con ceros y/o unos, para tratar estos casos, como lo hizo \cite{Ospina2} quienes presentan una distribuci\'{o}n beta inflada en la que hacen una combinaci\'{o}n entre una distribuci\'{o}n discreta para la parte de los valores que pueden tomar cero o uno y una parte continua para los valores continuos entre cero y uno. \cite{Stasinopoulos2} incluyen dentro de sus modelos gamlss la distribuci\'{o}n beta inflada con ceros y/o unos seg\'{u}n su parametrizaci\'{o}n.\\
+En modelaci\'{o}n estad\'{\i}stica es posible encontrarnos con variables respuesta como proporciones, porcentajes o tasas que se encuentran en el intervalo (0, 1). La distribuci\'{o}n m\'{a}s utilizada en la literatura para caracterizar este tipo de variables es la distribuci\'{o}n beta con soporte en el intervalo (0,1), la cual ha sido reparametrizada por autores como \cite{Ferrari2} y \cite{Stasinopoulos2}; otras distribuciones no tan comunes en la literatura pero que caracterizan este tipo de variables son la distribuci\'{o}n simplex \citep{Jorgensen1}, beta-rectangular \citep{Hahn1} y la distribuci\'{o}n LogitSep \citep{Hossain1}. Por otra parte, es com\'{u}n que los porcentajes o proporciones puedan dar valores iguales a cero o uno, re\-pre\-sen\-tan\-do la ausencia o presencia total de la caracter\'{\i}stica de inter\'{e}s, respectivamente, Las distribuciones descritas anteriormente no pueden ser admisibles para este tipos de variables, es por esto que se han desarrollado distribuciones infladas con ceros y/o unos, para tratar estos casos, como lo hizo \cite{Ospina2} quienes presentan una distribuci\'{o}n beta inflada en la que hacen una combinaci\'{o}n entre una distribuci\'{o}n discreta para la parte de los valores que pueden tomar cero o uno y una parte continua para los valores continuos entre cero y uno. \cite{Stasinopoulos2} incluyen dentro de sus modelos gamlss (Generalized Additive Models for Location Scale and Shape) la distribuci\'{o}n beta inflada con ceros y/o unos seg\'{u}n su parametrizaci\'{o}n.\\
 
 Esto ha dado pie para que diferentes autores hayan empezado a desarrollar diferentes mo\-de\-los de regresi\'{o}n para tratar este tipo variables, \cite{Ospina1} proponen una clase general de modelos de regresi\'{o}n beta inflados con cero o uno, adem\'{a}s \cite{Kosmidis1} han estudiado dichos modelos inflados recientemente, pero con una distribuci\'{o}n distinta a la presentada por \cite{Ospina1}. \cite{Galvis1} presentan modelos de regresi\'{o}n para diferentes distribuciones para datos proporcionales inflados con ceros y/o unos mediante metodolog\'{\i}as de estimaci\'{o}n bayesianas.\\
 
@@ -157,7 +157,7 @@ Si para la distribuci\'{o}n $ZOIP(\mu, \sigma, p_0, p_1)$ se elige la distribuci
 
 La distribuci\'{o}n ZOIP se encuentra inflada con ceros y unos, es decir bilateralmente, pero existe la posibilidad que hayan casos de estudio en que se encuentren datos inflados con unos \'{u}nicamente, por lo que $p_0=0$ y por lo tanto se estar\'{a} llamando no una distribuci\'{o}n ZOIP, sino una distribuci\'{o}n OIP (Ones Inflated Proporcional) y si los datos se encuentran inflados con ceros \'{u}nicamente, es decir $p_1=0$ se tendr\'{a} una distribuci\'{o}n ZIP (Zeros Inflated Proporcional), Si los datos no se encuentran inflados, entonces $p_0=p_1=0$ y la distribuci\'{o}n ZOIP ser\'{a} una distribuci\'{o}n para datos proporcionales cl\'{a}sica.\\
 
-En la Figura \ref{Dist_ZOIP} se muestran las densidades para varias de las distribuciones ZOIP-beta en sus diferentes parametrizaciones y ZOIP-simplex. Es de aclarar que en las Figuras 1a. 1b. 1c. los valores de los par\'{a}metros son diferentes pero dan como resultado la misma distribuci\'{o}n gracias a las ecuaciones descritas en \eqref{FC_Origin1}, \eqref{FC_Origin2} para el caso \cite{Ferrari2} y \eqref{RS_Origin1}, \eqref{RS_Origin2} para el caso \cite{Stasinopoulos2}. Adem\'{a}s se puede observar en la Figura 1d. como la distribuci\'{o}n ZOIP-simplex hereda el comportamiento bimodal de la distribuci\'{o}n cl\'{a}sica simplex, con valores m\'{\i}nimo y m\'{a}ximo en cero y uno respectivamente. 
+En la Figura \ref{Dist_ZOIP} se muestran las densidades para algunas distribuciones ZOIP-Beta en sus diferentes parametrizaciones y ZOIP-simplex, es de aclarar que, en las Figuras ubicadas en la esquina superior izquierda, esquina superior derecha y esquina inferior izquierda, los valores de los par\'{a}metros son diferentes, pero dan como resultado la misma distribuci\'{o}n gracias a las ecuaciones descritas en \eqref{FC_Origin1}, \eqref{FC_Origin2} para el caso \cite{Ferrari2} y \eqref{RS_Origin1}, \eqref{RS_Origin2} para el caso \cite{Stasinopoulos2}. Adem\'{a}s se puede observar en la Figura inferior derecha como la distribuci\'{o}n ZOIP-simplex tiene un comportamiento distinto a las dem\'{a}s distribuciones, a pesar de que contiene los mismo valores en los par\'{a}metros.
 
 \begin{figure}
 	\begin{center}
@@ -209,7 +209,7 @@ S_j(y_i)=
 1 & \text{si}\ y_i=j\\
 0 & \text{si}\ y_i\neq j\\
 \end{cases}
-\quad ; \quad j=1,2 \label{Sj}
+\quad ; \quad j=0,1 \label{Sj}
 \end{equation}
 
 Ahora, tomando logaritmo natural a la funci\'{o}n de verosimilitud,
@@ -433,6 +433,8 @@ mod
 ## 
 ##  Convergence 
 ## [1] 0
+\end{verbatim}
+\begin{verbatim}
 ## 
 ##  message 
 ## [1] "relative convergence (4)"
@@ -440,8 +442,6 @@ mod
 ##  iterations 
 ## [1] 22
 ## 
-\end{verbatim}
-\begin{verbatim}
 ##  Log-likelihood 
 ## [1] 488.2683
 \end{verbatim}
@@ -466,6 +466,8 @@ summary(mod)
 ## (intercept) 0.196643   0.004322  45.498 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+\end{verbatim}
+\begin{verbatim}
 ## ---------------------------------------------------------------
 ## Fixed effects for identity(p0)
 ## ---------------------------------------------------------------
@@ -474,8 +476,6 @@ summary(mod)
 ## ---
 ## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 ## ---------------------------------------------------------------
-\end{verbatim}
-\begin{verbatim}
 ## Fixed effects for identity(p1)
 ## ---------------------------------------------------------------
 ##              Estimate Std. Error z value  Pr(>|z|)    
@@ -514,7 +514,7 @@ En el primer escenario del estudio de simulaci\'{o}n se generaron los datos de u
 
 En la Figura \ref{Simu_1} se presentan las medianas de la estimaci\'{o}n de los par\'{a}metros para cada tama\~{n}o de muestra, de esta figura se observa que independientemente de la distribuci\'{o}n y pa\-ra\-me\-tri\-za\-ci\-\'{o}n escogida en la distribuci\'{o}n ZOIP, todos las estimaciones convergen al valor verdadero del par\'{a}metro a medida que aumenta el tama\~{n}o de muestra $n$. De la Figura \ref{Simu_1} se observa que las estimaciones de $\sigma$ cuando son par\'{a}metros con significado de dispersi\'{o}n como es en la distribuci\'{o}n beta con parametrizaci\'{o}n \cite{Stasinopoulos2} y en la distribuci\'{o}n simplex, tienden a dar valores subestimados, por otra parte, en las distribuciones que $\sigma$ tiene significado de forma y precisi\'{o}n tienden a dar valores sobrestimados. Se observa que las estimaciones de los par\'{a}metros de inflaci\'{o}n, a pesar de que son peque\~{n}as, dan resultados muy satisfactorios y casi sin variaci\'{o}n en su forma de estimaci\'{o}n de distribuci\'{o}n a distribuci\'{o}n.\\
 
-Como medida global del proceso de estimaci\'{o}n se eligi\'{o} el MAPE (Error porcentual absoluto medio $\sum_{i=1}^{n}{|y_i-\hat{y}_i/y_i}|)/n$ debido a los cambios de escala entre los diferentes par\'{a}metros de las diferentes distribuciones y parametrizaciones. Esta media se realiz\'{o} como un promedio de los MAPES generados por cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP en cada tama\~{n}o de muestra. En la Figura \ref{Mapes}a se presenta el MAPE para las diferentes distribuciones y parametrizaciones estimadas. Se observa como a medida que el tama\~{n}o de muestra aumenta, el MAPE va decreciendo r\'{a}pidamente, aunque des\-pu\'{e}s de un tama\~{n}o de muestra de 200, el MAPE decrece de una manera m\'{a}s lenta, adem\'{a}s los errores de estimaci\'{o}n son muy parecidos entre los cuatro casos de simulaci\'{o}n, la estimaci\'{o}n sobre los par\'{a}metros de la distribuci\'{o}n ZOIP-simplex tiene un error un poco m\'{a}s grande, pero no es significativo sobre los dem\'{a}s casos.\\
+Como medida global del proceso de estimaci\'{o}n se eligi\'{o} el MAPE (Error porcentual absoluto medio $\sum_{i=1}^{n}{|y_i-\hat{y}_i/y_i}|)/n$ debido a los cambios de escala entre los diferentes par\'{a}metros de las diferentes distribuciones y parametrizaciones. Esta media se realiz\'{o} como un promedio de los MAPES generados por cada uno de los par\'{a}metros de la distribuci\'{o}n ZOIP en cada tama\~{n}o de muestra. En la Figura \ref{Mapes} de la izquierda se presenta el MAPE para las diferentes distribuciones y parametrizaciones estimadas. Se observa como a medida que el tama\~{n}o de muestra aumenta, el MAPE va decreciendo r\'{a}pidamente, aunque des\-pu\'{e}s de un tama\~{n}o de muestra de 200, el MAPE decrece de una manera m\'{a}s lenta, adem\'{a}s los errores de estimaci\'{o}n son muy parecidos entre los cuatro casos de simulaci\'{o}n, la estimaci\'{o}n sobre los par\'{a}metros de la distribuci\'{o}n ZOIP-simplex tiene un error un poco m\'{a}s grande, pero no es significativo sobre los dem\'{a}s casos.\\
  
 En el segundo escenario de simulaci\'{o}n, se gener\'{o} el mismo ejercicio de simulaci\'{o}n anterior sobre las mismas distribuciones y parametrizaciones, solo que los valores de $p_0$ y $p_1$ cambian por $0.3$ y $0.2$, respectivamente, dando as\'{\i} que el 50\% de los datos se vean contaminados por ceros y unos, esto para ver si de alguna forma afecta el aumento de la presencia de ceros y unos sobre las estimaciones de los par\'{a}metros de la parte continua de la distribuci\'{o}n ZOIP.\\
 
@@ -574,10 +574,10 @@ En la Figura \ref{Simu_2} se presentan las estimaciones de los par\'{a}metros de
 }
 \end{table}
 
-En la Figura \ref{Mapes}b se presenta el MAPE para el estudio de simulaci\'{o}n del escenario 2. Se puede ver como se obtienen MAPES muy parecidos a los del estudio de simulaci\'{o}n del escenario 1, pero cabe resaltar como se comete menos error sobre la estimaci\'{o}n de los par\'{a}metros de la distribuci\'{o}n beta con la parametrizaci\'{o}n de \cite{Stasinopoulos2}. En la tabla \ref{T_MAPES} se presenta el MAPE para cada par\'{a}metro de cada parametrizaci\'{o}n para ambos estudios de simulaci\'{o}n, se observa como; en general, el estudio de simulaci\'{o}n del escenario 2 produce un MAPE menor que el del escenario 1, esto es causado por que en el escenario 1 de simulaci\'{o}n los errores de pron\'{o}stico son m\'{a}s grandes en los par\'{a}metros de inflaci\'{o}n que en el escenario 2. Por todo lo visto anteriormente se puede concluir que el crecimiento de los par\'{a}metros de inflaci\'{o}n no afecta de manera significativa la estimaci\'{o}n de los par\'{a}metros de la parte continua de la distribuci\'{o}n ZOIP, pero si promueve una mejor estimaci\'{o}n de los par\'{a}metros de inflaci\'{o}n.
+En la Figura \ref{Mapes} de la derecha se presenta el MAPE para el estudio de simulaci\'{o}n del escenario 2. Se puede ver como se obtienen MAPES muy parecidos a los del estudio de simulaci\'{o}n del escenario 1, pero cabe resaltar como se comete menor error sobre la estimaci\'{o}n de los par\'{a}metros de la distribuci\'{o}n beta con la parametrizaci\'{o}n de \cite{Stasinopoulos2}. En la Tabla \ref{T_MAPES} se presenta el MAPE para cada par\'{a}metro de cada parametrizaci\'{o}n para ambos estudios de simulaci\'{o}n, se observa como; en general, el estudio de simulaci\'{o}n del escenario 2 produce un MAPE menor que el del escenario 1, esto es causado por que en el escenario 1 de simulaci\'{o}n los errores de pron\'{o}stico son m\'{a}s grandes en los par\'{a}metros de inflaci\'{o}n que en el escenario 2. Por todo lo visto anteriormente se puede concluir que el crecimiento de los par\'{a}metros de inflaci\'{o}n no afecta de manera significativa la estimaci\'{o}n de los par\'{a}metros de la parte continua de la distribuci\'{o}n ZOIP, pero si promueve una mejor estimaci\'{o}n de los par\'{a}metros de inflaci\'{o}n.
 
 
-\subsection{Datos reales}
+\subsection{Datos reales}\label{Inf_bank_tdc}
 En esta secci\'{o}n se presenta el ajuste de una distribuci\'{o}n ZOIP a datos reales sobre la utilizaci\'{o}n de una tarjeta de cr\'{e}dito en un banco de Colombia, que por cuestiones de confidencialidad no se revela el nombre del banco. Para una entidad financiera como un banco, es de vital importancia conocer el comportamiento del porcentaje de utilizaci\'{o}n de sus tarjetas de cr\'{e}dito (tdc). Se define a $y$ como el porcentaje de uso de una tdc, en la Figura \ref{hist_tdc} se presenta el histograma del porcentaje de utilizaci\'{o}n de las tdc y es claro notar que $y$ se encuentra entre cero y uno, pero adicional es muy com\'{u}n ver que las tdc no sean utilizadas ($y=0$) y tambi\'{e}n que las tdc sean utilizadas en la totalidad de su cupo asignado ($y=1$), por lo que se trata a $y$ como una variable aleatoria perteneciente a datos proporcionales inflados con ceros y unos. Se tiene un total de $9206$ tdc, que representan el porcentaje de utilizaci\'{o}n de las tdc para un trimestre del a\~{n}o 2014 del banco en cuesti\'{o}n. Se quiere estudiar el ajuste de una distribuci\'{o}n ZOIP y para ello se utiliza el paquete de \proglang{R} de nuestra creaci\'{o}n llamado \pkg{ZOIP}, mediante su funci\'{o}n \code{RM.ZOIP}.\\
 
 \begin{figure}
@@ -633,7 +633,8 @@ En la Tabla \ref{T_Apli_SC} se muestran resultados de los cuatro par\'{a}metros 
 \end{figure}
 
 
-En la Figura \ref{Apli_Aju_ZOIP} se presenta gr\'{a}ficamente el ajuste de la distribuci\'{o}n ZOIP para diferentes parametrizaciones al porcentaje de utilizaci\'{o}n de las tdc, la l\'{\i}nea azul que representa la distribuci\'{o}n ZOIP ajustada. Es de notar que dicha l\'{\i}nea azul es exactamente igual en las tres ocasiones que se ajusta la distribuci\'{o}n ZOIP-beta y se ve como sigue el comportamiento original del porcentaje de utilizaci\'{o}n de las tdc. Es bueno resaltar tambi\'{e}n como en la Figura 1d de la Figura \ref{Apli_Aju_ZOIP} no se nota un buen ajuste para los valores entre cero y uno. Por todo anterior es recomendable decir que el porcentaje de utilizaci\'{o}n de las tdc de este banco se comportan como una distribuci\'{o}n ZOIP-beta con los par\'{a}metros descritos en la tabla \ref{T_Apli_SC}, seg\'{u}n la parametrizaci\'{o}n deseada y no como una distribuci\'{o}n ZOIP-simplex.
+En la Figura \ref{Apli_Aju_ZOIP} se presenta gr\'{a}ficamente el ajuste de la distribuci\'{o}n ZOIP para diferentes parametrizaciones al porcentaje de utilizaci\'{o}n de las tdc, la l\'{\i}nea punteada que representa la distribuci\'{o}n ZOIP ajustada. Es de notar que dicha l\'{\i}nea punteada es exactamente igual en las tres ocasiones que se ajusta la distribuci\'{o}n ZOIP-beta y se ve como sigue el comportamiento original del porcentaje de utilizaci\'{o}n de las tdc. Es bueno resaltar tambi\'{e}n que la distribuci\'{o}n ZOIP-simplex no tiene un buen ajuste para los valores entre cero y uno y en uno, espec\'{\i}ficamente. Por todo lo anterior es recomendable decir que el porcentaje de utilizaci\'{o}n de las tdc de este banco se comportan como una distribuci\'{o}n ZOIP-Beta con los par\'{a}metros descritos en la Tabla \ref{T_Apli_SC}, seg\'{u}n la parametrizaci\'{o}n deseada y no como una distribuci\'{o}n ZOIP-simplex.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

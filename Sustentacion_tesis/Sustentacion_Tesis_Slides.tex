@@ -1,0 +1,993 @@
+% Este documento LaTeX fue diseñado por profesores  del Departamento de Matemáticas 
+% de la Universidad de Antioqua (http://ciencias.udea.edu.co/). Usted puede modificarlo
+% y personalizarlo a su gusto bajo los términos de la licencia de documentación libre GNU.
+% http://es.wikipedia.org/w/index.php?title=Licencia_de_documentaci%C3%B3n_libre_de_GNU&oldid=15717448
+
+%\documentclass[serif,9pt]{beamer}
+%\setbeamertemplate{navigation symbols}{}
+
+%\setbeamercolor{frametitle}{fg=black,bg=white}
+%\setbeamercolor{title}{fg=black,bg=yellow!85!orange}
+%\usetheme{AnnArbor}
+
+%\documentclass{beamer}
+
+\documentclass[serif,9pt]{beamer}
+\usetheme{Copenhagen}
+%%\usepackage{german}
+%\usepackage[latin1]{inputenc}
+%
+%\usepackage[spanish]{babel} % division de silabas en espaÃ±ol.
+%%\usepackage{t1enc}
+%%\usepackage{amsmath,bbold,bbm}
+%\usepackage{verbatim}
+%\usepackage{float}
+%\usepackage[pdftex]{graphicx,color}
+%%\usepackage[dvips]{epsfig}
+%%\usepackage{multirow}
+%\usepackage{amssymb}
+%%\usepackage[notref,color]{showkeys}
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para la carga de los paquetes por parte del autor
+% **** --------------------------------------------------------------------------------
+\usepackage[latin1]{inputenc}
+\markright{}
+
+\usepackage[spanish]{babel}
+\usepackage{amsxtra}
+\usepackage{amstext}
+\usepackage{graphicx, xcolor, lipsum}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsmath,amsthm} 
+\usepackage{bm} 
+\usepackage{textcomp}
+\usepackage{setspace} 
+\usepackage{lscape} 
+\usepackage{multicol}
+\usepackage{multirow} 
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+%\lstdefineformat{R}{~=\( \sim \)}
+%\lstset{basicstyle=\ttfamily,format=R}
+%\def\endlstset{\oldendv\egroup\fboxsep0pt \noindent\colorbox{fhbcolor}{\usebox0}\par}
+
+\hypersetup{pagebackref,colorlinks,linkcolor=black,citecolor=black,breaklinks=true}
+\usepackage{enumitem}  % format a list as to remove the spaces between list items
+\usepackage{upquote}   % to obtain ' instead of ’ with R code
+% New for newcommand, proglang and code
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición del color para el cuadro de código de R
+\let\oldv\verbatim
+\let\oldendv\endverbatim
+\def\verbatim{\par\setbox0\vbox\bgroup\oldv}
+%\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.96}{\usebox0}\par}
+\definecolor{fhbcolor}{HTML}{F7F9EF} % Para definir el color de la caja
+\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox{fhbcolor}{\usebox0}\par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\justifying
+
+\title[Modelo de Regresión Mixto ZOIP \hspace{10mm} \insertframenumber/\inserttotalframenumber]{Modelo de regresi\'{o}n mixto para datos proporcionales inflados con ceros y/o unos y creaci\'{o}n del paquete \pkg{ZOIP} en \proglang{R}}  
+\author[Juan Camilo Díaz Zapata]{Juan Camilo Díaz Zapata \\ Tutor: Freddy Hernández Barajas}
+\institute[]{Universidad de Nacional de Colombia\\ Sede-Medellín}
+\date[Mayo, 2015]{Escuela de Estadística}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Contenido}\tableofcontents
+\end{frame} 
+\section{Introducción}
+\begin{frame}\frametitle{Motivación}
+
+\begin{enumerate}
+
+\item Variables de interés como porcentajes, proporciones y tasas inflados con ceros y/o unos, son comunes en estudios clínicos, financieros, económicos y sociales. \pause \medskip
+
+\item Los modelos de regresión mixto para datos proporcionales inflados con ceros y/o unos, son útiles para determinar el comportamiento de una variable proporcional a partir de variables consideradas como efectos fijos y aleatorios. \pause \medskip
+
+\item La integración de los modelos estadísticos en un paquete del sistema computacional \proglang{R} permite que la utilización de los modelos estadísticos a problemas aplicados sea de gran facilidad para la comunidad estadística. 
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estado del arte}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.42]{Estado_Arte.eps}	
+		%\caption{Mape (Error porcentual absoluto medio) para los escenarios de simulación y para distintos valores de $n$.}
+		%\label{Mapes}
+	\end{center}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Planteamiento del problema}
+
+\begin{enumerate}
+
+\item C\'{o}mo se podr\'{\i}a realizar un modelo de regresi\'{o}n mixto para datos proporcionales inflados con ceros y/o unos, sobre las distribuciones beta o simplex, donde la estimaci\'{o}n de sus par\'{a}metros sea v\'{\i}a m\'{a}xima verosimilitud. \pause \medskip
+
+\item No existe un paquete en \proglang{R} que re\'{u}na las principales distribuciones y modelos de regresi\'{o}n de efectos fijos y mixtos para modelar los datos proporcionales inflados con ceros y/o unos vía máxima verosimilitud y la cuadratura de Gauss-Hermite adaptativa. \pause \medskip
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Objetivo general} 
+
+\begin{block}{Objetivo general}
+Proponer un modelo de regresión mixto para datos proporcionales inflados en cero y/o uno usando máxima verosimilitud.
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%% MENCIONAR YO
+%\begin{frame}\frametitle{Objetivos Especificos}
+%
+%\begin{enumerate}
+ %
+%\item Flexibilizar el modelo de regresión beta mixto para datos proporcionales inflados en cero y/o uno a través del uso de diferentes distribuciones.\pause \medskip
+%
+%\item Determinar entre las diferentes modificaciones de la cuadratura de Gauss-Hermite adaptativa la que mejor desempeño tiene para estimar los parámetros del modelo de regresión mixto para datos proporcionales entre cero y/o uno. \pause \medskip
+%
+%\item Crear un paquete en el software estadístico \proglang{R} que permita la estimación de los parámetros del modelo de regresión mixto para datos proporcionales inflados en cero y/o uno. \pause \medskip
+%
+%\end{enumerate}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%METODOLOGIA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Metodología}
+
+\subsection{Distribución ZOIP (Zeros Ones Inflated Proporcional)}
+\begin{frame} [label=A1] \frametitle{Distribución ZOIP (Zeros Ones Inflated Proporcional)} 
+
+si la variable aleatoria $Y$ tiene distribución ZOIP con parámetros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotará como $Y \sim$ ZOIP$(\mu,\sigma, p_0, p_1)$, la función de densidad de probabilidad está dado por:
+
+\begin{equation}
+g(y;\mu,\sigma, p_{0}, p_{1})=
+\begin{cases}
+p_{0} & \text{si}\ y=0,\\
+p_{1} & \text{si}\ y=1,\\
+(1-p_{0}-p_{1})f(y;\mu,\sigma) & \text{si}\ y \in (0,1)
+\end{cases}
+ \label{eq_Dist_ZOIP}
+\end{equation}
+
+\vskip15pt
+\hyperlink{Dist_P}{\beamerbutton{Distribuciones}}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Distribución ZOIP (Zeros Ones Inflated Proporcional)} 
+La media y varianza de $Y$, están dadas por: 
+
+\begin{equation}
+	E(y) = p_1+(1-p_0-p_1)E^*(y)
+\end{equation}
+
+\begin{multline}
+	Var(y) = p_1(1-p1)+\\
+	+(1-p_0-p_1)\left[Var^*(y)+(p_0+p_1)[E^*(y)]^2-2E^*(y)p_1\right]
+\end{multline}
+
+%%donde $E^*(y)$ es el valor esperado de una distribución para datos 
+%proporcionales como las descritas en \eqref{E_Origin}, \eqref{E_FC}, 
+%\eqref{E_RS} y \eqref{E_Simplex}. Además la $Var^*(y)$ es la varianza de una 
+%distribución para datos proporcionales como se muestra en  \eqref{V_Origin}, 
+%\eqref{V_FC}, \eqref{V_RS} y \eqref{V_Simplex}.\\
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modelo de regresi\'{o}n ZOIP con efectos fijos}
+\begin{frame}\frametitle{Modelo de regresi\'{o}n ZOIP con efectos fijos}
+
+ Sea $y_1, y_2,\ldots, y_n$ variables aleatorias independientes tal que cada $y_i$, para $i=1,\ldots, n$, tiene funci\'{o}n de densidad de probabilidad dado por la distribución ZOIPcon par\'{a}metros $\mu = \mu_i$, $\sigma=\sigma_i$, $p_0=p_{0i}$, y $p_1=p_{1i}$. Se asume que $\mu_i$, $\sigma_i$, $p_{0i}$ y $p_{1i}$ se definen como:
+
+\begin{equation}
+\begin{split}
+&h_1(\mu_{i})=\mathbf{x}_{i1}^{\top} \boldsymbol{\beta}_1,\\
+&h_2(\sigma_{i})=\mathbf{x}_{i2}^{\top} \boldsymbol{\beta}_2,\\
+&h_3(p_{0i})=\mathbf{x}_{i3}^{\top} \boldsymbol{\beta}_3,\\
+&h_4(p_{1i}) =\mathbf{x}_{i4}^{\top} \boldsymbol{\beta}_4
+\end{split}
+\label{eq_reg}
+\end{equation}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estimación vía máxima verosimilitud}
+
+La funci\'{o}n de verosimilitud para $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top})^{\top}$, basado en una muestra de observaciones independientes, es de la forma:
+
+\begin{equation}
+L(\boldsymbol{\theta})=\prod_{i=1}^{n}g(\mathbf{y}_i;\mu_i,\sigma_i,p_{0i},p_{1i})=\prod_{i=1}^{n}f_0(\mathbf{y}_i;p_{0i})\prod_{i=1}^{n}f_1(\mathbf{y}_i;p_{1i})\prod_{i=1}^{n}f_2(\mathbf{y}_i;\mu_i,\sigma_i)
+\end{equation}
+
+donde las funciones $f_0(\mathbf{y}_i;p_{0i})$ y $f_1(\mathbf{y}_i;p_{1i})$ son expliacadas por:
+\[
+f_j(\mathbf{y}_i;p_{ji})={p_{ji}^{S_j(y_i)}(1-p_{ji})^{1-S_j(y_i)}} \quad ; \quad j=0,1
+\]
+
+Con
+\[
+S_j(y_i)=
+\begin{cases}
+1 & \text{si}\ y_i=j\\
+0 & \text{si}\ y_i\neq j\\
+\end{cases}
+\quad ; \quad j=0,1
+\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modelo de regresi\'{o}n ZOIP con efectos mixtos}
+\begin{frame}\frametitle{Modelo de regresi\'{o}n ZOIP con efectos mixtos}
+
+\begin{enumerate}
+	\item Los efectos aleatorios sobre un modelo de regresión ocurren cuando los datos dependen o se puede ver afectados por una variable netamente identificativa. \pause \medskip
+	\item Un modelo de regresión con efectos mixtos es útil porque se contempla de manera correcta el problema, ya que hay correlación entre las observaciones.\pause \medskip
+	\item Un modelo de regresión con efectos mixtos es útil por la forma de determinar los parámetros de un efecto aleatorio.
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Modelo de regresi\'{o}n ZOIP con efectos mixtos}
+
+Sea $y_{ij}$ la $j-$\'{e}sima medida del $i-$\'{e}simo grupo, una formulaci\'{o}n matem\'{a}tica para el modelo es la siguiente:
+
+
+\begin{align}
+\begin{split}
+y_{ij}| \gamma_{1i},\gamma_{2i} & \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_{0ij}, p_{1ij}),\\
+	h_1(\mu_{ij}) &= \mathbf{x}_{ij1}^{\top} \boldsymbol{\beta}_1+ \gamma_{1i},\\
+	h_2(\sigma_{ij}) &= \mathbf{x}_{ij2}^{\top} \boldsymbol{\beta}_2+ \gamma_{2i},\\
+	h_3(p_{0ij}) &= \mathbf{x}_{ij3}^{\top} \boldsymbol{\beta}_3,\\
+	h_4(p_{1ij}) &= \mathbf{x}_{ij4}^{\top} \boldsymbol{\beta}_4,\\
+	\gamma_{1i} & \overset{\text{i.i.d}}{\sim}  N(0,\lambda_1^2),\\
+	\gamma_{2i} & \overset{\text{i.i.d}}{\sim}  N(0,\lambda_2^2),
+\end{split}
+\label{Mod_pmix}
+\end{align}
+
+con $i=1,2,\ldots, N$ y $j=1,2,\ldots, n_i$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estimación vía máxima verosimilitud y AGHQ}
+
+El vector de par\'{a}metros para el modelo \eqref{Mod_pmix} es $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top},\lambda_1,\lambda_2)^{\top}$ y de esa forma la funcion de log-verosimilitud $\ell(\boldsymbol{\theta})$ esta dado por:
+
+\begin{equation*}
+\ell(\boldsymbol{\theta})=\sum_{i=1}^{N}log \left[\int_{\mathbb{R}^2}\prod_{j=1}^{n_i}f_y(y_{ij}|\gamma_{1i},\gamma_{2i};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot f(\gamma_{1i}|\lambda_1) f(\gamma_{2i}|\lambda_2) d\gamma_{1i}d\gamma_{2i}\right]
+ %\label{func_ver_mix}
+\end{equation*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=A2]\frametitle{Estimación vía máxima verosimilitud y AGHQ}
+
+Para encontrar el punto máximo de la función de log-verosimilitud anterior, es necesario realizar una aproximación por medio de la cuadratura de Gauss-Hermite adaptativa con o sin \textit{pruning}, que permita encontrar dicho máximo.
+
+\begin{equation*}
+\ell(\boldsymbol{\theta}) \approx \sum_{i=1}^{N}log{\left[\sum_{k_1=1}^{Q_1}{\sum_{k_2=1}^{Q_2}{\prod_{j=1}^{n_i}f(y_{ij}|\sqrt{2}\lambda_1 z_{k_1},\sqrt{2}\lambda_2 z_{k_2};\boldsymbol{\beta_1}, \boldsymbol{\beta_2}, \boldsymbol{\beta_3}, \boldsymbol{\beta_4})\cdot \frac{w_{k_1}w_{k_2}}{\pi}}}\right]}
+%\label{LOG_vero_mix}
+\end{equation*}
+
+\vskip15pt
+\hyperlink{AGHQ}{\beamerbutton{AGHQ}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Inferencia estad\'{\i}stica}
+%La funci\'{o}n de verosimilitud definida en \eqref{F_likel} al aplicar logaritmo natural produce la funci\'{o}n de log-verosimilitud definida como:
+%\[
+%\ell(\boldsymbol{\theta})=\ell_0(\boldsymbol{\beta_3})+\ell_1(\boldsymbol{\beta_4})+\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2})
+%\]
+%\\
+%donde
+%
+%\begin{align*}
+%\begin{split}
+	%\ell_0(\boldsymbol{\beta_3}) &= \sum_{i=1}^{n}{p_{0i}^{S_0(y_i)}(1-p_{0i})^{1-S_0(y_i)}}
+%\end{split}\\
+%\begin{split}
+	%\ell_1(\boldsymbol{\beta_4}) &= \sum_{i=1}^{n}{p_{1i}^{S_1(y_i)}(1-p_{1i})^{1-S_1(y_i)}}
+%\end{split}\\
+%\begin{split}
+	%\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2}) &= \sum_{i=1:y_i \in (0,1)}^{n}{f_3(y_i;\mu_i,\sigma_i)} 
+%\end{split}
+%\end{align*}
+%
+%Con $p_{0i}=h_3^{-1}(\mathbf{x}_{i3}^{\top} \boldsymbol{\beta}_3)$, $p_{1i}=h_4^{-1}(\mathbf{x}_{i4}^{\top} \boldsymbol{\beta}_4)$, $\mu_i=h_1^{-1}(\mathbf{x}_{i1}^{\top} \boldsymbol{\beta}_1)$ y $\sigma_i=h_2^{-1}(\mathbf{x}_{i2}^{\top} \boldsymbol{\beta}_2)$ como se defini\'{o} en \eqref{eq_reg}.
+%
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%PAQUETE ZOIP%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Paquete ZOIP de R}
+\begin{frame}[fragile]
+\frametitle{Instalación del Paquete \pkg{ZOIP} de \proglang{R}} 
+
+Para acceder a la última versión del paquete \pkg{ZOIP} se encuentra ubicada en GitHub, el cual es un alojamiento de repositorios Git, para obtener dicha versión es necesario ejecutar el siguiente código que instala el paquete \pkg{devtools}, que es necesario para descargar el paquete \pkg{ZOIP}.\medskip
+
+\begin{verbatim}
+#Para instalar la version disponible en el CRAN
+install.packages("ZOIP")
+
+#Para instalar la version en desarrollo desde GitHub
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("jucdiaz/ZOIP", force = TRUE)
+library(ZOIP) # Carga el paquete
+\end{verbatim}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Funciones en el paquete ZOIP}
+En el paquete \pkg{ZOIP} de \proglang{R} es útil para ajustar distribución ZOIP, modelos de regresión de efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos. Estas son las principales funciones:
+
+\begin{itemize}
+	\item \verb|dZOIP|
+	\item \verb|pZOIP|
+	\item \verb|qZOIP|
+	\item \verb|rZOIP|
+	\item \verb|RM.ZOIP|
+	\item \verb|RMM.ZOIP|
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Función RM.ZOIP}
+
+\begin{verbatim}
+RM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, 
+        formula.p1 = ~1, data, link = c("identity", "identity", 
+        "identity", "identity"), family = "R-S",
+				optimizer = "nlminb")
+\end{verbatim}
+
+Ejemplo:
+
+\begin{verbatim}
+link <- c("logit", "logit", "identity", "logit")
+mod<-RM.ZOIP(formula.mu = y_i ~ x1, formula.sigma = ~x1 + x2,
+        formula.p0 = ~1, formula.p1 = ~x2, data = data, 
+        link = link, family = "R-S")
+summary(mod)
+\end{verbatim}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]
+%\frametitle{Ejemplo con la función RM.ZOIP}
+%
+%\begin{verbatim}
+%
+%## ---------------------------------------------------------------
+%## Fixed effects for logit(mu) 
+%## ---------------------------------------------------------------
+%##              Estimate Std. Error z value  Pr(>|z|)    
+%## (Intercept)  0.339512   0.098754  3.4379 0.0005862 ***
+%## x1          -1.480898   0.179015 -8.2725 < 2.2e-16 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## Fixed effects for logit(sigma) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error z value  Pr(>|z|)    
+%## (Intercept)  0.70068    0.10726  6.5323 6.476e-11 ***
+%## x1           2.44935    0.13775 17.7812 < 2.2e-16 ***
+%## x2           0.53283    0.13273  4.0143 5.961e-05 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%\end{verbatim}
+%\end{frame}
+%
+%\begin{frame}[fragile]
+%\frametitle{Ejemplo con la función RM.ZOIP}
+%\begin{verbatim}
+%## ---------------------------------------------------------------
+%## Fixed effects for identity(p0) 
+%## ---------------------------------------------------------------
+%##              Estimate Std. Error z value  Pr(>|z|)    
+%## (Intercept) 0.0820000  0.0086762  9.4512 < 2.2e-16 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## Fixed effects for logit(p1) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error z value Pr(>|z|)    
+%## (Intercept) -0.12528    0.15084 -0.8305   0.4062    
+%## x2          -3.00922    0.34242 -8.7881   <2e-16 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## ---------------------------------------------------------------
+%\end{verbatim}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Función RMM.ZOIP}
+
+\begin{verbatim}
+RMM.ZOIP(formula.mu, formula.sigma = ~1, formula.p0 = ~1, 
+         formula.p1 = ~1, data, formula.random,
+				 link = c("identity","identity", "identity", "identity"),
+				 family = "R-S", optimizer = "nlminb",
+				 n.points = 11, pruning = TRUE)
+\end{verbatim}
+
+Ejemplo:
+
+\begin{verbatim}
+link <- c("logit", "logit", "identity", "identity")
+mod<-RMM.ZOIP(formula.mu = Y ~ log(Days), formula.sigma = ~log(Days), 
+         formula.p0 = ~1, formula.p1 = ~1, data = base, 
+         formula.random = ~1 | subject, link = link)
+summary(mod)
+\end{verbatim}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}[fragile]
+%\frametitle{Ejemplo con la función RMM.ZOIP}
+%\begin{verbatim}
+%## ---------------------------------------------------------------
+%## Fixed effects for logit(mu) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error  z value  Pr(>|z|)    
+%## (Intercept)  1.84542    0.32408   5.6944 1.238e-08 ***
+%## log(Days)   -1.33161    0.10306 -12.9202 < 2.2e-16 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## Fixed effects for logit(sigma) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error z value  Pr(>|z|)    
+%## (Intercept)  0.27958    0.40333  0.6932    0.4882    
+%## log(Days)   -0.56114    0.12949 -4.3335 1.468e-05 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%\end{verbatim}
+%\end{frame}
+%\begin{frame}[fragile]
+%\frametitle{Ejemplo con la función RMM.ZOIP}
+%\begin{verbatim}
+%## ---------------------------------------------------------------
+%## Fixed effects for identity(p0) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error z value Pr(>|z|)   
+%## (Intercept) 0.083199   0.030112   2.763 0.005727 **
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## Fixed effects for identity(p1) 
+%## ---------------------------------------------------------------
+%##             Estimate Std. Error z value  Pr(>|z|)    
+%## (Intercept) 0.119115   0.035352  3.3694 0.0007532 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%\end{verbatim}
+%\end{frame}
+%\begin{frame}[fragile]
+%\frametitle{Ejemplo con la función RMM.ZOIP}
+%\begin{verbatim}
+%## ---------------------------------------------------------------
+%## ---------------------------------------------------------------
+%## Random effects for mu and sigma 
+%## ---------------------------------------------------------------
+%##                        Estimate Std. Error z value  Pr(>|z|)    
+%## Random Intercept mu     0.76107    0.23334  3.2616 0.0011077 ** 
+%## Random Intercept sigma  0.50380    0.14046  3.5867 0.0003349 ***
+%## ---
+%## Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
+%## ---------------------------------------------------------------
+%## ---------------------------------------------------------------
+%\end{verbatim}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Aplicación a datos reales %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aplicación a datos reales}
+\begin{frame}[fragile]
+\frametitle{Ajuste distribución ZOIP}
+Ajuste de una distribuci\'{o}n ZOIP a datos reales sobre la utilizaci\'{o}n de una tarjeta de cr\'{e}dito (tdc) en un banco de Colombia. \pause \medskip
+
+\begin{verbatim}
+RM.ZOIP(data = porc_tdc, family = "R-S")
+RM.ZOIP(data = porc_tdc, family = "F-C")
+RM.ZOIP(data = porc_tdc, family = "Original")
+RM.ZOIP(data = porc_tdc, family = "Simplex")
+\end{verbatim}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Ajuste distribución ZOIP}
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|ccc|c|}\hline
+Familia & Par\'{a}metro & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud\\ \hline
+
+\multirow{4}{*}{R-S} &$\mu$ &0.4040	&0.0037	&$<2.2e^{-16}$ &\multirow{4}{*}{5854.067}\\
+& $\sigma$ & 0.6601	&0.0027	&$<2.2e^{-16}$& \\
+& $p_0$ & 0.2219	&0.0043	&$<2.2e^{-16}$ &\\
+& $p_1$ & 0.0695	&0.0027	&$<2.2e^{-16}$ &\\ \hline
+
+\multirow{4}{*}{F-C} &$\mu$ & 0.4040	&0.0037	&$<2.2e^{-16}$ &\multirow{4}{*}{5854.067}\\
+& $\sigma$ & 0.4040	&0.0037	&$<2.2e^{-16}$ &\\
+& $p_0$ & 0.2219	&0.0043	&$<2.2e^{-16}$ &\\
+& $p_1$ & 0.0695	&0.0027	&$<2.2e^{-16}$ &\\ \hline
+
+\multirow{4}{*}{original} &$\mu$ & 0.5233	&0.0080	&$<2.2e^{-16}$&\multirow{4}{*}{5854.067} \\
+& $\sigma$ & 0.7719	&0.0130	&$<2.2e^{-16}$& \\
+& $p_0$ & 0.2219	&0.0043	&$<2.2e^{-16}$& \\
+& $p_1$ & 0.0695	&0.0027	&$<2.2e^{-16}$& \\ \hline
+
+\multirow{4}{*}{simplex} &$\mu$ & 0.5741	&0.0010	&$<2.2e^{-16}$ &\multirow{4}{*}{54425.63}\\
+& $\sigma$ & 4885.44	&18.2430	&$<2.2e^{-16}$ &\\
+& $p_0$ & 0.1497	&0.0032	&$<2.2e^{-16}$ &\\
+& $p_1$ & 0.0090	&0.0004	&$<2.2e^{-16}$ &\\ \hline
+
+\end{tabular}
+\caption{Ajuste de diferentes distribuciones ZOIP en el porcentaje de utilizaci\'{o}n de una tdc, en un banco colombiano. Fuente: Cortes\'{\i}a del banco.}
+\label{T_Apli_SC}
+\end{center}
+}
+\end{table}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Ajuste distribución ZOIP}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{Aplicacion_SC.eps}
+		\caption{Ajuste de diferentes distribuciones y parametrizaciones ZOIP al porcentaje de utilizaci\'{o}n de una tdc.}
+		\label{Apli_Aju_ZOIP}
+	\end{center}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Aplicación modelo de regresión ZOIP}
+
+Se ajusto un modelo de regresión ZOIP mediante el paquete \pkg{ZOIP}, que permitió explicar el comportamiento utilización de una tdc mediante unas variables dadas.
+\begin{equation*}
+\begin{split}
+y_{i} & \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}), \quad i=1,2, \ldots, 9206\\
+h_1(\mu_{i}) &=\beta_{10}+\beta_{11} x_{1i}+\beta_{12} x_{2i}+\beta_{13} x_{3i},\\
+h_2(\sigma_{i}) &=\beta_{20}+\beta_{21} x_{1i}+\beta_{22} x_{2i}+\beta_{23} x_{3i},\\
+h_3(p_{0i}) &=\beta_{30}+\beta_{31} x_{1i}+\beta_{32} x_{2i}+\beta_{33} x_{3i},\\
+h_4(p_{1i}) &=\beta_{40}+\beta_{41} x_{1i}+\beta_{42} x_{2i}+\beta_{43} x_{3i},
+\end{split}
+%\label{A_eq_reg}
+\end{equation*}
+
+$y_i$ es el porcentaje de utilizacion de la i-\'{e}sima tdc.\\ \pause \medskip
+$x_{1i}$ es el valor del \textbf{score} del $i$-\'{e}simo individuo asociada a la tarjeta de cr\'{e}dito.\\ \pause \medskip
+$x_{2i}$ es valor del \textbf{promedio de cuotas} al que difiere sus compras de la i-\'{e}sima tarjeta de cr\'{e}dito.\\ \pause \medskip
+$x_{3i}$ es el valor del \textbf{cupo otorgado} de la i-\'{e}sima tarjeta de cr\'{e}dito.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Aplicación modelo de regresión ZOIP}
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|ccc|c|}\hline
+Familia & Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P & Log-Verosimilitud \\ \hline \hline
+\multirow{12}{*}{R-S} & \multirow{4}{*}{$\mu$} & $\hat{\beta}_{10}$ & -0.046	&0.050	&0.3618 & \multirow{12}{*}{-5414.738} \\
+& & $\hat{\beta}_{11}$ & -0.354	&0.107	&0.0009 & \\
+& & $\hat{\beta}_{12}$ & 0.022	&0.002	&$<2.2e^{-16}$ & \\
+& & $\hat{\beta}_{13}$ & -0.025	&0.009	&0.0074 & \\ \cline{2-6}
+& \multirow{4}{*}{$\sigma$} & $\hat{\beta}_{20}$ & 0.822	&0.038	&$<2.2e^{-16}$  & \\
+& & $\hat{\beta}_{21}$ & -0.197	&0.078	&0.0114  & \\
+& & $\hat{\beta}_{22}$ & -0.006	&0.002	&0.0013  & \\
+& & $\hat{\beta}_{23}$ & -0.003	&0.007	&0.6741  & \\ \cline{2-6}
+& \multirow{4}{*}{$p_0$} & $\hat{\beta}_{30}$ & -1.496	&0.101	&$<2.2e^{-16}$  & \\
+& & $\hat{\beta}_{31}$ & 0.724	&0.185	&$8.87e^{-5}$  & \\
+& & $\hat{\beta}_{32}$ & -0.153	&0.009	&$<2.2e^{-16}$  & \\
+& & $\hat{\beta}_{33}$ & 0.002	&0.015	&0.1243  & \\ \cline{2-6}
+& \multirow{4}{*}{$p_1$} & $\hat{\beta}_{40}$ &-1.480	&0.095	&$<2.2e^{-16}$  & \\
+& & $\hat{\beta}_{41}$ & -0.630	&0.254	&0.0132  & \\
+& & $\hat{\beta}_{42}$ & 0.011	&0.006	&0.0666  & \\
+& & $\hat{\beta}_{43}$ & -0.069	&0.022	&0.0022  & \\ \hline
+
+\end{tabular}
+\caption{Par\'{a}metros regresores estimados de un modelo de regresi\'{o}n ZOIP-beta con parametrizaci\'{o}n Rigby y Stasinopoulos (2005) en el porcentaje de utilizaci\'{o}n de una tdc. Con un criterio de convergencia de $1e^{-10}$}
+\label{T_Apli_CC_RS}
+\end{center}
+}
+\end{table}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Aplicación modelo de regresión ZOIP mixto}
+
+Se plante\'{o} un modelo de regresi\'{o}n ZOIP-beta con intercepto aleatorio en el par\'{a}metro de la media y la varianza, dado por la variable \textsl{ciudad} y un efecto fijo en la media y la varianza dado por la variable \textsl{total mora}, para la variable respuesta porcentaje de utilización de una tdc.
+\begin{equation*}
+\begin{split}
+y_{ij}| \gamma_{1i},\gamma_{2i} &\overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),\\
+h_1(\mu_{ij})&=\beta_{10}+\gamma_{1i}+\beta_{11} x_{1ij},\\
+h_2(\sigma_{ij})&=\beta_{20}+\gamma_{2i}+\beta_{21} x_{1ij},\\
+h_3(p_{0})&=\beta_{30},\\
+h_4(p_{1})&=\beta_{40},
+\end{split}
+%\label{A_eq_reg_mix}
+\end{equation*}
+
+con $\gamma_{1i} \sim N(0, \lambda_1^2)$ y $\gamma_{2i} \sim N(0, \lambda_2^2)$.
+
+$y_{ij}$ es el porcentaje de utilizaci\'{o}n de la $j$-\'{e}sima tdc perteneciente a la $i$-\'{e}sima ciudad, $i=1,2,\ldots, 10$ y $j=1,2,\ldots, 15$.
+
+$x_{1ij}$: es el valor del tiempo en mora en meses de la $j$-\'{e}sima tdc asociada a la $i$-\'{e}sima ciudad.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Aplicación modelo de regresión ZOIP mixto}
+
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|ccc|}\hline
+Par\'{a}metro & $\beta$'s & Estimaci\'{o}n & Error est\'{a}ndar & Valor P \\ \hline \hline
+\multirow{3}{*}{$\mu$} & $\hat{\beta}_{10}$ & -1.13	&0.24	&$5.4e^{-6}$\\
+& $\hat{\beta}_{11}$ & 0.33	&0.13	&0.008\\
+& $\hat{\lambda}_1$ & 0.51	&0.304	&$0.093$ \\ \hline
+\multirow{3}{*}{$\sigma$} & $\hat{\beta}_{20}$ & 0.33	&0.20	&$0.095$\\
+& $\hat{\beta}_{21}$ & 0.14	&0.09	&0.157\\
+& $\hat{\lambda}_2$ & 0.40	&0.31	&0.199 \\ \hline
+$p_0$ & $\hat{\beta}_{30}$ & 0.23	&0.03	&$3.4e^{-11}$ \\ \hline
+$p_1$ & $\hat{\beta}_{40}$ &0.07	&0.02	&0.0011 \\ \hline
+\end{tabular}
+\caption{Estimaci\'{o}n de los efectos fijos y los componentes de varianza $\lambda_1$ y $\lambda2$ del modelo de regresi\'{o}n ZOIP mixto para el porcentaje utilizaci\'{o}n de una tdc.}
+%\label{T_Apli_mix}
+\end{center}
+}
+\end{table}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Aplicación modelo de regresión ZOIP mixto}
+
+El modelo propuesto se puede reescribir con los par\'{a}metros estimados as\'{\i}:
+
+\begin{equation*}
+\begin{split}
+y_{ij}| \gamma_{1i},\gamma_{2i} & \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),\\
+h_1(\mu_{ij})&=-1.13+\gamma_{1i}+0.33 x_{1ij},\\
+h_2(\sigma_{ij})&=0.33+\gamma_{2i}+0.14 x_{1ij},\\
+h_3(p_{0})&=0.23,\\
+h_4(p_{1})&=0.07,
+\end{split}
+%\label{A_eq_reg_mix2}
+\end{equation*}
+
+donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ESTUDIO SIMULACION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estudio de simulación}
+\begin{frame}\frametitle{Objetivos del estudio de simulación}
+
+
+\begin{enumerate}
+	\item Determinar el desempeño del proceso de estimación de los parámetros. \pause \medskip
+	\item Observar la funcionalidad de las funciones del paquete \pkg{ZOIP}.\pause \medskip
+	\item Determinar los mejores escenarios de simulación para la estimación de los parámetros de acuerdo con el modelo propuesto.\pause \medskip
+	\item Conocer el tamaño muestral mínimo para obtener una estimación razonablemente buena de los parámetros de los modelos propuestos.
+
+\end{enumerate}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
+
+%Se generaron muestras de una distribución ZOIP bajo las diferentes distribuciones y parámetrizaciones con tamaños de muestra n de: 5, 10, 15 y así sucesivamente hasta 500, y se realizaron 1000 réplicas para cada tamaño de muestra, posteriormente se calculó la mediana de cada una de las estimaciones de los parámetros.\pause \medskip
+
+\begin{itemize}
+\item Escenario 1: Distribución ZOIP-beta$(\mu=0.6 ,\sigma=0.2 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Stasinopoulos2}.\pause \medskip
+\item Escenario 2: Distribución ZOIP-beta$(\mu=0.6 , \sigma=24 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Ferrari2}.\pause \medskip
+\item Escenario 3: Distribución ZOIP-beta$(\mu=14.4 , \sigma=9.6 , p_0=0.03 , p_1= 0.05)$ en la parametrización original. \pause \medskip
+\item Escenario 4: Distribución ZOIP-simplex$(\mu=0.4 , \sigma=0.2 , p_0=0.03 , p_1= 0.05)$.
+
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.45]{Simulacion_RS_FC.eps}
+		\caption{Mediana de los parámetros estimados en el escenario 1 y 2 para distintos valores de $n$, las líneas rojas representan el verdadero valor del parámetro.}
+		\label{Simu_1}
+	\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.45]{Simulacion_Ori_Sim.eps}	
+		\caption{Mediana de los parámetros estimados en el escenario 3 y 4 para distintos valores de $n$, las líneas rojas representan el verdadero valor del parámetro.}
+		\label{Simu_2}
+	\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.52]{Mape_gnrl.eps}	
+		\caption{Mape (Error porcentual absoluto medio) para los escenarios de simulación y para distintos valores de $n$.}
+		\label{Mapes}
+	\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusiones y trabajos futuros}
+
+
+
+
+
+\section{Referencias} 
+\begin{frame}
+  \frametitle{Referencias}
+  \nocite{Ferrari2,Stasinopoulos2,Barndorff1,Jorgensen1}
+  
+  \bibliographystyle{abbrv}
+  \bibliography{symposium}
+\end{frame}
+
+\begin{frame} \frametitle{}
+
+
+\begin{center}
+\textbf{{\Huge Muchas Gracias...}}
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Diapositivas auxiliares %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{frame} [label=Dist_P] \frametitle{Distribución beta original.} 
+La función de densidad de probabilidad de la distribución beta con parámetros \textit{p} y \textit{q} es denotada por \textit{Be(p,q)} y es dada por:\\
+
+\begin{equation}
+f(y;p,q)=\frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)}y^{p-1}(1-y)^{q-1} \quad;\quad  0<y<1 \quad , \label{ecua:1}
+\end{equation}
+
+donde los parámetros $p>0$, $q>0$ y $\Gamma(\cdot)$ es la función gamma. El valor esperado y la varianza de \textit{y} están dadas por:
+
+\begin{align}
+\begin{split}
+	E(y) &= \frac{p}{p+q} 
+\end{split} \label{E_Origin} \\
+\begin{split}
+	Var(y) &= \frac{pq}{(p+q)^2(p+q+1)}
+\end{split} \label{V_Origin}
+\end{align}
+	
+\vskip15pt
+\hyperlink{A1}{\beamerbutton{Volver}}
+  \end{frame}
+	
+\begin{frame}\frametitle{Distribución beta parametrización Ferrari y Cribari-Neto(2004).} 
+
+La función de densidad de probabilidad de la distribución beta con parámetros $\mu$ y $\phi$ denotado por $Be(\mu,\phi)$ está dada por:
+
+\begin{equation}
+f(y;\mu,\phi)=\frac{\Gamma(\phi)}{\Gamma(\mu\phi)\Gamma((1-\mu)\phi)}y^{\mu\phi-1}(1-y)^{(1-\mu)\phi-1} \quad;\quad  0<y<1
+\end{equation}
+
+donde $0<\mu<1$ y $\phi>0$. El valor esperado y la varianza de \textit{y} están dados por:
+
+\begin{align}
+\begin{split}
+	E(y) &= \mu 
+\end{split} \label{E_FC} \\
+\begin{split}
+	Var(y) &= \frac{\mu(1-\mu)}{1+\phi}
+\end{split} \label{V_FC}
+\end{align}
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Distribución beta parametrización Rigby y Stasinopoulos(2008).} 
+
+La función de densidad de probabilidad de la distribución beta con parámetros $\mu$ y $\sigma$ denotado como $Be(\mu,\sigma)$ y está dada por:
+
+\begin{equation}
+f(y;\mu,\sigma)=B(\mu,\sigma)y^{\mu((1-\sigma^2)/\sigma^2)-1}(1-y)^{(1-\mu)((1-\sigma^2)/\sigma^2)-1} \quad; 0<y<1 \quad , \label{ecua:3}
+\end{equation}
+
+donde $B(\mu,\sigma)=\frac{\Gamma((1-\sigma^2)/\sigma^2)}{\Gamma(\mu((1-\sigma^2)/\sigma^2))\Gamma((1-\mu)((1-\sigma^2)/\sigma^2))},$\\
+
+donde $0<\mu<1$ y $0<\sigma<1$. La media y la varianza de \textit{y} están dadas por:
+
+\begin{align}
+\begin{split}
+	E(y) &= \mu 
+\end{split} \label{E_RS} \\
+\begin{split}
+	Var(y) &= \sigma^2\mu(1-\mu)
+\end{split} \label{V_RS}
+\end{align}
+
+\end{frame}
+
+\begin{frame}\frametitle{Distribución simplex.} 
+
+la distribución simplex es introducida por Barndorff-Nielsen y Jørgensen(1991) es un caso particular de los modelos de dispersión, cuya función de densidad de probabilidad depende de los parámetros $\mu$ y $\Sigma^{2}$ denotado por $S(\mu,\sigma^{2})$ dado por:
+
+\
+\begin{equation}
+f(y;\mu,\sigma^2)=\left\{2\pi\sigma^2[y(1-y)]^3\right\}^{-1/2}\exp\left\{-\frac{y(1-y)\mu^2(1-\mu)^2}{2\sigma^2(y-\mu)^2}\right\}
+\end{equation}
+
+donde $0<\mu<1$ y $\sigma>0$.
+
+\end{frame}
+
+\begin{frame}\frametitle{Distribución simplex.} 
+
+Además el valor esperado y la varianza están dadas por:
+
+\begin{align}
+\begin{split}
+	E(y) &= \mu 
+\end{split} \label{E_Simplex} \\
+\begin{split}
+	Var(y) &= \mu(1-\mu)-\frac{1}{\sqrt{2\sigma^2}}\exp\left\{\frac{1}{2\sigma^2\mu^2(1-\mu)^2}\right\}\Gamma\left\{\frac{1}{2},\frac{1}{2\sigma^2\mu^2(1-\mu)^2}\right\}
+\end{split} \label{V_Simplex}
+\end{align}
+
+donde $\Gamma(a,b)$ está dado por la función$-\Gamma$ incompleta definido como $\Gamma(a,b)=\int_{b}^{\infty}{t^{a-1}b^tdt}$. ver más en \cite{Zhang1}.
+\vskip15pt
+\hyperlink{A1}{\beamerbutton{Volver}}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} [label=AGHQ]\frametitle{Cuadratura de Gauss-Hermite adaptativa.} 
+
+Se define Como:
+
+\[
+\int_\Re{g(x)dx}\approx\sum_{i=1}^{n}{g(p_i)exp(p_i^2)w_i.}
+\]
+
+El conjunto de los $n$ puntos de la cuadratura $\textbf{P}=\left\{p_1,p_2,\ldots,p_n\right\}$ corresponde a las raíces del polinomio de Hermite dado por: 
+
+\[
+H_n{(x)}=(-1)^ne^{-x^2}\frac{d^n}{dx^n}e^{-x^2},
+\]
+
+con pesos asociados $\textbf{W}=\left\{w_1,w_2,\ldots,w_n\right\}$ dados por
+
+\[
+w_i=\frac{2^{n-1}n!\sqrt{\pi}}{n^2{[H_{n-1}(x_i)]}^2}.
+\]
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Cuadratura de Gauss-Hermite adaptativa.} 
+
+La cuadratura de Gauss-Hermite adaptativa (AGHQ) es propuesta por Liu y Pierce (1994); Pinheiro y Bates (1995), es básicamente una transformación de los puntos asociados a la cuadratura, centrando y extendiendo alrededor del máximo valor de $\hat{x}$ de la función $log(g(x))$. La transformación de los puntos de la cuadratura $p_i$ definido como $p_i^*$, está dado por $p_i^*=\sqrt{2}\hat{\sigma}p_i+\hat{x}$ donde:
+
+\[
+\hat{\sigma}^2={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+\\
+Así, la aproximación de la integral de $g(x)$ sobre $\Re$ está dado por:
+
+\[
+\int_\Re{g(x)dx}\approx\sqrt{2}\hat{\sigma}\sum_{i=1}^{n}{g(p_i^*)exp(p_i^2)w_i.}
+\]
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Cuadratura de Gauss-Hermite adaptativa.} 
+
+Si extendemos la AGHQ a una integral de dimensión q de la función $g(x)$ sobre $\Re^q$, en este caso, con una cuadratura de $n$ puntos, $\textbf{Z}$ está basado en el producto cartesiano de $\textbf{P}$, y los pesos de la cuadratura de $\textbf{A}$ está basado similarmente en el producto Kronecker, denotado por $\otimes$, los pesos originales $\textbf{W}$, es dado:
+
+\[
+\textbf{Z}=\underbrace{P \times \ldots \times P}_{q\ \text{veces}}=P^q,
+\]
+
+\[
+\textbf{A}=\underbrace{W \otimes \ldots \otimes W}_{q\ \text{veces}}.
+\]
+\\
+Así, la expresión para la integral aproximada de $g(x)$ sobre $\Re^q$ está dado por:
+
+\[
+\int_{\Re^q}{g(x)dx}\approx|\hat{Q}|^{1/2} 2^{q/2}\sum_{i=1}^{n^q}g(z_i^*)exp(z_i^{\top}z_i)a_i,
+\]
+
+\end{frame}
+
+\begin{frame}\frametitle{Cuadratura de Gauss-Hermite adaptativa.} 
+
+donde $z_i$ y $a_i$ corresponde a los elementos de $\textbf{Z}$ y $\textbf{A}$, respectivamente. Los nuevos puntos de la cuadratura $z_i^*$ estan centrados en el máximo de $\hat{x}$ del $log(g(x))$ y está dado por $z_i^*=\hat{x}+\sqrt{2}\hat{Q}^{1/2}z_i$, donde $\hat{Q}^{1/2}$ corresponde a la descomposición de Cholesky de la curvatura de la matriz $\hat{Q}$, que se encuentra dado por:
+
+\[
+\hat{Q}={\left[\left. -\frac{d^2}{dx^2}log(g(x))\right|_{x=\hat{x}}\right]^{-1}}.
+\]
+
+\end{frame}
+
+\begin{frame}\frametitle{Cuadratura de Gauss-Hermite adaptativa con Pruning.}
+
+La cuadratura de Gauss-Hermite adaptativa con pruning consiste en eliminar puntos de la cuadratura, tales que el peso $a_i$ asociado al punto es menor que un valor de referencia dado por $\theta$, que está dado por:
+\[
+\theta=\frac{w_{[1]}w_{[\frac{n+1}{2}]}}{n^{q-1}}.
+\]
+
+\vskip15pt
+\hyperlink{A2}{\beamerbutton{Volver}}
+\end{frame}
+
+
+
+\end{document}

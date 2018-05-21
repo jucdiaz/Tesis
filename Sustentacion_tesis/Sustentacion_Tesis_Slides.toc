@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\'on}{3}{0}{1}
+\beamer@sectionintoc {2}{Metodolog\IeC {\'\i }a}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Distribuci\'on ZOIP (Zeros Ones Inflated Proporcional)}{11}{0}{2}
+\beamer@subsectionintoc {2}{2}{Modelo de regresi\'{o}n ZOIP con efectos fijos}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{Modelo de regresi\'{o}n ZOIP con efectos mixtos}{15}{0}{2}
+\beamer@sectionintoc {3}{Paquete ZOIP de R}{21}{0}{3}
+\beamer@sectionintoc {4}{Aplicaci\'on a datos reales}{25}{0}{4}
+\beamer@sectionintoc {5}{Estudio de simulaci\'on}{37}{0}{5}
+\beamer@sectionintoc {6}{Conclusiones y trabajos futuros}{48}{0}{6}
+\beamer@sectionintoc {7}{Referencias}{48}{0}{7}

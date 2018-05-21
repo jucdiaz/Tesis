@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ferrari2}
+S.~Ferrari and F.~Cribari-Neto.
+\newblock Beta regression for modelling rates and proportions.
+\newblock {\em Journal of applied statistics}, 31(7):799--815, 2004.
+
+\bibitem{Jorgensen1}
+B.~J{\o}rgensen.
+\newblock The theory of dispersion models.
+\newblock {\em Computational statistics and Data analysis}, 76, 1997.
+
+\bibitem{Barndorff1}
+B.~J{\o}rgensen and Barndorff-Nielsen.
+\newblock Some parametric models on the simplex.
+\newblock {\em Journal of multivariate analysis}, 39(1):106--116, 1991.
+
+\bibitem{Stasinopoulos2}
+B.~Rigby and M.~Stasinopoulos.
+\newblock Generalized additive models for location, scale and shape.
+\newblock {\em Applied Statistical}, 54(3):507--554, 2005.
+
+\bibitem{Zhang1}
+P.~Zhang, Z.~Qiu, and C.~Shi.
+\newblock simplexreg: An r package for regression analysis of proportional data
+  using the simplex distribution.
+\newblock {\em Journal of Statistical Sftware}, 71(11), 2016.
+
+\end{thebibliography}

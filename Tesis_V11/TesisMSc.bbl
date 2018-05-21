@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -247,12 +247,6 @@ O.~Usuga y V.~Giampaoli.
 \newblock \emph{Modelos de regress{\~a}o beta com efeitos aleat{\'o}rios
   normais e n{\~a}o normais para datos longitudinais}.
 \newblock PhD thesis, Universidade de S{\~a}o Paulo, 2013.
-
-\bibitem[Venezuela(2008)]{Venezuela1}
-M.~Venezuela.
-\newblock \emph{Equa{\c c}{\~a}o generalizada e influencia local para modelos
-  de regress{\~a}o beta con medidas repetidas}.
-\newblock PhD thesis, Universidade de S{\~a}o Paulo, 2008.
 
 \bibitem[Verkuilen y Smithson(2012)Verkuilen and Smithson]{Verkuilen1}
 J.~Verkuilen y M.~Smithson.
