@@ -53,6 +53,7 @@
 \usepackage{threeparttable}
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{wrapfig}
 
 %\lstdefineformat{R}{~=\( \sim \)}
 %\lstset{basicstyle=\ttfamily,format=R}
@@ -352,16 +353,20 @@ library(ZOIP) # Carga el paquete
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Funciones en el paquete ZOIP}
-En el paquete \pkg{ZOIP} de \proglang{R} es útil para ajustar distribución ZOIP, modelos de regresión de efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos. Estas son las principales funciones:
+El paquete \pkg{ZOIP} de \proglang{R} es útil para ajustar distribución ZOIP, modelos de regresión de efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos. Estas son las principales funciones:\\ \medskip
 
-\begin{itemize}
-	\item \verb|dZOIP|
-	\item \verb|pZOIP|
-	\item \verb|qZOIP|
-	\item \verb|rZOIP|
-	\item \verb|RM.ZOIP|
-	\item \verb|RMM.ZOIP|
-\end{itemize}
+\begin{wrapfigure}{r}{0.25\textwidth}
+ \centering
+		\includegraphics[scale=0.45]{Logo_ZOIP.eps}
+\end{wrapfigure}
+
+
+\verb|dZOIP|\\ \medskip
+\verb|pZOIP|\\ \medskip
+\verb|qZOIP|\\ \medskip
+\verb|rZOIP|\\ \medskip
+\verb|RM.ZOIP|\\ \medskip
+\verb|RMM.ZOIP|
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,7 +536,6 @@ RM.ZOIP(data = porc_tdc, family = "F-C")
 RM.ZOIP(data = porc_tdc, family = "Original")
 RM.ZOIP(data = porc_tdc, family = "Simplex")
 \end{verbatim}
-
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -735,10 +739,10 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 %Se generaron muestras de una distribución ZOIP bajo las diferentes distribuciones y parámetrizaciones con tamaños de muestra n de: 5, 10, 15 y así sucesivamente hasta 500, y se realizaron 1000 réplicas para cada tamaño de muestra, posteriormente se calculó la mediana de cada una de las estimaciones de los parámetros.\pause \medskip
 
 \begin{itemize}
-\item Escenario 1: Distribución ZOIP-beta$(\mu=0.6 ,\sigma=0.2 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Stasinopoulos2}.\pause \medskip
-\item Escenario 2: Distribución ZOIP-beta$(\mu=0.6 , \sigma=24 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Ferrari2}.\pause \medskip
-\item Escenario 3: Distribución ZOIP-beta$(\mu=14.4 , \sigma=9.6 , p_0=0.03 , p_1= 0.05)$ en la parametrización original. \pause \medskip
-\item Escenario 4: Distribución ZOIP-simplex$(\mu=0.4 , \sigma=0.2 , p_0=0.03 , p_1= 0.05)$.
+\item \textbf{Escenario 1:} Distribución ZOIP-beta$(\mu=0.6 ,\sigma=0.2 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Stasinopoulos2}.\pause \medskip
+\item \textbf{Escenario 2:} Distribución ZOIP-beta$(\mu=0.6 , \sigma=24 , p_0=0.03 , p_1= 0.05)$ para el caso de la parametrización de \cite{Ferrari2}.\pause \medskip
+\item \textbf{Escenario 3:} Distribución ZOIP-beta$(\mu=14.4 , \sigma=9.6 , p_0=0.03 , p_1= 0.05)$ en la parametrización original. \pause \medskip
+\item \textbf{Escenario 4:} Distribución ZOIP-simplex$(\mu=0.4 , \sigma=0.2 , p_0=0.03 , p_1= 0.05)$.
 
 \end{itemize}
 
@@ -748,7 +752,7 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 \begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.45]{Simulacion_RS_FC.eps}
+		\includegraphics[scale=0.35]{Simulacion_RS_FC.eps}
 		\caption{Mediana de los parámetros estimados en el escenario 1 y 2 para distintos valores de $n$, las líneas rojas representan el verdadero valor del parámetro.}
 		\label{Simu_1}
 	\end{center}
@@ -758,7 +762,7 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 \begin{frame}\frametitle{Estudio de simulación: Distribución ZOIP}
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.45]{Simulacion_Ori_Sim.eps}	
+		\includegraphics[scale=0.35]{Simulacion_Ori_Sim.eps}	
 		\caption{Mediana de los parámetros estimados en el escenario 3 y 4 para distintos valores de $n$, las líneas rojas representan el verdadero valor del parámetro.}
 		\label{Simu_2}
 	\end{center}
@@ -775,6 +779,207 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 \end{figure}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP}
+
+Estructura del modelo de regresión ZOIP con efectos fijos, asociada a los estudios de simulación.
+
+\begin{equation*}
+\begin{split}
+y_{i} & \sim ZOIP(\mu_{i},\sigma_{i},p_{0i}, p_{1i}),\\
+h_1(\mu_{i}) &=\beta_{10}+\beta_{11}x_{1i},\\
+h_2(\sigma_{i}) &=\beta_{20}+\beta_{21}x_{1i}+\beta_{22}x_{2i},\\
+h_3(p_{0i}) &=\beta_{30},\\
+h_4(p_{1i}) &=\beta_{40}+\beta_{41}x_{2i}
+\end{split}
+%\label{S_eq_reg}
+\end{equation*}
+
+\begin{itemize}
+\item \textbf{Escenario 1, 2, 3:} $\mu$: $\beta_{10}=0.2$, $\beta_{11}=-1$ - $\sigma$: $\beta_{20}=0.3$, $\beta_{21}=3$, $\beta_{22}=0.9$ - $p_0$: $\beta_{30}=0.07$ - $p_1$: $\beta_{40}=0.02$, $\beta_{41}=-4$ con la parametrización de \cite{Ferrari2}, original y simplex.\pause \medskip
+\item \textbf{Escenario 4:} $\mu$: $\beta_{10}=0.2$, $\beta_{11}=-1$ - $\sigma$: $\beta_{20}=0.3$, $\beta_{21}=-2$, $\beta_{22}=-4$ - $p_0$: $\beta_{30}=0.07$ - $p_1$: $\beta_{40}=0.02$, $\beta_{41}=-4$ con la parametrización de \cite{Stasinopoulos2} .\pause \medskip
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{Converg_FC.eps}	
+		\caption{Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametrizaci\'{o}n  F-C con diferentes valores de $n$.}
+		\label{Simu_FC}
+	\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{Converg_RS.eps}	
+		\caption{Simulaci\'{o}n de un modelo de regresi\'{o}n ZOIP-beta para la parametrizaci\'{o}n R-S con diferentes valores de $n$.}
+		\label{Simu_RS}
+	\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP}
+\begin{table}[!hbt]
+{\scriptsize
+\begin{center}
+\begin{tabular}{|c|cc|ccc|c|cc|}\hline
+\multirow{2}{*}{Familia} & \multicolumn{2}{|c|}{$\mu$} & \multicolumn{3}{|c|}{$\sigma$} & $p_0$ & \multicolumn{2}{|c|}{$p_1$} \\ \cline{2-9}
+& $\hat{\beta}_0$& $\hat{\beta}_1$& $\hat{\beta}_0$& $\hat{\beta}_1$& $\hat{\beta}_2$& $\hat{\beta}_0$ & $\hat{\beta}_0$ & $\hat{\beta}_1$ \\ \hline \hline
+R-S & 1.25 & 0.32 & 1.45 & 2.55 & 1.38 & 4.86 & 383.09 & 4.88 \\ 
+F-C & 14.22 & 3.96 & 22.21 & 2.9 & 10.14 & 4.86 & 91.21 & 4.88 \\
+original & 22.34 & 8.03 & 22.55 & 3.62 & 8.69 & 4.84 & 90.58 & 4.96 \\
+simplex & 13.93 & 5.89 & 24.49 & 3.11 & 11.01 & 4.85 & 91.15 & 4.81 \\ \hline
+\end{tabular}
+\caption{Mediana del MAPE (Error porcentual absoluto medio) en porcentaje para los diferentes Par\'{a}metros en las diferentes parametrizaciones.}
+\label{MAPE}
+\end{center}
+}
+\end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+
+El modelo de regresión ZOIP mixto en el cual se basa el estudio de simulación se muestra a continuación: 
+
+\begin{equation*}
+\begin{split}
+y_{ij}| \gamma_{1i},\gamma_{2i} & \overset{\text{ind}}{\sim} ZOIP(\mu_{ij},\sigma_{ij},p_0, p_1),\\
+h_1(\mu_{ij})&=-1.13+\gamma_{1i}+0.33 x_{1ij},\\
+h_2(\sigma_{ij})&=0.33+\gamma_{2i}+0.14 x_{1ij},\\
+h_3(p_{0})&=0.23,\\
+h_4(p_{1})&=0.07,
+\end{split}
+%\label{A_eq_reg_mix2}
+\end{equation*}
+
+donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.5]{Esc_sim_mix.eps}	
+		\caption{Esquema de simulación.}
+	\end{center}
+\end{figure}
+
+En el estudio de simulación se plantearon 18 escenarios de simulaci\'{o}n y se realizaron 1000 r\'{e}plicas en cada escenario.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.4]{Ajuste_expo_mix.eps}	
+		\caption{Ajuste de la distribuci\'{o}n exponencial a la variable \textsl{total mora}}
+		\label{Ajuste_expo_mix}
+	\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{table}[!hbt]
+{\tiny
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+& & \multicolumn{3}{|c|}{Con \textit{pruning}} & \multicolumn{3}{|c|}{Sin \textit{pruning}} \\ \hline
+Par\'{a}metro &$\beta$'s & $n_i=5$ & $n_i=20$ & $n_i=50$ & $n_i=5$ & $n_i=20$ & $n_i=50$ \\ \hline \hline
+\multirow{3}{*}{$\mu$} & $\beta_{10}=-1.13$ & -1.137	&-1.110	&-1.076	&-1.128	&-1.120	&-1.080 \\ 
+& $\beta_{11}=0.33$ & 0.321	&0.327	&0.326	&0.331	&0.330	&0.327 \\
+& $\lambda_1=0.51$ & 0.879	&0.576	&0.507	&0.882	&0.568	&0.498 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\beta_{20}=0.33$ & 0.445	&0.380	&0.336	&0.452	&0.377	&0.345 \\ 
+& $\beta_{21}=0.14$ & 0.072	&0.118	&0.132	&0.066	&0.121	&0.133\\
+& $\lambda_2=0.4$ & 0.728	&0.450	&0.396	&0.727	&0.456	&0.398\\ \hline
+$p_0$& $\beta_{30}=0.23$ &0.220	&0.230	&0.230	&0.220	&0.230	&0.230 \\ \hline
+$p_1$& $\beta_{40}=0.07$ &0.060	&0.070	&0.070	&0.060	&0.070	&0.072 \\ \hline
+Med tiempo(Seg)& &115.72	&130.85	&140.58	&61.69	&163.36	&218.68 \\ \hline
+Med num. iter& &22	&30	&34	&22	&30	&34 \\ \hline
+\end{tabular}
+\caption{Mediana de los par\'{a}metros estimados en el modelo ZOIP mixto para tres tama\~{n}os de muestra y con la estrategia de ``con y sin \textit{pruning}'' y para todos los valores de $Q$.}
+\label{T_Sim_mix_ni}
+\end{center}
+}
+\end{table}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{table}[!hbt]
+{\tiny
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+& & \multicolumn{3}{|c|}{Con \textit{pruning}} & \multicolumn{3}{|c|}{Sin \textit{pruning}} \\ \hline
+Par\'{a}metro &$\beta$'s & $Q=3$ & $Q=10$ & $Q=20$ & $Q=3$ & $Q=10$ & $Q=20$ \\ \hline \hline
+\multirow{3}{*}{$\mu$} & $\beta_{10}=-1.13$ & -1.122	& -1.069	& -1.120	& -1.117	& -1.076	& -1.129 \\ 
+& $\beta_{11}=0.33$& 0.323	&0.322	&0.333	&0.334	&0.322	&0.329 \\
+& $\lambda_1=0.51$ & 0.632	&0.626	&0.634	&0.629	&0.616	&0.623 \\ \hline
+\multirow{3}{*}{$\sigma$} & $\beta_{20}=0.33$ & 0.400	&0.365	&0.366	&0.382	&0.379	&0.373 \\ 
+& $\beta_{21}=0.14$ & 0.117	&0.119	&0.120	&0.123	&0.117	&0.121 \\
+& $\lambda_2=0.4$& 0.490	&0.487	&0.491	&0.501	&0.482	&0.486 \\ \hline
+$p_0$& $\beta_{30}=0.23$ &0.228	&0.228	&0.226	&0.226	&0.226	&0.226 \\ \hline
+$p_1$& $\beta_{40}=0.07$ &0.068	&0.070	&0.070	&0.070	&0.068	&0.070 \\ \hline
+Med tiempo(Seg)& &75.295	&128.28	&271.825	&74.295	&162.35	&367.545 \\ \hline
+Med num. iter& &30	&29	&29	&29	&29	&29 \\ \hline
+\end{tabular}
+\caption{Mediana de los par\'{a}metros estimados en el modelo ZOIP mixto para tres diferentes n\'{u}meros de puntos de la cuadratura de Gauss-Hermite y con la estrategia de ``con y sin \textit{pruning}'' y para todos los tama\~{n}os de muestra.}
+\label{T_Sim_mix_ncua}
+\end{center}
+}
+\end{table}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{MAPE_lambda1_mu.eps}	
+		\caption{Mediana del error relativo para la estimaci\'{o}n del par\'{a}metro $\lambda_1$ desviaci\'{o}n est\'{a}ndar del intercepto aleatorio asociado a la $\mu$, variando el tama\~{n}o de muestra, el n\'{u}mero de puntos de la cuadratura y la utilizaci\'{o}n de \textit{pruning}.}
+		\label{MAPE_lambda1_mu}
+	\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{MAPE_lambda2_sigma.eps}	
+		\caption{Mediana del error relativo para la estimaci\'{o}n del par\'{a}metro $\lambda_2$ desviaci\'{o}n est\'{a}ndar del intercepto aleatorio asociado a $\sigma$, variando el tama\~{n}o de muestra, el n\'{u}mero de puntos de la cuadratura y la utilizaci\'{o}n de \textit{pruning}.}
+		\label{MAPE_lambda2_sigma}
+	\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Modelo regresión ZOIP mixto}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.35]{time_mix_ZOIP.eps}	
+		\caption{Mediana del tiempo de ejecuci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, bajo la funci\'{o}n de \code{RMM.ZOIP} del paquete \pkg{ZOIP} de \proglang{R}.}
+		\label{time_mix_ZOIP}
+	\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estudio de simulación: Conclusiones}
+
+
+\begin{enumerate}
+	\item Los factores que m\'{a}s influyen sobre la estimaci\'{o}n es el tama\~{n}o de muestra de cada uno de los grupos, es decir $n_i$, ya que este factor hace que el error relativo de la estimaci\'{o}n de todos los par\'{a}metros se vea reducido considerablemente cuando se aumenta.
+	\item El hecho de utilizar la metodolog\'{\i}a \textit{pruning} hace que los valores de las estimaciones de los par\'{a}metros del modelo no cambien, pero s\'{\i} que el tiempo de ejecuci\'{o}n se vea reducido en un 50\%.
+	\item El efecto del n\'{u}mero de puntos de la cuadratura de Gauss-Hermite no influye demasiado en la estimaci\'{o}n de los par\'{a}metros de efectos fijos, aunque s\'{\i} afecta el aumento de este factor la estimaci\'{o}n de los componentes de varianza de los interceptos aleatorios.
+\end{enumerate}
+
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
