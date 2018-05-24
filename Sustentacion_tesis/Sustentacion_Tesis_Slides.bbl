@@ -1,9 +1,15 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Ferrari2}
 S.~Ferrari and F.~Cribari-Neto.
 \newblock Beta regression for modelling rates and proportions.
 \newblock {\em Journal of applied statistics}, 31(7):799--815, 2004.
+
+\bibitem{Galvis1}
+D.~Galvis and V.~Lachos.
+\newblock {\em Bayesian analysis of regression models for proportional data in
+  the presence of zeros and ones}.
+\newblock PhD thesis, Estatal University of Campinas, 2014.
 
 \bibitem{Jorgensen1}
 B.~J{\o}rgensen.
@@ -15,10 +21,48 @@ B.~J{\o}rgensen and Barndorff-Nielsen.
 \newblock Some parametric models on the simplex.
 \newblock {\em Journal of multivariate analysis}, 39(1):106--116, 1991.
 
+\bibitem{Ospina2}
+R.~Ospina and S.~Ferrari.
+\newblock Inflated beta distributions online: doi:10.1007/s00362-008-0125-4.
+\newblock {\em Statitical papers}, 2010.
+
+\bibitem{Ospina1}
+R.~Ospina and S.~Ferrari.
+\newblock A general class of zero-or-one inflated beta regression models.
+\newblock {\em Computational Statistics and Data Analysis}, 56(6):1609--1623,
+  2012.
+
+\bibitem{Qiu1}
+Z.~Qiu, P.~Song, and M.~Tan.
+\newblock Simplex mixed-effects models for longitudinal proportional data.
+\newblock {\em Scandinavian Journal of Statistics}, 35(4):577--596, 2008.
+
+\bibitem{R}
+{\proglang{R} Core Team}.
+\newblock {\em \proglang{R}: A Language and Environment for Statistical
+  Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2018.
+
 \bibitem{Stasinopoulos2}
 B.~Rigby and M.~Stasinopoulos.
 \newblock Generalized additive models for location, scale and shape.
 \newblock {\em Applied Statistical}, 54(3):507--554, 2005.
+
+\bibitem{Stasinopoulos1}
+B.~Rigby and M.~Stasinopoulos.
+\newblock Instructions on how to use the gamlss package in r.
+\newblock {\em Computational statistics and Data analysis}, 2:194--195, 2008.
+
+\bibitem{Usuga1}
+O.~Usuga and V.~Giampaoli.
+\newblock {\em Modelos de regress{\~a}o beta com efeitos aleat{\'o}rios normais
+  e n{\~a}o normais para datos longitudinais}.
+\newblock PhD thesis, Universidade de S{\~a}o Paulo, 2013.
+
+\bibitem{Zeileis1}
+A.~Zeileis, F.~Cribari-Neto, and B.~Gr{\"u}n.
+\newblock Beta regression in r.
+\newblock {\em Journal of statistical software}, 34(2):1--24, 2010.
 
 \bibitem{Zhang1}
 P.~Zhang, Z.~Qiu, and C.~Shi.

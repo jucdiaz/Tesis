@@ -4,9 +4,9 @@
 \beamer@sectionintoc {2}{Metodolog\IeC {\'\i }a}{11}{0}{2}
 \beamer@subsectionintoc {2}{1}{Distribuci\'on ZOIP (Zeros Ones Inflated Proporcional)}{11}{0}{2}
 \beamer@subsectionintoc {2}{2}{Modelo de regresi\'{o}n ZOIP con efectos fijos}{13}{0}{2}
-\beamer@subsectionintoc {2}{3}{Modelo de regresi\'{o}n ZOIP con efectos mixtos}{15}{0}{2}
-\beamer@sectionintoc {3}{Paquete ZOIP de R}{21}{0}{3}
-\beamer@sectionintoc {4}{Aplicaci\'on a datos reales}{25}{0}{4}
-\beamer@sectionintoc {5}{Estudio de simulaci\'on}{37}{0}{5}
-\beamer@sectionintoc {6}{Conclusiones y trabajos futuros}{63}{0}{6}
-\beamer@sectionintoc {7}{Referencias}{63}{0}{7}
+\beamer@subsectionintoc {2}{3}{Modelo de regresi\'{o}n ZOIP con efectos mixtos}{16}{0}{2}
+\beamer@sectionintoc {3}{Paquete ZOIP de R}{22}{0}{3}
+\beamer@sectionintoc {4}{Aplicaci\'on a datos reales}{26}{0}{4}
+\beamer@sectionintoc {5}{Estudio de simulaci\'on}{38}{0}{5}
+\beamer@sectionintoc {6}{Conclusiones y trabajos futuros}{64}{0}{6}
+\beamer@sectionintoc {7}{Referencias}{66}{0}{7}

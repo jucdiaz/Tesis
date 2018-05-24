@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  21 MAY 2018 23:14
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  23 MAY 2018 22:48
 entering extended mode
 **Sustentacion_Tesis_Slides.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.tex"
@@ -1106,22 +1106,24 @@ m/n/9 ; \OML/cmm/m/it/9 []; []\OT1/cmr/m/n/9 )
 
 ] [18
 
+] [19
+
 ]
-Overfull \hbox (19.60544pt too wide) detected at line 290
+Overfull \hbox (19.60544pt too wide) detected at line 313
 \OML/cmm/m/it/9 `\OT1/cmr/m/n/9 (\OML/cmm/b/it/9 \OT1/cmr/m/n/9 ) = [] \OML/cmm/m/it/9 log []
- []
-
-[19
-
-]
-Overfull \hbox (10.67316pt too wide) detected at line 304
-\OML/cmm/m/it/9 `\OT1/cmr/m/n/9 (\OML/cmm/b/it/9 \OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  [] \OML/cmm/m/it/9 log[]
  []
 
 [20
 
+]
+Overfull \hbox (10.67316pt too wide) detected at line 327
+\OML/cmm/m/it/9 `\OT1/cmr/m/n/9 (\OML/cmm/b/it/9 \OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  [] \OML/cmm/m/it/9 log[]
+ []
+
+[21
+
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-21
+22
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb"
 File: Logo_ZOIP.eps Graphic file (type eps)
@@ -1130,10 +1132,10 @@ Overfull \hbox (5.83578pt too wide) in paragraph at lines 6--7
  [][] 
  []
 
-) [22
+) [23
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-23
+24
 
 ]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb"
@@ -1141,38 +1143,38 @@ Overfull \hbox (18.73134pt too wide) in paragraph at lines 15--15
 []\OT1/cmtt/m/n/9 mod<-RMM.ZOIP(formula.mu = Y ~ log(Days), formula.sigma = ~log(Days),[] 
  []
 
-) [24
+) [25
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-25
+26
 
 ]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb")
-[26
+[27
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-27
+28
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb"
 File: Aplicacion_SC.eps Graphic file (type eps)
  <Aplicacion_SC.eps>)
-Overfull \vbox (8.47665pt too high) detected at line 591
+Overfull \vbox (8.47665pt too high) detected at line 614
  []
 
-[28
-
-] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-29
+[29
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
 30
 
+] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
+31
+
 ]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb")
-[31
+[32
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-32
+33
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb"
 Overfull \hbox (21.98161pt too wide) in paragraph at lines 6--26
@@ -1181,19 +1183,17 @@ Overfull \hbox (21.98161pt too wide) in paragraph at lines 6--26
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 26.
-) [33
+) [34
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-34
+35
 
 ]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb")
-[35
+[36
 
 ] ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.vrb") [
-36
-
-] [37
+37
 
 ] [38
 
@@ -1201,16 +1201,10 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 
 ] [40
 
-]
-Overfull \hbox (8.12024pt too wide) in paragraph at lines 749--749
-[]\OT1/cmr/bx/n/9 Escenario 4: \OT1/cmr/m/n/9 Dis-tribu-cion ZOIP-simplex$(\OML/cmm/m/it/9  \OT1/cmr/m/n/9 = 0[]4\OML/
-cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 =
- []
-
-[41
+] [41
 
 ]
-Overfull \hbox (8.12024pt too wide) in paragraph at lines 749--749
+Overfull \hbox (8.12024pt too wide) in paragraph at lines 772--772
 []\OT1/cmr/bx/n/9 Escenario 4: \OT1/cmr/m/n/9 Dis-tribu-cion ZOIP-simplex$(\OML/cmm/m/it/9  \OT1/cmr/m/n/9 = 0[]4\OML/
 cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 =
  []
@@ -1218,7 +1212,7 @@ cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03
 [42
 
 ]
-Overfull \hbox (8.12024pt too wide) in paragraph at lines 749--749
+Overfull \hbox (8.12024pt too wide) in paragraph at lines 772--772
 []\OT1/cmr/bx/n/9 Escenario 4: \OT1/cmr/m/n/9 Dis-tribu-cion ZOIP-simplex$(\OML/cmm/m/it/9  \OT1/cmr/m/n/9 = 0[]4\OML/
 cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 =
  []
@@ -1226,7 +1220,7 @@ cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03
 [43
 
 ]
-Overfull \hbox (8.12024pt too wide) in paragraph at lines 749--749
+Overfull \hbox (8.12024pt too wide) in paragraph at lines 772--772
 []\OT1/cmr/bx/n/9 Escenario 4: \OT1/cmr/m/n/9 Dis-tribu-cion ZOIP-simplex$(\OML/cmm/m/it/9  \OT1/cmr/m/n/9 = 0[]4\OML/
 cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 =
  []
@@ -1234,94 +1228,106 @@ cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03
 [44
 
 ]
-File: Simulacion_RS_FC.eps Graphic file (type eps)
- <Simulacion_RS_FC.eps>
-Overfull \vbox (5.31477pt too high) detected at line 760
+Overfull \hbox (8.12024pt too wide) in paragraph at lines 772--772
+[]\OT1/cmr/bx/n/9 Escenario 4: \OT1/cmr/m/n/9 Dis-tribu-cion ZOIP-simplex$(\OML/cmm/m/it/9  \OT1/cmr/m/n/9 = 0[]4\OML/
+cmm/m/it/9 ;  \OT1/cmr/m/n/9 = 0[]2\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 = 0[]03\OML/cmm/m/it/9 ; p[] \OT1/cmr/m/n/9 =
  []
 
 [45
 
 ]
-File: Simulacion_Ori_Sim.eps Graphic file (type eps)
- <Simulacion_Ori_Sim.eps>
-Overfull \vbox (5.31477pt too high) detected at line 770
+File: Simulacion_RS_FC.eps Graphic file (type eps)
+ <Simulacion_RS_FC.eps>
+Overfull \vbox (5.31477pt too high) detected at line 783
  []
 
 [46
 
 ]
-File: Mape_gnrl.eps Graphic file (type eps)
- <Mape_gnrl.eps> [47
+File: Simulacion_Ori_Sim.eps Graphic file (type eps)
+ <Simulacion_Ori_Sim.eps>
+Overfull \vbox (5.31477pt too high) detected at line 793
+ []
 
-] [48
+[47
+
+]
+File: Mape_gnrl.eps Graphic file (type eps)
+ <Mape_gnrl.eps> [48
 
 ] [49
 
 ] [50
 
+] [51
+
 ]
 File: Converg_FC.eps Graphic file (type eps)
  <Converg_FC.eps>
-Overfull \vbox (3.75922pt too high) detected at line 815
- []
-
-[51
-
-]
-File: Converg_RS.eps Graphic file (type eps)
- <Converg_RS.eps>
-Overfull \vbox (3.75922pt too high) detected at line 826
+Overfull \vbox (3.75922pt too high) detected at line 838
  []
 
 [52
 
-] [53
+]
+File: Converg_RS.eps Graphic file (type eps)
+ <Converg_RS.eps>
+Overfull \vbox (3.75922pt too high) detected at line 849
+ []
+
+[53
 
 ] [54
 
+] [55
+
 ]
 File: Esc_sim_mix.eps Graphic file (type eps)
- <Esc_sim_mix.eps> [55
+ <Esc_sim_mix.eps> [56
 
 ]
 File: Ajuste_expo_mix.eps Graphic file (type eps)
- <Ajuste_expo_mix.eps> [56
+ <Ajuste_expo_mix.eps> [57
 
 ]
-Overfull \hbox (16.87167pt too wide) in paragraph at lines 914--914
- [] 
- []
-
-[57
-
-]
-Overfull \hbox (7.85pt too wide) in paragraph at lines 939--939
+Overfull \hbox (16.87167pt too wide) in paragraph at lines 937--937
  [] 
  []
 
 [58
 
 ]
-File: MAPE_lambda1_mu.eps Graphic file (type eps)
- <MAPE_lambda1_mu.eps>
-Overfull \vbox (1.31598pt too high) detected at line 949
+Overfull \hbox (7.85pt too wide) in paragraph at lines 962--962
+ [] 
  []
 
 [59
 
 ]
-File: MAPE_lambda2_sigma.eps Graphic file (type eps)
- <MAPE_lambda2_sigma.eps>
-Overfull \vbox (1.31598pt too high) detected at line 959
+File: MAPE_lambda1_mu.eps Graphic file (type eps)
+ <MAPE_lambda1_mu.eps>
+Overfull \vbox (1.31598pt too high) detected at line 972
  []
 
 [60
 
 ]
-File: time_mix_ZOIP.eps Graphic file (type eps)
- <time_mix_ZOIP.eps> [61
+File: MAPE_lambda2_sigma.eps Graphic file (type eps)
+ <MAPE_lambda2_sigma.eps>
+Overfull \vbox (1.31598pt too high) detected at line 982
+ []
 
-] [62
+[61
+
+]
+File: time_mix_ZOIP.eps Graphic file (type eps)
+ <time_mix_ZOIP.eps> [62
+
+] [63
+
+] [64
+
+] [65
 
 ]
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.bbl"
@@ -1338,30 +1344,36 @@ File: beamericonarticle.eps Graphic file (type eps)
  <beamericonarticle.eps>
 File: beamericonarticle.eps Graphic file (type eps)
 
-<beamericonarticle.eps>)
-Overfull \vbox (10.24036pt too high) detected at line 999
- []
+<beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
 
-[63
-
-] [64
-
-] [65
-
-] [66
+<beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>
+File: beamericonarticle.eps Graphic file (type eps)
+ <beamericonarticle.eps>) [66
 
 ] [67
 
-]
-Overfull \hbox (3.7538pt too wide) in paragraph at lines 1092--1092
-[]\OT1/cmr/m/n/9 la dis-tribu-cion sim-plex es in-tro-duci-da por Barndorff-Nielsen y Jrgensen(1991)
- []
 
-[68
+] [68
+
 
 ] [69
 
-] [70
+
+]
+[70
 
 ] [71
 
@@ -1369,19 +1381,36 @@ Overfull \hbox (3.7538pt too wide) in paragraph at lines 1092--1092
 
 ] [73
 
-] [74
+]
+Overfull \hbox (3.7538pt too wide) in paragraph at lines 1136--1136
+[]\OT1/cmr/m/n/9 la dis-tribu-cion sim-plex es in-tro-duci-da por Barndorff-Nielsen y Jrgensen(1991)
+ []
+
+[74
+
+] [75
+
+] [76
+
+] [77
+
+] [78
+
+] [79
+
+] [80
 
 ]
 \tf@nav=\write5
 \tf@toc=\write6
 \tf@snm=\write7
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1198.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1198.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1242.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1242.
 
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1242.
 Package rerunfilecheck Info: File `Sustentacion_Tesis_Slides.out' has not changed.
-(rerunfilecheck)             Checksum: 5317CE35205AD4E261D538E273A70576;694.
+(rerunfilecheck)             Checksum: F21DE8FE7BA30AFFD7AD57E23FBE5A40;694.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1389,12 +1418,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 15082 strings out of 495286
- 271657 string characters out of 3179895
+ 15129 strings out of 495286
+ 272518 string characters out of 3179895
  454282 words of memory out of 3000000
- 17758 multiletter control sequences out of 15000+200000
- 17573 words of font info for 66 fonts, out of 3000000 for 9000
+ 17804 multiletter control sequences out of 15000+200000
+ 17930 words of font info for 67 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,21n,62p,449b,753s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Sustentacion_Tesis_Slides.dvi (74 pages, 1011132 bytes).
+Output written on Sustentacion_Tesis_Slides.dvi (80 pages, 1091828 bytes).

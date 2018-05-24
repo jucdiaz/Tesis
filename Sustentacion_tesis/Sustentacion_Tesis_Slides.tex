@@ -242,6 +242,29 @@ S_j(y_i)=
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Estimación vía máxima verosimilitud}
+
+\[
+\ell(\boldsymbol{\theta})=\ell_0(\boldsymbol{\beta_3})+\ell_1(\boldsymbol{\beta_4})+\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2})
+\]
+\\
+\begin{align*}
+\begin{split}
+	\ell_0(\boldsymbol{\beta_3}) &= \sum_{i=1}^{n}{p_{0i}^{S_0(y_i)}(1-p_{0i})^{1-S_0(y_i)}}
+\end{split}\\
+\begin{split}
+	\ell_1(\boldsymbol{\beta_4}) &= \sum_{i=1}^{n}{p_{1i}^{S_1(y_i)}(1-p_{1i})^{1-S_1(y_i)}}
+\end{split}\\
+\begin{split}
+	\ell_2(\boldsymbol{\beta_1},\boldsymbol{\beta_2}) &= \sum_{i=1:y_i \in (0,1)}^{n}{f_3(y_i;\mu_i,\sigma_i)} 
+\end{split}
+\end{align*}
+
+Con $p_{0i}=h_3^{-1}(\mathbf{x}_{i3}^{\top} \boldsymbol{\beta}_3)$, $p_{1i}=h_4^{-1}(\mathbf{x}_{i4}^{\top} \boldsymbol{\beta}_4)$, $\mu_i=h_1^{-1}(\mathbf{x}_{i1}^{\top} \boldsymbol{\beta}_1)$ y $\sigma_i=h_2^{-1}(\mathbf{x}_{i2}^{\top} \boldsymbol{\beta}_2)$ como se defini\'{o} en \eqref{eq_reg}.
+
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modelo de regresi\'{o}n ZOIP con efectos mixtos}
 \begin{frame}\frametitle{Modelo de regresi\'{o}n ZOIP con efectos mixtos}
@@ -985,14 +1008,35 @@ Med num. iter& &30	&29	&29	&29	&29	&29 \\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusiones y trabajos futuros}
 
+\begin{frame}\frametitle{Conclusiones}
+\begin{enumerate}
+	\item Los modelos de regresión y distribución ZOIP propuestos son muy flexibles, ya que permite obtener diferentes opciones de modelado en una sola función.
+	\item Los modelos de regresión y distribución ZOIP permiten ajustarse a datos que se encuentran inflados solo con ceros o solo con unos, incluso a datos proporcionales no inflados.
+	\item Sobre la aplicación a datos reales se nota la utilidad, facilidad y convergencia de los modelos propuestos para explicar una problemática real de una compañía.
+	\item El paquete \pkg{ZOIP} se implementan diferentes funciones, con el objetivo de que sean utilizados los modelos de regresión ZOIP por un usuario. Dicho paquete muestra convergencia de sus funciones desarrollados, por medio de los estudios de simulación.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Trabajos futuros}
 
 
+\begin{enumerate}
+	\item Incluir un an\'{a}lisis de selecci\'{o}n de variables en los modelos de regresi\'{o}n ZOIP fijos y mixtos.
+		\item Incluir interceptos aleatorios en los par\'{a}metros asociados a la inflaci\'{o}n de la distribuci\'{o}n ZOIP, en el modelo de regresi\'{o}n ZOIP mixto propuesto en este trabajo.
+\item Incluir pendientes aleatorias en los diferentes par\'{a}metros de la regresi\'{o}n ZOIP.
+	\item Incluir m\'{a}s funciones de m\'{e}todo S3 en el paquete \pkg{ZOIP}, tales como \code{plot}, \code{predict} \code{AIC}, \code{BIC}, entre otras.
+	\item Realizar mejoras continuas del paquete \pkg{ZOIP}, a medida que se vayan adquiriendo retroalimentaciones de los usuarios que utilizan el paquete.
+	\item Extender los estudios de simulaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, cuando se tienen muestras no balanceadas y dem\'{a}s parametrizaciones de la distribuci\'{o}n ZOIP-beta y la distribuci\'{o}n ZOIP-simplex.
+\end{enumerate}
+
+\end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Referencias} 
-\begin{frame}
+\begin{frame}[allowframebreaks]
   \frametitle{Referencias}
-  \nocite{Ferrari2,Stasinopoulos2,Barndorff1,Jorgensen1}
+  \nocite{Ferrari2,Stasinopoulos2,Barndorff1,Jorgensen1,Qiu1,Galvis1,Ospina1,Ospina2,Stasinopoulos1,Zeileis1,Usuga1,R}
   
   \bibliographystyle{abbrv}
   \bibliography{symposium}
