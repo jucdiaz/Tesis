@@ -54,6 +54,7 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{wrapfig}
+\usepackage{pifont} % Para incluir simbolos en itemize
 
 %\lstdefineformat{R}{~=\( \sim \)}
 %\lstset{basicstyle=\ttfamily,format=R}
@@ -76,7 +77,8 @@
 \definecolor{fhbcolor}{HTML}{F7F9EF} % Para definir el color de la caja
 \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox{fhbcolor}{\usebox0}\par}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\setbeamertemplate{caption}[numbered] % enumera las figuras y cuadros
+\spanishdecimal{.} %Cambia , por puntos en las formulas
 
 \begin{document}
 \justifying
@@ -136,7 +138,7 @@
 \begin{frame}\frametitle{Objetivo general} 
 
 \begin{block}{Objetivo general}
-Proponer un modelo de regresión mixto para datos proporcionales inflados en cero y/o uno usando máxima verosimilitud.
+Proponer una metodología para estimación de los parámetros de un modelo de regresión mixto para datos proporcionales inflados con ceros y/o unos.
 \end{block}
 
 \end{frame}
@@ -162,17 +164,17 @@ Proponer un modelo de regresión mixto para datos proporcionales inflados en cero
 \subsection{Distribución ZOIP (Zeros Ones Inflated Proporcional)}
 \begin{frame} [label=A1] \frametitle{Distribución ZOIP (Zeros Ones Inflated Proporcional)} 
 
-si la variable aleatoria $Y$ tiene distribución ZOIP con parámetros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotará como $Y \sim$ ZOIP$(\mu,\sigma, p_0, p_1)$, la función de densidad de probabilidad está dado por:
+Si la variable aleatoria $Y$ tiene distribución ZOIP con parámetros $\mu$, $\sigma$, $p_0$ y $p_1$, se denotará como $Y \sim$ ZOIP$(\mu,\sigma, p_0, p_1)$, la función de densidad de probabilidad está dada por:
 
-\begin{equation}
+\begin{equation*}
 g(y;\mu,\sigma, p_{0}, p_{1})=
 \begin{cases}
 p_{0} & \text{si}\ y=0,\\
 p_{1} & \text{si}\ y=1,\\
 (1-p_{0}-p_{1})f(y;\mu,\sigma) & \text{si}\ y \in (0,1)
 \end{cases}
- \label{eq_Dist_ZOIP}
-\end{equation}
+ %\label{eq_Dist_ZOIP}
+\end{equation*}
 
 \vskip15pt
 \hyperlink{Dist_P}{\beamerbutton{Distribuciones}}
@@ -182,14 +184,14 @@ p_{1} & \text{si}\ y=1,\\
 \begin{frame}\frametitle{Distribución ZOIP (Zeros Ones Inflated Proporcional)} 
 La media y varianza de $Y$, están dadas por: 
 
-\begin{equation}
+\begin{equation*}
 	E(y) = p_1+(1-p_0-p_1)E^*(y)
-\end{equation}
+\end{equation*}
 
-\begin{multline}
+\begin{multline*}
 	Var(y) = p_1(1-p1)+\\
 	+(1-p_0-p_1)\left[Var^*(y)+(p_0+p_1)[E^*(y)]^2-2E^*(y)p_1\right]
-\end{multline}
+\end{multline*}
 
 %%donde $E^*(y)$ es el valor esperado de una distribución para datos 
 %proporcionales como las descritas en \eqref{E_Origin}, \eqref{E_FC}, 
@@ -203,7 +205,7 @@ La media y varianza de $Y$, están dadas por:
 \subsection{Modelo de regresi\'{o}n ZOIP con efectos fijos}
 \begin{frame}\frametitle{Modelo de regresi\'{o}n ZOIP con efectos fijos}
 
- Sea $y_1, y_2,\ldots, y_n$ variables aleatorias independientes tal que cada $y_i$, para $i=1,\ldots, n$, tiene funci\'{o}n de densidad de probabilidad dado por la distribución ZOIPcon par\'{a}metros $\mu = \mu_i$, $\sigma=\sigma_i$, $p_0=p_{0i}$, y $p_1=p_{1i}$. Se asume que $\mu_i$, $\sigma_i$, $p_{0i}$ y $p_{1i}$ se definen como:
+ Sea $y_1, y_2,\ldots, y_n$ variables aleatorias independientes tal que cada $y_i$, para $i=1,\ldots, n$, tiene funci\'{o}n de densidad de probabilidad dado por la distribución ZOIP con par\'{a}metros $\mu = \mu_i$, $\sigma=\sigma_i$, $p_0=p_{0i}$, y $p_1=p_{1i}$. Se asume que $\mu_i$, $\sigma_i$, $p_{0i}$ y $p_{1i}$ se definen como:
 
 \begin{equation}
 \begin{split}
@@ -219,13 +221,13 @@ La media y varianza de $Y$, están dadas por:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}\frametitle{Estimación vía máxima verosimilitud}
 
-La funci\'{o}n de verosimilitud para $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top})^{\top}$, basado en una muestra de observaciones independientes, es de la forma:
+La funci\'{o}n de verosimilitud para $\boldsymbol{\theta}=(\boldsymbol{\beta_1}^{\top},\boldsymbol{\beta_2}^{\top},\boldsymbol{\beta_3}^{\top}, \boldsymbol{\beta_4}^{\top})^{\top}$, basado en una muestra $\mathbf{y}_i$ de tamaño $n$ de observaciones independientes, es de la forma:
 
-\begin{equation}
+\begin{equation*}
 L(\boldsymbol{\theta})=\prod_{i=1}^{n}g(\mathbf{y}_i;\mu_i,\sigma_i,p_{0i},p_{1i})=\prod_{i=1}^{n}f_0(\mathbf{y}_i;p_{0i})\prod_{i=1}^{n}f_1(\mathbf{y}_i;p_{1i})\prod_{i=1}^{n}f_2(\mathbf{y}_i;\mu_i,\sigma_i)
-\end{equation}
+\end{equation*}
 
-donde las funciones $f_0(\mathbf{y}_i;p_{0i})$ y $f_1(\mathbf{y}_i;p_{1i})$ son expliacadas por:
+donde las funciones $f_0(\mathbf{y}_i;p_{0i})$ y $f_1(\mathbf{y}_i;p_{1i})$ son explicadas por:
 \[
 f_j(\mathbf{y}_i;p_{ji})={p_{ji}^{S_j(y_i)}(1-p_{ji})^{1-S_j(y_i)}} \quad ; \quad j=0,1
 \]
@@ -376,7 +378,7 @@ library(ZOIP) # Carga el paquete
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Funciones en el paquete ZOIP}
-El paquete \pkg{ZOIP} de \proglang{R} es útil para ajustar distribución ZOIP, modelos de regresión de efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos. Estas son las principales funciones:\\ \medskip
+El paquete \pkg{ZOIP} de \proglang{R} es útil para ajustar distribución ZOIP, modelos de regresión de efectos fijos y mixtos para datos proporcionales inflados con ceros y/o unos. Estas son las principales funciones: \\ \medskip
 
 \begin{wrapfigure}{r}{0.25\textwidth}
  \centering
@@ -629,11 +631,12 @@ h_4(p_{1i}) &=\beta_{40}+\beta_{41} x_{1i}+\beta_{42} x_{2i}+\beta_{43} x_{3i},
 %\label{A_eq_reg}
 \end{equation*}
 
-$y_i$ es el porcentaje de utilizacion de la i-\'{e}sima tdc.\\ \pause \medskip
+$y_i$ es el porcentaje de utilización de la $i-$\'{e}sima tdc.\\ \pause \medskip
 $x_{1i}$ es el valor del \textbf{score} del $i$-\'{e}simo individuo asociada a la tarjeta de cr\'{e}dito.\\ \pause \medskip
-$x_{2i}$ es valor del \textbf{promedio de cuotas} al que difiere sus compras de la i-\'{e}sima tarjeta de cr\'{e}dito.\\ \pause \medskip
-$x_{3i}$ es el valor del \textbf{cupo otorgado} de la i-\'{e}sima tarjeta de cr\'{e}dito.
+$x_{2i}$ es valor del \textbf{promedio de cuotas} al que difiere sus compras de la $i-$\'{e}sima tarjeta de cr\'{e}dito.\\ \pause \medskip
+$x_{3i}$ es el valor del \textbf{cupo otorgado} de la $i-$\'{e}sima tarjeta de cr\'{e}dito.
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -750,7 +753,7 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 	\item Determinar el desempeño del proceso de estimación de los parámetros. \pause \medskip
 	\item Observar la funcionalidad de las funciones del paquete \pkg{ZOIP}.\pause \medskip
 	\item Determinar los mejores escenarios de simulación para la estimación de los parámetros de acuerdo con el modelo propuesto.\pause \medskip
-	\item Conocer el tamaño muestral mínimo para obtener una estimación razonablemente buena de los parámetros de los modelos propuestos.
+	\item Conocer el tamaño muestral mínimo para obtener una estimación ra\-zo\-na\-ble\-men\-te buena de los parámetros de los modelos propuestos.
 
 \end{enumerate}
 
@@ -796,7 +799,7 @@ donde $\gamma_{1i} \sim N(0, 0.51^2)$ y $\gamma_{2i} \sim N(0, 0.40^2)$.
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.52]{Mape_gnrl.eps}	
-		\caption{Mape (Error porcentual absoluto medio) para los escenarios de simulación y para distintos valores de $n$.}
+		\caption{Mape (Error porcentual absoluto medio) $\sum_{i=1}^{n}{(|y_i-\hat{y}_i/y_i}|)/n$ para los escenarios de simulación y para distintos valores de $n$.}
 		\label{Mapes}
 	\end{center}
 \end{figure}
@@ -820,7 +823,7 @@ h_4(p_{1i}) &=\beta_{40}+\beta_{41}x_{2i}
 
 \begin{itemize}
 \item \textbf{Escenario 1, 2, 3:} $\mu$: $\beta_{10}=0.2$, $\beta_{11}=-1$ - $\sigma$: $\beta_{20}=0.3$, $\beta_{21}=3$, $\beta_{22}=0.9$ - $p_0$: $\beta_{30}=0.07$ - $p_1$: $\beta_{40}=0.02$, $\beta_{41}=-4$ con la parametrización de \cite{Ferrari2}, original y simplex.\pause \medskip
-\item \textbf{Escenario 4:} $\mu$: $\beta_{10}=0.2$, $\beta_{11}=-1$ - $\sigma$: $\beta_{20}=0.3$, $\beta_{21}=-2$, $\beta_{22}=-4$ - $p_0$: $\beta_{30}=0.07$ - $p_1$: $\beta_{40}=0.02$, $\beta_{41}=-4$ con la parametrización de \cite{Stasinopoulos2} .\pause \medskip
+\item \textbf{Escenario 4:} $\mu$: $\beta_{10}=0.2$, $\beta_{11}=-1$ - $\sigma$: $\beta_{20}=0.3$, $\beta_{21}=-2$, $\beta_{22}=-4$ - $p_0$: $\beta_{30}=0.07$ - $p_1$: $\beta_{40}=0.02$, $\beta_{41}=-4$ con la parametrización de \cite{Stasinopoulos2}.\pause \medskip
 
 \end{itemize}
 
@@ -1016,18 +1019,31 @@ Med num. iter& &30	&29	&29	&29	&29	&29 \\ \hline
 	\item El paquete \pkg{ZOIP} se implementan diferentes funciones, con el objetivo de que sean utilizados los modelos de regresión ZOIP por un usuario. Dicho paquete muestra convergencia de sus funciones desarrollados, por medio de los estudios de simulación.
 \end{enumerate}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Resultados}
 
+
+\begin{itemize}
+	\item[\ding{52}] Publicación del paquete \pkg{ZOIP} en el \code{CRAN} de \proglang{R}.
+	\item[\ding{52}] Articulo científico en una revista nacional indexada a Colciencias, Universidad Santo Tomas.
+	\item[\ding{52}] Presentación de la distribución ZOIP en el simposio internacional de estadística 2017.
+	\item[\ding{52}] Presentación del paquete \pkg{ZOIP} en el LatinR 2018, a realizarse el próximo mes de septiembre en Buenos Aires - Argentina.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
 \begin{frame}\frametitle{Trabajos futuros}
 
 
-\begin{enumerate}
-	\item Incluir un an\'{a}lisis de selecci\'{o}n de variables en los modelos de regresi\'{o}n ZOIP fijos y mixtos.
-		\item Incluir interceptos aleatorios en los par\'{a}metros asociados a la inflaci\'{o}n de la distribuci\'{o}n ZOIP, en el modelo de regresi\'{o}n ZOIP mixto propuesto en este trabajo.
-\item Incluir pendientes aleatorias en los diferentes par\'{a}metros de la regresi\'{o}n ZOIP.
-	\item Incluir m\'{a}s funciones de m\'{e}todo S3 en el paquete \pkg{ZOIP}, tales como \code{plot}, \code{predict} \code{AIC}, \code{BIC}, entre otras.
-	\item Realizar mejoras continuas del paquete \pkg{ZOIP}, a medida que se vayan adquiriendo retroalimentaciones de los usuarios que utilizan el paquete.
-	\item Extender los estudios de simulaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, cuando se tienen muestras no balanceadas y dem\'{a}s parametrizaciones de la distribuci\'{o}n ZOIP-beta y la distribuci\'{o}n ZOIP-simplex.
-\end{enumerate}
+\begin{itemize}
+	\item[\ding{45}] Incluir un an\'{a}lisis de selecci\'{o}n de variables en los modelos de regresi\'{o}n ZOIP fijos y mixtos.
+		\item[\ding{45}] Incluir interceptos aleatorios en los par\'{a}metros asociados a la inflaci\'{o}n de la distribuci\'{o}n ZOIP, en el modelo de regresi\'{o}n ZOIP mixto propuesto en este trabajo.
+\item[\ding{45}] Incluir pendientes aleatorias en los diferentes par\'{a}metros de la regresi\'{o}n ZOIP.
+	\item[\ding{45}] Incluir m\'{a}s funciones de m\'{e}todo S3 en el paquete \pkg{ZOIP}, tales como \code{plot}, \code{predict} \code{AIC}, \code{BIC}, entre otras.
+	\item[\ding{45}] Realizar mejoras continuas del paquete \pkg{ZOIP}, a medida que se vayan adquiriendo retroalimentaciones de los usuarios que utilizan el paquete.
+	\item[\ding{45}] Extender los estudios de simulaci\'{o}n del modelo de regresi\'{o}n ZOIP mixto, cuando se tienen muestras no balanceadas y dem\'{a}s parametrizaciones de la distribuci\'{o}n ZOIP-beta y la distribuci\'{o}n ZOIP-simplex.
+\end{itemize}
 
 \end{frame}
 
