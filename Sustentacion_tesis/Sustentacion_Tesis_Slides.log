@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  26 MAY 2018 11:07
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2016.3.24)  28 MAY 2018 23:06
 entering extended mode
 **Sustentacion_Tesis_Slides.tex
 ("D:\Juan Camilo\UN\Maestria en Ciencias Estadisticas\TESIS\Tesis\Sustentacion_tesis\Sustentacion_Tesis_Slides.tex"
@@ -1434,17 +1434,14 @@ Package rerunfilecheck Info: File `Sustentacion_Tesis_Slides.out' has not change
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 15172 strings out of 495286
- 273260 string characters out of 3179895
+ 15171 strings out of 495286
+ 273246 string characters out of 3179895
  454844 words of memory out of 3000000
- 17835 multiletter control sequences out of 15000+200000
+ 17834 multiletter control sequences out of 15000+200000
  18620 words of font info for 69 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,21n,62p,449b,753s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Sustentacion_Tesis_Slides.dvi (81 pages, 1103600 bytes).
+Output written on Sustentacion_Tesis_Slides.dvi (81 pages, 1103452 bytes).
